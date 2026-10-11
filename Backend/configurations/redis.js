@@ -14,11 +14,11 @@
 const { createClient } = require("redis");
 
 const client = createClient({
-    username: 'default',
-    password: '3pPBdAz3Z5jRinA9vUijIOcdXEKJ6d06',
+    username: process.env.REDIS_USERNAME,
+    password: process.env.REDIS_PASSWORD,
     socket: {
-        host: 'servant-sesame-prudent-25439.db.redis.io',
-        port: 16131
+        host: process.env.REDIS_HOST,
+        port: process.env.REDIS_PORT
     }
 });
 

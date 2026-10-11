@@ -6,7 +6,7 @@ let channel;
 async function connectRabbitMQ() {
     try {
         connection = await amqp.connect(
-            "amqps://stgyggyj:rV0DCsBbEQLZxXI1vSKYGNATICPLGKiO@puffin.rmq2.cloudamqp.com/stgyggyj"
+            process.env.RABBITMQ_URL
         );
 
         channel = await connection.createChannel();
