@@ -18,7 +18,7 @@ const About = () => {
                         <span className="h-px w-8 bg-yellow-400" />
 
                         <span className="text-sm font-semibold uppercase tracking-[0.18em] text-yellow-600">
-                            About Shortify
+                            About WhyLong
                         </span>
                     </div>
 
@@ -31,7 +31,7 @@ const About = () => {
                     </h2>
 
                     <p className="mt-6 max-w-2xl text-base leading-8 text-gray-500 sm:text-lg">
-                        Shortify is built to make sharing and managing URLs
+                        WhyLong is built to make sharing and managing URLs
                         simple. What started with a straightforward idea —
                         turning long, complicated links into clean,
                         memorable ones — is designed to grow into a complete
@@ -76,7 +76,7 @@ const About = () => {
                             </p>
 
                             <p className="mt-4 max-w-xl text-sm leading-7 text-gray-500 sm:text-base">
-                                Shortify brings the essential tools together
+                                WhyLong brings the essential tools together
                                 in one clean experience. Create short links,
                                 keep them organized, and understand how they
                                 perform — without unnecessary complexity.
@@ -142,7 +142,7 @@ const About = () => {
                             </h3>
 
                             <p className="mt-3 text-sm leading-6 text-gray-500">
-                                Every part of Shortify is designed to keep
+                                Every part of WhyLong is designed to keep
                                 link management quick, clear, and effortless.
                             </p>
                         </div>
@@ -192,7 +192,7 @@ const About = () => {
 
                     <p className="max-w-2xl text-sm leading-6 text-gray-500">
                         Whether you're sharing a single link or managing
-                        hundreds of them, Shortify is built to stay simple
+                        hundreds of them, WhyLong is built to stay simple
                         as your needs grow.
                     </p>
 

@@ -228,7 +228,7 @@ const Overview = () => {
             <div className="mx-auto max-w-[1600px] space-y-8">
 
                 <Helmet>
-                    <title>Dashboard | Shortify</title>
+                    <title>Dashboard | WhyLong</title>
                     <meta name="description" content="User's dashboard to access the overview and analytics of the links and QRs." />
                 </Helmet>
 
@@ -797,7 +797,7 @@ const Overview = () => {
                                 Keep your links organized from one place.
                             </h3>
                             <p className="mt-1 text-sm leading-6 text-gray-600">
-                                Shortify gives you everything you need to create,
+                                WhyLong gives you everything you need to create,
                                 manage and understand your short links.
                             </p>
                         </div>
@@ -807,7 +807,7 @@ const Overview = () => {
                     text-xs font-semibold text-gray-900
                     transition-colors hover:bg-yellow-100"
                         >
-                            Explore Shortify
+                            Explore WhyLong
                         </button>
                     </div>
                 </div>

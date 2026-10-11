@@ -181,7 +181,7 @@ const AuthPanel = ({ isOpen, onClose }) => {
                             </svg>
                         </div>
                         <span className="text-lg font-bold tracking-tight text-gray-950">
-                            Shortify
+                            WhyLong
                         </span>
                     </div>
                     {/* Close */}
@@ -219,7 +219,7 @@ const AuthPanel = ({ isOpen, onClose }) => {
                         </p>
                         <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-950">
                             {mode === "login"
-                                ? "Sign in to Shortify"
+                                ? "Sign in to WhyLong"
                                 : "Create your account"}
                         </h2>
                         <p className="mt-3 text-sm leading-6 text-gray-500">

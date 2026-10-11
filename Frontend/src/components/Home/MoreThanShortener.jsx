@@ -14,7 +14,7 @@ const pillars = [
         title: "More than links.",
         highlight: "A complete workflow.",
         description:
-            "Shortify brings the tools around your links together so you can create, organize, share, and understand them without jumping between different platforms.",
+            "WhyLong brings the tools around your links together so you can create, organize, share, and understand them without jumping between different platforms.",
         points: [
             "One workspace for your links",
             "QR codes built into the workflow",
@@ -61,7 +61,7 @@ const MoreThanShortener = () => {
 
                     <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-yellow-600">
-                            Why Shortify?
+                            Why WhyLong?
                         </p>
 
                         <h2 className="mt-4 max-w-xl text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">
@@ -73,7 +73,7 @@ const MoreThanShortener = () => {
                     </div>
 
                     <p className="max-w-2xl text-base leading-7 text-gray-500 lg:ml-auto lg:text-lg">
-                        A short link is only the beginning. Shortify is built
+                        A short link is only the beginning. WhyLong is built
                         to give you the tools, infrastructure, and experience
                         you need to turn simple links into something more useful.
                     </p>
@@ -166,7 +166,7 @@ const MoreThanShortener = () => {
                         <div className="max-w-3xl">
 
                             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gray-400">
-                                The Shortify mindset
+                                The WhyLong mindset
                             </p>
 
                             <h3 className="mt-3 text-2xl font-semibold tracking-tight text-gray-950 sm:text-3xl">

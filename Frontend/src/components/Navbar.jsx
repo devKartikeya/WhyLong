@@ -177,7 +177,7 @@ const Navbar = () => {
                         </div>
 
                         <span className="text-xl font-bold tracking-tight text-gray-950">
-                            Shortify
+                            WhyLong
                         </span>
 
                     </button>

@@ -110,7 +110,7 @@ const PagesNavbar = () => {
                     <button
                         onClick={goHome}
                         className="flex items-center gap-3"
-                        aria-label="Go to Shortify home"
+                        aria-label="Go to WhyLong home"
                     >
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-yellow-400">
                             <svg
@@ -128,7 +128,7 @@ const PagesNavbar = () => {
                         </div>
 
                         <span className="text-xl font-bold tracking-tight text-gray-950">
-                            Shortify
+                            WhyLong
                         </span>
                     </button>
 

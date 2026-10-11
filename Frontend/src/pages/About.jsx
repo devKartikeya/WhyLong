@@ -8,8 +8,8 @@ const About = () => {
         <main className="min-h-screen bg-white text-gray-950">
             <Helmet>
 
-                <title>About Us | Shortify</title>
-                <meta name="description" content="Learn more about Shortify and our approach to Link Management and analytics." />
+                <title>About Us | WhyLong</title>
+                <meta name="description" content="Learn more about WhyLong and our approach to Link Management and analytics." />
 
             </Helmet>
             {/* HERO */}
@@ -23,7 +23,7 @@ const About = () => {
                         <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-1.5">
                             <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
                             <span className="text-xs font-bold uppercase tracking-[0.18em] text-yellow-700">
-                                About Shortify
+                                About WhyLong
                             </span>
                         </div>
 
@@ -33,7 +33,7 @@ const About = () => {
                         </h1>
 
                         <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-500">
-                            Shortify is built around one simple idea: sharing the web shouldn't be complicated.
+                            WhyLong is built around one simple idea: sharing the web shouldn't be complicated.
                             We make long, difficult URLs easier to share, manage, understand, and use.
                         </p>
 
@@ -42,7 +42,7 @@ const About = () => {
                                 onClick={() => navigate("/")}
                                 className="group inline-flex cursor-pointer items-center gap-2 rounded-xl bg-gray-950 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-gray-800 active:scale-[0.98]"
                             >
-                                Start using Shortify
+                                Start using WhyLong
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20"
@@ -72,12 +72,12 @@ const About = () => {
                 </div>
             </section>
 
-            {/* SHORTIFY INTRO */}
+            {/* WhyLong INTRO */}
             <section className="border-b border-gray-100 bg-white py-24 lg:py-32">
                 <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
                     <div>
                         <p className="text-sm font-bold uppercase tracking-[0.18em] text-yellow-600">
-                            What is Shortify?
+                            What is WhyLong?
                         </p>
 
                         <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -85,7 +85,7 @@ const About = () => {
                         </h2>
 
                         <p className="mt-6 max-w-xl text-base leading-7 text-gray-500">
-                            Shortify is a link management platform designed to make working with URLs faster
+                            WhyLong is a link management platform designed to make working with URLs faster
                             and more organized.
                         </p>
 
@@ -124,7 +124,7 @@ const About = () => {
                                             </svg>
                                         </div>
                                         <div>
-                                            <p className="text-sm font-bold">Shortify</p>
+                                            <p className="text-sm font-bold">WhyLong</p>
                                             <p className="text-xs text-gray-400">Link workspace</p>
                                         </div>
                                     </div>
@@ -169,14 +169,14 @@ const About = () => {
                             </h2>
 
                             <p className="mt-6 max-w-xl text-base leading-7 text-gray-500">
-                                Shortify doesn't stop at creating short links. You can turn your links into
+                                WhyLong doesn't stop at creating short links. You can turn your links into
                                 customizable QR codes and use them across posters, packaging, presentations,
                                 print material, or anywhere a physical scan makes sense.
                             </p>
 
                             <p className="mt-4 max-w-xl text-base leading-7 text-gray-500">
                                 Add your logo, customize the colors, choose your QR style, add brand text,
-                                and download the finished code directly from your Shortify workspace.
+                                and download the finished code directly from your WhyLong workspace.
                             </p>
 
                             {/* Capabilities */}
@@ -221,7 +221,7 @@ const About = () => {
                                     <div className="flex items-center justify-between">
                                         <div>
                                             <p className="text-sm font-bold text-gray-950">QR Code Generator</p>
-                                            <p className="mt-1 text-xs text-gray-400">Customize your Shortify link</p>
+                                            <p className="mt-1 text-xs text-gray-400">Customize your WhyLong link</p>
                                         </div>
                                         <span className="rounded-full bg-yellow-50 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-yellow-700">
                                             Ready
@@ -272,7 +272,7 @@ const About = () => {
 
                                     {/* Brand */}
                                     <div className="mt-4 text-center">
-                                        <p className="text-sm font-bold text-gray-950">Shortify</p>
+                                        <p className="text-sm font-bold text-gray-950">WhyLong</p>
                                         <p className="mt-1 text-xs text-gray-400">Scan to visit your shortened link</p>
                                     </div>
 
@@ -309,13 +309,13 @@ const About = () => {
                             </svg>
                         </div>
                         <p className="text-sm text-gray-500">
-                            One Shortify link can now work both online and offline.
+                            One WhyLong link can now work both online and offline.
                         </p>
                     </div>
                 </div>
             </section>
 
-            {/* WHY SHORTIFY */}
+            {/* WHY WhyLong */}
             <section className="bg-gray-50 py-24 lg:py-32">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -339,7 +339,7 @@ const About = () => {
                             <h3 className="mt-8 text-lg font-bold">Simplicity first</h3>
                             <p className="mt-3 text-sm leading-6 text-gray-500">
                                 Useful software shouldn't make users learn the software before they can use
-                                it. Shortify keeps the experience straightforward.
+                                it. WhyLong keeps the experience straightforward.
                             </p>
                         </article>
 
@@ -382,7 +382,7 @@ const About = () => {
                                             </span>
                                         </div>
                                         <div>
-                                            <p className="text-sm font-medium text-gray-400">Shortify</p>
+                                            <p className="text-sm font-medium text-gray-400">WhyLong</p>
                                             <h3 className="mt-2 text-3xl font-bold text-white">Kartikeya Mishra</h3>
                                             <p className="mt-2 text-sm text-gray-500">
                                                 Full-stack developer &amp; technology enthusiast
@@ -407,7 +407,7 @@ const About = () => {
                             <p className="mt-6 text-base leading-7 text-gray-500">
                                 I'm Kartikeya Mishra, a student at
                                 <span className="font-semibold text-gray-700"> Hewett Polytechnic</span>{" "}
-                                and the developer behind Shortify.
+                                and the developer behind WhyLong.
                             </p>
 
                             <p className="mt-4 text-base leading-7 text-gray-500">
@@ -417,7 +417,7 @@ const About = () => {
                             </p>
 
                             <p className="mt-4 text-base leading-7 text-gray-500">
-                                Shortify is one of those projects where product development and engineering
+                                WhyLong is one of those projects where product development and engineering
                                 meet: a real application built to solve a simple problem while exploring what
                                 goes into building software that can grow beyond a local development
                                 environment.
@@ -453,7 +453,7 @@ const About = () => {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
                         <p className="text-sm font-bold uppercase tracking-[0.18em] text-yellow-600">
-                            Behind Shortify
+                            Behind WhyLong
                         </p>
 
                         <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -462,7 +462,7 @@ const About = () => {
                         </h2>
 
                         <p className="mt-5 text-base leading-7 text-gray-500">
-                            Shortify is being developed as a full-stack application, with attention to both
+                            WhyLong is being developed as a full-stack application, with attention to both
                             the user experience and the systems behind it.
                         </p>
                     </div>
@@ -561,7 +561,7 @@ const About = () => {
                                 <div>
                                     <h3 className="font-bold">Keep learning</h3>
                                     <p className="mt-2 text-sm leading-6 text-gray-500">
-                                        Shortify is also an engineering journey — continuously learning,
+                                        WhyLong is also an engineering journey — continuously learning,
                                         experimenting, and improving the systems behind the product.
                                     </p>
                                 </div>
@@ -579,7 +579,7 @@ const About = () => {
                     </p>
 
                     <h2 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                        Shortify is just
+                        WhyLong is just
                         <span className="text-gray-500"> getting started.</span>
                     </h2>
 
@@ -593,7 +593,7 @@ const About = () => {
                             onClick={() => navigate("/")}
                             className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-yellow-400 px-6 py-3.5 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
                         >
-                            Try Shortify
+                            Try WhyLong
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 20 20"
@@ -614,7 +614,7 @@ const About = () => {
             {/* FOOTNOTE */}
             <section className="border-t border-gray-800 bg-gray-950 pb-10">
                 <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 pt-8 text-xs text-gray-600 sm:flex-row sm:items-center sm:justify-between lg:px-8">
-                    <p>Shortify — simple links, smarter workflows.</p>
+                    <p>WhyLong — simple links, smarter workflows.</p>
                     <p>Built by Kartikeya Mishra.</p>
                 </div>
             </section>

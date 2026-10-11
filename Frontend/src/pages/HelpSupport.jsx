@@ -21,7 +21,7 @@ import {
 const categories = [
     {
         title: "Getting Started",
-        description: "Everything you need to start using Shortify.",
+        description: "Everything you need to start using WhyLong.",
         icon: BookOpen,
         articles: 4,
     },
@@ -60,15 +60,15 @@ const categories = [
 const faqs = [
     {
         category: "Getting Started",
-        question: "What is Shortify?",
+        question: "What is WhyLong?",
         answer:
-            "Shortify is a URL shortening platform that lets you turn long URLs into short, shareable links. You can also manage your links and track their performance from your dashboard.",
+            "WhyLong is a URL shortening platform that lets you turn long URLs into short, shareable links. You can also manage your links and track their performance from your dashboard.",
     },
     {
         category: "Getting Started",
         question: "How do I create a short link?",
         answer:
-            "Enter your original URL into the URL shortening form and submit it. Shortify will generate a unique short link that you can share with others.",
+            "Enter your original URL into the URL shortening form and submit it. WhyLong will generate a unique short link that you can share with others.",
     },
     {
         category: "Short Links",
@@ -80,13 +80,13 @@ const faqs = [
         category: "Short Links",
         question: "What happens when someone opens my short link?",
         answer:
-            "Shortify receives the short code, resolves it to the original URL and redirects the visitor to the destination URL.",
+            "WhyLong receives the short code, resolves it to the original URL and redirects the visitor to the destination URL.",
     },
     {
         category: "Analytics & Clicks",
         question: "How are clicks counted?",
         answer:
-            "Shortify tracks link activity and aggregates click counts before synchronizing them with persistent storage. This allows click activity to be handled efficiently even as traffic increases.",
+            "WhyLong tracks link activity and aggregates click counts before synchronizing them with persistent storage. This allows click activity to be handled efficiently even as traffic increases.",
     },
     {
         category: "Analytics & Clicks",
@@ -104,17 +104,17 @@ const faqs = [
         category: "Account & Profile",
         question: "How do I log out?",
         answer:
-            "Use the Logout option from your account interface. Shortify will securely clear your authentication session.",
+            "Use the Logout option from your account interface. WhyLong will securely clear your authentication session.",
     },
     {
         category: "Account & Profile",
         question: "Can I delete my account?",
         answer:
-            "Yes. Account deletion is available from your profile's Danger Zone. Because this is a destructive action, Shortify asks you to confirm before proceeding.",
+            "Yes. Account deletion is available from your profile's Danger Zone. Because this is a destructive action, WhyLong asks you to confirm before proceeding.",
     },
     {
         category: "Security",
-        question: "How does Shortify protect my account?",
+        question: "How does WhyLong protect my account?",
         answer:
             "Authentication is handled through protected sessions and server-side authentication checks. Passwords are not stored as plain text.",
     },
@@ -185,8 +185,8 @@ const HelpSupport = () => {
         <main className="min-h-screen bg-white text-slate-900">
 
             <Helmet>
-                <title>Help & Support | Shortify</title>
-                <meta name="description" content="Help desk of Shortify. Here are the most frequently asked questions regarding Shortify." />
+                <title>Help & Support | WhyLong</title>
+                <meta name="description" content="Help desk of WhyLong. Here are the most frequently asked questions regarding WhyLong." />
             </Helmet>
 
             {/* =====================================================
@@ -203,7 +203,7 @@ const HelpSupport = () => {
 
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-sm font-medium text-yellow-700">
                             <CircleHelp size={16} />
-                            Shortify Help Center
+                            WhyLong Help Center
                         </div>
 
                         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
@@ -212,7 +212,7 @@ const HelpSupport = () => {
                         </h1>
 
                         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-500">
-                            Find answers, learn how Shortify works, and get
+                            Find answers, learn how WhyLong works, and get
                             help with your account, links, analytics, and more.
                         </p>
 
@@ -266,7 +266,7 @@ const HelpSupport = () => {
 
                         <p className="mt-3 max-w-2xl text-slate-500">
                             Explore a topic to find answers and useful
-                            information about Shortify.
+                            information about WhyLong.
                         </p>
                     </div>
 
@@ -346,7 +346,7 @@ const HelpSupport = () => {
                             <p className="mt-4 max-w-md leading-7 text-slate-500">
                                 Looking for something specific? These are some
                                 of the questions users commonly ask about
-                                Shortify.
+                                WhyLong.
                             </p>
 
                         </div>
@@ -438,7 +438,7 @@ const HelpSupport = () => {
 
                         <p className="mx-auto mt-4 max-w-2xl text-slate-500">
                             Browse answers to common questions about using
-                            Shortify.
+                            WhyLong.
                         </p>
 
                     </div>
@@ -704,7 +704,7 @@ const HelpSupport = () => {
                                 </Link>
 
                                 <a
-                                    href="mailto:support@shortify.com"
+                                    href="mailto:support@WhyLong.com"
                                     className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3.5 text-sm font-semibold text-slate-300 transition-all hover:border-slate-500 hover:bg-slate-800 hover:text-white"
                                 >
                                     Email us

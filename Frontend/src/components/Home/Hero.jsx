@@ -447,7 +447,7 @@ const Hero = () => {
                                         </div>
 
                                         <p className="pt-1 text-sm text-gray-500">
-                                            Want more from Shortify?
+                                            Want more from WhyLong?
                                             {" "}
 
                                             <button

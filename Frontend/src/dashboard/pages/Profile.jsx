@@ -364,8 +364,8 @@ const Profile = () => {
         <div className="space-y-6 pb-8">
 
             <Helmet>
-                <title>Profile | Shortify</title>
-                <meta name="description" content="Access your shortify account. Edit your account details like email and username. Change password and control your account deletion." />
+                <title>Profile | WhyLong</title>
+                <meta name="description" content="Access your WhyLong account. Edit your account details like email and username. Change password and control your account deletion." />
             </Helmet>
 
             {/* Header */}
@@ -375,7 +375,7 @@ const Profile = () => {
                 </h1>
 
                 <p className="mt-1 text-sm text-gray-500">
-                    Manage your account and view your Shortify activity.
+                    Manage your account and view your WhyLong activity.
                 </p>
             </div>
 
@@ -493,7 +493,7 @@ const Profile = () => {
                         </h2>
 
                         <p className="mt-1 text-sm text-gray-500">
-                            Your overall Shortify usage.
+                            Your overall WhyLong usage.
                         </p>
                     </div>
 
@@ -537,7 +537,7 @@ const Profile = () => {
                     </h2>
 
                     <p className="mt-1 text-sm text-gray-500">
-                        Keep your Shortify account secure.
+                        Keep your WhyLong account secure.
                     </p>
                 </div>
 
@@ -714,7 +714,7 @@ const Profile = () => {
                         </p>
 
                         <p className="mt-1 text-xs text-gray-500">
-                            Sign out of your Shortify account on this device.
+                            Sign out of your WhyLong account on this device.
                         </p>
                     </div>
 

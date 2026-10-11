@@ -76,7 +76,7 @@ const ForgotPassword = () => {
                         </div>
 
                         <span className="text-xl font-bold tracking-tight text-gray-950">
-                            Shortify
+                            WhyLong
                         </span>
                     </div>
 
@@ -95,7 +95,7 @@ const ForgotPassword = () => {
 
                             <p className="mt-3 text-sm leading-6 text-gray-500">
                                 Enter the email address associated with
-                                your Shortify account and we'll send you
+                                your WhyLong account and we'll send you
                                 a password reset link.
                             </p>
                         </div>
@@ -177,7 +177,7 @@ const ForgotPassword = () => {
                                 to="/"
                                 className="text-sm font-semibold text-gray-600 transition-colors hover:text-gray-950"
                             >
-                                ← Back to Shortify
+                                ← Back to WhyLong
                             </Link>
                         </div>
                     </div>

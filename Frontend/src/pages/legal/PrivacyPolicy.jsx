@@ -48,9 +48,9 @@ const PrivacyPolicy = () => {
         <div className="min-h-screen bg-white text-gray-900">
             <Helmet>
                 <title>
-                    Privacy Policy | Shortify
+                    Privacy Policy | WhyLong
                 </title>
-                <meta name="description" content="Privacy Policy of Shortify. It lists all details that Shortify follows to maintain user's privacy and security." />
+                <meta name="description" content="Privacy Policy of WhyLong. It lists all details that WhyLong follows to maintain user's privacy and security." />
             </Helmet>
             {/* =========================
                 HERO
@@ -69,7 +69,7 @@ const PrivacyPolicy = () => {
 
                         <p className="mt-6 max-w-3xl text-base leading-8 text-gray-600 sm:text-lg">
                             Your privacy matters to us. This policy explains
-                            how Shortify collects, uses, protects, and manages
+                            how WhyLong collects, uses, protects, and manages
                             information when you use our services.
                         </p>
 
@@ -133,7 +133,7 @@ const PrivacyPolicy = () => {
 
                             <p className="mt-2 text-xs leading-6 text-gray-400">
                                 We aim to collect only the information needed
-                                to provide, secure, and improve Shortify.
+                                to provide, secure, and improve WhyLong.
                             </p>
                         </div>
                     </aside>
@@ -149,7 +149,7 @@ const PrivacyPolicy = () => {
                             title="Who We Are"
                         >
                             <p>
-                                Shortify ("<strong>Shortify</strong>,"
+                                WhyLong ("<strong>WhyLong</strong>,"
                                 "<strong>we</strong>," "<strong>us</strong>,"
                                 or "<strong>our</strong>") is a link management
                                 and digital sharing platform providing URL
@@ -161,7 +161,7 @@ const PrivacyPolicy = () => {
                                 <div className="grid gap-5 sm:grid-cols-2">
                                     <InfoItem
                                         label="Legal Entity"
-                                        value="Shortify"
+                                        value="WhyLong"
                                     />
 
                                     <InfoItem
@@ -171,7 +171,7 @@ const PrivacyPolicy = () => {
 
                                     <InfoItem
                                         label="Platform"
-                                        value="Shortify"
+                                        value="WhyLong"
                                     />
                                 </div>
                             </div>
@@ -179,7 +179,7 @@ const PrivacyPolicy = () => {
                             <p>
                                 This Privacy Policy explains how we collect,
                                 use, store, disclose, and protect information
-                                when you access or use the Shortify website,
+                                when you access or use the WhyLong website,
                                 applications, URL-shortening services,
                                 QR-code services, account features, analytics
                                 features, and related services collectively
@@ -201,7 +201,7 @@ const PrivacyPolicy = () => {
                             <SubHeading>Account Information</SubHeading>
 
                             <p>
-                                When you create a Shortify account, we may
+                                When you create a WhyLong account, we may
                                 collect:
                             </p>
 
@@ -219,7 +219,7 @@ const PrivacyPolicy = () => {
                             </SubHeading>
 
                             <p>
-                                When you use Shortify, we may process
+                                When you use WhyLong, we may process
                                 information associated with the links and QR
                                 codes you create, including:
                             </p>
@@ -283,7 +283,7 @@ const PrivacyPolicy = () => {
 
                             <BulletList
                                 items={[
-                                    "Create and maintain your Shortify account",
+                                    "Create and maintain your WhyLong account",
                                     "Provide URL-shortening and link-management functionality",
                                     "Generate and manage QR codes",
                                     "Provide link analytics and usage statistics",
@@ -335,7 +335,7 @@ const PrivacyPolicy = () => {
                             title="Link Analytics"
                         >
                             <p>
-                                Shortify may collect information about
+                                WhyLong may collect information about
                                 interactions with shortened links in order to
                                 provide analytics and maintain the functionality
                                 of the platform.
@@ -371,7 +371,7 @@ const PrivacyPolicy = () => {
                             title="Cookies & Similar Technologies"
                         >
                             <p>
-                                Shortify may use cookies, local storage, and
+                                WhyLong may use cookies, local storage, and
                                 similar technologies for purposes such as:
                             </p>
 
@@ -426,7 +426,7 @@ const PrivacyPolicy = () => {
                                 We may disclose information where reasonably
                                 necessary to comply with applicable law or
                                 legal process, respond to lawful requests,
-                                protect the rights and safety of Shortify or
+                                protect the rights and safety of WhyLong or
                                 others, or investigate fraud, abuse, or
                                 security incidents.
                             </p>
@@ -434,7 +434,7 @@ const PrivacyPolicy = () => {
                             <SubHeading>Business Transfers</SubHeading>
 
                             <p>
-                                If Shortify is involved in a merger,
+                                If WhyLong is involved in a merger,
                                 acquisition, financing, restructuring, sale of
                                 assets, or similar transaction, information may
                                 be transferred as part of that transaction,
@@ -449,7 +449,7 @@ const PrivacyPolicy = () => {
                             title="Third-Party Services"
                         >
                             <p>
-                                Shortify may rely on third-party infrastructure
+                                WhyLong may rely on third-party infrastructure
                                 and service providers to deliver certain
                                 functionality.
                             </p>
@@ -609,7 +609,7 @@ const PrivacyPolicy = () => {
                             title="International Data Transfers"
                         >
                             <p>
-                                Shortify and its service providers may process
+                                WhyLong and its service providers may process
                                 information in countries other than the
                                 country in which you reside.
                             </p>
@@ -661,7 +661,7 @@ const PrivacyPolicy = () => {
                             </p>
 
                             <p>
-                                Shortify is not responsible for the privacy
+                                WhyLong is not responsible for the privacy
                                 practices, security, content, or policies of
                                 third-party services.
                             </p>
@@ -679,25 +679,25 @@ const PrivacyPolicy = () => {
                             title="User-Generated URLs & Content"
                         >
                             <p>
-                                Shortify allows users to create shortened URLs
+                                WhyLong allows users to create shortened URLs
                                 and QR codes that may direct users to
                                 third-party websites.
                             </p>
 
                             <p>
-                                Shortify does not control the content, privacy
+                                WhyLong does not control the content, privacy
                                 practices, security, or availability of
                                 websites to which shortened links may lead.
                             </p>
 
                             <p>
                                 Creating or accessing a shortened URL does not
-                                mean that Shortify endorses or is affiliated
+                                mean that WhyLong endorses or is affiliated
                                 with the destination website.
                             </p>
 
                             <p>
-                                Users must not use Shortify to distribute
+                                Users must not use WhyLong to distribute
                                 malicious, fraudulent, unlawful, or otherwise
                                 prohibited content.
                             </p>
@@ -783,7 +783,7 @@ const PrivacyPolicy = () => {
 
                             <div className="my-7 rounded-2xl border border-gray-200 bg-gray-950 p-7 text-white">
                                 <p className="text-lg font-semibold">
-                                    Shortify
+                                    WhyLong
                                 </p>
 
                                 <div className="mt-5 space-y-3 text-sm text-gray-400">
@@ -819,7 +819,7 @@ const PrivacyPolicy = () => {
                             <p>
                                 Unless otherwise required by applicable law,
                                 this Privacy Policy shall be governed by the
-                                laws applicable to the operation of Shortify
+                                laws applicable to the operation of WhyLong
                                 and interpreted in accordance with applicable
                                 data-protection and privacy requirements.
                             </p>
@@ -844,7 +844,7 @@ const PrivacyPolicy = () => {
                             </p>
 
                             <p className="mt-3 text-sm font-medium text-gray-900">
-                                Shortify — Short links. Stronger identity.
+                                WhyLong — Short links. Stronger identity.
                             </p>
                         </div>
                     </article>

@@ -9,7 +9,7 @@ const steps = [
         number: "02",
         title: "Get your short link",
         description:
-            "Shortify creates a clean, unique link for you instantly."
+            "WhyLong creates a clean, unique link for you instantly."
     },
     {
         number: "03",

@@ -164,13 +164,13 @@ const Footer = () => {
                                 </div>
 
                                 <span className="text-xl font-bold tracking-tight">
-                                    Shortify
+                                    WhyLong
                                 </span>
                             </a>
 
                             <p className="mt-6 text-sm leading-7 text-gray-400">
                                 Make your links shorter, smarter, and easier
-                                to manage. Shortify gives you a simple way to
+                                to manage. WhyLong gives you a simple way to
                                 create, organize, and track your shortened URLs.
                             </p>
 
@@ -308,7 +308,7 @@ const Footer = () => {
 
                                 <p className="mt-2 max-w-lg text-sm leading-6 text-gray-400">
                                     Get product updates, useful tips, and
-                                    occasional news from Shortify.
+                                    occasional news from WhyLong.
                                 </p>
                             </div>
 
@@ -340,7 +340,7 @@ const Footer = () => {
                     <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between lg:px-8">
 
                         <p className="text-xs text-gray-500">
-                            © {new Date().getFullYear()} Shortify. All rights
+                            © {new Date().getFullYear()} WhyLong. All rights
                             reserved.
                         </p>
 

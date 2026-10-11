@@ -20,7 +20,7 @@ const QRCodePromo = () => {
                     </h2>
 
                     <p className="mt-5 text-base leading-7 text-gray-500">
-                        Create customizable QR codes from your Shortify links.
+                        Create customizable QR codes from your WhyLong links.
                         Add your logo, choose your colors, and download them
                         ready to share.
                     </p>
@@ -86,7 +86,7 @@ const QRCodePromo = () => {
 
                                     {/* Brand name */}
                                     <p className="mt-4 text-center text-sm font-semibold text-gray-950">
-                                        Shortify
+                                        WhyLong
                                     </p>
                                 </div>
 
@@ -112,7 +112,7 @@ const QRCodePromo = () => {
                             </h3>
 
                             <p className="mt-5 text-base leading-7 text-gray-500">
-                                Shortify gives you control over how your QR
+                                WhyLong gives you control over how your QR
                                 codes look and feel — without needing another
                                 design tool.
                             </p>
@@ -183,7 +183,7 @@ const QRCodePromo = () => {
                     </div>
 
                     <p className="text-sm text-gray-500">
-                        Your QR code stays connected to your Shortify link,
+                        Your QR code stays connected to your WhyLong link,
                         so you can manage the destination from your dashboard.
                     </p>
                 </div>

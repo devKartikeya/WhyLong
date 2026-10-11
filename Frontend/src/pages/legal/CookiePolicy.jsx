@@ -36,8 +36,8 @@ const CookiePolicy = () => {
     return (
         <main className="min-h-screen bg-white text-gray-900">
             <Helmet>
-                <title>Cookie Policy | Shortify</title>
-                <meta name="description" content="Cookie Policy of Shortify. It explains how Shortify uses cookies and similar technologies." />
+                <title>Cookie Policy | WhyLong</title>
+                <meta name="description" content="Cookie Policy of WhyLong. It explains how WhyLong uses cookies and similar technologies." />
             </Helmet>
             {/* Hero */}
             <section className="border-b border-gray-100 bg-gray-50/70 pt-32">
@@ -47,7 +47,7 @@ const CookiePolicy = () => {
                         className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-gray-950"
                     >
                         <FiArrowLeft className="h-4 w-4" />
-                        Back to Shortify
+                        Back to WhyLong
                     </Link>
 
                     <div className="max-w-4xl">
@@ -57,7 +57,7 @@ const CookiePolicy = () => {
                         </div>
 
                         <h1 className="text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
-                            How Shortify uses
+                            How WhyLong uses
                             <span className="text-yellow-500">
                                 {" "}
                                 cookies.
@@ -65,7 +65,7 @@ const CookiePolicy = () => {
                         </h1>
 
                         <p className="mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
-                            This Cookie Policy explains how Shortify uses
+                            This Cookie Policy explains how WhyLong uses
                             cookies and similar technologies to operate,
                             secure, improve, and understand the use of our
                             services.
@@ -135,7 +135,7 @@ const CookiePolicy = () => {
                             </p>
 
                             <p>
-                                Shortify may use cookies and similar
+                                WhyLong may use cookies and similar
                                 technologies such as local storage, session
                                 identifiers, and other device or browser
                                 technologies to provide and improve our
@@ -149,7 +149,7 @@ const CookiePolicy = () => {
                             title="How We Use Cookies"
                         >
                             <p>
-                                Shortify uses cookies and similar technologies
+                                WhyLong uses cookies and similar technologies
                                 for purposes including:
                             </p>
 
@@ -159,7 +159,7 @@ const CookiePolicy = () => {
                                     "Remembering necessary preferences and settings.",
                                     "Protecting our services against abuse and unauthorized activity.",
                                     "Understanding how our services are used and improving functionality.",
-                                    "Maintaining the reliability and performance of the Shortify platform.",
+                                    "Maintaining the reliability and performance of the WhyLong platform.",
                                     "Supporting security, diagnostics, and troubleshooting.",
                                 ]}
                             />
@@ -172,7 +172,7 @@ const CookiePolicy = () => {
                         >
                             <p>
                                 Depending on their purpose and duration,
-                                cookies used by Shortify may fall into several
+                                cookies used by WhyLong may fall into several
                                 categories.
                             </p>
 
@@ -209,7 +209,7 @@ const CookiePolicy = () => {
                             title="Essential Cookies"
                         >
                             <p>
-                                Essential cookies are necessary for Shortify
+                                Essential cookies are necessary for WhyLong
                                 to provide core features of the service.
                                 Without these cookies, certain parts of the
                                 platform may not function correctly.
@@ -248,7 +248,7 @@ const CookiePolicy = () => {
                             title="Authentication & Session Cookies"
                         >
                             <p>
-                                When you sign in to a Shortify account, we may
+                                When you sign in to a WhyLong account, we may
                                 use cookies to maintain your authenticated
                                 session and allow you to move between protected
                                 areas of the platform without repeatedly
@@ -263,7 +263,7 @@ const CookiePolicy = () => {
                             </p>
 
                             <p>
-                                Shortify does not use cookies to intentionally
+                                WhyLong does not use cookies to intentionally
                                 store your account password in readable form.
                             </p>
                         </PolicySection>
@@ -274,7 +274,7 @@ const CookiePolicy = () => {
                             title="Preference Cookies"
                         >
                             <p>
-                                Preference cookies allow Shortify to remember
+                                Preference cookies allow WhyLong to remember
                                 information about how you use the service,
                                 where applicable.
                             </p>
@@ -292,7 +292,7 @@ const CookiePolicy = () => {
                             title="Analytics & Usage Information"
                         >
                             <p>
-                                Shortify may use cookies or similar technologies
+                                WhyLong may use cookies or similar technologies
                                 to understand how users interact with the
                                 platform.
                             </p>
@@ -319,11 +319,11 @@ const CookiePolicy = () => {
                             title="Third-Party Services"
                         >
                             <p>
-                                Shortify may use third-party service providers
+                                WhyLong may use third-party service providers
                                 to support certain aspects of the platform.
                                 These providers may use cookies or similar
                                 technologies when their services are integrated
-                                into Shortify.
+                                into WhyLong.
                             </p>
 
                             <p>
@@ -410,7 +410,7 @@ const CookiePolicy = () => {
                                         <p className="mt-1 text-sm leading-6 text-gray-600">
                                             Blocking or deleting cookies does
                                             not necessarily prevent you from
-                                            visiting Shortify, but it may
+                                            visiting WhyLong, but it may
                                             affect certain features or
                                             functionality.
                                         </p>
@@ -427,7 +427,7 @@ const CookiePolicy = () => {
                             <p>
                                 You may choose to disable or delete cookies
                                 through your browser settings. However,
-                                certain Shortify features may not function
+                                certain WhyLong features may not function
                                 properly if essential cookies are blocked.
                             </p>
 
@@ -443,7 +443,7 @@ const CookiePolicy = () => {
                             <p>
                                 For this reason, we recommend allowing
                                 essential cookies when using authenticated
-                                areas of Shortify.
+                                areas of WhyLong.
                             </p>
                         </PolicySection>
 
@@ -462,7 +462,7 @@ const CookiePolicy = () => {
                                 Because there is currently no universally
                                 accepted technical standard for responding to
                                 DNT signals across all websites and services,
-                                Shortify may not respond to all DNT signals in
+                                WhyLong may not respond to all DNT signals in
                                 a consistent manner.
                             </p>
                         </PolicySection>
@@ -489,7 +489,7 @@ const CookiePolicy = () => {
                             <p>
                                 We encourage you to review this page
                                 periodically to stay informed about how
-                                Shortify uses cookies and similar technologies.
+                                WhyLong uses cookies and similar technologies.
                             </p>
                         </PolicySection>
 
@@ -500,7 +500,7 @@ const CookiePolicy = () => {
                         >
                             <p>
                                 If you have questions about this Cookie Policy
-                                or how Shortify uses cookies and similar
+                                or how WhyLong uses cookies and similar
                                 technologies, you can contact us using the
                                 information below.
                             </p>
@@ -509,7 +509,7 @@ const CookiePolicy = () => {
                                 <div className="space-y-4">
                                     <ContactRow
                                         label="Company"
-                                        value="Shortify"
+                                        value="WhyLong"
                                     />
 
                                     <ContactRow
@@ -535,7 +535,7 @@ const CookiePolicy = () => {
                                         </h3>
 
                                         <p className="mt-1 text-sm leading-6 text-gray-600">
-                                            Learn more about how Shortify
+                                            Learn more about how WhyLong
                                             collects, uses, and protects
                                             information.
                                         </p>

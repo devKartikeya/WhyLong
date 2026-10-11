@@ -331,7 +331,7 @@ const Analytics = () => {
         <div className="space-y-6 text-gray-900">
             <Helmet>
                 <title>
-                    Analytics | Shortify
+                    Analytics | WhyLong
                 </title>
                 <meta name="description" content="Experience deep analysis of your links and QRs. Analyze devices, location, CTR, and timestamps." />
             </Helmet>

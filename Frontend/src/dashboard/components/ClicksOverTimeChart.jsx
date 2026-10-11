@@ -526,7 +526,7 @@ const ClicksOverTimeChart = ({
                             >
                                 <defs>
                                     <linearGradient
-                                        id="shortifyClicksGradient"
+                                        id="WhyLongClicksGradient"
                                         x1="0"
                                         y1="0"
                                         x2="0"
@@ -613,7 +613,7 @@ const ClicksOverTimeChart = ({
                                     name="clicks"
                                     stroke="#EAB308"
                                     strokeWidth={2.5}
-                                    fill="url(#shortifyClicksGradient)"
+                                    fill="url(#WhyLongClicksGradient)"
                                     activeDot={{
                                         r: 5,
                                         stroke: "#FFFFFF",

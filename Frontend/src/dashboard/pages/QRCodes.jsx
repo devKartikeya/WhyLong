@@ -14,7 +14,7 @@ const DEFAULT_SETTINGS = {
     qrStyle: "square",
 };
 
-const PRESETS_KEY = "shortify-qr-presets";
+const PRESETS_KEY = "WhyLong-qr-presets";
 
 const QRCodes = () => {
     const { user } = useOutletContext();
@@ -313,7 +313,7 @@ const QRCodes = () => {
         const pngUrl = canvas.toDataURL("image/png");
         const downloadLink = document.createElement("a");
         downloadLink.href = pngUrl;
-        downloadLink.download = `shortify-${selectedLink.shortCode}-custom.png`;
+        downloadLink.download = `WhyLong-${selectedLink.shortCode}-custom.png`;
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
@@ -422,7 +422,7 @@ const QRCodes = () => {
             const url = URL.createObjectURL(svgBlob);
             const downloadLink = document.createElement("a");
             downloadLink.href = url;
-            downloadLink.download = `shortify-${selectedLink.shortCode}-custom.svg`;
+            downloadLink.download = `WhyLong-${selectedLink.shortCode}-custom.svg`;
             document.body.appendChild(downloadLink);
             downloadLink.click();
             document.body.removeChild(downloadLink);
@@ -436,7 +436,7 @@ const QRCodes = () => {
         <div className="mx-auto max-w-[1600px] space-y-8">
             <Helmet>
                 <title>
-                    QR-Codes | Shortify
+                    QR-Codes | WhyLong
                 </title>
                 <meta name="description" content="Manage and customize your QR-Codes." />
             </Helmet>
@@ -447,7 +447,7 @@ const QRCodes = () => {
                     Turn your links into QR codes
                 </h1>
                 <p className="mt-1.5 max-w-2xl text-sm text-gray-500">
-                    Generate branded, downloadable QR codes for any of your Shortify links.
+                    Generate branded, downloadable QR codes for any of your WhyLong links.
                 </p>
             </div>
 
@@ -702,7 +702,7 @@ const QRCodes = () => {
                                             value={brandText}
                                             maxLength={30}
                                             onChange={(event) => setBrandText(event.target.value)}
-                                            placeholder="e.g. Shortify"
+                                            placeholder="e.g. WhyLong"
                                             className="mt-2 w-full rounded-xl border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-yellow-400 focus:bg-white focus:ring-2 focus:ring-yellow-100"
                                         />
                                         <p className="mt-1 text-[11px] text-gray-400">Optional text displayed below the QR code.</p>
@@ -955,7 +955,7 @@ const QRCodes = () => {
                                         <div>
                                             <p className="text-xs font-semibold text-yellow-800">Works with your existing link</p>
                                             <p className="mt-1 text-xs leading-5 text-yellow-700">
-                                                Anyone scanning this QR code will be redirected through your Shortify link, so its
+                                                Anyone scanning this QR code will be redirected through your WhyLong link, so its
                                                 existing click tracking continues to work.
                                             </p>
                                         </div>
@@ -995,7 +995,7 @@ const QRCodes = () => {
                     <div>
                         <p className="text-sm font-semibold text-gray-900">One QR code, one short link</p>
                         <p className="mt-1 text-xs leading-5 text-gray-500">
-                            Your QR codes point to your Shortify URLs rather than directly to the destination. This means the
+                            Your QR codes point to your WhyLong URLs rather than directly to the destination. This means the
                             destination can remain behind the same short link and its clicks can still be tracked.
                         </p>
                     </div>

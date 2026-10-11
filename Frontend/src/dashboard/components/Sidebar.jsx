@@ -159,7 +159,7 @@ const Sidebar = ({ isOpen, onClose, user }) => {
                         </div>
 
                         <span className="text-lg font-bold tracking-tight text-gray-950">
-                            Shortify
+                            WhyLong
                         </span>
                     </NavLink>
 

@@ -141,7 +141,7 @@ const ResetPassword = () => {
                             to="/"
                             className="mt-7 inline-flex w-full items-center justify-center rounded-xl bg-yellow-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-yellow-600"
                         >
-                            Continue to Shortify
+                            Continue to WhyLong
                         </Link>
                     </div>
                 </div>
@@ -166,7 +166,7 @@ const ResetPassword = () => {
                         </h1>
                         <p className="mx-auto mt-3 max-w-sm text-sm leading-6 text-slate-500">
                             Create a new password for your
-                            Shortify account.
+                            WhyLong account.
                         </p>
                     </div>
 

@@ -87,8 +87,8 @@ const Contact = () => {
     return (
         <main className="min-h-screen bg-white text-slate-900">
             <Helmet>
-                <title>Contact Us | Shortify</title>
-                <meta name="description" content="Contact with Shortify team. We will help you to solve your queries and improve your experience with us." />
+                <title>Contact Us | WhyLong</title>
+                <meta name="description" content="Contact with WhyLong team. We will help you to solve your queries and improve your experience with us." />
             </Helmet>
             {/* ================= HERO ================= */}
             <section className="relative overflow-hidden pt-28 pb-16">
@@ -107,7 +107,7 @@ const Contact = () => {
                         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
                             Let's talk about
                             <span className="block text-yellow-500">
-                                Shortify.
+                                WhyLong.
                             </span>
                         </h1>
 
@@ -139,7 +139,7 @@ const Contact = () => {
                             </h2>
 
                             <p className="mt-4 max-w-md leading-7 text-slate-500">
-                                Whether you have a question about Shortify,
+                                Whether you have a question about WhyLong,
                                 need help with something, or have an idea to
                                 make it better, feel free to reach out.
                             </p>
@@ -220,11 +220,11 @@ const Contact = () => {
                                     Connect with us
                                 </p>
                                 <h3 className="mt-2 text-lg font-semibold text-slate-800">
-                                    Follow Shortify
+                                    Follow WhyLong
                                 </h3>
                                 <p className="mt-2 text-sm leading-6 text-slate-500">
                                     Stay connected for updates, new features, and everything we're
-                                    building around Shortify.
+                                    building around WhyLong.
                                 </p>
                             </div>
 
@@ -235,7 +235,7 @@ const Contact = () => {
                                     href="https://github.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Shortify on GitHub"
+                                    aria-label="WhyLong on GitHub"
                                     className="group flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:bg-slate-600 hover:text-white hover:shadow-md"
                                 >
                                     <FaGithub
@@ -249,7 +249,7 @@ const Contact = () => {
                                     href="https://www.linkedin.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Shortify on LinkedIn"
+                                    aria-label="WhyLong on LinkedIn"
                                     className="group flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:bg-blue-600 hover:text-white hover:shadow-md"
                                 >
                                     <FaLinkedin
@@ -263,7 +263,7 @@ const Contact = () => {
                                     href="https://twitter.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Shortify on X"
+                                    aria-label="WhyLong on X"
                                     className="group flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:bg-gray-800 hover:text-white hover:shadow-md"
                                 >
                                     <FaTwitter
@@ -418,7 +418,7 @@ const Contact = () => {
             <section className="border-t border-slate-100 bg-slate-50">
                 <div className="mx-auto max-w-7xl px-6 py-16 text-center lg:px-8">
                     <p className="text-sm font-semibold uppercase tracking-widest text-yellow-500">
-                        Need Shortify?
+                        Need WhyLong?
                     </p>
 
                     <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">

@@ -266,7 +266,7 @@ const MyLinks = () => {
     return (
         <div className="mx-auto max-w-[1600px] space-y-6">
             <Helmet>
-                <title>My Links | Shortify</title>
+                <title>My Links | WhyLong</title>
                 <meta name="description" content="Managing Links of the User." />
             </Helmet>
             {/* HEADER */}
@@ -282,7 +282,7 @@ const MyLinks = () => {
                         My links
                     </h1>
                     <p className="mt-1.5 max-w-2xl text-sm leading-6 text-gray-500">
-                        Manage, track and organize every short link you've created with Shortify.
+                        Manage, track and organize every short link you've created with WhyLong.
                     </p>
                 </div>
                 <button

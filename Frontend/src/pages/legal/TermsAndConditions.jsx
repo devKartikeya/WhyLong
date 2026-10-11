@@ -17,7 +17,7 @@ import {
 
 const sections = [
     { id: "acceptance", label: "Acceptance of Terms" },
-    { id: "about-service", label: "About Shortify" },
+    { id: "about-service", label: "About WhyLong" },
     { id: "eligibility", label: "Eligibility" },
     { id: "accounts", label: "Accounts" },
     { id: "acceptable-use", label: "Acceptable Use" },
@@ -43,9 +43,9 @@ const TermsAndConditions = () => {
         <main className="min-h-screen bg-white text-gray-900">
             <Helmet>
                 <title>
-                    Terms and Conditions | Shortify
+                    Terms and Conditions | WhyLong
                 </title>
-                <meta name="description" content="Terms and Conditions of Shortify. It encompasses all the terms that governs Shortify's services." />
+                <meta name="description" content="Terms and Conditions of WhyLong. It encompasses all the terms that governs WhyLong's services." />
             </Helmet>
             {/* Hero */}
             <section className="border-b border-gray-100 bg-gray-50/70 pt-32">
@@ -55,7 +55,7 @@ const TermsAndConditions = () => {
                         className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-gray-500 transition-colors hover:text-gray-950"
                     >
                         <FiArrowLeft className="h-4 w-4" />
-                        Back to Shortify
+                        Back to WhyLong
                     </Link>
 
                     <div className="max-w-4xl">
@@ -68,14 +68,14 @@ const TermsAndConditions = () => {
                             The terms that govern
                             <span className="text-yellow-500">
                                 {" "}
-                                Shortify.
+                                WhyLong.
                             </span>
                         </h1>
 
                         <p className="mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg">
                             These Terms & Conditions govern your access to and
-                            use of Shortify and establish the rights and
-                            responsibilities of you and Shortify when using
+                            use of WhyLong and establish the rights and
+                            responsibilities of you and WhyLong when using
                             our services.
                         </p>
 
@@ -136,14 +136,14 @@ const TermsAndConditions = () => {
                             title="Acceptance of Terms"
                         >
                             <p>
-                                By accessing or using Shortify, you agree to be
+                                By accessing or using WhyLong, you agree to be
                                 bound by these Terms & Conditions and all
                                 applicable laws and regulations.
                             </p>
 
                             <p>
                                 If you do not agree with these Terms, you must
-                                not access or use Shortify.
+                                not access or use WhyLong.
                             </p>
 
                             <p>
@@ -156,10 +156,10 @@ const TermsAndConditions = () => {
                         <PolicySection
                             id="about-service"
                             number="02"
-                            title="About Shortify"
+                            title="About WhyLong"
                         >
                             <p>
-                                Shortify is a link-management platform that
+                                WhyLong is a link-management platform that
                                 provides services including URL shortening,
                                 link management, link analytics, QR code
                                 generation, and related functionality.
@@ -201,18 +201,18 @@ const TermsAndConditions = () => {
                             <p>
                                 You must be legally capable of entering into a
                                 binding agreement in your jurisdiction to use
-                                Shortify.
+                                WhyLong.
                             </p>
 
                             <p>
-                                If you use Shortify on behalf of an
+                                If you use WhyLong on behalf of an
                                 organization, business, or other entity, you
                                 represent that you have the authority to bind
                                 that entity to these Terms.
                             </p>
 
                             <p>
-                                Shortify is not intended to be used in
+                                WhyLong is not intended to be used in
                                 violation of applicable laws or regulations.
                             </p>
                         </PolicySection>
@@ -223,7 +223,7 @@ const TermsAndConditions = () => {
                             title="Accounts"
                         >
                             <p>
-                                Certain Shortify features may require you to
+                                Certain WhyLong features may require you to
                                 create an account. When creating an account,
                                 you agree to provide accurate and current
                                 information and to keep that information
@@ -238,7 +238,7 @@ const TermsAndConditions = () => {
                             </p>
 
                             <p>
-                                You must notify Shortify promptly if you
+                                You must notify WhyLong promptly if you
                                 believe that your account has been accessed
                                 without authorization or that your credentials
                                 have been compromised.
@@ -270,12 +270,12 @@ const TermsAndConditions = () => {
                             title="Acceptable Use"
                         >
                             <p>
-                                You agree to use Shortify responsibly and only
+                                You agree to use WhyLong responsibly and only
                                 for lawful purposes.
                             </p>
 
                             <p>
-                                You must not use Shortify in a manner that
+                                You must not use WhyLong in a manner that
                                 could damage the service, interfere with other
                                 users, compromise security, or violate the
                                 rights of another person or organization.
@@ -283,12 +283,12 @@ const TermsAndConditions = () => {
 
                             <BulletList
                                 items={[
-                                    "Use Shortify only for lawful purposes.",
+                                    "Use WhyLong only for lawful purposes.",
                                     "Respect the rights and privacy of other individuals.",
                                     "Do not attempt to bypass security controls or access restricted systems.",
                                     "Do not interfere with the availability or performance of the service.",
                                     "Do not abuse automated requests, APIs, or other platform functionality.",
-                                    "Do not use Shortify to distribute malicious or harmful material.",
+                                    "Do not use WhyLong to distribute malicious or harmful material.",
                                 ]}
                             />
                         </PolicySection>
@@ -300,7 +300,7 @@ const TermsAndConditions = () => {
                         >
                             <p>
                                 You may not create, publish, distribute, or
-                                use Shortify links or QR codes to facilitate
+                                use WhyLong links or QR codes to facilitate
                                 content or activities that are unlawful,
                                 fraudulent, abusive, malicious, or otherwise
                                 prohibited.
@@ -320,7 +320,7 @@ const TermsAndConditions = () => {
                             />
 
                             <p>
-                                Shortify reserves the right to investigate
+                                WhyLong reserves the right to investigate
                                 reported abuse and take appropriate action
                                 where permitted by applicable law.
                             </p>
@@ -332,7 +332,7 @@ const TermsAndConditions = () => {
                             title="User-Generated Links"
                         >
                             <p>
-                                Shortify provides tools that allow users to
+                                WhyLong provides tools that allow users to
                                 create shortened links pointing to
                                 destinations selected by the user.
                             </p>
@@ -344,7 +344,7 @@ const TermsAndConditions = () => {
                             </p>
 
                             <p>
-                                Shortify does not guarantee the accuracy,
+                                WhyLong does not guarantee the accuracy,
                                 legality, availability, security, or quality
                                 of third-party destinations linked through
                                 the platform.
@@ -362,7 +362,7 @@ const TermsAndConditions = () => {
                                         <p className="mt-1 text-sm leading-6 text-gray-600">
                                             Creating a shortened URL does not
                                             transfer responsibility for the
-                                            destination content to Shortify.
+                                            destination content to WhyLong.
                                         </p>
                                     </div>
                                 </div>
@@ -375,7 +375,7 @@ const TermsAndConditions = () => {
                             title="QR Codes"
                         >
                             <p>
-                                Shortify may allow users to generate QR codes
+                                WhyLong may allow users to generate QR codes
                                 associated with shortened URLs or other
                                 supported destinations.
                             </p>
@@ -389,7 +389,7 @@ const TermsAndConditions = () => {
                             </p>
 
                             <p>
-                                Shortify does not guarantee that every
+                                WhyLong does not guarantee that every
                                 third-party QR scanner, device, camera, or
                                 application will successfully read every
                                 generated QR code.
@@ -402,7 +402,7 @@ const TermsAndConditions = () => {
                             title="Link Analytics"
                         >
                             <p>
-                                Shortify may provide analytics associated with
+                                WhyLong may provide analytics associated with
                                 shortened links, such as click counts and
                                 other usage information.
                             </p>
@@ -429,7 +429,7 @@ const TermsAndConditions = () => {
                         >
                             <p>
                                 We take reasonable measures designed to protect
-                                Shortify and user information against
+                                WhyLong and user information against
                                 unauthorized access, misuse, alteration, or
                                 destruction.
                             </p>
@@ -454,23 +454,23 @@ const TermsAndConditions = () => {
                             title="Intellectual Property"
                         >
                             <p>
-                                Shortify and its original software, design,
+                                WhyLong and its original software, design,
                                 branding, visual elements, documentation,
                                 content, and other materials are owned by or
-                                licensed to Shortify and are protected by
+                                licensed to WhyLong and are protected by
                                 applicable intellectual-property laws.
                             </p>
 
                             <p>
                                 Except as expressly permitted by law or by
-                                Shortify, you may not copy, reproduce,
+                                WhyLong, you may not copy, reproduce,
                                 distribute, modify, reverse engineer, or
                                 commercially exploit protected portions of the
                                 service.
                             </p>
 
                             <p>
-                                The Shortify name, logo, trademarks, and other
+                                The WhyLong name, logo, trademarks, and other
                                 branding elements may not be used in a manner
                                 that implies an unauthorized affiliation or
                                 endorsement.
@@ -483,7 +483,7 @@ const TermsAndConditions = () => {
                             title="Third-Party Services"
                         >
                             <p>
-                                Shortify may integrate with or depend on
+                                WhyLong may integrate with or depend on
                                 third-party services, infrastructure providers,
                                 communication providers, analytics providers,
                                 hosting services, or other external systems.
@@ -496,7 +496,7 @@ const TermsAndConditions = () => {
                             </p>
 
                             <p>
-                                Shortify is not responsible for the
+                                WhyLong is not responsible for the
                                 independent operation, availability, content,
                                 or policies of third-party services.
                             </p>
@@ -514,7 +514,7 @@ const TermsAndConditions = () => {
                             title="Service Availability"
                         >
                             <p>
-                                We aim to keep Shortify available and
+                                We aim to keep WhyLong available and
                                 reliable, but we do not guarantee uninterrupted
                                 or error-free operation.
                             </p>
@@ -529,7 +529,7 @@ const TermsAndConditions = () => {
 
                             <p>
                                 We may modify, suspend, replace, or discontinue
-                                particular features of Shortify when
+                                particular features of WhyLong when
                                 reasonably necessary.
                             </p>
                         </PolicySection>
@@ -540,7 +540,7 @@ const TermsAndConditions = () => {
                             title="Suspension & Termination"
                         >
                             <p>
-                                Shortify may suspend, restrict, or terminate
+                                WhyLong may suspend, restrict, or terminate
                                 access to an account or particular
                                 functionality if we reasonably believe that
                                 the user:
@@ -565,7 +565,7 @@ const TermsAndConditions = () => {
                             </p>
 
                             <p>
-                                You may stop using Shortify at any time and,
+                                You may stop using WhyLong at any time and,
                                 where applicable, request deletion of your
                                 account through the available account
                                 controls.
@@ -579,7 +579,7 @@ const TermsAndConditions = () => {
                         >
                             <p>
                                 To the maximum extent permitted by applicable
-                                law, Shortify is provided on an “as is” and
+                                law, WhyLong is provided on an “as is” and
                                 “as available” basis.
                             </p>
 
@@ -594,7 +594,7 @@ const TermsAndConditions = () => {
                                 We do not guarantee the availability, accuracy,
                                 security, legality, or reliability of any
                                 third-party website or destination accessed
-                                through a Shortify link.
+                                through a WhyLong link.
                             </p>
 
                             <p>
@@ -611,7 +611,7 @@ const TermsAndConditions = () => {
                         >
                             <p>
                                 To the maximum extent permitted by applicable
-                                law, Shortify and its owners, operators,
+                                law, WhyLong and its owners, operators,
                                 employees, contractors, affiliates, and
                                 service providers will not be liable for
                                 indirect, incidental, special, consequential,
@@ -641,7 +641,7 @@ const TermsAndConditions = () => {
                             <p>
                                 To the extent permitted by applicable law, you
                                 agree to defend, indemnify, and hold harmless
-                                Shortify and its owners, operators, employees,
+                                WhyLong and its owners, operators, employees,
                                 contractors, affiliates, and service providers
                                 from claims, liabilities, damages, losses, and
                                 expenses arising from:
@@ -650,7 +650,7 @@ const TermsAndConditions = () => {
                             <BulletList
                                 items={[
                                     "Your violation of these Terms.",
-                                    "Your misuse of the Shortify service.",
+                                    "Your misuse of the WhyLong service.",
                                     "Your violation of applicable law or the rights of another person.",
                                     "Content, URLs, or QR codes created or distributed through your account.",
                                 ]}
@@ -685,7 +685,7 @@ const TermsAndConditions = () => {
                             </p>
 
                             <p>
-                                Your continued use of Shortify after the
+                                Your continued use of WhyLong after the
                                 effective date of updated Terms constitutes
                                 acceptance of the revised Terms to the extent
                                 permitted by applicable law.
@@ -709,7 +709,7 @@ const TermsAndConditions = () => {
 
                             <p>
                                 Any disputes arising from or relating to these
-                                Terms or the Shortify service will be subject
+                                Terms or the WhyLong service will be subject
                                 to the jurisdiction of the courts located in{" "}
                                 <strong className="font-semibold text-gray-900">
                                     [Applicable Jurisdiction / Courts]
@@ -739,7 +739,7 @@ const TermsAndConditions = () => {
                             <p>
                                 If you have questions about these Terms,
                                 concerns regarding the service, or need to
-                                contact Shortify for a legal or compliance
+                                contact WhyLong for a legal or compliance
                                 matter, you can reach us using the information
                                 below.
                             </p>
@@ -748,7 +748,7 @@ const TermsAndConditions = () => {
                                 <div className="space-y-4">
                                     <ContactRow
                                         label="Company"
-                                        value="Shortify"
+                                        value="WhyLong"
                                     />
 
                                     <ContactRow
@@ -785,7 +785,7 @@ const TermsAndConditions = () => {
                                     </div>
 
                                     <p className="mt-4 text-sm leading-6 text-gray-600">
-                                        Learn how Shortify collects, uses, and
+                                        Learn how WhyLong collects, uses, and
                                         protects information.
                                     </p>
 
@@ -816,7 +816,7 @@ const TermsAndConditions = () => {
                                     </div>
 
                                     <p className="mt-4 text-sm leading-6 text-gray-600">
-                                        Understand how Shortify uses cookies
+                                        Understand how WhyLong uses cookies
                                         and similar technologies.
                                     </p>
 
@@ -831,7 +831,7 @@ const TermsAndConditions = () => {
                                 <FiUserCheck className="h-5 w-5 shrink-0 text-yellow-600" />
 
                                 <p className="text-sm leading-6 text-gray-700">
-                                    By using Shortify, you acknowledge that you
+                                    By using WhyLong, you acknowledge that you
                                     have read and understood these Terms &
                                     Conditions and agree to comply with them.
                                 </p>
