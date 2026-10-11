@@ -1,12 +1,12 @@
-# 🔗 Shortify
+# 🔗 WhyLong
 
 > A modern, full-stack URL shortener built with MERN, Redis, Docker, RabbitMQ, load balancing, automated testing and practical system-design principles.
 
-Shortify is a full-stack URL shortening application that allows users to convert long URLs into compact, shareable links and generate customizable QRs.
+WhyLong is a full-stack URL shortening application that allows users to convert long URLs into compact, shareable links and generate customizable QRs.
 
 The project supports both **public URL shortening** and **authenticated, user-specific link management**, with a professional dashboard for managing links and tracking link performance.
 
-Shortify is being progressively developed as an engineering-focused project rather than just a basic CRUD application, with emphasis on **clean architecture, caching, rate limiting, asynchronous communication, performance optimization, testing, containerization, CI automation, load balancing, horizontal scaling, and practical system design**.
+WhyLong is being progressively developed as an engineering-focused project rather than just a basic CRUD application, with emphasis on **clean architecture, caching, rate limiting, asynchronous communication, performance optimization, testing, containerization, CI automation, load balancing, horizontal scaling, and practical system design**.
 
 ---
 
@@ -152,7 +152,7 @@ Users can manage their account through the profile section.
 
 # 🏗️ Architecture
 
-Shortify follows a modular backend architecture where responsibilities are separated across different layers.
+WhyLong follows a modular backend architecture where responsibilities are separated across different layers.
 
 ```text
 
@@ -250,7 +250,7 @@ This separation keeps individual components focused and makes the application ea
 
 # ⚡ Redis
 
-Shortify uses **Redis** as a high-speed in-memory data layer alongside MongoDB.
+WhyLong uses **Redis** as a high-speed in-memory data layer alongside MongoDB.
 
 Redis is used for multiple performance-oriented responsibilities:
 
@@ -264,7 +264,7 @@ Redis is used for multiple performance-oriented responsibilities:
 
 * Atomic operations
 
-Shortify currently uses **application-level rate limiting** through Express middleware. Redis is not currently used as the rate-limiting store.
+WhyLong currently uses **application-level rate limiting** through Express middleware. Redis is not currently used as the rate-limiting store.
 
 MongoDB remains the **primary persistent source of truth**, while Redis stores fast, derived, or temporary state.
 
@@ -316,13 +316,13 @@ MongoDB remains the **primary persistent source of truth**, while Redis stores f
 
 # 🚀 Redis URL Caching
 
-Shortify caches resolved original URLs in Redis.
+WhyLong caches resolved original URLs in Redis.
 
 ### Cache Key
 
 ```text
 
-shortify:url:<shortCode>
+WhyLong:url:<shortCode>
 
 ```
 
@@ -330,7 +330,7 @@ For example:
 
 ```text
 
-shortify:url:aB72xQ
+WhyLong:url:aB72xQ
 
 → https://example.com/some/long/url
 
@@ -406,7 +406,7 @@ MongoDB $inc
 
 ```
 
-Shortify now uses:
+WhyLong now uses:
 
 ```text
 
@@ -422,7 +422,7 @@ The click counter uses keys such as:
 
 ```text
 
-shortify:clicks:<shortCode>
+WhyLong:clicks:<shortCode>
 
 ```
 
@@ -430,7 +430,7 @@ For example:
 
 ```text
 
-shortify:clicks:aB72xQ
+WhyLong:clicks:aB72xQ
 
 → 137
 
@@ -570,13 +570,13 @@ This introduces a deliberate trade-off:
 
 > **Higher write performance in exchange for temporarily delayed persistence of click counts.**
 
-This is one of the practical system-design trade-offs currently explored in Shortify.
+This is one of the practical system-design trade-offs currently explored in WhyLong.
 
 ---
 
 # 🛡️ Rate Limiting
 
-Shortify uses **application-level rate limiting** to control excessive requests.
+WhyLong uses **application-level rate limiting** to control excessive requests.
 
 The current implementation uses Express rate-limiting middleware.
 
@@ -656,7 +656,7 @@ A distributed rate-limiting implementation using a shared store such as Redis ca
 
 🐇 RabbitMQ
 
-Shortify uses RabbitMQ as a message broker for asynchronous background work.
+WhyLong uses RabbitMQ as a message broker for asynchronous background work.
 
 The first real use case is sending a welcome email after user registration.
 
@@ -691,9 +691,9 @@ Backend API
 
 Exchange and Routing
 
-Shortify uses a direct exchange named:
+WhyLong uses a direct exchange named:
 
-shortify_exchange
+WhyLong_exchange
 
 The registration event is published using the routing key:
 
@@ -701,7 +701,7 @@ user.registered
 
 The queue is bound to that routing key:
 
-shortify_exchange
+WhyLong_exchange
         │
         │ user.registered
         ▼
@@ -760,7 +760,7 @@ This provides a foundation for reliable asynchronous processing and future retry
 
 Current RabbitMQ Topology
 
-                    shortify_exchange
+                    WhyLong_exchange
                     /               \
                    /                 \
      user.registered                 password.reset
@@ -778,7 +778,7 @@ RabbitMQ is currently being used for asynchronous communication, while the backe
 
 ⚖️ System Design**
 
-Shortify is being developed with practical system-design principles rather than treating system design as a separate theoretical topic.
+WhyLong is being developed with practical system-design principles rather than treating system design as a separate theoretical topic.
 
 The architecture has evolved by identifying actual problems and introducing components to solve them.
 
@@ -888,7 +888,7 @@ Backend
 
 ```
 
-Shortify can distribute requests across multiple instances:
+WhyLong can distribute requests across multiple instances:
 
 ```text
 
@@ -914,7 +914,7 @@ This allows the application to scale horizontally by adding more backend instanc
 
 # ⚖️ Load Balancing
 
-Shortify now includes a **load-balancing layer** between the frontend and backend instances.
+WhyLong now includes a **load-balancing layer** between the frontend and backend instances.
 
 A local load balancer was implemented using Node.js and `http-proxy` to understand the fundamental mechanics of request distribution before introducing production infrastructure.
 
@@ -1008,7 +1008,7 @@ The load balancer acts as an intermediary between the client and backend instanc
 
 # 🌐 Frontend → Load Balancer
 
-A major architectural milestone in Shortify is that the frontend no longer communicates directly with an individual backend instance.
+A major architectural milestone in WhyLong is that the frontend no longer communicates directly with an individual backend instance.
 
 Instead:
 
@@ -1082,7 +1082,7 @@ This is an important step toward a horizontally scalable architecture because ba
 
 # 📈 Horizontal Scaling
 
-Shortify now demonstrates the basic architecture required for horizontal scaling.
+WhyLong now demonstrates the basic architecture required for horizontal scaling.
 
 Horizontal scaling means running **multiple instances of the same application** and distributing requests between them.
 
@@ -1138,7 +1138,7 @@ This allows the backend instances to remain largely interchangeable.
 
 Horizontal scaling works best when backend instances do not depend on important local process state.
 
-Shortify's authentication uses JWT stored in cookies, allowing authentication information to be carried with requests rather than relying on a session stored inside a particular Node.js process.
+WhyLong's authentication uses JWT stored in cookies, allowing authentication information to be carried with requests rather than relying on a session stored inside a particular Node.js process.
 
 Shared infrastructure such as MongoDB and Redis can therefore be accessed by multiple backend instances.
 
@@ -1172,7 +1172,7 @@ This is one of the foundations required for a horizontally scalable backend.
 
 # 📐 Current Architecture
 
-The current Shortify architecture combines the application layer, Redis optimization, persistent storage, and the load-balancing layer.
+The current WhyLong architecture combines the application layer, Redis optimization, persistent storage, and the load-balancing layer.
 
 ```text
 
@@ -1318,7 +1318,7 @@ These are intentionally introduced only when they solve an actual architectural 
 
 # 🧪 Testing
 
-Shortify uses **Jest** and **Supertest** for backend testing.
+WhyLong uses **Jest** and **Supertest** for backend testing.
 
 ### Jest
 
@@ -1372,7 +1372,7 @@ The Express application is separated from the server bootstrap so tests can run 
 
 # 🐳 Docker
 
-Shortify is containerized using Docker.
+WhyLong is containerized using Docker.
 
 The application uses separate containers for its application services.
 
@@ -1476,7 +1476,7 @@ MongoDB can remain externally hosted, such as through MongoDB Atlas, while appli
 
 # 🔄 CI with GitHub Actions
 
-Shortify uses **GitHub Actions** for Continuous Integration.
+WhyLong uses **GitHub Actions** for Continuous Integration.
 
 The current CI pipeline performs:
 
@@ -1734,7 +1734,7 @@ The click count is maintained in Redis and periodically synchronized with MongoD
 
 # 🔐 Authentication
 
-Shortify uses cookie-based authentication with JWT.
+WhyLong uses cookie-based authentication with JWT.
 
 ```text
 
@@ -1812,7 +1812,7 @@ These operations are handled through authenticated backend endpoints.
 
 # 🔐 URL Validation
 
-Shortify validates URLs before storing them.
+WhyLong validates URLs before storing them.
 
 Currently accepted protocols:
 
@@ -1832,7 +1832,7 @@ The URL is normalized before duplicate detection so that equivalent normalized v
 
 # 📊 Current Analytics Model
 
-Shortify currently maintains an aggregate click count for each link.
+WhyLong currently maintains an aggregate click count for each link.
 
 ```text
 
@@ -1900,7 +1900,7 @@ Unused links = 3
 
 The current model does not store individual click events.
 
-Therefore, Shortify does **not** pretend to know:
+Therefore, WhyLong does **not** pretend to know:
 
 * Clicks per day
 
@@ -1926,7 +1926,7 @@ This keeps the current dashboard transparent and based on actual available data.
 
 ```text
 
-Shortify/
+WhyLong/
 
 │
 
@@ -2044,9 +2044,9 @@ Shortify/
 
 ```bash
 
-git clone https://github.com/devKartikeya/Shortify.git
+git clone https://github.com/devKartikeya/WhyLong.git
 
-cd Shortify
+cd WhyLong
 
 ```
 
@@ -2154,7 +2154,7 @@ https://www.example.com/products/category/something/very/long
 
 ```
 
-Shortify can generate:
+WhyLong can generate:
 
 ```text
 
@@ -2170,7 +2170,7 @@ When someone opens:
 
 ```
 
-Shortify:
+WhyLong:
 
 ```text
 
@@ -2214,7 +2214,7 @@ The authenticated owner can then see the link and its persisted click count from
 
 # 🎯 Project Goals
 
-Shortify is being developed with a focus on:
+WhyLong is being developed with a focus on:
 
 * Clean architecture
 
@@ -2472,7 +2472,7 @@ A formal license can be added as the project moves toward public production use.
 
 # ⭐ About
 
-**Shortify** is a full-stack URL shortening project built to explore and apply real-world engineering concepts:
+**WhyLong** is a full-stack URL shortening project built to explore and apply real-world engineering concepts:
 
 ```text
 
