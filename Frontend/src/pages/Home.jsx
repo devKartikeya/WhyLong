@@ -7,6 +7,7 @@ import Features from "../components/Home/Features";
 import HowItWorks from "../components/Home/HowItWorks";
 import QRCodePromo from "../components/Home/QRCodePromo";
 import MoreThanShortener from "../components/Home/MoreThanShortener";
+import FreeLaunchOffer from "../components/Home/FreeLaunchOffer";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <Navbar />
             <main>
                 <Hero />
+                <FreeLaunchOffer />
                 <Stats />
                 <About />
                 <Features />

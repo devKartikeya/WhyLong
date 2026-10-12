@@ -168,11 +168,20 @@ const Hero = () => {
 
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-1.5">
                             <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
-
                             <span className="text-xs font-semibold tracking-wide text-yellow-700">
-                                SIMPLE. FAST. POWERFUL.
+                                UNLIMITED LINKS. CUSTOM QR CODES. CLEAR INSIGHTS.
                             </span>
                         </div>
+
+                        <h1 className="text-xl mb-3 font-bold leading-[1.08] tracking-tight text-gray-950 sm:text-2xl lg:text-3xl">
+                            Long links?
+                            <span className="relative mx-2 inline-block">
+                                <span className="relative z-10 text-yellow-500">
+                                    WhyLong.
+                                </span>
+                                <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100" />
+                            </span>
+                        </h1>
 
                         {/* ================= HEADING ================= */}
 
