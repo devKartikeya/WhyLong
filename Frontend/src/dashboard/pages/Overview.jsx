@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import LinkCard from "../components/LinkCard";
 import EmptyLinks from "../components/EmptyLinks";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CreateLinkModal from "../components/CreateLinkModal";
 import { useOutletContext, useNavigate } from "react-router-dom";
 import ClicksOverTimeChart from "../components/ClicksOverTimeChart";

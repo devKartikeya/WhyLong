@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 
 const Topbar = ({ onMenuClick }) => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Topbar = ({ onMenuClick }) => {
             </button>
 
             {/* Search */}
-            <div className="hidden max-w-md flex-1 sm:block">
+            {/* <div className="hidden max-w-md flex-1 sm:block">
                 <div className="relative">
                     <svg
                         viewBox="0 0 24 24"
@@ -54,7 +55,10 @@ const Topbar = ({ onMenuClick }) => {
                         ⌘ K
                     </span>
                 </div>
-            </div>
+            </div> */}
+            <Link to={"/"} className="font-medium flex gap-2 items-center">
+                <FaHome />Home
+            </Link>
 
             {/* Right actions */}
             <div className="ml-auto flex items-center gap-2">

@@ -1,5 +1,4 @@
-import { FiArrowRight, FiCheck, FiDownload, FiGrid } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { FiCheck, FiDownload, FiGrid } from "react-icons/fi";
 
 const QRCodePromo = () => {
     return (

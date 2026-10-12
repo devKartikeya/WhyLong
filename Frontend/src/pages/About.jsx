@@ -9,8 +9,10 @@ const About = () => {
             <Helmet>
 
                 <title>About Us | WhyLong</title>
-                <meta name="description" content="Learn more about WhyLong and our approach to Link Management and analytics." />
-
+                <meta
+                    name="description"
+                    content="WhyLong is a free link management platform with unlimited short links, customizable QR codes, and click analytics. Get started with a free account."
+                />
             </Helmet>
             {/* HERO */}
             <section className="relative overflow-hidden border-b border-gray-100">
@@ -33,9 +35,15 @@ const About = () => {
                         </h1>
 
                         <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-500">
-                            WhyLong is built around one simple idea: sharing the web shouldn't be complicated.
-                            We make long, difficult URLs easier to share, manage, understand, and use.
+                            Shorten links, create custom QR codes, and understand your
+                            audience with click analytics. WhyLong brings it all together
+                            in one simple workspace — completely free to use with an account.
                         </p>
+
+                        <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-4 py-2 text-sm font-semibold text-yellow-800">
+                            <span className="text-base">✦</span>
+                            Unlimited short links. Unlimited QR codes. Free.
+                        </div>
 
                         <div className="mt-10 flex flex-wrap gap-3">
                             <button
@@ -85,14 +93,11 @@ const About = () => {
                         </h2>
 
                         <p className="mt-6 max-w-xl text-base leading-7 text-gray-500">
-                            WhyLong is a link management platform designed to make working with URLs faster
-                            and more organized.
+                            WhyLong is a free link management platform designed to make working with URLs faster, simpler, and more organized.
                         </p>
 
                         <p className="mt-4 max-w-xl text-base leading-7 text-gray-500">
-                            What starts with shortening a long URL can become an entire workflow — organizing
-                            links, tracking their performance, generating QR codes, and keeping everything
-                            connected to one personal workspace.
+                            Create short links, generate customizable QR codes, monitor click activity, and manage your links from one personal workspace. No need to pay just to access the core tools you need to share smarter.
                         </p>
                     </div>
 
@@ -169,14 +174,13 @@ const About = () => {
                             </h2>
 
                             <p className="mt-6 max-w-xl text-base leading-7 text-gray-500">
-                                WhyLong doesn't stop at creating short links. You can turn your links into
-                                customizable QR codes and use them across posters, packaging, presentations,
-                                print material, or anywhere a physical scan makes sense.
+                                Your links shouldn't stop at the screen. With WhyLong, turn your links into customizable QR codes for posters, packaging, presentations, business cards, or anywhere a physical scan makes sense.
+
+                                Customize colors, add your logo and brand text, choose your QR style, and export your codes in PNG or SVG format — included with your free WhyLong account.
                             </p>
 
                             <p className="mt-4 max-w-xl text-base leading-7 text-gray-500">
-                                Add your logo, customize the colors, choose your QR style, add brand text,
-                                and download the finished code directly from your WhyLong workspace.
+                                Unlimited QR codes for your links — without a separate QR generation fee.
                             </p>
 
                             {/* Capabilities */}
@@ -417,10 +421,7 @@ const About = () => {
                             </p>
 
                             <p className="mt-4 text-base leading-7 text-gray-500">
-                                WhyLong is one of those projects where product development and engineering
-                                meet: a real application built to solve a simple problem while exploring what
-                                goes into building software that can grow beyond a local development
-                                environment.
+                                WhyLong brings product development and engineering together. The goal is to build a useful, reliable link management platform that makes everyday sharing easier — while keeping its core tools accessible without a subscription fee.
                             </p>
 
                             {/* Skills */}
@@ -584,16 +585,22 @@ const About = () => {
                     </h2>
 
                     <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-gray-400 sm:text-lg">
-                        The goal isn't simply to create another URL shortener. It's to build a useful,
-                        reliable, and increasingly capable workspace around links — one improvement at a time.
+                        WhyLong is more than a URL shortener. It is a growing workspace
+                        for shorter links, customizable QR codes, and useful click insights.
+                        Start with a free account and explore the core features without
+                        a subscription fee.
                     </p>
+
+                    <div className="mt-5 text-sm font-semibold text-yellow-400">
+                        Unlimited short links. Unlimited QR codes. One free workspace.
+                    </div>
 
                     <div className="mt-10 flex flex-wrap justify-center gap-3">
                         <button
                             onClick={() => navigate("/")}
                             className="inline-flex cursor-pointer items-center gap-2 rounded-xl bg-yellow-400 px-6 py-3.5 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
                         >
-                            Try WhyLong
+                            Get Started - It's Free
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 20 20"

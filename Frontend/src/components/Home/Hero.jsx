@@ -173,7 +173,7 @@ const Hero = () => {
                             </span>
                         </div>
 
-                        <h1 className="text-xl mb-3 font-bold leading-[1.08] tracking-tight text-gray-950 sm:text-2xl lg:text-3xl">
+                        <h1 className="text-lg mb-3 font-bold leading-[1.08] tracking-tight text-gray-950 sm:text-xl lg:text-2xl">
                             Long links?
                             <span className="relative mx-2 inline-block">
                                 <span className="relative z-10 text-yellow-500">

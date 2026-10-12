@@ -1,4 +1,3 @@
-import React from "react";
 import { Helmet } from "react-helmet-async";
 import {
     FiArrowUpRight,
@@ -6,9 +5,6 @@ import {
     FiChevronRight,
     FiShield,
 } from "react-icons/fi";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
-import PagesNavbar from "../../components/PagesNavbar";
 
 const sections = [
     { id: "who-we-are", label: "Who We Are" },

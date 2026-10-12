@@ -520,9 +520,20 @@ const MyLinks = () => {
                                                             </button>
                                                             <div className="flex gap-3 items-center">
                                                                 <p className="mt-1 text-xs text-gray-400">/{link.shortCode}</p>
-                                                                <div className={` ${link.isActive == true ? "bg-green-500" : "bg-red-500"} inline-flex items-center gap-2 rounded-full px-2 py-1 text-[10px] font-medium text-white`}>
-                                                                    <span className="h-1 w-1 rounded-full bg-white" />
-                                                                    <span className={`text-xs font-bold uppercase tracking-widest text-white `}>
+                                                                <div
+                                                                    className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 ${link.isActive === true
+                                                                            ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                                                                            : "border-gray-200 bg-gray-100 text-gray-500"
+                                                                        }`}
+                                                                >
+                                                                    <span
+                                                                        className={`h-1.5 w-1.5 rounded-full ${link.isActive === true
+                                                                                ? "bg-emerald-500"
+                                                                                : "bg-gray-400"
+                                                                            }`}
+                                                                    />
+
+                                                                    <span className="text-[10px] font-semibold uppercase tracking-wider">
                                                                         {link.isActive === true ? "Active" : "Inactive"}
                                                                     </span>
                                                                 </div>

@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 import HelpSupport from "./pages/HelpSupport";
 import MyLinks from "./dashboard/pages/MyLinks";
 import QRCodes from "./dashboard/pages/QRCodes";
@@ -65,6 +66,8 @@ const App = () => {
                         />
                     </Route>
                 </Route>
+
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     );

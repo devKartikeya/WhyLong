@@ -4,6 +4,10 @@ import AuthPanel from "./Auth/AuthPanel";
 
 const navItems = [
     {
+        name: "Home",
+        path: "/"
+    },
+    {
         name: "About",
         path: "/about",
     },
@@ -142,20 +146,18 @@ const PagesNavbar = () => {
                                 <Link
                                     key={item.path}
                                     to={item.path}
-                                    className={`relative py-2 text-sm font-medium transition-colors ${
-                                        isActive
+                                    className={`relative py-2 text-sm font-medium transition-colors ${isActive
                                             ? "text-gray-950"
                                             : "text-gray-500 hover:text-gray-950"
-                                    }`}
+                                        }`}
                                 >
                                     {item.name}
 
                                     <span
-                                        className={`absolute -bottom-[18px] left-0 h-0.5 bg-yellow-400 transition-all duration-300 ${
-                                            isActive
+                                        className={`absolute -bottom-[18px] left-0 h-0.5 bg-yellow-400 transition-all duration-300 ${isActive
                                                 ? "w-full"
                                                 : "w-0"
-                                        }`}
+                                            }`}
                                     />
                                 </Link>
                             );
@@ -230,11 +232,10 @@ const PagesNavbar = () => {
 
                 {/* ================= MOBILE MENU ================= */}
                 <div
-                    className={`absolute left-0 top-full z-[60] w-full overflow-hidden border-t border-gray-100 bg-white shadow-lg transition-all duration-300 md:hidden ${
-                        isMobileMenuOpen
+                    className={`absolute left-0 top-full z-[60] w-full overflow-hidden border-t border-gray-100 bg-white shadow-lg transition-all duration-300 md:hidden ${isMobileMenuOpen
                             ? "visible max-h-[600px] translate-y-0 opacity-100"
                             : "invisible max-h-0 -translate-y-2 opacity-0"
-                    }`}
+                        }`}
                 >
                     <div className="px-6 pb-6 pt-4">
 
@@ -252,11 +253,10 @@ const PagesNavbar = () => {
                                         onClick={
                                             closeMobileMenu
                                         }
-                                        className={`flex w-full items-center justify-between rounded-lg px-4 py-3.5 text-left text-sm font-medium transition-all ${
-                                            isActive
+                                        className={`flex w-full items-center justify-between rounded-lg px-4 py-3.5 text-left text-sm font-medium transition-all ${isActive
                                                 ? "bg-yellow-50 text-gray-950"
                                                 : "text-gray-600 hover:bg-gray-50 hover:text-gray-950"
-                                        }`}
+                                            }`}
                                     >
                                         <span>{item.name}</span>
 

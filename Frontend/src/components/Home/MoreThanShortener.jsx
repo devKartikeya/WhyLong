@@ -1,8 +1,6 @@
-import React from "react";
 import {
     FiArrowUpRight,
     FiLayers,
-    FiShield,
     FiBarChart2,
     FiTrendingUp,
 } from "react-icons/fi";
