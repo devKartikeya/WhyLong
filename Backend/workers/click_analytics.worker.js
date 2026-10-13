@@ -19,9 +19,9 @@ const connectDB = async () => {
   }
 };
 
-connectDB();
 
-async function start() {
+async function startClickAnalyticsWorker() {
+    connectDB();
     await connectRabbitMQ();
 
     const channel = getRabbitMQChannel();
@@ -80,4 +80,4 @@ async function logAnalyticsData(payload) {
     console.log("Click logged:", click);
 }
 
-start();
+module.exports = startClickAnalyticsWorker;

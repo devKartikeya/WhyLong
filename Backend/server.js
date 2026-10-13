@@ -14,15 +14,9 @@ async function startServer() {
   await client.connect();
   await connectRabbitMQ();
 
-  await client.set('foo', 'bar');
-  const result = await client.get('foo');
-  console.log(result)  // >>> bar
-
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
-
-
 
   /* Periodically synchronize click counts from Redis to the database every 60 seconds */
   setInterval(() => {
@@ -32,4 +26,5 @@ async function startServer() {
   setInterval(cron, 2 * 60 * 1000); /* Run the cron job every 2 minutes */
 }
 
-startServer();
+// startServer();
+module.exports = startServer;
