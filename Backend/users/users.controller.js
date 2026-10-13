@@ -160,8 +160,8 @@ function changePasswordController(req, res) {
 function logoutUserController(req, res) {
     res.clearCookie("token", {
         httpOnly: true,
-        secure: false,
-        sameSite: "lax"
+        secure: true,
+        sameSite: "none"
     });
     res.status(200).json({
         success: true,
