@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
 
@@ -88,14 +88,6 @@ const Footer = () => {
         {
             name: "Features",
             href: "#features"
-        },
-        {
-            name: "Documentation",
-            href: "#"
-        },
-        {
-            name: "API",
-            href: "#"
         }
     ];
 
@@ -107,10 +99,6 @@ const Footer = () => {
         {
             name: "Contact",
             href: "/contact"
-        },
-        {
-            name: "GitHub",
-            href: "#"
         },
         {
             name: "Help & Support",
@@ -202,15 +190,29 @@ const Footer = () => {
                                     />
                                 </a>
 
-                                {/* X */}
+                                {/* Insta */}
                                 <a
-                                    href="#"
+                                    href="https://instagram.com/devKartikeya"
                                     aria-label="X"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-800 text-gray-400 transition-all hover:border-gray-700 hover:bg-gray-900 hover:text-white"
                                 >
-                                    <FaTwitter
+                                    <FaInstagram
+                                        size={20}
+                                    />
+                                </a>
+
+                                {/* Facebook */}
+
+                                <a
+                                    href="https://www.facebook.com/share/1GS5r2C9xc/"
+                                    aria-label="X"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-800 text-gray-400 transition-all hover:border-gray-700 hover:bg-gray-900 hover:text-white"
+                                >
+                                    <FaFacebook
                                         size={20}
                                     />
                                 </a>
@@ -254,26 +256,6 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        {/* Resources */}
-                        <div>
-                            <h3 className="text-sm font-semibold text-white">
-                                Resources
-                            </h3>
-
-                            <ul className="mt-6 space-y-4">
-                                {resourceLinks.map((link) => (
-                                    <li key={link.name}>
-                                        <a
-                                            href={link.href}
-                                            className="text-sm text-gray-400 transition-colors hover:text-yellow-400"
-                                        >
-                                            {link.name}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
                         {/* Company */}
                         <div>
                             <h3 className="text-sm font-semibold text-white">
@@ -289,6 +271,26 @@ const Footer = () => {
                                         >
                                             {link.name}
                                         </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Resources */}
+                        <div>
+                            <h3 className="text-sm font-semibold text-white">
+                                Resources
+                            </h3>
+
+                            <ul className="mt-6 space-y-4">
+                                {resourceLinks.map((link) => (
+                                    <li key={link.name}>
+                                        <a
+                                            href={link.href}
+                                            className="text-sm text-gray-400 transition-colors hover:text-yellow-400"
+                                        >
+                                            {link.name}
+                                        </a>
                                     </li>
                                 ))}
                             </ul>

@@ -91,25 +91,6 @@ const FreeLaunchOffer = () => {
                         </div>
 
                         <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <Link
-                                to="/register"
-                                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gray-800 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-gray-950/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
-                            >
-                                Create your free account
-
-                                <svg
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                    className="h-4 w-4"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 1 1-1.06-1.06l3.22-3.22H3.75A.75.75 0 0 1 3 10Z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                            </Link>
 
                             <span className="text-sm text-gray-500">
                                 No payment required to get started.

@@ -39,10 +39,13 @@ const QRCodePromo = () => {
                                 {/* QR Card */}
                                 <div className="relative rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
 
+                                    <p className="mt-4 text-center text-md font-semibold text-gray-950">
+                                        Try this One ! 😊
+                                    </p>
                                     <div className="relative flex h-64 w-64 items-center justify-center overflow-hidden rounded-xl bg-white sm:h-72 sm:w-72">
 
                                         {/* Fake QR pattern */}
-                                        <div className="grid h-full w-full grid-cols-11 gap-1 p-4 opacity-90">
+                                        {/* <div className="grid h-full w-full grid-cols-11 gap-1 p-4 opacity-90">
                                             {[
                                                 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
                                                 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1,
@@ -65,10 +68,11 @@ const QRCodePromo = () => {
                                                     }
                                                 />
                                             ))}
-                                        </div>
+                                        </div> */}
+                                        <img src="/WhyLong.png" alt="" className="" />
 
                                         {/* Center logo */}
-                                        <div className="absolute flex h-16 w-16 items-center justify-center rounded-xl border-4 border-white bg-yellow-400 shadow-sm">
+                                        {/* <div className="absolute flex h-16 w-16 items-center justify-center rounded-xl border-4 border-white bg-yellow-400 shadow-sm">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24"
@@ -80,13 +84,13 @@ const QRCodePromo = () => {
                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
                                                 <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
                                             </svg>
-                                        </div>
+                                        </div> */}
                                     </div>
 
                                     {/* Brand name */}
-                                    <p className="mt-4 text-center text-sm font-semibold text-gray-950">
+                                    {/* <p className="mt-4 text-center text-sm font-semibold text-gray-950">
                                         WhyLong
-                                    </p>
+                                    </p> */}
                                 </div>
 
                                 {/* Floating download badge */}
