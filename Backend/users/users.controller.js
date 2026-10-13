@@ -3,16 +3,8 @@ const User = require("./users.model");
 const bcrypt = require("bcrypt");
 const { getRabbitMQChannel } = require("../configurations/rabbitmq");
 const generateResetToken = require("../utilities/generateResetToken");
-
 const sendPasswordResetEmail = require("../email/email.service").sendPasswordResetEmail;
-
-const {
-    userRegisterService,
-    userLoginService,
-    deleteUserService,
-    changePasswordService,
-    updateProfileService
-} = require("./users.service");
+const { userRegisterService, userLoginService, deleteUserService, changePasswordService, updateProfileService } = require("./users.service");
 
 async function userRegisterController(req, res) {
     try {
@@ -38,7 +30,7 @@ async function userRegisterController(req, res) {
         const channel = getRabbitMQChannel();
 
         channel.publish(
-            "shortify_exchange",
+            "whylong_exchange",
             "user.registered",
             Buffer.from(
                 JSON.stringify({
@@ -52,8 +44,8 @@ async function userRegisterController(req, res) {
         // Store JWT in HTTP-only cookie
         res.cookie("token", user.token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: true,
+            sameSite: "none",
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
 
@@ -93,8 +85,8 @@ async function userLoginController(req, res) {
         // Store JWT in HTTP-only cookie
         res.cookie("token", result.token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: true,
+            sameSite: "none",
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
 

@@ -7,13 +7,13 @@ const emailRouter = require("./email/email.route");
 const corsOptions = require("./configurations/cors");
 const helmetConfig = require("./configurations/helmet");
 const accessLogStream = require("./configurations/logs");
-// const rateLimiter = require("./configurations/rate-limiter");
+const rateLimiter = require("./configurations/rate-limiter");
 const { redirectUrlController } = require("./urls/urls.controller");
 
 const app = express();
 
 app.use(corsOptions); /* Apply CORS configuration to all routes */
-// app.use(rateLimiter); /* Apply rate limiting to all routes */
+app.use(rateLimiter); /* Apply rate limiting to all routes */
 app.use(express.urlencoded({ extended: true })); /* Parse incoming URL-encoded requests */
 app.use(express.json()); /* Parse incoming JSON requests */
 app.use(cookieParser()); /* Parse cookies from incoming requests */

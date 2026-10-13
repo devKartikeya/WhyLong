@@ -1,5 +1,5 @@
 {
-  "name": "shortify",
+  "name": "whylong",
   "version": "1.0.0",
   "description": "It is a URL-Shortener built on MERN with best DevOps practises.",
   "license": "ISC",
@@ -7,7 +7,7 @@
   "type": "commonjs",
   "main": "app.js",
   "scripts": {
-    "start": "node --env-file=.env --watch server.js",
+    "start": "node --env-file=.env index.js",
     "test": "jest"
   },
   "dependencies": {

@@ -20,15 +20,18 @@ async function createShortUrl(
 ) {
     let parsedUrl;
 
-    const isUserActive = await User.findOne({ _id: userId });
+    if (userId) {
+        const isUserActive = await User.findOne({ _id: userId });
 
-    console.log("isUserActive:", isUserActive);
+        console.log("isUserActive:", isUserActive);
 
-    if (isUserActive.isActive == false) {
-        throw new Error(
-            "Your account is inactive. Cannot create short URL."
-        );
+        if (isUserActive.isActive == false) {
+            throw new Error(
+                "Your account is inactive. Cannot create short URL."
+            );
+        }
     }
+
 
     try {
         parsedUrl =

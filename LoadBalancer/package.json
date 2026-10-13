@@ -1,5 +1,5 @@
 {
-  "name": "shortify-loadbalancer",
+  "name": "whylong-loadbalancer",
   "version": "1.0.0",
   "description": "It is the load balancer to distribute load on the distributed servers of shortify",
   "license": "ISC",

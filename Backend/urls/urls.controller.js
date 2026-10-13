@@ -87,7 +87,7 @@ async function redirectUrlController(req, res) {
         const channel = getRabbitMQChannel();
 
         channel.publish(
-            "shortify_exchange",
+            "whylong_exchange",
             "url.clicked",
             Buffer.from(
                 JSON.stringify({

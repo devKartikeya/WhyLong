@@ -10,7 +10,7 @@ async function sendContactEmail({
         "https://api.brevo.com/v3/smtp/email",
         {
             sender: {
-                name: "Shortify",
+                name: "WhyLong",
                 email: process.env.SUPPORT_EMAIL
             },
 
@@ -53,7 +53,7 @@ async function sendContactEmail({
                                 font-weight: 700;
                                 color: #ffffff;
                             ">
-                                Shortify
+                                WhyLong
                             </div>
 
                             <div style="
@@ -83,7 +83,7 @@ async function sendContactEmail({
                                 color: #71717a;
                             ">
                                 Someone has submitted a new message through
-                                the Shortify contact form.
+                                the WhyLong contact form.
                             </p>
 
                             <!-- Contact Details -->
@@ -165,7 +165,7 @@ async function sendContactEmail({
                                 font-size: 12px;
                                 color: #a1a1aa;
                             ">
-                                © ${new Date().getFullYear()} Shortify
+                                © ${new Date().getFullYear()} WhyLong
                             </p>
                         </div>
 
@@ -193,7 +193,7 @@ async function sendPasswordResetEmail({
         "https://api.brevo.com/v3/smtp/email",
         {
             sender: {
-                name: "Shortify",
+                name: "WhyLong",
                 email: process.env.SUPPORT_EMAIL
             },
 
@@ -203,7 +203,7 @@ async function sendPasswordResetEmail({
                 }
             ],
 
-            subject: "Reset your Shortify password",
+            subject: "Reset your WhyLong password",
 
             htmlContent: `
                 <div style="
@@ -232,7 +232,7 @@ async function sendPasswordResetEmail({
                                 font-weight: 700;
                                 color: #ffffff;
                             ">
-                                Shortify
+                                WhyLong
                             </div>
 
                             <div style="
@@ -262,7 +262,7 @@ async function sendPasswordResetEmail({
                                 color: #52525b;
                             ">
                                 We received a request to reset the password
-                                associated with your Shortify account.
+                                associated with your WhyLong account.
                             </p>
 
                             <p style="
@@ -350,7 +350,7 @@ async function sendPasswordResetEmail({
                                 font-size: 12px;
                                 color: #a1a1aa;
                             ">
-                                This is an automated security email from Shortify.
+                                This is an automated security email from WhyLong.
                             </p>
 
                             <p style="
@@ -358,7 +358,7 @@ async function sendPasswordResetEmail({
                                 font-size: 12px;
                                 color: #a1a1aa;
                             ">
-                                © ${new Date().getFullYear()} Shortify
+                                © ${new Date().getFullYear()} WhyLong
                             </p>
                         </div>
 
@@ -387,7 +387,7 @@ async function sendWelcomeEmail({
         {
             sender: {
                 email: process.env.SUPPORT_EMAIL,
-                name: "Shortify"
+                name: "WhyLong"
             },
 
             to: [
@@ -397,7 +397,7 @@ async function sendWelcomeEmail({
                 }
             ],
 
-            subject: "Welcome to Shortify 🚀",
+            subject: "Welcome to WhyLong 🚀",
 
             htmlContent: `
                 <div style="
@@ -426,7 +426,7 @@ async function sendWelcomeEmail({
                                 font-weight: 700;
                                 color: #ffffff;
                             ">
-                                Shortify
+                                WhyLong
                             </div>
 
                             <div style="
@@ -463,7 +463,7 @@ async function sendWelcomeEmail({
                                 line-height: 1.7;
                                 color: #52525b;
                             ">
-                                Your Shortify account is ready to go.
+                                Your WhyLong account is ready to go.
                                 You can now create, manage, and share
                                 shortened URLs from one place.
                             </p>
@@ -483,7 +483,7 @@ async function sendWelcomeEmail({
                                     font-weight: 700;
                                     color: #18181b;
                                 ">
-                                    What you can do with Shortify
+                                    What you can do with WhyLong
                                 </p>
 
                                 <p style="
@@ -529,7 +529,7 @@ async function sendWelcomeEmail({
                                 line-height: 1.7;
                                 color: #52525b;
                             ">
-                                — Team Shortify
+                                — Team WhyLong
                             </p>
 
                         </div>
@@ -555,7 +555,7 @@ async function sendWelcomeEmail({
                                 font-size: 12px;
                                 color: #a1a1aa;
                             ">
-                                © ${new Date().getFullYear()} Shortify
+                                © ${new Date().getFullYear()} WhyLong
                             </p>
                         </div>
 
