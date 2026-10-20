@@ -3,4 +3,22 @@
   <url>
     <loc>https://whylong.vercel.app/</loc>
   </url>
+  <url>
+    <loc>https://whylong.vercel.app/about</loc>
+  </url>
+  <url>
+    <loc>https://whylong.vercel.app/contact</loc>
+  </url>
+  <url>
+    <loc>https://whylong.vercel.app/help</loc>
+  </url>
+  <url>
+    <loc>https://whylong.vercel.app/legal/privacy-policy</loc>
+  </url>
+  <url>
+    <loc>https://whylong.vercel.app/legal/cookie-policy</loc>
+  </url>
+  <url>
+    <loc>https://whylong.vercel.app/legal/terms-and-conditions</loc>
+  </url>
 </urlset>

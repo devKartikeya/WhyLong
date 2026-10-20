@@ -1,2 +1,6 @@
 User-agent: *
 Allow: /
+
+Disallow: /dashboard
+
+Sitemap: https://whylong.vercel.app/sitemap.xml
