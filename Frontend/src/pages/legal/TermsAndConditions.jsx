@@ -39,11 +39,40 @@ const sections = [
 const TermsAndConditions = () => {
     return (
         <main className="min-h-screen bg-white text-gray-900">
+
             <Helmet>
-                <title>
-                    Terms and Conditions | WhyLong
-                </title>
-                <meta name="description" content="Terms and Conditions of WhyLong. It encompasses all the terms that governs WhyLong's services." />
+                <title>Terms & Conditions | WhyLong</title>
+
+                <meta
+                    name="description"
+                    content="Read the terms and conditions governing your use of WhyLong's URL shortening, QR code generation, and link management services."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/legal/terms-and-conditions"
+                />
+
+                <meta name="robots" content="index, follow" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+                <meta property="og:title" content="Terms & Conditions | WhyLong" />
+                <meta
+                    property="og:description"
+                    content="Review the terms that apply when using WhyLong's URL shortening and link management services."
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/legal/terms-and-conditions"
+                />
+
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="Terms & Conditions | WhyLong" />
+                <meta
+                    name="twitter:description"
+                    content="Read the terms governing your use of WhyLong."
+                />
             </Helmet>
             {/* Hero */}
             <section className="border-b border-gray-100 bg-gray-50/70 pt-32">

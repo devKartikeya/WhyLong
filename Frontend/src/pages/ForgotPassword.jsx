@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -57,6 +58,48 @@ const ForgotPassword = () => {
 
     return (
         <div className="min-h-screen bg-gray-50 px-6 py-7">
+
+            <Helmet>
+                <title>Forgot Password | WhyLong</title>
+
+                <meta
+                    name="description"
+                    content="Reset your WhyLong account password securely. Request a password reset link to regain access to your account."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/forgot-password"
+                />
+
+                <meta name="robots" content="noindex, follow" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+                <meta
+                    property="og:title"
+                    content="Forgot Password | WhyLong"
+                />
+                <meta
+                    property="og:description"
+                    content="Recover access to your WhyLong account by requesting a password reset link."
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/forgot-password"
+                />
+
+                <meta name="twitter:card" content="summary" />
+                <meta
+                    name="twitter:title"
+                    content="Forgot Password | WhyLong"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Reset your WhyLong account password and regain access."
+                />
+            </Helmet>
+
             <div className="mx-auto flex min-h-[80vh] max-w-md items-center">
                 <div className="w-full">
                     {/* Logo */}
@@ -146,11 +189,10 @@ const ForgotPassword = () => {
                                                 "Please enter a valid email address",
                                         },
                                     })}
-                                    className={`w-full rounded-lg border bg-white px-4 py-3 text-sm text-gray-950 outline-none transition-all placeholder:text-gray-400 focus:ring-4 focus:ring-yellow-400/10 ${
-                                        errors.email
-                                            ? "border-red-400 focus:border-red-400"
-                                            : "border-gray-200 focus:border-yellow-400"
-                                    }`}
+                                    className={`w-full rounded-lg border bg-white px-4 py-3 text-sm text-gray-950 outline-none transition-all placeholder:text-gray-400 focus:ring-4 focus:ring-yellow-400/10 ${errors.email
+                                        ? "border-red-400 focus:border-red-400"
+                                        : "border-gray-200 focus:border-yellow-400"
+                                        }`}
                                 />
 
                                 {errors.email && (

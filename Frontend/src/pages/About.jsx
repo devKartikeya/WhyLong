@@ -6,14 +6,54 @@ const About = () => {
 
     return (
         <main className="min-h-screen bg-white text-gray-950">
-            <Helmet>
 
-                <title>About Us | WhyLong</title>
+            <Helmet>
+                <title>About WhyLong | Simple Link Management</title>
+
                 <meta
                     name="description"
-                    content="WhyLong is a free link management platform with unlimited short links, customizable QR codes, and click analytics. Get started with a free account."
+                    content="Learn about WhyLong, a free link management platform for shortening URLs, creating QR codes, and managing links in one place."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/about"
+                />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+                <meta
+                    property="og:title"
+                    content="About WhyLong | Simple Link Management"
+                />
+                <meta
+                    property="og:description"
+                    content="Discover WhyLong's approach to simple URL shortening, QR codes, and link management."
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/about"
+                />
+                <meta
+                    property="og:image"
+                    content="https://whylong.vercel.app/og-image.png"
+                />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="About WhyLong | Simple Link Management"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Discover simple URL shortening, QR codes, and link management with WhyLong."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://whylong.vercel.app/og-image.png"
                 />
             </Helmet>
+
             {/* HERO */}
             <section className="relative overflow-hidden border-b border-gray-100">
                 {/* Background decoration */}

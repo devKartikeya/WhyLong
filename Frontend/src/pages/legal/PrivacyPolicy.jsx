@@ -43,10 +43,38 @@ const PrivacyPolicy = () => {
     return (
         <div className="min-h-screen bg-white text-gray-900">
             <Helmet>
-                <title>
-                    Privacy Policy | WhyLong
-                </title>
-                <meta name="description" content="Privacy Policy of WhyLong. It lists all details that WhyLong follows to maintain user's privacy and security." />
+                <title>Privacy Policy | WhyLong</title>
+
+                <meta
+                    name="description"
+                    content="Learn how WhyLong collects, uses, stores, and protects information when you use its URL shortening, QR code generation, and link management services."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/legal/privacy-policy"
+                />
+
+                <meta name="robots" content="index, follow" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+                <meta property="og:title" content="Privacy Policy | WhyLong" />
+                <meta
+                    property="og:description"
+                    content="Understand how WhyLong handles and protects information associated with your use of its services."
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/legal/privacy-policy"
+                />
+
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="Privacy Policy | WhyLong" />
+                <meta
+                    name="twitter:description"
+                    content="Learn how WhyLong handles information and protects user privacy."
+                />
             </Helmet>
             {/* =========================
                 HERO

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { LockKeyhole, Eye, EyeOff, ArrowLeft, CheckCircle2, AlertCircle, Link2 } from "lucide-react";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -151,6 +152,49 @@ const ResetPassword = () => {
 
     return (
         <div className="min-h-screen bg-white px-4 py-5">
+
+            <Helmet>
+                <title>Reset Password | WhyLong</title>
+
+                <meta
+                    name="description"
+                    content="Create a new password for your WhyLong account using the password reset process. Securely restore access to your account."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/reset-password"
+                />
+
+                <meta name="robots" content="noindex, follow" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+
+                <meta
+                    property="og:title"
+                    content="Reset Password | WhyLong"
+                />
+                <meta
+                    property="og:description"
+                    content="Reset your WhyLong account password and securely regain access to your account."
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/reset-password"
+                />
+
+                <meta name="twitter:card" content="summary" />
+                <meta
+                    name="twitter:title"
+                    content="Reset Password | WhyLong"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Securely reset your WhyLong account password."
+                />
+            </Helmet>
+
             <div className="mx-auto flex min-h-[85vh] max-w-md items-center justify-center">
                 <div className="w-full">
                     {/* Header */}

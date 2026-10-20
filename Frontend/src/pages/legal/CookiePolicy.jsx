@@ -34,9 +34,40 @@ const sections = [
 const CookiePolicy = () => {
     return (
         <main className="min-h-screen bg-white text-gray-900">
+
             <Helmet>
                 <title>Cookie Policy | WhyLong</title>
-                <meta name="description" content="Cookie Policy of WhyLong. It explains how WhyLong uses cookies and similar technologies." />
+
+                <meta
+                    name="description"
+                    content="Learn how WhyLong uses cookies and similar technologies, why they may be used, and how you can manage your cookie preferences."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/legal/cookie-policy"
+                />
+
+                <meta name="robots" content="index, follow" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+                <meta property="og:title" content="Cookie Policy | WhyLong" />
+                <meta
+                    property="og:description"
+                    content="Understand how WhyLong uses cookies and how you can manage your preferences."
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/legal/cookie-policy"
+                />
+
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="Cookie Policy | WhyLong" />
+                <meta
+                    name="twitter:description"
+                    content="Learn about cookies and similar technologies used by WhyLong."
+                />
             </Helmet>
             {/* Hero */}
             <section className="border-b border-gray-100 bg-gray-50/70 pt-32">

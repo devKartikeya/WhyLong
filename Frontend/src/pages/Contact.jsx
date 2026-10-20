@@ -1,4 +1,4 @@
-import { useState } from "react"; 
+import { useState } from "react";
 import {
     Mail,
     MessageCircle,
@@ -87,10 +87,54 @@ const Contact = () => {
     };
     return (
         <main className="min-h-screen bg-white text-slate-900">
+
             <Helmet>
-                <title>Contact Us | WhyLong</title>
-                <meta name="description" content="Contact with WhyLong team. We will help you to solve your queries and improve your experience with us." />
+                <title>Contact WhyLong | Get in Touch</title>
+
+                <meta
+                    name="description"
+                    content="Have a question or need help with WhyLong? Contact our team for support, feedback, or enquiries about our URL shortening and QR code tools."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/contact"
+                />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+                <meta
+                    property="og:title"
+                    content="Contact WhyLong | Get in Touch"
+                />
+                <meta
+                    property="og:description"
+                    content="Contact WhyLong for help, feedback, or enquiries about our link management tools."c
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/contact"
+                />
+                <meta
+                    property="og:image"
+                    content="https://whylong.vercel.app/og-image.png"
+                />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="Contact WhyLong | Get in Touch"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Get in touch with WhyLong for support, feedback, or enquiries."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://whylong.vercel.app/og-image.png"
+                />
             </Helmet>
+
             {/* ================= HERO ================= */}
             <section className="relative overflow-hidden pt-28 pb-16">
                 {/* Background decoration */}

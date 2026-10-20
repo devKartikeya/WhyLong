@@ -1,10 +1,37 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function NotFound() {
     const navigate = useNavigate();
 
     return (
         <main className="relative flex min-h-screen flex-col overflow-hidden bg-white text-gray-950">
+
+            <Helmet>
+                <title>Page Not Found (404) | WhyLong</title>
+
+                <meta
+                    name="description"
+                    content="The page you're looking for couldn't be found. Return to WhyLong to shorten URLs, generate QR codes, and manage your links."
+                />
+
+                <meta name="robots" content="noindex, follow" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+                <meta property="og:title" content="Page Not Found | WhyLong" />
+                <meta
+                    property="og:description"
+                    content="This page doesn't exist or may have been moved. Visit WhyLong to get back on track."
+                />
+
+                <meta name="twitter:card" content="summary" />
+                <meta name="twitter:title" content="Page Not Found | WhyLong" />
+                <meta
+                    name="twitter:description"
+                    content="This page doesn't exist or may have been moved. Return to WhyLong."
+                />
+            </Helmet>
             {/* Background decoration */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
                 <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-yellow-100/60 blur-3xl" />

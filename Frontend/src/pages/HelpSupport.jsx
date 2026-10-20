@@ -186,8 +186,52 @@ const HelpSupport = () => {
 
             <Helmet>
                 <title>Help & Support | WhyLong</title>
-                <meta name="description" content="Help desk of WhyLong. Here are the most frequently asked questions regarding WhyLong." />
+
+                <meta
+                    name="description"
+                    content="Find help with WhyLong's URL shortener, QR code generator, and link management tools. Get answers to common questions and troubleshoot issues."
+                />
+
+                <link
+                    rel="canonical"
+                    href="https://whylong.vercel.app/help"
+                />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="WhyLong" />
+
+                <meta
+                    property="og:title"
+                    content="Help & Support | WhyLong"
+                />
+                <meta
+                    property="og:description"
+                    content="Get answers to common questions and find help using WhyLong's URL shortening, QR code, and link management tools."
+                />
+                <meta
+                    property="og:url"
+                    content="https://whylong.vercel.app/help"
+                />
+                <meta
+                    property="og:image"
+                    content="https://whylong.vercel.app/og-image.png"
+                />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="Help & Support | WhyLong"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Find answers and get help with WhyLong's link shortening and QR code tools."
+                />
+                <meta
+                    name="twitter:image"
+                    content="https://whylong.vercel.app/og-image.png"
+                />
             </Helmet>
+
 
             {/* =====================================================
                 HERO
@@ -381,21 +425,19 @@ const HelpSupport = () => {
 
                                             <ChevronDown
                                                 size={19}
-                                                className={`shrink-0 text-slate-400 transition-transform duration-300 ${
-                                                    isOpen
+                                                className={`shrink-0 text-slate-400 transition-transform duration-300 ${isOpen
                                                         ? "rotate-180 text-yellow-500"
                                                         : ""
-                                                }`}
+                                                    }`}
                                             />
 
                                         </button>
 
                                         <div
-                                            className={`grid transition-all duration-300 ${
-                                                isOpen
+                                            className={`grid transition-all duration-300 ${isOpen
                                                     ? "grid-rows-[1fr]"
                                                     : "grid-rows-[0fr]"
-                                            }`}
+                                                }`}
                                         >
                                             <div className="overflow-hidden">
                                                 <p className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-7 text-slate-500">
@@ -449,11 +491,10 @@ const HelpSupport = () => {
 
                         <button
                             onClick={() => setActiveCategory("All")}
-                            className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                                activeCategory === "All"
+                            className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${activeCategory === "All"
                                     ? "bg-slate-900 text-white"
                                     : "border border-slate-200 bg-white text-slate-500 hover:border-yellow-300 hover:text-slate-800"
-                            }`}
+                                }`}
                         >
                             All
                         </button>
@@ -464,11 +505,10 @@ const HelpSupport = () => {
                                 onClick={() =>
                                     handleCategoryClick(category.title)
                                 }
-                                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                                    activeCategory === category.title
+                                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${activeCategory === category.title
                                         ? "bg-yellow-500 text-white"
                                         : "border border-slate-200 bg-white text-slate-500 hover:border-yellow-300 hover:text-slate-800"
-                                }`}
+                                    }`}
                             >
                                 {category.title}
                             </button>
@@ -513,21 +553,19 @@ const HelpSupport = () => {
 
                                             <ChevronDown
                                                 size={20}
-                                                className={`shrink-0 text-slate-400 transition-transform duration-300 ${
-                                                    isOpen
+                                                className={`shrink-0 text-slate-400 transition-transform duration-300 ${isOpen
                                                         ? "rotate-180 text-yellow-500"
                                                         : ""
-                                                }`}
+                                                    }`}
                                             />
 
                                         </button>
 
                                         <div
-                                            className={`grid transition-all duration-300 ${
-                                                isOpen
+                                            className={`grid transition-all duration-300 ${isOpen
                                                     ? "grid-rows-[1fr]"
                                                     : "grid-rows-[0fr]"
-                                            }`}
+                                                }`}
                                         >
 
                                             <div className="overflow-hidden">
