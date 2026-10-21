@@ -11,6 +11,7 @@ const rateLimiter = require("./configurations/rate-limiter");
 const { redirectUrlController } = require("./urls/urls.controller");
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.use(corsOptions); /* Apply CORS configuration to all routes */
 app.use(rateLimiter); /* Apply rate limiting to all routes */

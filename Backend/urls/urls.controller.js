@@ -85,6 +85,10 @@ async function redirectUrlController(req, res) {
         const parsedUserAgent = parseUserAgent(userAgent);
         const channel = getRabbitMQChannel();
 
+        console.log("req.ip:", req.ip);
+        console.log("socket IP:", req.socket.remoteAddress);
+        console.log("forwarded-for:", req.headers["x-forwarded-for"]);
+
         channel.publish(
             "whylong_exchange",
             "url.clicked",

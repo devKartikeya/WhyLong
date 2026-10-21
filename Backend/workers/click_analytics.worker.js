@@ -57,6 +57,7 @@ async function startClickAnalyticsWorker() {
 async function logAnalyticsData(payload) {
     const url = await URLModel.findOne({ originalUrl: payload.originalUrl });
     const geo = await getGeoLocation(payload.ip);
+    console.log(geo);
     const click = await Clicks.create({
         urlId: url._id,
         shortCode: url.shortCode,
