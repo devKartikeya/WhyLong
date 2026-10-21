@@ -2,7 +2,7 @@ import { FiCheck, FiDownload, FiGrid } from "react-icons/fi";
 
 const QRCodePromo = () => {
     return (
-        <section className="border-t border-gray-100 bg-white py-24 lg:py-32">
+        <section className="border-t border-gray-100 bg-white py-24 lg:py-32" id="qr-codes">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
                 {/* Heading */}
