@@ -89,6 +89,21 @@ async function redirectUrlController(req, res) {
         console.log("socket IP:", req.socket.remoteAddress);
         console.log("forwarded-for:", req.headers["x-forwarded-for"]);
 
+        function getClientIp(req) {
+            const forwardedFor = req.headers["x-forwarded-for"];
+
+            if (typeof forwardedFor === "string" && forwardedFor.length > 0) {
+                // In this observed chain, the first IP is the original client.
+                const firstIp = forwardedFor.split(",")[0].trim();
+
+                if (firstIp) return firstIp;
+            }
+
+            return req.ip || req.socket.remoteAddress || "unknown";
+        }
+
+        const ip = getClientIp(req);
+
         channel.publish(
             "whylong_exchange",
             "url.clicked",
@@ -97,7 +112,7 @@ async function redirectUrlController(req, res) {
                     originalUrl: originalUrl,
                     userAgent: userAgent,
                     parser: parsedUserAgent,
-                    ip: req.ip,
+                    ip: ip,
                     referrer: req.get("Referer") || null
                 })
             )
