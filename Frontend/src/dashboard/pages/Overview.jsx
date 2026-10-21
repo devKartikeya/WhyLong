@@ -756,7 +756,7 @@ const Overview = () => {
                                         link={{
                                             ...link,
                                             shortUrl:
-                                                `http://localhost:3000/${link.shortCode}`
+                                                `https://whylong.onrender.com/${link.shortCode}`
                                         }}
                                     />
                                 ))}
