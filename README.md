@@ -1,2557 +1,431 @@
+<div align="center">
+
 # 🔗 WhyLong
 
-> A modern, full-stack URL shortener built with MERN, Redis, Docker, RabbitMQ, load balancing, automated testing and practical system-design principles.
+**Whylong is a free URL shortener and link management platform to create short links, generate QR codes, and simplify link sharing. Built for easy, efficient, and accessible link management.**
 
-WhyLong is a full-stack URL shortening application that allows users to convert long URLs into compact, shareable links and generate customizable QRs.
+Full-stack MERN application with Redis caching, atomic click counters, RabbitMQ background jobs, a load-balanced multi-instance backend, automated tests, Docker, and CI.
 
-The project supports both **public URL shortening** and **authenticated, user-specific link management**, with a professional dashboard for managing links and tracking link performance.
+[![Live Demo](https://img.shields.io/badge/LIVE_DEMO-whylong.vercel.app-0ea5e9?style=for-the-badge)](https://whylong.vercel.app)
+[![Source](https://img.shields.io/badge/SOURCE-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/devKartikeya/WhyLong)
 
-WhyLong is being progressively developed as an engineering-focused project rather than just a basic CRUD application, with emphasis on **clean architecture, caching, rate limiting, asynchronous communication, performance optimization, testing, containerization, CI automation, load balancing, horizontal scaling, and practical system design**.
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=jest&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+
+</div>
 
 ---
 
-## ✨ Features
-
-### 🔗 URL Shortening
-
-* Convert long URLs into short, shareable links
-
-* Automatically generate unique short codes
-
-* Supports both `HTTP` and `HTTPS` URLs
-
-* Validates URLs before creating short links
-
-* Prevents short-code collisions
-
-* Public URL shortening
-
-* Detects duplicate original URLs
-
-* Reuses the existing short code when the same URL is shortened again
-
-### 🔗 QR-Code Generation
-
-* Generate QR codes directly from shortened links
-
-* Associate QR codes with shortened URLs
-
-* Track QR-related link activity
-
-* Customize QRs with multiplicity of colors, sizes and styles
-
-* Integrate Brand identity through logos and text directly into Qr-Codes
-
-* Save user's presets for subsequent customization
-
-* Handle Error correction for resilience
-
-### 👤 User Accounts
-
-Authenticated users can create and manage their own shortened URLs.
-
-* User registration and login
-
-* Cookie-based authentication
-
-* JWT-based authentication
-
-* User-specific links
-
-* Protected dashboard
-
-* Links remain associated with their creator
-
-* Public shortening remains available separately
-
-* Edit username and email
-
-* Change password
-
-* Reset password
-
-* Delete account
-
-### 📊 Dashboard
-
-The dashboard provides an overview of the user's links and their performance.
-
-Currently includes:
-
-* Total links
-
-* Total clicks
-
-* Average clicks per link
-
-* Links that have received clicks
-
-* Unused links
-
-* Best-performing link
-
-* Best link's share of total clicks
-
-* Recently created links
-
-The analytics are calculated from actual link data available in the application — no simulated analytics are used.
-
-### 📈 Link Tracking
-
-Every time a short URL is visited:
-
-1. The short code is resolved
-
-2. The URL is retrieved from Redis when cached
-
-3. The click counter is incremented atomically in Redis
-
-4. The visitor is redirected to the original URL
-
-5. Redis click counts are periodically synchronized with MongoDB
-
-This allows frequent redirects to avoid a MongoDB read and avoids performing a MongoDB write for every individual click.
-
-### 🗂️ Link Management
-
-Authenticated users have a dedicated **My Links** section.
-
-The interface provides:
-
-* Recent-first ordering
-
-* Search and filtering
-
-* Easy access to short URLs
-
-* Original URL visibility
-
-* Click counts
-
-* Link creation information
-
-* User-specific link management
-
-### 🔐 Account & Security Management
-
-Users can manage their account through the profile section.
-
-* Change password using the current password
-
-* Confirm new password before updating
-
-* Reset password through email verification
-
-* Delete account through a confirmation flow
-
-* Cookie-based JWT authentication
-
-* Protected user resources
+## Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Engineering Decisions](#engineering-decisions)
+- [Deep Dives](#deep-dives) — [redirect path](#1-the-redirect-hot-path) · [click counting](#2-click-counting-without-a-write-per-click) · [async email](#3-asynchronous-work-with-rabbitmq) · [scaling out](#4-horizontal-scaling-behind-a-load-balancer)
+- [Known Limitations](#known-limitations)
+- [API Reference](#api-reference)
+- [Getting Started](#getting-started)
+- [Testing & CI](#testing--ci)
+- [Project Structure](#project-structure)
+- [Roadmap](#roadmap)
 
 ---
 
-# 🏗️ Architecture
+## Overview
 
-WhyLong follows a modular backend architecture where responsibilities are separated across different layers.
+WhyLong shortens URLs, generates customizable QR codes, and gives authenticated users a dashboard to manage their links and see how they perform. Anyone can shorten a link; signed-in users get ownership, management, and analytics.
 
-```text
+It is also deliberately an **engineering project, not a CRUD demo.** Each infrastructure component was introduced in response to a concrete problem that appeared as the system grew:
 
-Client
+| Problem observed | Component introduced | Cost accepted |
+|:--|:--|:--|
+| Hot links re-read from MongoDB on every redirect | Redis URL cache | Cache can serve stale data; invalidation becomes a concern |
+| Every redirect still caused a MongoDB write (click count) | Redis atomic counters + periodic sync | Click counts are eventually consistent |
+| Registration waited on the email provider | RabbitMQ + separate worker process | A broker and a worker to operate |
+| One backend process is a capacity and availability limit | Load balancer + multiple backend instances | Shared state must live outside the processes; per-process state becomes a hazard |
 
-  │
-
-  ▼
-
-Load Balancer
-
-  │
-
-  ├───────────────┐
-
-  ▼               ▼
-
-Backend 1       Backend 2
-
-  │               │
-
-  └───────┬───────┘
-
-          │
-
-          ▼
-
-   Application Layers
-
-          │
-
-          ▼
-
-Route
-
-  │
-
-  ▼
-
-Authentication Middleware
-
-  │
-
-  ▼
-
-Controller
-
-  │
-
-  ▼
-
-Service
-
-  │
-
-  ▼
-
-Model
-
-  │
-
-  ▼
-
-MongoDB
-
-```
-
-The backend follows:
-
-```text
-
-Route → Controller → Service → Model
-
-```
-
-### Routes
-
-Define API endpoints and attach middleware.
-
-### Controllers
-
-Handle HTTP requests and responses.
-
-### Services
-
-Contain application and business logic.
-
-### Models
-
-Define database structures and interact with MongoDB through Mongoose.
-
-This separation keeps individual components focused and makes the application easier to test, maintain, and extend.
+> The intent is to be able to explain not just *what* each piece is, but *when it is the wrong choice*.
 
 ---
 
-# ⚡ Redis
+## Features
 
-WhyLong uses **Redis** as a high-speed in-memory data layer alongside MongoDB.
+**URL shortening**
+- Short, unique codes with collision checks; `http` and `https` URLs validated before anything is stored
+- Duplicate detection on the **normalized** URL; the existing short code is reused when the same URL is shortened again
+- Public shortening, plus authenticated shortening tied to the creating user
 
-Redis is used for multiple performance-oriented responsibilities:
+**QR codes**
+- Generated from any short link, with configurable colors, sizes, and styles
+- Brand identity via logos and text, error-correction handling for resilience, and saved presets
 
-* URL caching
+**Accounts & security**
+- Registration and login with cookie-based JWT authentication; protected routes and resources
+- Edit username and email, change password (current password required, new password confirmed), reset password via email verification, delete account behind a confirmation flow
 
-* Faster repeated URL lookups
-
-* Click counters
-
-* Periodic click synchronization
-
-* Atomic operations
-
-WhyLong currently uses **application-level rate limiting** through Express middleware. Redis is not currently used as the rate-limiting store.
-
-MongoDB remains the **primary persistent source of truth**, while Redis stores fast, derived, or temporary state.
-
-```text
-
-                 ┌─────────────┐
-
-                 │   Client    │
-
-                 └──────┬──────┘
-
-                        │
-
-                        ▼
-
-                 ┌─────────────┐
-
-                 │Load Balancer│
-
-                 └──────┬──────┘
-
-                        │
-
-                        ▼
-
-                 ┌─────────────┐
-
-                 │   Backend   │
-
-                 └──────┬──────┘
-
-                        │
-
-                 ┌──────┴──────┐
-
-                 │             │
-
-                 ▼             ▼
-
-            ┌────────┐    ┌─────────┐
-
-            │ Redis  │    │ MongoDB │
-
-            └────────┘    └─────────┘
-
-```
+**Dashboard & link management**
+- Total links, total clicks, average clicks per link, links with and without clicks, best-performing link and its share of all clicks, recent links
+- **My Links:** recent-first ordering, search and filtering, original URL and click counts at a glance
+- Every number is computed from real data. No simulated analytics.
 
 ---
 
-# 🚀 Redis URL Caching
+## Architecture
 
-WhyLong caches resolved original URLs in Redis.
+```mermaid
+flowchart LR
+    C(["Browser · React SPA"]) --> LB["Load Balancer<br/>Node.js + http-proxy<br/>round robin · :4000"]
+    LB --> B1["Backend 1 · :3000"]
+    LB --> B2["Backend 2 · :3001"]
 
-### Cache Key
+    B1 & B2 --> R[("Redis<br/>URL cache · click counters")]
+    B1 & B2 --> M[("MongoDB<br/>source of truth")]
+    B1 & B2 -- "publish user.registered" --> X{{"RabbitMQ<br/>WhyLong_exchange"}}
 
-```text
-
-WhyLong:url:<shortCode>
-
+    X --> Q["welcome_email_queue"]
+    Q --> W["Welcome Email Worker<br/>separate Node.js process"]
+    W --> E(["Brevo"])
 ```
 
-For example:
+**Layering inside each backend instance:**
 
 ```text
-
-WhyLong:url:aB72xQ
-
-→ https://example.com/some/long/url
-
+Route → Authentication middleware → Controller → Service → Model → MongoDB
 ```
 
-### Request Flow
+| Layer | Responsibility |
+|:--|:--|
+| **Route** | Declares endpoints and attaches middleware |
+| **Controller** | Translates HTTP to a service call and back; contains no business rules |
+| **Service** | Application and business logic |
+| **Model** | Data structure and persistence via Mongoose |
 
-```text
-
-GET /aB72xQ
-
-      │
-
-      ▼
-
-  Check Redis
-
-      │
-
-   ┌──┴────┐
-
-   │       │
-
-  HIT     MISS
-
-   │       │
-
-   │       ▼
-
-   │    MongoDB
-
-   │       │
-
-   │       ▼
-
-   │    Redis SET
-
-   │       │
-
-   └───┬───┘
-
-       ▼
-
- Original URL
-
-       │
-
-       ▼
-
-   Redirect
-
-```
-
-On a cache hit, the application can resolve the URL without performing a MongoDB read.
-
-MongoDB remains the persistent source of truth.
+**State placement is the central design rule:** MongoDB is the durable source of truth; Redis holds fast, derived, or temporary state; backend processes hold *nothing important*. That last property is what makes instances interchangeable.
 
 ---
 
-# 📊 Redis Click Counter
+## Engineering Decisions
 
-Click counting has been optimized using Redis atomic counters.
-
-Instead of updating MongoDB on every redirect:
-
-```text
-
-Every request
-
-     ↓
-
-MongoDB $inc
-
-```
-
-WhyLong now uses:
-
-```text
-
-Every request
-
-     ↓
-
-Redis INCR
-
-```
-
-The click counter uses keys such as:
-
-```text
-
-WhyLong:clicks:<shortCode>
-
-```
-
-For example:
-
-```text
-
-WhyLong:clicks:aB72xQ
-
-→ 137
-
-```
-
-Redis's atomic `INCR` operation allows multiple requests to safely increment the same counter.
+| Decision | Why | Trade-off / when it is the wrong call |
+|:--|:--|:--|
+| **Cache resolved URLs in Redis** (`WhyLong:url:{shortCode}`) | Redirects dominate traffic and are almost pure reads; a cache hit avoids MongoDB entirely | Staleness. Fine while links are immutable; becomes a real invalidation problem once link editing ships. Low-traffic apps do not need a cache at all |
+| **Count clicks with Redis `INCR`**, sync to MongoDB in batches | A cache hit still required a database write per click; atomic `INCR` is safe under concurrent requests | **Persistence is delayed.** Unsynced clicks live only in Redis. Wrong choice if every click must be durable immediately (billing, audit) |
+| **Atomically claim pending clicks** during sync | Clicks arriving mid-sync accumulate separately and are persisted next cycle, with no double counting and no loss from the race | More moving parts than a direct `$inc` |
+| **Application-level rate limiting** (Express middleware) | Simple, adequate for a single backend instance | Counters are per-process. See [limitations](#known-limitations) |
+| **RabbitMQ + separate worker** for welcome email | Registration no longer waits on, or fails because of, an email provider; the API only publishes an event | Operating a broker, and *at-least-once* delivery means handlers should be idempotent |
+| **Direct exchange + routing keys** | The API knows an event happened, not who handles it; new consumers bind without API changes | Topology to maintain and document |
+| **JWT in cookies** | Authentication travels with the request, so no per-process session store is needed to scale out | Revocation is harder than with server-side sessions |
+| **Own load balancer first** (`http-proxy`, round robin) | Learn the mechanics of distribution before adopting production infrastructure | Not production-grade: see limitations. A managed or battle-tested proxy (Nginx, HAProxy, a cloud LB) replaces it for real traffic |
+| **Honest analytics** | Only aggregate clicks are stored, so only aggregate metrics are shown | No time series until click events are persisted |
 
 ---
 
-# 🔄 Click Counter Synchronization
+## Deep Dives
 
-Redis provides the high-speed counter while MongoDB provides durable persistence.
+### 1. The redirect hot path
 
-```text
+Redirects are the highest-volume operation, so this path is optimized first.
 
-                User Clicks
+```mermaid
+sequenceDiagram
+    autonumber
+    participant V as Visitor
+    participant B as Backend
+    participant R as Redis
+    participant M as MongoDB
 
-                     │
-
-                     ▼
-
-                Redis INCR
-
-                     │
-
-                     ▼
-
-             Redis Click Counter
-
-                     │
-
-                     │
-
-              Periodic Sync
-
-                     │
-
-                     ▼
-
-                MongoDB $inc
-
+    V->>B: GET /{shortCode}
+    B->>R: GET WhyLong:url:{shortCode}
+    alt cache hit
+        R-->>B: originalUrl
+    else cache miss
+        R-->>B: nil
+        B->>M: find by shortCode
+        M-->>B: originalUrl
+        B->>R: SET WhyLong:url:{shortCode}
+    end
+    B->>R: INCR WhyLong:clicks:{shortCode}
+    B-->>V: redirect to originalUrl
 ```
 
-Example:
+On a hit, the request never touches MongoDB: no read for the URL and, as described next, no write for the click.
 
-```text
+**Redis keys**
 
-MongoDB
+| Key | Value | Purpose |
+|:--|:--|:--|
+| `WhyLong:url:{shortCode}` | original URL | Read-through cache for redirects |
+| `WhyLong:clicks:{shortCode}` | pending click count | Atomic counter awaiting synchronization |
 
-clicks = 500
+### 2. Click counting without a write per click
 
-Redis
+The naive version issues a MongoDB `$inc` on every redirect, so a popular link produces a write for every visitor.
 
-pending clicks = 37
-
+```mermaid
+flowchart LR
+    A["Every redirect"] --> B["Redis INCR<br/>(atomic)"]
+    B --> C[("Pending clicks<br/>in Redis")]
+    C -- "periodic sync:<br/>atomically claim and reset" --> D["MongoDB $inc"]
 ```
 
-During synchronization:
-
 ```text
-
-Redis
-
-37
-
- │
-
- ├── atomically claimed
-
- ▼
-
-0
-
+MongoDB clicks = 500          Redis pending = 37
+        │                              │
+        │         sync: claim 37, reset to 0
+        ▼                              ▼
+MongoDB clicks = 537          Redis pending = 0   (new clicks start accumulating again)
 ```
 
-Then:
+> **Trade-off, stated plainly:** higher write throughput in exchange for temporarily delayed persistence. The dashboard reflects MongoDB, so it lags by up to one sync interval, and pending clicks are only as durable as Redis is.
 
-```text
+### 3. Asynchronous work with RabbitMQ
 
-MongoDB
+The first real use case is the welcome email after registration. The request saves the user and publishes an event; it does not wait for the email provider.
 
-500 + 37
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant A as API process
+    participant D as MongoDB
+    participant X as RabbitMQ
+    participant W as Worker process
+    participant E as Brevo
 
-   ↓
-
-537
-
+    U->>A: register
+    A->>D: save user
+    A->>X: publish user.registered
+    A-->>U: response (no email wait)
+    X->>W: deliver from welcome_email_queue
+    W->>E: send welcome email
+    alt sent
+        W->>X: ACK
+    else failed
+        W->>X: NACK
+    end
 ```
 
-If new clicks arrive during or after synchronization, they accumulate separately in Redis and are persisted during the next synchronization cycle.
-
-This design significantly reduces MongoDB write pressure for frequently accessed URLs.
-
-### Why not write directly to MongoDB?
-
-The simpler design would be:
+- **Exchange:** direct exchange `WhyLong_exchange`, routing key `user.registered`, bound to `welcome_email_queue`.
+- **Payload:** only what the worker needs (`userId`, `username`, `email`). **Passwords and other secrets are never published.**
+- **Process model:** the worker lives in the same codebase but runs as its own process, so the API and worker scale and fail independently.
 
 ```text
-
-Request
-
-  ↓
-
-MongoDB $inc
-
-  ↓
-
-Redirect
-
+Backend/
+├── API process     →  node server.js
+└── Worker process  →  node workers/welcome_email.worker.js
 ```
 
-But a highly accessed short URL could generate a MongoDB write for every click.
+- **Acknowledgement:** a message is ACKed only after the email was actually sent, which gives at-least-once semantics and a base for retry and dead-letter handling.
 
-The Redis-based design changes this to:
+### 4. Horizontal scaling behind a load balancer
+
+The frontend talks to the load balancer rather than to any single backend, so instances can be added or removed without frontend changes.
 
 ```text
-
-Request
-
-  ↓
-
-Redis INCR
-
-  ↓
-
-Redirect
-
-Periodic batch
-
-  ↓
-
-MongoDB
-
+Before:  Frontend ──► Backend :3000
+Now:     Frontend ──► Load Balancer :4000 ──► Backend :3000
+                                          └─► Backend :3001
 ```
 
-This introduces a deliberate trade-off:
+Round robin cycles through the instances (request 1 → backend 1, request 2 → backend 2, request 3 → backend 1, and so on).
 
-> **Higher write performance in exchange for temporarily delayed persistence of click counts.**
+**What makes instances interchangeable:**
+- Authentication is JWT in cookies, so no in-process session store.
+- Shared state lives in **Redis** (cache, counters) and **MongoDB** (durable data), outside any one process.
 
-This is one of the practical system-design trade-offs currently explored in WhyLong.
+**What it exposes:** anything still held *inside* a process stops being shared the moment a second instance appears. The application-level rate limiter is exactly that case.
 
 ---
 
-# 🛡️ Rate Limiting
+## Known Limitations
 
-WhyLong uses **application-level rate limiting** to control excessive requests.
+Documented deliberately: these are the current boundaries of the design, and most map directly to roadmap items.
 
-The current implementation uses Express rate-limiting middleware.
-
-Conceptually:
-
-```text
-
-Client
-
-  │
-
-  ▼
-
-Request
-
-  │
-
-  ▼
-
-Express Rate Limiter
-
-  │
-
-  ├── Within limit → Allow
-
-  │
-
-  └── Limit exceeded → Reject
-
-```
-
-The current implementation is suitable for the existing single-backend-instance architecture.
-
-However, when multiple backend instances are introduced, process-local rate-limit state can become inconsistent because each instance maintains its own counters.
-
-This creates a practical scalability consideration:
-
-```text
-
-Single Instance
-
-Client
-
-  ↓
-
-Backend
-
-  ↓
-
-Rate Limiter
-
-```
-
-versus:
-
-```text
-
-Multiple Instances
-
-             ┌── Backend 1
-
-             │
-
-Client → LB ─┼── Backend 2
-
-             │
-
-             └── Backend 3
-
-```
-
-A distributed rate-limiting implementation using a shared store such as Redis can be introduced when the architecture requires a globally shared request limit.
+| Area | Limitation | Planned direction |
+|:--|:--|:--|
+| **Rate limiting** | Counters live in each process. With round robin across *N* instances, a client can effectively receive up to *N×* the configured limit | Shared Redis-backed (distributed) limiter |
+| **Click durability** | Clicks pending in Redis are not yet in MongoDB. Their survival depends on Redis persistence, and Redis failure handling is not yet implemented | Redis failure and fallback handling |
+| **Load balancer** | Round robin only; no health checks, so an unhealthy instance keeps receiving traffic. The balancer itself is a single point of failure | Health checks, automatic instance removal, connection draining, or a production-grade proxy |
+| **Email worker** | Failed messages are NACKed, but retry and dead-letter handling are not implemented yet | Retry with backoff and a dead-letter queue |
 
 ---
 
-**
-
-🐇 RabbitMQ
-
-WhyLong uses RabbitMQ as a message broker for asynchronous background work.
-
-The first real use case is sending a welcome email after user registration.
-
-Instead of making the registration request wait for the email provider, the backend publishes an event to RabbitMQ and a separate worker processes the email job.
-
-Registration → Welcome Email Flow
-
-User Registration
-       │
-       ▼
-Backend API
-       │
-       ├── Save User → MongoDB
-       │
-       └── Publish "user.registered"
-                    │
-                    ▼
-             RabbitMQ Exchange
-                    │
-                    │ user.registered
-                    ▼
-          welcome_email_queue
-                    │
-                    ▼
-          Welcome Email Worker
-                    │
-                    ▼
-                  Brevo
-                    │
-                    ▼
-             Welcome Email
-
-Exchange and Routing
-
-WhyLong uses a direct exchange named:
-
-WhyLong_exchange
-
-The registration event is published using the routing key:
-
-user.registered
-
-The queue is bound to that routing key:
-
-WhyLong_exchange
-        │
-        │ user.registered
-        ▼
-welcome_email_queue
-
-This keeps the backend decoupled from the worker. The backend only needs to publish the event; it does not need to know how or where the email is processed.
-
-Message Payload
-
-The registration event contains only the information required by the email worker:
-
-{
-  "userId": "user-id",
-  "username": "Kartikeya",
-  "email": "user@example.com"
-}
-
-Sensitive information such as the user's password is never included in the message.
-
-Separate Worker Process
-
-The email worker is part of the same Backend codebase but runs as a separate Node.js process.
-
-Backend Codebase
-│
-├── API Process
-│   └── node server.js
-│
-└── Worker Process
-    └── node workers/welcome_email.worker.js
-
-Both processes communicate through RabbitMQ rather than directly calling each other.
-
-The worker continuously consumes messages from welcome_email_queue.
-
-Acknowledgement
-
-The worker acknowledges a message only after the email has been successfully sent.
-
-Message received
-       │
-       ▼
-Parse payload
-       │
-       ▼
-Send email through Brevo
-       │
-   ┌───┴────┐
-   │        │
-Success    Failure
-   │        │
-   ▼        ▼
- ACK      NACK
-
-This provides a foundation for reliable asynchronous processing and future retry/dead-letter handling.
-
-Current RabbitMQ Topology
-
-                    WhyLong_exchange
-                    /               \
-                   /                 \
-     user.registered                 password.reset
-             │                             │
-             ▼                             ▼
- welcome_email_queue                password_queue
-             │
-             ▼
-    Welcome Email Worker
-             │
-             ▼
-           Brevo
-
-RabbitMQ is currently being used for asynchronous communication, while the backend API and background worker remain separate processes.
-
-⚖️ System Design**
-
-WhyLong is being developed with practical system-design principles rather than treating system design as a separate theoretical topic.
-
-The architecture has evolved by identifying actual problems and introducing components to solve them.
-
-### Example: URL Resolution
-
-Initially:
-
-```text
-
-Request
-
-   ↓
-
-MongoDB
-
-   ↓
-
-Original URL
-
-   ↓
-
-Redirect
-
-```
-
-Problem:
-
-> Frequently accessed URLs repeatedly hit MongoDB.
-
-Solution:
-
-```text
-
-Redis Cache
-
-```
-
----
-
-### Example: Click Counting
-
-After caching, another problem appeared.
-
-A cache hit avoided the MongoDB read, but click tracking still required a MongoDB write.
-
-```text
-
-Redis HIT
-
-   ↓
-
-MongoDB $inc
-
-   ↓
-
-Redirect
-
-```
-
-Problem:
-
-> High traffic could still generate a MongoDB write for every click.
-
-Solution:
-
-```text
-
-Redis INCR
-
-   ↓
-
-Periodic synchronization
-
-   ↓
-
-MongoDB $inc
-
-```
-
-But this introduced another trade-off:
-
-```text
-
-More performance
-
-      ↕
-
-Delayed persistence
-
-```
-
----
-
-### Example: Horizontal Scaling
-
-As the system grows, a single backend instance becomes a potential capacity and availability limitation.
-
-Instead of running only:
-
-```text
-
-Client
-
-  ↓
-
-Backend
-
-```
-
-WhyLong can distribute requests across multiple instances:
-
-```text
-
-Client
-
-  ↓
-
-Load Balancer
-
-  ↓
-
-┌───────────┬───────────┐
-
-▼           ▼           ▼
-
-Backend 1   Backend 2   Backend 3
-
-```
-
-This allows the application to scale horizontally by adding more backend instances.
-
----
-
-# ⚖️ Load Balancing
-
-WhyLong now includes a **load-balancing layer** between the frontend and backend instances.
-
-A local load balancer was implemented using Node.js and `http-proxy` to understand the fundamental mechanics of request distribution before introducing production infrastructure.
-
-The load balancer maintains a list of backend instances and distributes incoming requests between them using a **Round Robin** strategy.
-
-```text
-
-Client
-
-  │
-
-  ▼
-
-Load Balancer
-
-  │
-
-  ├──► Backend 1
-
-  │
-
-  └──► Backend 2
-
-```
-
-For example:
-
-```text
-
-Request 1 → Backend 1
-
-Request 2 → Backend 2
-
-Request 3 → Backend 1
-
-Request 4 → Backend 2
-
-```
-
-The basic Round Robin mechanism cycles through the available backend targets.
-
-### Request Flow
-
-```text
-
-Browser
-
-   │
-
-   │ HTTP Request
-
-   ▼
-
-Load Balancer
-
-   │
-
-   ├──────────────┐
-
-   ▼              ▼
-
-Backend 1      Backend 2
-
-   │              │
-
-   └───────┬──────┘
-
-           │
-
-           ▼
-
-      Response
-
-           │
-
-           ▼
-
-     Load Balancer
-
-           │
-
-           ▼
-
-        Browser
-
-```
-
-The load balancer acts as an intermediary between the client and backend instances.
-
----
-
-# 🌐 Frontend → Load Balancer
-
-A major architectural milestone in WhyLong is that the frontend no longer communicates directly with an individual backend instance.
-
-Instead:
-
-```text
-
-Frontend
-
-   │
-
-   ▼
-
-Load Balancer
-
-   │
-
-   ├──► Backend 1
-
-   │
-
-   └──► Backend 2
-
-```
-
-The frontend API configuration was changed so that its API base URL points to the load balancer rather than directly to a backend server.
-
-Conceptually:
-
-```text
-
-Before
-
-Frontend
-
-   │
-
-   ▼
-
-Backend :3000
-
-```
-
-Now:
-
-```text
-
-Frontend
-
-   │
-
-   ▼
-
-Load Balancer :4000
-
-   │
-
-   ├──► Backend :3000
-
-   │
-
-   └──► Backend :3001
-
-```
-
-This means the frontend does not need to know which backend instance will process a request.
-
-The load balancer handles that decision.
-
-This is an important step toward a horizontally scalable architecture because backend instances can be added or removed behind the load balancer without requiring the frontend to change its request logic.
-
----
-
-# 📈 Horizontal Scaling
-
-WhyLong now demonstrates the basic architecture required for horizontal scaling.
-
-Horizontal scaling means running **multiple instances of the same application** and distributing requests between them.
-
-```text
-
-                 ┌───────────────┐
-
-                 │ Load Balancer │
-
-                 └───────┬───────┘
-
-                         │
-
-            ┌────────────┼────────────┐
-
-            │            │            │
-
-            ▼            ▼            ▼
-
-       Backend 1     Backend 2     Backend 3
-
-            │            │            │
-
-            └────────────┼────────────┘
-
-                         │
-
-                  Shared Services
-
-                         │
-
-              ┌──────────┴──────────┐
-
-              │                     │
-
-              ▼                     ▼
-
-           Redis                 MongoDB
-
-```
-
-The important principle is:
-
-> **Horizontal scaling increases the number of application instances rather than simply increasing the resources of one instance.**
-
-Because multiple backend instances need access to shared state, Redis and MongoDB remain outside the individual backend instances.
-
-This allows the backend instances to remain largely interchangeable.
-
----
-
-# 🧠 Stateless Backend Consideration
-
-Horizontal scaling works best when backend instances do not depend on important local process state.
-
-WhyLong's authentication uses JWT stored in cookies, allowing authentication information to be carried with requests rather than relying on a session stored inside a particular Node.js process.
-
-Shared infrastructure such as MongoDB and Redis can therefore be accessed by multiple backend instances.
-
-Conceptually:
-
-```text
-
-                 Load Balancer
-
-                 /     |     \
-
-                /      |      \
-
-               ▼       ▼       ▼
-
-          Backend 1 Backend 2 Backend 3
-
-               \       |       /
-
-                \      |      /
-
-                 ▼     ▼     ▼
-
-                 Redis / MongoDB
-
-```
-
-This is one of the foundations required for a horizontally scalable backend.
-
----
-
-# 📐 Current Architecture
-
-The current WhyLong architecture combines the application layer, Redis optimization, persistent storage, and the load-balancing layer.
-
-```text
-
-                         ┌──────────────┐
-
-                         │    Client    │
-
-                         └──────┬───────┘
-
-                                │
-
-                                ▼
-
-                       ┌────────────────┐
-
-                       │ Load Balancer  │
-
-                       └───────┬────────┘
-
-                               │
-
-                    ┌──────────┴──────────┐
-
-                    │                     │
-
-                    ▼                     ▼
-
-              ┌───────────┐         ┌───────────┐
-
-              │ Backend 1 │         │ Backend 2 │
-
-              └─────┬─────┘         └─────┬─────┘
-
-                    │                     │
-
-                    └──────────┬──────────┘
-
-                               │
-
-                 ┌─────────────┼─────────────┐
-
-                 │             │             │
-
-                 ▼             ▼             ▼
-
-              Redis         MongoDB     Application
-
-                 │                         Rate Limiter
-
-                 │
-
-        ┌────────┼─────────┐
-
-        │        │         │
-
-        ▼        ▼         ▼
-
-     URL Cache Clicks  Derived State
-
-        │        │
-
-        │        ▼
-
-        │   Periodic Sync
-
-        │        │
-
-        ▼        ▼
-
-      Fast Reads → MongoDB Persistence
-
-```
-
----
-
-# 📈 Future Scalability
-
-The current architecture provides a foundation for further scaling as traffic increases.
-
-```text
-
-                         ┌───────────────┐
-
-                         │ Load Balancer │
-
-                         └───────┬───────┘
-
-                                 │
-
-              ┌──────────────────┼──────────────────┐
-
-              │                  │                  │
-
-              ▼                  ▼                  ▼
-
-         Backend 1          Backend 2          Backend 3
-
-              │                  │                  │
-
-              └──────────────────┼──────────────────┘
-
-                                 │
-
-                    ┌────────────┴────────────┐
-
-                    │                         │
-
-                    ▼                         ▼
-
-                  Redis                    MongoDB
-
-```
-
-Because Redis provides shared application state such as cached URLs and accumulated click counters, multiple backend instances can work with the same Redis layer.
-
-MongoDB provides durable persistence shared across the backend instances.
-
-The load balancer provides the routing layer that distributes requests among the instances.
-
-Further production-scale improvements can include:
-
-* Health checks
-
-* Automatic removal of unhealthy instances
-
-* Failure handling
-
-* Connection draining
-
-* More advanced load-balancing algorithms
-
-* Distributed rate limiting
-
-* Container orchestration
-
-* Automated deployment
-
-* Monitoring and observability
-
-These are intentionally introduced only when they solve an actual architectural requirement.
-
----
-
-# 🧪 Testing
-
-WhyLong uses **Jest** and **Supertest** for backend testing.
-
-### Jest
-
-Jest is used as the testing framework.
-
-### Supertest
-
-Supertest is used to test the Express application through HTTP-like requests without requiring the application to listen on a real network port.
-
-Conceptually:
-
-```text
-
-Jest
-
-  │
-
-  ▼
-
-Supertest
-
-  │
-
-  ▼
-
-Express App
-
-  │
-
-  ▼
-
-Route
-
-  │
-
-  ▼
-
-Response
-
-  │
-
-  ▼
-
-Assertions
-
-```
-
-The Express application is separated from the server bootstrap so tests can run without starting the production server or unnecessarily establishing database connections.
-
----
-
-# 🐳 Docker
-
-WhyLong is containerized using Docker.
-
-The application uses separate containers for its application services.
-
-```text
-
-Docker
-
- │
-
- ├── Frontend Container
-
- │      └── Nginx
-
- │
-
- └── Backend Container
-
-        └── Node.js
-
-```
-
-Docker provides:
-
-* Consistent development environments
-
-* Isolated application services
-
-* Reproducible builds
-
-* Easier deployment
-
-* Clear service boundaries
-
-### Frontend
-
-The frontend uses a **multi-stage Docker build**:
-
-```text
-
-Node.js
-
-   │
-
-   ├── Install dependencies
-
-   │
-
-   ├── Build React application
-
-   │
-
-   ▼
-
-Nginx
-
-   │
-
-   └── Serve production build
-
-```
-
-The final frontend image contains the production build served by Nginx rather than the complete Node.js development environment.
-
-### Backend
-
-The backend runs inside a Node.js container.
-
----
-
-# 🧩 Docker Compose
-
-Docker Compose is used to coordinate the application services.
-
-```text
-
-Docker Compose
-
-      │
-
-      ├── Frontend
-
-      │
-
-      └── Backend
-
-```
-
-Compose provides a convenient way to build and run the services together.
-
-```bash
-
-docker compose up --build
-
-```
-
-The application services communicate through Docker's networking infrastructure, while the browser communicates with the published host ports.
-
-MongoDB can remain externally hosted, such as through MongoDB Atlas, while application services are containerized.
-
----
-
-# 🔄 CI with GitHub Actions
-
-WhyLong uses **GitHub Actions** for Continuous Integration.
-
-The current CI pipeline performs:
-
-```text
-
-Git Push / Pull Request
-
-        │
-
-        ▼
-
-GitHub Actions
-
-        │
-
-        ▼
-
-Checkout Repository
-
-        │
-
-        ▼
-
-Setup Node.js
-
-        │
-
-        ▼
-
-Install Backend Dependencies
-
-        │
-
-        ▼
-
-Run Jest Tests
-
-        │
-
-        ▼
-
-Install Frontend Dependencies
-
-        │
-
-        ▼
-
-Build Frontend
-
-        │
-
-        ▼
-
-Build Docker Images
-
-```
-
-The CI pipeline helps ensure that changes can be tested and that the application can successfully produce its Docker images before being considered ready for deployment.
-
-> Deployment automation is intentionally kept separate from the current CI pipeline and can be introduced as the project evolves.
-
----
-
-# 🔌 API
-
-## Public URL Shortening
+## API Reference
+
+| Method | Endpoint | Auth | Description |
+|:--|:--|:--:|:--|
+| `POST` | `/urls/shorten` | No | Shorten a URL publicly |
+| `POST` | `/urls/shorten/authenticated` | Yes | Shorten a URL owned by the signed-in user |
+| `GET` | `/urls/my-links` | Yes | List the current user's links |
+| `GET` | `/urls/delete/:shortCode` | Yes | Delete URL |
+| `PATCH` | `/users/change-password` | Yes | Change password |
+| `GET` | `/users/me` | No | Check whether user is logged in or not |
+| `DELETE` | `/users/delete` | Yes | Delete a user |
+| `GET` | `/:shortCode` | No | Resolve and redirect |
+
+**Shorten**
 
 ```http
-
 POST /urls/shorten
+Content-Type: application/json
 
+{ "originalUrl": "https://example.com/some/long/url" }
 ```
 
-Request:
+The URL is validated (`http` / `https` only) and normalized. If the normalized URL already exists, the existing short code is returned; otherwise a new code is generated, checked for collisions, and saved.
 
-```json
-
-{
-
-  "originalUrl": "https://example.com/some/long/url"
-
-}
-
-```
-
-The service validates the URL and checks whether the same normalized URL already exists.
-
-If it exists:
-
-```text
-
-Existing URL
-
-     ↓
-
-Existing shortCode
-
-     ↓
-
-Return existing link
-
-```
-
-Otherwise:
-
-```text
-
-New URL
-
-  ↓
-
-Generate shortCode
-
-  ↓
-
-Check short-code collision
-
-  ↓
-
-Save
-
-```
-
----
-
-## Authenticated URL Shortening
+**Change password**
 
 ```http
-
-POST /urls/shorten/authenticated
-
-```
-
-Requires authentication.
-
-The generated URL is associated with the authenticated user and subsequently appears in their dashboard.
-
-If the original URL already exists according to the application's deduplication rules, the existing short link can be reused rather than creating another duplicate record.
-
----
-
-## Get My Links
-
-```http
-
-GET /urls/my-links
-
-```
-
-Requires authentication.
-
-Returns the shortened URLs belonging to the currently authenticated user.
-
----
-
-## Change Password
-
-```http
-
 PATCH /users/change-password
 
+{ "oldPassword": "current", "newPassword": "new", "confirmPassword": "new" }
 ```
 
-Requires authentication.
-
-Request:
-
-```json
-
-{
-
-  "oldPassword": "current-password",
-
-  "newPassword": "new-password",
-
-  "confirmPassword": "new-password"
-
-}
-
-```
-
-The endpoint validates the current password and ensures that the new password is confirmed before updating the user's password.
+Authentication uses a JWT in an HTTP cookie, verified by middleware before any protected controller runs. Account deletion is available from the profile security settings behind a confirmation flow.
 
 ---
 
-## Delete Account
+## Getting Started
 
-Authenticated users can permanently delete their account through the profile security settings.
-
-Account deletion removes the user's account and associated application data according to the application's deletion logic.
-
----
-
-## Redirect Short URL
-
-```http
-
-GET /:shortCode
-
-```
-
-When a valid short code is requested:
-
-```text
-
-Request
-
-  ↓
-
-Check Redis URL cache
-
-  ↓
-
-HIT ───────────────┐
-
-  │                │
-
-  │              MISS
-
-  │                │
-
-  │                ▼
-
-  │             MongoDB
-
-  │                │
-
-  │                ▼
-
-  │             Redis SET
-
-  │                │
-
-  └────────┬───────┘
-
-           ▼
-
-      Original URL
-
-           │
-
-           ├── Redis INCR
-
-           │
-
-           ▼
-
-        Redirect
-
-```
-
-The click count is maintained in Redis and periodically synchronized with MongoDB.
-
----
-
-# 🔐 Authentication
-
-WhyLong uses cookie-based authentication with JWT.
-
-```text
-
-Login
-
-  │
-
-  ▼
-
-JWT Generated
-
-  │
-
-  ▼
-
-HTTP Cookie
-
-  │
-
-  ▼
-
-Authenticated Request
-
-  │
-
-  ▼
-
-Authentication Middleware
-
-  │
-
-  ▼
-
-Protected Resource
-
-```
-
-Authentication is handled independently from the application's business logic through middleware.
-
----
-
-# 🔐 Account Security
-
-Authenticated users can manage important account-level operations through their profile.
-
-### Change Password
-
-Users can change their password by providing:
-
-```text
-
-Current Password
-
-       ↓
-
-New Password
-
-       ↓
-
-Confirm New Password
-
-       ↓
-
-Password Updated
-
-```
-
-### Delete Account
-
-Account deletion is protected behind a confirmation flow to prevent accidental deletion.
-
-These operations are handled through authenticated backend endpoints.
-
----
-
-# 🔐 URL Validation
-
-WhyLong validates URLs before storing them.
-
-Currently accepted protocols:
-
-```text
-
-http://
-
-https://
-
-```
-
-Invalid URLs are rejected before a database record is created.
-
-The URL is normalized before duplicate detection so that equivalent normalized values can be handled consistently.
-
----
-
-# 📊 Current Analytics Model
-
-WhyLong currently maintains an aggregate click count for each link.
-
-```text
-
-Link
-
-└── clicks: 42
-
-```
-
-The important distinction is that the counter is now updated through Redis during normal redirect traffic and periodically persisted to MongoDB.
-
-MongoDB ultimately stores the durable aggregate count.
-
-Therefore, the application can reliably calculate:
-
-```text
-
-Total Links
-
-Total Clicks
-
-Average Clicks / Link
-
-Links With Clicks
-
-Unused Links
-
-Best Performing Link
-
-Best Link's Click Share
-
-```
-
-For example:
-
-```text
-
-10 links
-
-50 total clicks
-
-```
-
-gives:
-
-```text
-
-Average clicks/link = 5.0
-
-```
-
-If 7 links have received at least one click:
-
-```text
-
-Links with clicks = 7
-
-Unused links = 3
-
-```
-
----
-
-## Why no fake time-series analytics?
-
-The current model does not store individual click events.
-
-Therefore, WhyLong does **not** pretend to know:
-
-* Clicks per day
-
-* Clicks per hour
-
-* 7-day growth
-
-* Monthly trends
-
-* Geographic distribution
-
-* Device statistics
-
-* Browser statistics
-
-These features require additional analytics data to be persisted.
-
-This keeps the current dashboard transparent and based on actual available data.
-
----
-
-# 📁 Project Structure
-
-```text
-
-WhyLong/
-
-│
-
-├── Frontend/
-
-│   ├── src/
-
-│   │   ├── components/
-
-│   │   │   ├── CreateLinkModal.jsx
-
-│   │   │   ├── EmptyLinks.jsx
-
-│   │   │   ├── LinkCard.jsx
-
-│   │   │   └── ...
-
-│   │   │
-
-│   │   ├── pages/
-
-│   │   │   ├── Home.jsx
-
-│   │   │   ├── Contact.jsx
-
-│   │   │   └── ...
-
-│   │   │
-
-│   │   ├── dashboard/
-
-│   │   │   ├── Overview.jsx
-
-│   │   │   ├── Profile.jsx
-
-│   │   │   └── ...
-
-│   │   │
-
-│   │   └── ...
-
-│   │
-
-│   └── Dockerfile
-
-│
-
-├── Backend/
-
-│   ├── configurations/
-
-│   │   ├── database.js
-
-│   │   └── redis.js
-
-│   │
-
-│   ├── urls/
-
-│   │   ├── urls.route.js
-
-│   │   ├── urls.controller.js
-
-│   │   ├── urls.service.js
-
-│   │   └── urls.model.js
-
-│   │
-
-│   ├── email/
-
-│   │   ├── email.route.js
-
-│   │   ├── email.controller.js
-
-│   │   ├── email.service.js
-
-│   │  
-
-│   ├── users/
-
-│   │   └── ...
-
-│   │
-
-│   ├── middleware/
-
-│   │   ├── authentication.middleware.js
-
-│   │   └── ...
-
-│   │
-
-│   ├── app.js
-
-│   ├── server.js
-
-│   └── Dockerfile
-
-│
-
-│
-
-├── docker-compose.yml
-
-└── README.md
-
-```
-
----
-
-# 🚀 Getting Started
-
-## 1. Clone the repository
+### With Docker Compose
 
 ```bash
-
 git clone https://github.com/devKartikeya/WhyLong.git
-
 cd WhyLong
-
+docker compose up --build
 ```
 
-## 2. Install backend dependencies
+Compose builds and runs the frontend (multi-stage build served by Nginx) and the backend. MongoDB can remain externally hosted (for example MongoDB Atlas).
+
+### Locally
+
+**Prerequisites:** Node.js, a MongoDB connection string, and a running Redis (default `redis://localhost:6379`). RabbitMQ and Brevo credentials are needed for the welcome-email flow.
 
 ```bash
-
+# Backend
 cd Backend
-
 npm install
-
 ```
 
-## 3. Configure environment variables
-
-Create a `.env` file inside the `Backend` directory.
-
-Example:
+Create `Backend/.env`:
 
 ```env
-
 PORT=3000
-
-MONGO_URI=your_mongodb_connection_string
-
-JWT_SECRET=your_secret
-
+MONGO_URI=your_mongo_uri
+JWT_SECRET=your_jwt_secret
+BREVO_API_KEY=your_brevo_key
+SUPPORT_EMAIL=your@email.com
+FRONTEND_URL=http://localhost:5173
+RABBITMQ_URL=your@rabbitmq.url
+REDIS_USERNAME=default
+REDIS_PASSWORD=your_redis_password
+REDIS_HOST=syour_redis_host
+REDIS_PORT=16131
+BACKEND_URL=http://localhost:3000
 ```
 
-Use the actual environment variables required by the current backend configuration.
-
-## 4. Start Redis
-
-Make sure Redis is running locally.
-
-The default Redis connection is:
-
-```text
-
-redis://localhost:6379
-
-```
-
-## 5. Start the backend
+Redis, RabbitMQ, and Brevo settings are also read from the environment; see `Backend/configurations/` for the exact variables.
 
 ```bash
+npm start                                  # API process
 
-npm start
+# in another terminal: background worker
+node workers/welcome_email.worker.js
 
+# in another terminal: frontend
+cd Frontend && npm install && npm run dev
 ```
 
-## 6. Start the frontend
-
-Open another terminal:
-
-```bash
-
-cd Frontend
-
-npm install
-
-npm run dev
-
-```
-
-The frontend will then be available through the Vite development server.
+**Running multiple instances:** start a second backend on another port (for example `3001`), then run the Node.js `http-proxy` load balancer in front of both (`:4000`). The frontend's API base URL points at the load balancer, not at a backend.
 
 ---
 
-# 🐳 Running with Docker Compose
+## Testing & CI
 
-From the project root:
-
-```bash
-
-docker compose up --build
-
-```
-
-This builds the application containers according to their respective Dockerfiles.
-
----
-
-# 🧪 Running Tests
-
-From the backend directory:
+**Tests:** Jest and Supertest.
 
 ```bash
-
+cd Backend
 npm test
-
 ```
 
-The backend test suite uses Jest and Supertest.
+The Express `app` is separated from the server bootstrap (`app.js` vs `server.js`), so Supertest can exercise routes in-process without binding a port or opening production connections.
+
+**Continuous Integration (GitHub Actions)** runs on every push and pull request:
+
+```mermaid
+flowchart LR
+    A["Push / PR"] --> B["Checkout"] --> C["Setup Node.js"] --> D["Install backend deps"] --> E["Run Jest"] --> F["Install frontend deps"] --> G["Build frontend"] --> H["Build Docker images"]
+```
+
+A change is considered healthy only if tests pass **and** the Docker images build. Deployment automation is intentionally separate from CI and is on the roadmap.
 
 ---
 
-# 📌 Example
-
-Suppose the original URL is:
+## Project Structure
 
 ```text
-
-https://www.example.com/products/category/something/very/long
-
+WhyLong/
+├── Frontend/
+│   ├── src/
+│   │   ├── components/        # CreateLinkModal, LinkCard, EmptyLinks, ...
+│   │   ├── pages/             # Home, Contact, ...
+│   │   └── dashboard/         # Overview, Profile, ...
+│   └── Dockerfile             # multi-stage: build with Node, serve with Nginx
+│
+├── Backend/
+│   ├── configurations/        # database.js, redis.js
+│   ├── urls/                  # route · controller · service · model
+│   ├── users/                 # route · controller · service · model
+│   ├── email/                 # route · controller · service
+│   ├── middleware/            # authentication.middleware.js, ...
+│   ├── workers/               # welcome_email.worker.js
+│   ├── app.js                 # Express app (importable by tests)
+│   ├── server.js              # process bootstrap
+│   └── Dockerfile
+│
+├── docker-compose.yml
+└── README.md
 ```
-
-WhyLong can generate:
-
-```text
-
-http://localhost:3000/aB72xQ
-
-```
-
-When someone opens:
-
-```text
-
-/aB72xQ
-
-```
-
-WhyLong:
-
-```text
-
-1. Checks Redis for the original URL
-
-2. Falls back to MongoDB on a cache miss
-
-3. Caches the URL in Redis
-
-4. Increments the Redis click counter
-
-5. Redirects the visitor
-
-6. Periodically persists accumulated clicks to MongoDB
-
-```
-
-When the application is running behind the load balancer:
-
-```text
-
-Browser
-
-   ↓
-
-Load Balancer
-
-   ↓
-
-Backend Instance
-
-   ↓
-
-Redis / MongoDB
-
-```
-
-The authenticated owner can then see the link and its persisted click count from the dashboard.
 
 ---
 
-# 🎯 Project Goals
+## Roadmap
 
-WhyLong is being developed with a focus on:
+**Shipped**
+- [x] Shortening, validation, collision-safe code generation, duplicate detection and code reuse, redirects
+- [x] QR generation with customization and presets
+- [x] Auth (cookie + JWT), user-specific links, protected dashboard, password change/reset, account deletion
+- [x] Dashboard statistics, My Links with search and filtering
+- [x] Modular backend; Jest + Supertest tests
+- [x] Redis URL cache, atomic click counters, periodic sync to MongoDB
+- [x] Application-level rate limiting
+- [x] Docker, Docker Compose, GitHub Actions CI
+- [x] Local round-robin load balancer, frontend routed through it, multiple backend instances
+- [x] RabbitMQ and an asynchronous welcome-email worker
 
-* Clean architecture
+**Planned** (ordered roughly by how much each reduces a [known limitation](#known-limitations))
+- [ ] Distributed, Redis-backed rate limiting
+- [ ] Redis failure and fallback handling
+- [ ] Retry with backoff and dead-letter queue for email jobs
+- [ ] Link editing, with an explicit cache-invalidation strategy
+- [ ] Custom short aliases
+- [ ] Persist click events, then daily/weekly/monthly analytics
 
-* Practical full-stack development
-
-* Real-world authentication
-
-* User-specific data
-
-* Account security
-
-* Maintainable React components
-
-* REST API design
-
-* Accurate analytics
-
-* Redis caching
-
-* Redis atomic counters
-
-* Application-level rate limiting
-
-* Automated testing
-
-* Docker containerization
-
-* Docker Compose
-
-* CI automation
-
-* Load balancing
-
-* Horizontal scaling
-
-* Stateless backend design
-
-* Practical system design
-
-* Performance optimization
-
-* Scalability considerations
-
-* Professional UI/UX
-
-The goal is not simply to create another URL shortener.
-
-The project is being progressively evolved into a **production-style engineering project** where architectural decisions are introduced when they solve actual problems.
-
-The focus is on understanding:
-
-> **Why a component exists, what problem it solves, what trade-offs it introduces, and how it interacts with the rest of the system.**
+> **On analytics:** once individual click events (timestamp, referrer, device, browser) are stored, time-series and traffic-source analytics become possible without fabricating data. Until then the dashboard shows only what the data supports.
 
 ---
 
-# 🛣️ Roadmap
+<div align="center">
 
-The project is actively evolving.
+**WhyLong** is an educational and portfolio project. Feedback and suggestions are welcome via issues and pull requests.
 
-## Completed
-
-* [x] URL shortening
-
-* [x] Unique short-code generation
-
-* [x] URL validation
-
-* [x] URL redirection
-
-* [x] Duplicate URL detection
-
-* [x] Existing short-code reuse
-
-* [x] Click counting
-
-* [x] User authentication
-
-* [x] Cookie-based JWT authentication
-
-* [x] User-specific links
-
-* [x] Protected dashboard
-
-* [x] Overall link statistics
-
-* [x] Recent links
-
-* [x] Dedicated My Links page
-
-* [x] Link search/filtering
-
-* [x] Professional dashboard UI
-
-* [x] QR-Code generation
-
-* [x] Modular backend architecture
-
-* [x] Jest/Supertest backend testing
-
-* [x] Redis integration
-
-* [x] Redis URL caching
-
-* [x] Redis atomic click counters
-
-* [x] Periodic Redis → MongoDB click synchronization
-
-* [x] Application-level rate limiting
-
-* [x] Change password
-
-* [x] Delete account
-
-* [x] Docker containerization
-
-* [x] Docker Compose
-
-* [x] GitHub Actions CI
-
-* [x] Horizontal scaling architecture
-
-* [x] Local load balancer
-
-* [x] Round Robin request distribution
-
-* [x] Frontend connected through load balancer
-
-* [x] Multiple backend instances behind load balancer
-[L2215a] * [x] RabbitMQ integration
-[L2215b] * [x] Asynchronous welcome email worker
-
-## Planned
-
-* [ ] Link editing
-
-* [ ] Custom short aliases
-
-* [ ] Click history
-
-* [ ] Daily/weekly/monthly analytics
-
-* [ ] Advanced analytics
-
-* [ ] Improved cache invalidation strategies
-
-* [ ] Redis failure/fallback handling
-
-* [ ] Distributed Redis-backed rate limiting
-
-* [ ] Automatic unhealthy-instance handling
-
-* [ ] Production deployment
-
-* [ ] Continuous Deployment
-
-* [ ] Further scalability improvements
-
-* [ ] Monitoring and observability
-
-> The roadmap is intentionally incremental. Features are added as the underlying requirements, data model, and architecture support them properly.
-
----
-
-# 🔮 Future Analytics
-
-Once individual click events are stored, the analytics system can evolve from simple aggregate statistics into actual historical analytics.
-
-### Current
-
-```text
-
-Link
-
-└── clicks: 42
-
-```
-
-### Future
-
-```text
-
-Link
-
-└── clickEvents
-
-       ├── timestamp
-
-       ├── referrer
-
-       ├── device
-
-       ├── browser
-
-       └── ...
-
-```
-
-This would make features such as:
-
-```text
-
-Today
-
-Last 7 Days
-
-Last 30 Days
-
-Click Trends
-
-Peak Activity
-
-Traffic Sources
-
-Device Breakdown
-
-```
-
-possible without fabricating data.
-
----
-
-# 🤝 Contributing
-
-This project is primarily being developed as a learning and portfolio project.
-
-Suggestions, improvements, and constructive feedback are welcome.
-
-If you'd like to contribute:
-
-```bash
-
-git fork
-
-git clone
-
-git checkout -b feature/your-feature
-
-git commit -m "Add your feature"
-
-git push
-
-```
-
-Then open a pull request.
-
----
-
-# 📄 License
-
-This project is currently intended for educational and portfolio purposes.
-
-A formal license can be added as the project moves toward public production use.
-
----
-
-# ⭐ About
-
-**WhyLong** is a full-stack URL shortening project built to explore and apply real-world engineering concepts:
-
-```text
-
-React
-
-   ↓
-
-REST APIs
-
-   ↓
-
-Authentication
-
-   ↓
-
-Load Balancer
-
-   ↓
-
-Multiple Backend Instances
-
-   ↓
-
-MongoDB
-
-   ↕
-
-Redis
-
-   ↓
-
-Caching
-
-   ↓
-
-Atomic Counters
-
-   ↓
-
-Periodic Synchronization
-
-   ↓
-
-Rate Limiting
-
-   ↓
-
-Testing
-
-   ↓
-
-Docker
-
-   ↓
-
-Docker Compose
-
-   ↓
-
-GitHub Actions
-
-   ↓
-
-Horizontal Scaling
-
-   ↓
-
-System Design
-
-```
-
-The project is intentionally evolving from a simple MERN application into a more complete **full-stack + DevOps + system-design engineering project**.
-
-The focus is not on adding technologies for the sake of a tech stack.
-
-The focus is on understanding:
-
-> **the problem, the solution, the trade-off, and the reason behind every architectural decision.**
-
----
-
-### Built with ❤️ and JavaScript
+</div>
