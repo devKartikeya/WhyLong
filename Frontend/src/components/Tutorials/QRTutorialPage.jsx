@@ -12,6 +12,8 @@ export default function QRTutorialPage({
     intro,
     steps,
     image,
+    logo,
+    platformName,
     benefits,
     faqs,
     canonicalUrl,
@@ -112,83 +114,76 @@ export default function QRTutorialPage({
     return (
         <main className="min-h-screen my-8 bg-white text-gray-900">
             {/* Hero */}
-            <section className="border-b border-yellow-100 bg-gradient-to-b from-yellow-50 to-white">
-                <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20">
-                    <nav
-                        aria-label="Breadcrumb"
-                        className="mb-8 text-sm text-gray-500"
-                    >
-                        <a href="/" className="transition hover:text-gray-950">
-                            Home
-                        </a>
-                        <span className="mx-2" aria-hidden="true">
-                            /
+            <section className="relative overflow-hidden border-b border-yellow-100 bg-gradient-to-br from-yellow-50 via-white to-amber-50">
+                <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:py-24">
+
+                    {/* Left: Content */}
+                    <div className="relative z-10">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-white/90 px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm">
+                            <span className="h-2 w-2 rounded-full bg-yellow-400" />
+                            Free {platformName} QR Code Guide
                         </span>
-                        <span className="text-gray-700">QR Code Guides</span>
-                    </nav>
 
-                    <span className="inline-flex rounded-full border border-yellow-200 bg-white px-4 py-2 text-sm font-medium text-gray-700">
-                        Free QR Code Guide
-                    </span>
+                        <h1 className="mt-6 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
+                            {keyword}
+                            <span className="text-yellow-500">
+                                {" "}with WhyLong
+                            </span>
+                        </h1>
 
-                    <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                        {keyword}
-                        <span className="text-yellow-500"> with WhyLong</span>
-                    </h1>
+                        <p className="mt-6 max-w-2xl text-base leading-8 text-gray-600 sm:text-lg">
+                            {intro}
+                        </p>
 
-                    <p className="mt-6 max-w-3xl text-base leading-8 text-gray-600 sm:text-lg">
-                        {intro}
-                    </p>
+                        <div className="mt-8 flex flex-wrap items-center gap-4">
+                            {authLoading ? (
+                                <div className="h-12 w-48 animate-pulse rounded-xl bg-gray-200" />
+                            ) : user ? (
+                                <button
+                                    type="button"
+                                    onClick={goToDashboard}
+                                    className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-6 py-3.5 text-sm font-bold text-gray-950 shadow-sm transition hover:-translate-y-0.5 hover:bg-yellow-300 hover:shadow-md"
+                                >
+                                    Create {platformName} QR Code
+                                    <span aria-hidden="true">→</span>
+                                </button>
+                            ) : (
+                                <button
+                                    type="button"
+                                    onClick={openAuth}
+                                    className="inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-6 py-3.5 text-sm font-bold text-gray-950 shadow-sm transition hover:-translate-y-0.5 hover:bg-yellow-300 hover:shadow-md"
+                                >
+                                    Create {platformName} QR Code
+                                    <span aria-hidden="true">→</span>
+                                </button>
+                            )}
 
-                    {authLoading ? (
-                        <div className="h-12 w-40 shrink-0 animate-pulse rounded-xl bg-gray-800" />
-                    ) : user ? (
-                        <button
-                            type="button"
-                            onClick={goToDashboard}
-                            className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98] m-3"
-                        >
-                            Create your own {profileType} QR
+                        </div>
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M3 10a.75.75 0 01.75-.75h10.69l-3.22-3.22a.75.75 0 01.1-1.06.75.75 0 011.06.1l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 01-1.06.1.75.75 0 01-.1-1.06l3.22-3.22H3.75A.75.75 0 013 10Z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
-                        </button>
-                    ) : (
-                        <button
-                            type="button"
-                            onClick={openAuth}
-                            className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98] m-3"
-                        >
-                            Create your own {profileType} QR
+                        <p className="mt-4 text-sm text-gray-500">
+                            Create a scannable QR code for your {profileType} profile.
+                        </p>
+                    </div>
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                            >
-                                <path
-                                    fillRule="evenodd"
-                                    d="M3 10a.75.75 0 01.75-.75h10.69l-3.22-3.22a.75.75 0 111.06-1.06l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 01-1.06 1.06l-3.22-3.22H3.75A.75.75 0 013 10Z"
-                                    clipRule="evenodd"
-                                />
-                            </svg>
-                        </button>
-                    )}
-
-                    <p className="mt-3 text-sm text-gray-500">
-                        Create a scannable QR code for your {profileType} profile.
-                    </p>
+                    {/* Right: Platform Identity Card */}
+                    <div className="relative mx-auto w-full max-w-md">
+                        {/* Decorative background */}
+                        <div
+                            aria-hidden="true"
+                            className="absolute -right-5 -top-5 h-28 w-28 rounded-full bg-yellow-200/60 blur-2xl"
+                        />
+                        <div
+                            aria-hidden="true"
+                            className="absolute -bottom-5 -left-5 h-32 w-32 rounded-full bg-amber-100 blur-2xl"
+                        />
+                        <img
+                            src={logo}
+                            alt={`${platformName} logo`}
+                            className="relative z-10 h-28 w-28 object-contain ml-8 sm:h-36 sm:w-36 rounded-full md:h-72 md:w-72 lg:h-80 lg:w-80"
+                            loading="eager"
+                            decoding="async"
+                        />
+                    </div>
                 </div>
             </section>
 

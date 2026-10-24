@@ -76,6 +76,8 @@ export default function GitHubQRGuide() {
       intro="Make your developer profile easier to discover. Learn how to turn your GitHub profile URL into a scannable QR code for your resume, portfolio, business card, or next tech event."
       steps={steps}
       image="/GitHub_QR.jpeg"
+      logo={"/images/GitHub.png"}
+      platformName={"GitHub"}
       benefits={benefits}
       faqs={faqs}
       canonicalUrl="https://whylong.vercel.app/tutorials/create-github-qr-code"

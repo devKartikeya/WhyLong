@@ -76,6 +76,8 @@ export default function InstagramQRGuide() {
             intro="Want to share your Instagram profile without asking people to search for your username? Learn how to turn your Instagram profile link into a scannable QR code using WhyLong."
             steps={steps}
             image="/Insta_QR.jpeg"
+            logo={"/images/Insta.avif"}
+            platformName={"Instagram"}
             benefits={benefits}
             faqs={faqs}
             canonicalUrl="https://whylong.vercel.app/tutorials/create-instagram-qr-code"
