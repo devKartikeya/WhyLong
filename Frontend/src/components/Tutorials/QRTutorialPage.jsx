@@ -24,6 +24,10 @@ export default function QRTutorialPage({
         setIsAuthOpen(true);
     };
 
+    const goToDashboard = () => {
+        navigate("/dashboard");
+    };
+
     useEffect(() => {
         document.title = title;
 
@@ -135,16 +139,51 @@ export default function QRTutorialPage({
                         {intro}
                     </p>
 
-                    <button
-                        // to="/dashboard/qr-codes"
-                        onClick={openAuth}
-                        className="mt-8 inline-flex items-center justify-center rounded-xl bg-yellow-400 px-6 py-3.5 font-semibold text-gray-950 shadow-sm transition hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
-                    >
-                        Create Your QR Code
-                        <span className="ml-2" aria-hidden="true">
-                            →
-                        </span>
-                    </button>
+                    {authLoading ? (
+                        <div className="h-12 w-40 shrink-0 animate-pulse rounded-xl bg-gray-800" />
+                    ) : user ? (
+                        <button
+                            type="button"
+                            onClick={goToDashboard}
+                            className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98] m-3"
+                        >
+                            Create your own {profileType} QR
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M3 10a.75.75 0 01.75-.75h10.69l-3.22-3.22a.75.75 0 01.1-1.06.75.75 0 011.06.1l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 01-1.06.1.75.75 0 01-.1-1.06l3.22-3.22H3.75A.75.75 0 013 10Z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                    ) : (
+                        <button
+                            type="button"
+                            onClick={openAuth}
+                            className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98] m-3"
+                        >
+                            Create your own {profileType} QR
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M3 10a.75.75 0 01.75-.75h10.69l-3.22-3.22a.75.75 0 111.06-1.06l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 01-1.06 1.06l-3.22-3.22H3.75A.75.75 0 013 10Z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                        </button>
+                    )}
 
                     <p className="mt-3 text-sm text-gray-500">
                         Create a scannable QR code for your {profileType} profile.

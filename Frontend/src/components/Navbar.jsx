@@ -2,12 +2,56 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
 import { useAuth } from "../context/AuthContext";
+import { FaGithub, FaInstagram } from "react-icons/fa";
+import { Link2, QrCode, ChartNoAxesCombined, LayoutDashboard, } from "lucide-react";
 
 const navItems = [
     { name: "Home", id: "hero" },
     { name: "Features", id: "features" },
     { name: "How it works", id: "how-it-works" },
     { name: "About", id: "about" }
+];
+
+const guideItems = [
+    {
+        name: "Instagram QR Code",
+        description: "Create a QR code for your Instagram profile",
+        path: "/tutorials/create-instagram-qr-code",
+        Icon: FaInstagram,
+    },
+    {
+        name: "GitHub QR Code",
+        description: "Share your GitHub profile with one scan",
+        path: "/tutorials/create-github-qr-code",
+        Icon: FaGithub,
+    },
+];
+
+const platformItems = [
+    {
+        name: "URL Shortener",
+        description: "Turn long URLs into short, shareable links.",
+        path: "/#hero",
+        Icon: Link2,
+    },
+    {
+        name: "QR Code Generator",
+        description: "Create and customize QR codes.",
+        path: "/qr-code-generator",
+        Icon: QrCode,
+    },
+    {
+        name: "Link Analytics",
+        description: "Understand clicks and link performance.",
+        path: "/#features",
+        Icon: ChartNoAxesCombined,
+    },
+    {
+        name: "Link Management",
+        description: "Manage your links from one dashboard.",
+        path: "/dashboard",
+        Icon: LayoutDashboard,
+    },
 ];
 
 const ArrowIcon = ({ className = "h-4 w-4" }) => (
@@ -30,6 +74,10 @@ const Navbar = () => {
     const [activeSection, setActiveSection] = useState("hero");
     const [isAuthOpen, setIsAuthOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const [isMobilePlatformOpen, setIsMobilePlatformOpen] = useState(false);
+    const [isMobileGuidesOpen, setIsMobileGuidesOpen] = useState(false);
+
 
     const { user, authLoading } = useAuth();
     const navigate = useNavigate();
@@ -178,6 +226,141 @@ const Navbar = () => {
                                 </a>
                             );
                         })}
+
+                        {/* ================= PLATFORM DROPDOWN ================= */}
+                        <div className="group relative">
+                            <button
+                                type="button"
+                                aria-haspopup="true"
+                                className="flex items-center gap-2 py-2 text-sm font-medium text-gray-800 transition-colors hover:text-gray-950"
+                            >
+                                Platform
+
+                                <svg
+                                    className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m5 7.5 5 5 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            <div className="invisible absolute right-0 top-full z-50 mt-3 w-96 translate-y-2 rounded-2xl border border-gray-100 bg-white p-6 opacity-0 shadow-xl shadow-gray-200/60 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                                <div className="px-3 pb-2 pt-3">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                        Explore the Platform
+                                    </p>
+                                </div>
+
+                                {platformItems.map(({ name, description, path, Icon }) => (
+                                    <Link
+                                        key={name}
+                                        to={path}
+                                        onClick={(e) => {
+                                            if (path.startsWith("/#")) {
+                                                handleNavClick(
+                                                    e,
+                                                    path.substring(2)
+                                                );
+                                            }
+                                        }}
+                                        className="flex items-start gap-6 rounded-xl p-3 transition-colors hover:bg-gray-300"
+                                    >
+                                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900">
+                                            <Icon size={20} aria-hidden="true" />
+                                        </span>
+
+                                        <span>
+                                            <span className="block text-sm font-semibold text-gray-900">
+                                                {name}
+                                            </span>
+                                            <span className="mt-1 block text-xs leading-5 text-gray-500">
+                                                {description}
+                                            </span>
+                                        </span>
+                                    </Link>
+                                ))}
+
+                                <div className="mt-1 border-t border-gray-100 px-3 py-3">
+                                    <p className="text-xs text-gray-500">
+                                        Everything you need to share links smarter.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="group relative">
+                            <button
+                                type="button"
+                                aria-haspopup="true"
+                                className={`flex items-center gap-2 py-2 text-sm font-medium transition-colors ${guideItems.some((item) => location.pathname === item.path)
+                                    ? "text-gray-950"
+                                    : "text-gray-800 hover:text-gray-950"
+                                    }`}
+                            >
+                                Guides
+
+                                <svg
+                                    className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m5 7.5 5 5 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            <div className="invisible absolute left-1/2 top-full z-50 mt-3 w-80 -translate-x-1/2 translate-y-2 rounded-2xl border border-gray-100 bg-white p-2 opacity-0 shadow-xl shadow-gray-200/60 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                                <div className="px-3 pb-2 pt-3">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                        QR Code Guides
+                                    </p>
+                                </div>
+
+                                {guideItems.map(({ name, description, path, Icon }) => (
+                                    <Link
+                                        key={name}
+                                        to={path}
+                                        className={`flex items-start gap-3 rounded-xl p-3 transition-colors ${location.pathname === path
+                                            ? "bg-yellow-300"
+                                            : "hover:bg-gray-300"
+                                            }`}
+                                    >
+                                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-lg text-gray-900">
+                                            <Icon size={20} aria-hidden="true" />
+                                        </span>
+
+                                        <span>
+                                            <span className="block text-sm font-semibold text-gray-900">
+                                                {name}
+                                            </span>
+                                            <span className="mt-1 block text-xs leading-5 text-gray-500">
+                                                {description}
+                                            </span>
+                                        </span>
+                                    </Link>
+                                ))}
+
+                                <div className="mt-1 border-t border-gray-100 px-3 py-3">
+                                    <p className="text-xs text-gray-500">
+                                        More helpful guides coming soon.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {/* ================= DESKTOP ACTIONS ================= */}
@@ -246,15 +429,17 @@ const Navbar = () => {
                     </button>
                 </nav>
 
+
                 {/* ================= MOBILE MENU ================= */}
                 <div
                     id="mobile-menu"
-                    className={`absolute left-0 top-full z-[60] w-full overflow-hidden border-t border-gray-100 bg-white shadow-lg transition-all duration-300 md:hidden ${isMobileMenuOpen
-                        ? "visible max-h-[500px] translate-y-0 opacity-100"
-                        : "invisible max-h-0 -translate-y-2 opacity-0"
+                    className={`absolute left-0 top-full z-[60] w-full border-t border-gray-100 bg-white shadow-xl transition-all duration-300 md:hidden ${isMobileMenuOpen
+                            ? "visible max-h-[calc(100dvh-5rem)] translate-y-0 overflow-y-auto opacity-100"
+                            : "invisible max-h-0 -translate-y-2 overflow-hidden opacity-0"
                         }`}
                 >
-                    <div className="px-6 pb-6 pt-4">
+                    <div className="px-5 pb-6 pt-4 sm:px-6">
+                        {/* Main navigation */}
                         <nav aria-label="Mobile navigation" className="space-y-1">
                             {navItems.map((item) => {
                                 const isActive = activeSection === item.id;
@@ -264,18 +449,18 @@ const Navbar = () => {
                                         key={item.id}
                                         href={`/#${item.id}`}
                                         onClick={(e) => handleNavClick(e, item.id)}
-                                        aria-current={isActive ? "true" : undefined}
-                                        className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-4 py-3.5 text-left text-md font-medium transition-all ${isActive
-                                            ? "bg-yellow-50 text-gray-950"
-                                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-950"
+                                        aria-current={isActive ? "page" : undefined}
+                                        className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-base font-medium transition-colors ${isActive
+                                                ? "bg-yellow-50 text-gray-950"
+                                                : "text-gray-700 hover:bg-gray-50"
                                             }`}
                                     >
-                                        <span>{item.name}</span>
+                                        {item.name}
 
                                         {isActive && (
                                             <span
                                                 aria-hidden="true"
-                                                className="h-1.5 w-1.5 rounded-full bg-yellow-400"
+                                                className="h-2 w-2 rounded-full bg-yellow-400"
                                             />
                                         )}
                                     </a>
@@ -283,40 +468,172 @@ const Navbar = () => {
                             })}
                         </nav>
 
-                        <div className="my-5 h-px bg-gray-100" />
-
-                        {authLoading ? (
-                            <div className="h-12 animate-pulse rounded-lg bg-gray-100" />
-                        ) : user ? (
+                        {/* Platform accordion */}
+                        <div className="mt-4 border-t border-gray-100 pt-3">
                             <button
                                 type="button"
-                                onClick={goToDashboard}
-                                className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-gray-950 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+                                aria-expanded={isMobilePlatformOpen}
+                                onClick={() =>
+                                    setIsMobilePlatformOpen((prev) => !prev)
+                                }
+                                className="flex w-full items-center justify-between rounded-xl px-4 py-4 text-left font-semibold text-gray-900 transition-colors hover:bg-yellow-50"
                             >
-                                Dashboard
-                                <ArrowIcon />
-                            </button>
-                        ) : (
-                            <div className="grid grid-cols-2 gap-3">
-                                <button
-                                    type="button"
-                                    onClick={openAuth}
-                                    className="cursor-pointer rounded-lg border border-gray-200 px-4 py-3 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50"
-                                >
-                                    Log in
-                                </button>
+                                <span>Platform</span>
 
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${isMobilePlatformOpen ? "rotate-180" : ""
+                                        }`}
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m5 7.5 5 5 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            {isMobilePlatformOpen && (
+                                <div className="space-y-1 px-1 pb-3">
+                                    {platformItems.map(
+                                        ({ name, description, path, Icon }) => (
+                                            <Link
+                                                key={name}
+                                                to={path}
+                                                onClick={(e) => {
+                                                    setIsMobileMenuOpen(false);
+
+                                                    if (path.startsWith("/#")) {
+                                                        handleNavClick(
+                                                            e,
+                                                            path.substring(2)
+                                                        );
+                                                    }
+                                                }}
+                                                className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-gray-50"
+                                            >
+                                                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900">
+                                                    <Icon size={19} aria-hidden="true" />
+                                                </span>
+
+                                                <span className="min-w-0">
+                                                    <span className="block text-sm font-semibold text-gray-900">
+                                                        {name}
+                                                    </span>
+                                                    <span className="mt-1 block text-sm leading-5 text-gray-500">
+                                                        {description}
+                                                    </span>
+                                                </span>
+                                            </Link>
+                                        )
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Guides accordion */}
+                        <div className="border-t border-gray-100 pt-1">
+                            <button
+                                type="button"
+                                aria-expanded={isMobileGuidesOpen}
+                                onClick={() =>
+                                    setIsMobileGuidesOpen((prev) => !prev)
+                                }
+                                className="flex w-full items-center justify-between rounded-xl px-4 py-4 text-left font-semibold text-gray-900 transition-colors hover:bg-yellow-50"
+                            >
+                                <span>Guides</span>
+
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${isMobileGuidesOpen ? "rotate-180" : ""
+                                        }`}
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m5 7.5 5 5 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            {isMobileGuidesOpen && (
+                                <div className="space-y-1 px-1 pb-3">
+                                    {guideItems.map(
+                                        ({ name, description, path, Icon }) => (
+                                            <Link
+                                                key={path}
+                                                to={path}
+                                                onClick={() =>
+                                                    setIsMobileMenuOpen(false)
+                                                }
+                                                className={`flex items-start gap-3 rounded-xl p-3 transition-colors ${window.location.pathname === path
+                                                        ? "bg-yellow-50"
+                                                        : "hover:bg-gray-50"
+                                                    }`}
+                                            >
+                                                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900">
+                                                    <Icon size={19} aria-hidden="true" />
+                                                </span>
+
+                                                <span className="min-w-0">
+                                                    <span className="block text-sm font-semibold text-gray-900">
+                                                        {name}
+                                                    </span>
+                                                    <span className="mt-1 block text-sm leading-5 text-gray-500">
+                                                        {description}
+                                                    </span>
+                                                </span>
+                                            </Link>
+                                        )
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Authentication / dashboard actions */}
+                        <div className="mt-4 border-t border-gray-100 pt-5">
+                            {authLoading ? (
+                                <div className="h-12 animate-pulse rounded-xl bg-gray-100" />
+                            ) : user ? (
                                 <button
                                     type="button"
-                                    onClick={openAuth}
-                                    className="cursor-pointer rounded-lg bg-gray-950 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+                                    onClick={goToDashboard}
+                                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-gray-950 px-4 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
                                 >
-                                    Get started
+                                    Dashboard
+                                    <ArrowIcon />
                                 </button>
-                            </div>
-                        )}
+                            ) : (
+                                <div className="grid grid-cols-2 gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={openAuth}
+                                        className="rounded-xl border border-gray-200 px-4 py-3.5 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50"
+                                    >
+                                        Log in
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        onClick={openAuth}
+                                        className="rounded-xl bg-gray-950 px-4 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+                                    >
+                                        Get started
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
+
             </header>
 
             <AuthPanel
