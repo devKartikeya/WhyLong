@@ -15,9 +15,11 @@ import CookiePolicy from "./pages/legal/CookiePolicy";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import DashboardLayout from "./dashboard/DashboardLayout";
 import PublicPagesLayout from "./routes/PublicPagesLayout";
+import GitHubQRGuide from "./pages/Tutorials/GitHubQRGuide";
+import QRCodeGeneratorPage from "./pages/QRCodeGeneratorPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TermsAndConditions from "./pages/legal/TermsAndConditions";
-import QRCodeGeneratorPage from "./pages/QRCodeGeneratorPage";
+import InstagramQRGuide from "./pages/Tutorials/InstagramQRGuide";
 
 const App = () => {
     return (
@@ -28,6 +30,7 @@ const App = () => {
                     path="/"
                     element={<Home />}
                 />
+
                 <Route path="/qr-code-generator" element={<QRCodeGeneratorPage />} />
 
                 <Route element={<PublicPagesLayout />}>
@@ -37,6 +40,8 @@ const App = () => {
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
                     <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />
+                    <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
+                    <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
                 </Route>
 
                 <Route path="/forgot-password" element={<ForgotPassword />} />

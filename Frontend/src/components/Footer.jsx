@@ -26,6 +26,11 @@ const resourceLinks = [
     { name: "FAQ", href: "/#faq" }
 ];
 
+const tutorialsLinks = [
+    { name: "Create QR for Instagram", href: "/tutorials/create-instagram-qr-code" },
+    { name: "Create QR for GitHub", href: "/tutorials/create-github-qr-code" }
+];
+
 const legalLinks = [
     { name: "Privacy Policy", href: "/legal/privacy-policy" },
     { name: "Terms of Service", href: "/legal/terms-and-conditions" },
@@ -83,7 +88,7 @@ const Footer = () => {
         <>
             <footer className="border-t border-gray-200 bg-gray-950 text-white">
                 <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
-                    <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+                    <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
 
                         {/* ================= BRAND ================= */}
                         <div className="max-w-sm">
@@ -164,6 +169,23 @@ const Footer = () => {
                             </ul>
                         </nav>
 
+                        {/* ================= RESOURCES ================= */}
+                        <nav aria-label="Resources">
+                            <p className="text-sm font-semibold text-white">
+                                Resources
+                            </p>
+
+                            <ul className="mt-6 space-y-4">
+                                {resourceLinks.map((link) => (
+                                    <li key={link.name}>
+                                        <a href={link.href} className={linkClass}>
+                                            {link.name}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+
                         {/* ================= COMPANY ================= */}
                         <nav aria-label="Company">
                             <p className="text-sm font-semibold text-white">
@@ -181,18 +203,18 @@ const Footer = () => {
                             </ul>
                         </nav>
 
-                        {/* ================= RESOURCES ================= */}
-                        <nav aria-label="Resources">
+                        {/* ================= TUTORIALS ================= */}
+                        <nav aria-label="Tutorials">
                             <p className="text-sm font-semibold text-white">
-                                Resources
+                                Tutorials
                             </p>
 
                             <ul className="mt-6 space-y-4">
-                                {resourceLinks.map((link) => (
+                                {tutorialsLinks.map((link) => (
                                     <li key={link.name}>
-                                        <a href={link.href} className={linkClass}>
+                                        <Link to={link.href} className={linkClass}>
                                             {link.name}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
