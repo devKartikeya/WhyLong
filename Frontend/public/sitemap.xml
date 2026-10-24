@@ -21,4 +21,13 @@
   <url>
     <loc>https://whylong.vercel.app/legal/terms-and-conditions</loc>
   </url>
+  <url>
+    <loc>https://whylong.vercel.app/qr-code-generator</loc>
+  </url>
+  <url>
+    <loc>https://whylong.vercel.app/tutorials/create-github-qr-code</loc>
+  </url>
+  <url>
+    <loc>https://whylong.vercel.app/tutorials/create-instagram-qr-code</loc>
+  </url>
 </urlset>
