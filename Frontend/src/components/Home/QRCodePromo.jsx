@@ -1,4 +1,5 @@
 import { FiCheck, FiDownload, FiGrid } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const QRCodePromo = () => {
     return (
@@ -157,6 +158,25 @@ const QRCodePromo = () => {
                         Your QR code stays connected to your WhyLong link,
                         so you can manage the destination from your dashboard.
                     </p>
+                    <button
+                        type="button"
+                        className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
+                    >
+                        <Link to={"/qr-code-generator"}>Learn more about QRs</Link>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                        >
+                            <path
+                                fillRule="evenodd"
+                                d="M3 10a.75.75 0 01.75-.75h10.69l-3.22-3.22a.75.75 0 111.06-1.06l4.5 4.5a.75.75 0 010 1.06l-4.5 4.5a.75.75 0 01-1.06 1.06l-3.22-3.22H3.75A.75.75 0 013 10Z"
+                                clipRule="evenodd"
+                            />
+                        </svg>
+                    </button>
                 </div>
 
             </div>

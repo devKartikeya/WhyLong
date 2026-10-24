@@ -1,6 +1,23 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
+import { useAuth } from "../../context/AuthContext";
+
+const ArrowIcon = ({ className = "h-4 w-4" }) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        className={className}
+        aria-hidden="true"
+    >
+        <path
+            fillRule="evenodd"
+            d="M3 10a.75.75 0 0 1 .75-.75h10.69l-3.22-3.22a.75.75 0 1 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H3.75A.75.75 0 0 1 3 10Z"
+            clipRule="evenodd"
+        />
+    </svg>
+);
 
 const Hero = () => {
     const [url, setUrl] = useState("");
@@ -172,31 +189,35 @@ const Hero = () => {
                             </span>
                         </div>
 
-                        {/* Tagline (was a second <h1>) */}
-                        {/* <p className="mb-3 text-lg font-bold leading-[1.08] tracking-tight text-gray-950 sm:text-xl lg:text-2xl">
-    Long links?
-    <span className="relative mx-2 inline-block">
-        <span className="relative z-10 text-yellow-500">WhyLong.</span>
-        <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100" />
-    </span>
-</p> */}
+                        {/* ================= HERO HEADING ================= */}
 
-                        {/* The only H1 on the page */}
-                        <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
-                            Free URL shortener. Turn long links into
-                            <span className="relative mx-2 inline-block">
-                                <span className="relative z-10 text-yellow-500">powerful</span>
-                                <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100" />
+                        <h1 className="text-4xl font-bold leading-[1.12] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
+                            Free URL Shortener &amp;
+                            <span className="relative mt-1 block pb-1">
+                                <span className="relative z-10 text-yellow-500">
+                                    Custom QR Code Generator
+                                </span>
+                                <span
+                                    aria-hidden="true"
+                                    className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100 sm:h-4"
+                                />
                             </span>
-                            short ones.
                         </h1>
+
+                        <h2 className="mt-5 text-xl font-semibold leading-snug tracking-tight text-gray-900 sm:text-2xl lg:text-3xl">
+                            Short links.
+                            <span className="text-gray-400"> Better sharing.</span>
+                            <span className="block">
+                                <span className="text-gray-900">One simple platform.</span>
+                            </span>
+                        </h2>
 
                         {/* ================= DESCRIPTION ================= */}
 
-                        <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-gray-500 sm:text-lg">
-                            Create clean, memorable short links in seconds.
-                            Manage every link from one simple dashboard and
-                            keep track of how your audience interacts with them.
+                        <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
+                            Shorten long URLs, create branded QR codes, and track link
+                            performance—all with WhyLong. Free link shortening, no
+                            subscription required.
                         </p>
 
                         {/* ================= URL SHORTENER ================= */}
@@ -308,113 +329,136 @@ const Hero = () => {
 
                             {/* ================= SUCCESS RESULT ================= */}
 
+                            {/* ================= SHORT URL RESULT ================= */}
                             {shortUrl && (
-                                <div className="mt-5 overflow-hidden rounded-2xl border border-yellow-200 bg-yellow-50/60 text-left">
+                                <div className="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                                    <div className="p-4 sm:p-5">
+                                        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                                            {/* Short URL */}
+                                            <div className="min-w-0 flex-1">
+                                                <div className="mb-2 flex items-center gap-2">
+                                                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-green-50 text-green-600">
+                                                        <svg
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                            className="h-4 w-4"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <path
+                                                                fillRule="evenodd"
+                                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-7.25 9a.75.75 0 01-1.127.075l-4.25-4.25a.75.75 0 111.06-1.06l3.665 3.665 6.738-8.364a.75.75 0 011.021-.118Z"
+                                                                clipRule="evenodd"
+                                                            />
+                                                        </svg>
+                                                    </span>
 
-                                    <div className="flex items-center gap-3 border-b border-yellow-100 px-5 py-3">
+                                                    <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+                                                        Your short link is ready
+                                                    </span>
+                                                </div>
 
-                                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-yellow-400">
+                                                <a
+                                                    href={shortUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block truncate text-base font-bold text-gray-950 transition-colors hover:text-yellow-700 sm:text-lg"
+                                                    title={shortUrl}
+                                                >
+                                                    {shortUrl}
+                                                </a>
 
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                                className="h-4 w-4 text-gray-950"
+                                                <p className="mt-1 text-xs text-gray-500">
+                                                    Ready to copy and share anywhere.
+                                                </p>
+                                            </div>
+
+                                            {/* Copy action */}
+                                            <button
+                                                type="button"
+                                                onClick={handleCopy}
+                                                className={`inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all active:scale-[0.98] ${copied
+                                                    ? "bg-green-50 text-green-700 ring-1 ring-green-200"
+                                                    : "bg-gray-950 text-white hover:bg-gray-800"
+                                                    }`}
                                             >
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M16.704 4.153a.75.75 0 01.143 1.052l-7.25 9a.75.75 0 01-1.127.075l-4.25-4.25a.75.75 0 111.06-1.06l3.665 3.665 6.738-8.364a.75.75 0 011.021-.118Z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-
+                                                {copied ? (
+                                                    <>
+                                                        <svg
+                                                            viewBox="0 0 20 20"
+                                                            fill="currentColor"
+                                                            className="h-4 w-4"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <path
+                                                                fillRule="evenodd"
+                                                                d="M16.704 4.153a.75.75 0 01.143 1.052l-7.25 9a.75.75 0 01-1.127.075l-4.25-4.25a.75.75 0 111.06-1.06l3.665 3.665 6.738-8.364a.75.75 0 011.021-.118Z"
+                                                                clipRule="evenodd"
+                                                            />
+                                                        </svg>
+                                                        Copied
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <svg
+                                                            viewBox="0 0 20 20"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            strokeWidth="1.5"
+                                                            className="h-4 w-4"
+                                                            aria-hidden="true"
+                                                        >
+                                                            <rect x="6.5" y="6.5" width="10" height="11" rx="2" />
+                                                            <path
+                                                                d="M13.5 6.5v-1a2 2 0 00-2-2h-6a2 2 0 00-2 2v8a2 2 0 002 2h1"
+                                                                strokeLinecap="round"
+                                                            />
+                                                        </svg>
+                                                        Copy link
+                                                    </>
+                                                )}
+                                            </button>
                                         </div>
-
-                                        <div>
-                                            <p className="text-sm font-semibold text-gray-950">
-                                                Your link is ready!
-                                            </p>
-
-                                            <p className="text-xs text-gray-500">
-                                                Your long URL has been shortened successfully.
-                                            </p>
-                                        </div>
-
                                     </div>
 
-                                    <div className="flex flex-col gap-3 p-4 sm:flex-row">
-
-                                        <div className="flex min-w-0 flex-1 items-center rounded-xl border border-yellow-200 bg-white px-4 py-3">
-
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                strokeWidth="1.8"
-                                                stroke="currentColor"
-                                                className="mr-3 h-5 w-5 shrink-0 text-yellow-500"
-                                            >
-                                                <path
+                                    {/* QR action */}
+                                    <div className="flex flex-col gap-3 border-t border-gray-100 bg-gradient-to-r from-yellow-50/80 via-white to-white px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+                                        <div className="flex items-center gap-3">
+                                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-yellow-200 bg-yellow-100/80 text-gray-900">
+                                                <svg
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
+                                                    stroke="currentColor"
+                                                    strokeWidth="1.7"
                                                     strokeLinecap="round"
                                                     strokeLinejoin="round"
-                                                    d="M13.19 8.688a4.5 4.5 0 0 0-6.38 0l-3 3a4.5 4.5 0 006.38 6.364l1.5-1.5"
-                                                />
+                                                    className="h-5 w-5"
+                                                    aria-hidden="true"
+                                                >
+                                                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                                                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                                                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                                                    <path d="M14 14h3v3h-3zM20 14v2M14 20h2M20 19v2M18 21h3" />
+                                                </svg>
+                                            </div>
 
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M10.81 15.312a4.5 4.5 0 006.38 0l3-3a4.5 4.5 0 00-6.38-6.364l-1.5 1.5"
-                                                />
-                                            </svg>
-
-                                            <a
-                                                href={shortUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="truncate text-sm font-semibold text-gray-950 hover:text-yellow-600"
-                                            >
-                                                {shortUrl}
-                                            </a>
-
+                                            <div>
+                                                <p className="text-sm font-semibold text-gray-900">
+                                                    Need a QR code too?
+                                                </p>
+                                                <p className="mt-0.5 text-xs leading-5 text-gray-500">
+                                                    Create a QR code for your short link.
+                                                </p>
+                                            </div>
                                         </div>
 
                                         <button
-                                            onClick={handleCopy}
-                                            className="flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-gray-950 px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-gray-800 active:scale-[0.98]"
+                                            type="button"
+                                            onClick={openAuth}
+                                            className="group inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-yellow-300 bg-yellow-400 px-5 py-3 text-sm font-semibold text-gray-950 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-yellow-400 hover:bg-yellow-300 hover:shadow-md active:translate-y-0 sm:w-auto"
                                         >
-                                            {copied ? (
-                                                <>
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 20 20"
-                                                        fill="currentColor"
-                                                        className="h-4 w-4"
-                                                    >
-                                                        <path
-                                                            fillRule="evenodd"
-                                                            d="M16.704 4.153a.75.75 0 01.143 1.052l-7.25 9a.75.75 0 01-1.127.075l-4.25-4.25a.75.75 0 111.06-1.06l3.665 3.665 6.738-8.364a.75.75 0 011.021-.118Z"
-                                                            clipRule="evenodd"
-                                                        />
-                                                    </svg>
-
-                                                    Copied
-                                                </>
-                                            ) : (
-                                                <>
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 20 20"
-                                                        fill="currentColor"
-                                                        className="h-4 w-4"
-                                                    >
-                                                        <path d="M7.5 2.75A1.75 1.75 0 009.25 1h1.5a1.75 1.75 0 011.75 1.75V3h.75A2.75 2.75 0 0116 5.75v9.5A2.75 2.75 0 0113.25 18h-6.5A2.75 2.75 0 014 15.25v-9.5A2.75 2.75 0 016.75 3h.75v-.25ZM6.75 4.5a1.25 1.25 0 00-1.25 1.25v9.5a1.25 1.25 0 001.25 1.25h6.5a1.25 1.25 0 001.25-1.25v-9.5a1.25 1.25 0 00-1.25-1.25H12v.25A1.75 1.75 0 0110.25 6h-1.5A1.75 1.75 0 017 4.75V4.5h-.25Z" />
-                                                    </svg>
-
-                                                    Copy
-                                                </>
-                                            )}
+                                            Generate QR
+                                            <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
                                         </button>
-
                                     </div>
                                 </div>
                             )}
@@ -586,11 +630,11 @@ const Hero = () => {
                     </div>
 
                 </div>
-            </section>
+            </section >
 
             {/* ================= AUTH PANEL ================= */}
 
-            <AuthPanel
+            < AuthPanel
                 isOpen={isAuthOpen}
                 onClose={() => setIsAuthOpen(false)}
             />

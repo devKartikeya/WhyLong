@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const About = () => {
     return (
         <section
@@ -194,11 +196,11 @@ const About = () => {
                         as your needs grow.
                     </p>
 
-                    <a
-                        href="#features"
+                    <Link
+                        to="/about"
                         className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-gray-950"
                     >
-                        Explore what we offer
+                        Read more about Us
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +214,7 @@ const About = () => {
                                 clipRule="evenodd"
                             />
                         </svg>
-                    </a>
+                    </Link>
 
                 </div>
             </div>

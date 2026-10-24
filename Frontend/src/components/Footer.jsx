@@ -22,7 +22,7 @@ const resourceLinks = [
     { name: "Why WhyLong", href: "/#why-whylong" },
     { name: "How it works", href: "/#how-it-works" },
     { name: "Features", href: "/#features" },
-    { name: "QR Codes", href: "/#qr-codes" },
+    { name: "QR Codes", href: "/qr-code-generator" },
     { name: "FAQ", href: "/#faq" }
 ];
 
