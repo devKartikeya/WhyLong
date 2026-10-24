@@ -478,7 +478,7 @@ const Contact = () => {
                     <button
                         className="mt-7 inline-flex items-center gap-2 rounded-xl bg-yellow-500 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-600 hover:shadow-lg hover:shadow-yellow-200"
                     >
-                        Get started
+                        <a href="/">Get Started</a>
 
                         <ArrowUpRight size={17} />
                     </button>

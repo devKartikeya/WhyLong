@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
 import { useAuth } from "../../context/AuthContext";
 
@@ -7,46 +7,48 @@ const features = [
     {
         number: "01",
         title: "Instant URL shortening",
-        description:
-            "Turn long URLs into clean, shareable links in seconds.",
-        icon: "link"
+        description: "Turn long URLs into clean, shareable links in seconds.",
+        icon: "link",
+        path: "/products/url-shortener"
     },
     {
         number: "02",
         title: "Link management",
-        description:
-            "Keep your shortened URLs organized and access them from one place.",
-        icon: "folder"
+        description: "Keep your shortened URLs organized and access them from one place.",
+        icon: "folder",
+        path: "/dashboard",
+        protected: true
     },
     {
         number: "03",
         title: "Click analytics",
-        description:
-            "Understand how your links perform with useful click insights.",
-        icon: "chart"
+        description: "Understand how your links perform with useful click insights.",
+        icon: "chart",
+        path: "/products/analytics"
     },
     {
         number: "04",
         title: "QR code generation",
-        description:
-            "Turn your short links into QR codes for posters, packaging, events, and more.",
+        description: "Turn your short links into QR codes for posters, packaging, events, and more.",
         icon: "qr",
+        path: "/products/qr-code-generator",
         locked: true
     },
     {
         number: "05",
         title: "Share anywhere",
-        description:
-            "Use your links across social media, messages, documents, campaigns, and websites.",
-        icon: "share"
+        description: "Use your links across social media, messages, documents, campaigns, and websites.",
+        icon: "share",
+        path: "/products/url-shortener"
     },
     {
         number: "06",
         title: "Personal workspace",
-        description:
-            "Sign in and keep your links, tools, and activity together in one workspace.",
+        description: "Sign in and keep your links, tools, and activity together in one workspace.",
         icon: "user",
-        locked: true
+        path: "/dashboard",
+        locked: true,
+        protected: true
     }
 ];
 
@@ -182,7 +184,6 @@ const Features = () => {
 
     const navigate = useNavigate();
 
-    // =========================
     // CHECK AUTHENTICATION
     // =========================
     // useEffect(() => {
@@ -232,6 +233,14 @@ const Features = () => {
         navigate("/dashboard");
     };
 
+
+    const handleFeatureClick = (event, feature) => {
+        if (feature.protected && !authLoading && !user) {
+            event.preventDefault();
+            openAuth();
+        }
+    }
+
     return (
         <>
             <section
@@ -265,31 +274,48 @@ const Features = () => {
                     <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 
                         {features.map((feature) => (
-                            <article
+                            <Link
                                 key={feature.number}
-                                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)]"
+                                to={feature.path}
+                                onClick={(event) => handleFeatureClick(event, feature)}
+                                aria-label={`Explore ${feature.title}`}
+                                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2"
                             >
+                                {/* Top row */}
                                 <div className="flex items-center justify-between">
-
                                     <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow-50 text-yellow-600 transition-all group-hover:bg-yellow-400 group-hover:text-gray-950">
                                         <Icon type={feature.icon} />
                                     </div>
 
-                                    <div className="flex items-center gap-2">
-
+                                    <div className="flex items-center gap-3">
                                         {feature.locked && (
                                             <span className="rounded-full bg-gray-100 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gray-500">
                                                 Account
                                             </span>
                                         )}
 
-                                        <span className="text-xs font-semibold text-gray-300">
-                                            {feature.number}
+                                        {/* Diagonal redirect arrow */}
+                                        <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-gray-400 transition-all duration-300 group-hover:border-yellow-400 group-hover:bg-yellow-400 group-hover:text-gray-950">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="1.8"
+                                                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                                                aria-hidden="true"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M7 17 17 7M7 7h10v10"
+                                                />
+                                            </svg>
                                         </span>
-
                                     </div>
                                 </div>
 
+                                {/* Card content */}
                                 <h3 className="mt-8 text-lg font-bold text-gray-950">
                                     {feature.title}
                                 </h3>
@@ -298,8 +324,12 @@ const Features = () => {
                                     {feature.description}
                                 </p>
 
-                                <div className="absolute -bottom-12 -right-12 h-28 w-28 rounded-full bg-yellow-50 opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
-                            </article>
+                                {/* Hover accent */}
+                                <div
+                                    aria-hidden="true"
+                                    className="absolute -bottom-12 -right-12 h-28 w-28 rounded-full bg-yellow-50 opacity-0 blur-xl transition-opacity group-hover:opacity-100"
+                                />
+                            </Link>
                         ))}
 
                     </div>

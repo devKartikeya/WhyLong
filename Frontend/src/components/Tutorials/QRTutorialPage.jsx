@@ -176,13 +176,53 @@ export default function QRTutorialPage({
                             aria-hidden="true"
                             className="absolute -bottom-5 -left-5 h-32 w-32 rounded-full bg-amber-100 blur-2xl"
                         />
-                        <img
-                            src={logo}
-                            alt={`${platformName} logo`}
-                            className="relative z-10 h-28 w-28 object-contain ml-8 sm:h-36 sm:w-36 rounded-full md:h-72 md:w-72 lg:h-80 lg:w-80"
-                            loading="eager"
-                            decoding="async"
-                        />
+
+                        {/* Diagonal Platform + WhyLong Logos */}
+                        <div className="relative mx-auto mt-10 h-72 w-full max-w-md sm:h-80">
+
+                            {/* Decorative glow */}
+                            <div
+                                aria-hidden="true"
+                                className="absolute right-8 top-2 h-40 w-40 rounded-full bg-yellow-200/60 blur-3xl"
+                            />
+
+                            {/* Platform Logo — Top Right */}
+                            <div className="absolute right-4 top-0 z-10 flex h-36 w-36 items-center justify-center rounded-full border border-gray-200 bg-white p-5 shadow-xl shadow-gray-900/10 sm:right-8 sm:h-44 sm:w-44 sm:p-6">
+                                <img
+                                    src={logo}
+                                    alt={`${platformName} logo`}
+                                    className="h-full w-full rounded-full object-contain"
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            </div>
+
+                            {/* WhyLong Logo — Bottom Left */}
+                            <div className="absolute bottom-0 left-4 z-20 flex h-36 w-36 items-center justify-center rounded-full border-4 border-white bg-yellow-400 p-5 shadow-xl shadow-yellow-900/15 sm:left-8 sm:h-44 sm:w-44 sm:p-6">
+                                <span className="flex h-20 w-20 items-center justify-center rounded-xl bg-yellow-400">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        className="h-80 w-80 text-gray-950"
+                                        aria-hidden="true"
+                                    >
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                    </svg>
+                                </span>
+                            </div>
+
+                            {/* Connection accent */}
+                            <div
+                                aria-hidden="true"
+                                className="absolute left-1/2 top-1/2 z-30 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-white bg-gray-950 text-xl font-semibold text-yellow-400 shadow-md"
+                            >
+                                +
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
