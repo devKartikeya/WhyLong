@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 
 const navItems = [
     {
@@ -18,6 +19,21 @@ const navItems = [
     {
         name: "Contact",
         path: "/contact",
+    },
+];
+
+const guideItems = [
+    {
+        name: "Instagram QR Code",
+        description: "Create a QR code for your Instagram profile",
+        path: "/tutorials/create-instagram-qr-code",
+        Icon: FaInstagram,
+    },
+    {
+        name: "GitHub QR Code",
+        description: "Share your GitHub profile with one scan",
+        path: "/tutorials/create-github-qr-code",
+        Icon: FaGithub,
     },
 ];
 
@@ -139,8 +155,7 @@ const PagesNavbar = () => {
                     {/* ================= DESKTOP NAV ================= */}
                     <div className="hidden items-center gap-8 md:flex">
                         {navItems.map((item) => {
-                            const isActive =
-                                location.pathname === item.path;
+                            const isActive = location.pathname === item.path;
 
                             return (
                                 <Link
@@ -154,14 +169,79 @@ const PagesNavbar = () => {
                                     {item.name}
 
                                     <span
-                                        className={`absolute -bottom-[18px] left-0 h-0.5 bg-yellow-400 transition-all duration-300 ${isActive
-                                                ? "w-full"
-                                                : "w-0"
+                                        className={`absolute -bottom-[18px] left-0 h-0.5 bg-yellow-400 transition-all duration-300 ${isActive ? "w-full" : "w-0"
                                             }`}
                                     />
                                 </Link>
                             );
                         })}
+
+                        {/* Guides Dropdown */}
+                        <div className="group relative">
+                            <button
+                                type="button"
+                                aria-haspopup="true"
+                                className={`flex items-center gap-2 py-2 text-sm font-medium transition-colors ${guideItems.some((item) => location.pathname === item.path)
+                                        ? "text-gray-950"
+                                        : "text-gray-500 hover:text-gray-950"
+                                    }`}
+                            >
+                                Guides
+
+                                <svg
+                                    className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m5 7.5 5 5 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            <div className="invisible absolute left-1/2 top-full z-50 mt-3 w-80 -translate-x-1/2 translate-y-2 rounded-2xl border border-gray-100 bg-white p-2 opacity-0 shadow-xl shadow-gray-200/60 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                                <div className="px-3 pb-2 pt-3">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                        QR Code Guides
+                                    </p>
+                                </div>
+
+                                {guideItems.map(({name, description, path, Icon}) => (
+                                    <Link
+                                        key={name}
+                                        to={path}
+                                        className={`flex items-start gap-3 rounded-xl p-3 transition-colors ${location.pathname === path
+                                                ? "bg-yellow-50"
+                                                : "hover:bg-gray-50"
+                                            }`}
+                                    >
+                                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-lg text-gray-900">
+                                            <Icon size={20} aria-hidden="true"/>
+                                        </span>
+
+                                        <span>
+                                            <span className="block text-sm font-semibold text-gray-900">
+                                                {name}
+                                            </span>
+                                            <span className="mt-1 block text-xs leading-5 text-gray-500">
+                                                {description}
+                                            </span>
+                                        </span>
+                                    </Link>
+                                ))}
+
+                                <div className="mt-1 border-t border-gray-100 px-3 py-3">
+                                    <p className="text-xs text-gray-500">
+                                        More helpful guides coming soon.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {/* ================= DESKTOP ACTIONS ================= */}
@@ -233,8 +313,8 @@ const PagesNavbar = () => {
                 {/* ================= MOBILE MENU ================= */}
                 <div
                     className={`absolute left-0 top-full z-[60] w-full overflow-hidden border-t border-gray-100 bg-white shadow-lg transition-all duration-300 md:hidden ${isMobileMenuOpen
-                            ? "visible max-h-[600px] translate-y-0 opacity-100"
-                            : "invisible max-h-0 -translate-y-2 opacity-0"
+                        ? "visible max-h-[600px] translate-y-0 opacity-100"
+                        : "invisible max-h-0 -translate-y-2 opacity-0"
                         }`}
                 >
                     <div className="px-6 pb-6 pt-4">
@@ -254,8 +334,8 @@ const PagesNavbar = () => {
                                             closeMobileMenu
                                         }
                                         className={`flex w-full items-center justify-between rounded-lg px-4 py-3.5 text-left text-sm font-medium transition-all ${isActive
-                                                ? "bg-yellow-50 text-gray-950"
-                                                : "text-gray-600 hover:bg-gray-50 hover:text-gray-950"
+                                            ? "bg-yellow-50 text-gray-950"
+                                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-950"
                                             }`}
                                     >
                                         <span>{item.name}</span>
@@ -266,6 +346,36 @@ const PagesNavbar = () => {
                                     </Link>
                                 );
                             })}
+                            {/* Mobile Guides */}
+                            <div className="py-2">
+                                <p className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                    Guides
+                                </p>
+
+                                {guideItems.map((item) => {
+                                    const isActive = location.pathname === item.path;
+
+                                    return (
+                                        <Link
+                                            key={item.path}
+                                            to={item.path}
+                                            onClick={closeMobileMenu}
+                                            className={`flex items-center gap-3 rounded-lg px-4 py-3 ${isActive
+                                                    ? "bg-yellow-50 text-gray-950"
+                                                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-950"
+                                                }`}
+                                        >
+                                            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-yellow-100 text-gray-900">
+                                                {item.icon}
+                                            </span>
+
+                                            <span className="text-sm font-medium">
+                                                {item.name}
+                                            </span>
+                                        </Link>
+                                    );
+                                })}
+                            </div>
                         </div>
 
                         <div className="my-5 h-px bg-gray-100" />
