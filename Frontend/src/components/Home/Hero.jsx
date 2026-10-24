@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
+import { useAuth } from "../../context/AuthContext";
 
 const Hero = () => {
     const [url, setUrl] = useState("");
@@ -14,8 +15,7 @@ const Hero = () => {
     // =========================
 
     const [isAuthOpen, setIsAuthOpen] = useState(false);
-    const [user, setUser] = useState(null);
-    const [authLoading, setAuthLoading] = useState(true);
+    const { user, authLoading } = useAuth();
 
     const navigate = useNavigate();
 
@@ -23,40 +23,40 @@ const Hero = () => {
     // CHECK AUTHENTICATION
     // =========================
 
-    useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}/users/me`,
-                    {
-                        method: "GET",
-                        credentials: "include"
-                    }
-                );
+    // useEffect(() => {
+    //     const checkAuth = async () => {
+    //         try {
+    //             const response = await fetch(
+    //                 `${import.meta.env.VITE_API_URL}/users/me`,
+    //                 {
+    //                     method: "GET",
+    //                     credentials: "include"
+    //                 }
+    //             );
 
-                if (!response.ok) {
-                    setUser(null);
-                    return;
-                }
+    //             if (!response.ok) {
+    //                 setUser(null);
+    //                 return;
+    //             }
 
-                const result = await response.json();
-                setUser(result.user);
+    //             const result = await response.json();
+    //             setUser(result.user);
 
-            } catch (error) {
-                console.error(
-                    "Hero authentication check failed:",
-                    error
-                );
+    //         } catch (error) {
+    //             console.error(
+    //                 "Hero authentication check failed:",
+    //                 error
+    //             );
 
-                setUser(null);
+    //             setUser(null);
 
-            } finally {
-                setAuthLoading(false);
-            }
-        };
+    //         } finally {
+    //             setAuthLoading(false);
+    //         }
+    //     };
 
-        checkAuth();
-    }, []);
+    //     checkAuth();
+    // }, []);
 
     // =========================
     // AUTH PANEL
@@ -166,36 +166,29 @@ const Hero = () => {
 
                         {/* ================= EYEBROW ================= */}
 
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-1.5">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-3 md:py-4">
                             <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
                             <span className="text-xs font-semibold tracking-wide text-yellow-700">
                                 UNLIMITED LINKS. CUSTOM QR CODES. CLEAR INSIGHTS.
                             </span>
                         </div>
 
-                        <h1 className="text-lg mb-3 font-bold leading-[1.08] tracking-tight text-gray-950 sm:text-xl lg:text-2xl">
-                            Long links?
+                        {/* Tagline (was a second <h1>) */}
+                        {/* <p className="mb-3 text-lg font-bold leading-[1.08] tracking-tight text-gray-950 sm:text-xl lg:text-2xl">
+    Long links?
+    <span className="relative mx-2 inline-block">
+        <span className="relative z-10 text-yellow-500">WhyLong.</span>
+        <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100" />
+    </span>
+</p> */}
+
+                        {/* The only H1 on the page */}
+                        <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
+                            Free URL shortener. Turn long links into
                             <span className="relative mx-2 inline-block">
-                                <span className="relative z-10 text-yellow-500">
-                                    WhyLong.
-                                </span>
+                                <span className="relative z-10 text-yellow-500">powerful</span>
                                 <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100" />
                             </span>
-                        </h1>
-
-                        {/* ================= HEADING ================= */}
-
-                        <h1 className="text-5xl font-bold leading-[1.08] tracking-tight text-gray-950 sm:text-6xl lg:text-7xl">
-                            Turn long links into
-
-                            <span className="relative mx-2 inline-block">
-                                <span className="relative z-10 text-yellow-500">
-                                    powerful
-                                </span>
-
-                                <span className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100" />
-                            </span>
-
                             short ones.
                         </h1>
 
@@ -241,6 +234,9 @@ const Hero = () => {
                                     <input
                                         type="url"
                                         value={url}
+                                        inputMode="url"
+                                        autoComplete="off"
+                                        aria-label="Paste your long URL"
                                         onChange={(e) => {
                                             setUrl(e.target.value);
                                             setError("");

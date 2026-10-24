@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const CheckIcon = () => (
     <svg
         viewBox="0 0 20 20"
@@ -90,12 +88,12 @@ const FreeLaunchOffer = () => {
                             ))}
                         </div>
 
-                        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                        <p className="mt-10 text-sm text-gray-500">
 
                             <span className="text-sm text-gray-500">
                                 No payment required to get started.
                             </span>
-                        </div>
+                        </p>
                     </div>
 
                     {/* Visual offer card */}

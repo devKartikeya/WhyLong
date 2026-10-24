@@ -8,28 +8,28 @@ import {
 const pillars = [
     {
         number: "01",
-        icon: FiLayers,
-        title: "More than links.",
-        highlight: "A complete workflow.",
-        description:
-            "WhyLong brings the tools around your links together so you can create, organize, share, and understand them without jumping between different platforms.",
-        points: [
-            "One workspace for your links",
-            "QR codes built into the workflow",
-            "Useful insights without the clutter",
-        ],
-    },
-    {
-        number: "02",
         icon: FiTrendingUp,
         title: "Build your brand.",
         highlight: "One link at a time.",
         description:
-            "Turn your links and QR codes into recognizable parts of your brand. Customize how you share your digital presence and create a consistent experience wherever your audience finds you.",
+        "Turn your links and QR codes into recognizable parts of your brand. Customize how you share your digital presence and create a consistent experience wherever your audience finds you.",
         points: [
             "Branded and memorable short links",
             "Custom QR codes with your logo and colors",
             "Consistent identity across online and offline sharing",
+        ],
+    },
+    {
+        number: "02",
+        icon: FiLayers,
+        title: "More than links.",
+        highlight: "A complete workflow.",
+        description:
+            "WhyLong puts your link tools in one place. Create, organize, share, and track links without switching apps..",
+        points: [
+            "One workspace for your links",
+            "QR codes built into the workflow",
+            "Useful insights without the clutter",
         ],
     },
     {
@@ -110,13 +110,10 @@ const MoreThanShortener = () => {
 
                                 <div className="relative mt-14">
 
-                                    <p className="text-2xl font-bold leading-tight text-gray-950">
+                                    <h3 className="text-2xl font-bold leading-tight text-gray-950">
                                         {pillar.title}
-                                    </p>
-
-                                    <p className="mt-1 text-2xl font-bold leading-tight text-yellow-500">
-                                        {pillar.highlight}
-                                    </p>
+                                        <span className="mt-1 block text-yellow-500">{pillar.highlight}</span>
+                                    </h3>
 
                                     <p className="mt-6 text-sm leading-7 text-gray-500">
                                         {pillar.description}

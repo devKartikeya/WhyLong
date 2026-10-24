@@ -1,3 +1,4 @@
+import FAQ from "../components/Home/FAQ";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Home/Hero";
@@ -71,6 +72,7 @@ const Home = () => {
                 <MoreThanShortener />
                 <QRCodePromo />
                 <HowItWorks />
+                <FAQ />
             </main>
             <Footer />
         </div >

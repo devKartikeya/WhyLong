@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
+import { useAuth } from "../../context/AuthContext";
 
 const features = [
     {
@@ -177,46 +178,45 @@ const Icon = ({ type }) => {
 
 const Features = () => {
     const [isAuthOpen, setIsAuthOpen] = useState(false);
-    const [user, setUser] = useState(null);
-    const [authLoading, setAuthLoading] = useState(true);
+    const { user, authLoading } = useAuth();
 
     const navigate = useNavigate();
 
     // =========================
     // CHECK AUTHENTICATION
     // =========================
-    useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}/users/me`,
-                    {
-                        method: "GET",
-                        credentials: "include"
-                    }
-                );
+    // useEffect(() => {
+    //     const checkAuth = async () => {
+    //         try {
+    //             const response = await fetch(
+    //                 `${import.meta.env.VITE_API_URL}/users/me`,
+    //                 {
+    //                     method: "GET",
+    //                     credentials: "include"
+    //                 }
+    //             );
 
-                if (!response.ok) {
-                    setUser(null);
-                    return;
-                }
+    //             if (!response.ok) {
+    //                 setUser(null);
+    //                 return;
+    //             }
 
-                const result = await response.json();
-                setUser(result.user);
-            } catch (error) {
-                console.error(
-                    "Features authentication check failed:",
-                    error
-                );
+    //             const result = await response.json();
+    //             setUser(result.user);
+    //         } catch (error) {
+    //             console.error(
+    //                 "Features authentication check failed:",
+    //                 error
+    //             );
 
-                setUser(null);
-            } finally {
-                setAuthLoading(false);
-            }
-        };
+    //             setUser(null);
+    //         } finally {
+    //             setAuthLoading(false);
+    //         }
+    //     };
 
-        checkAuth();
-    }, []);
+    //     checkAuth();
+    // }, []);
 
     // =========================
     // AUTH PANEL

@@ -46,100 +46,116 @@ const FAQ = () => {
         <section
             id="faq"
             aria-labelledby="faq-heading"
-            className="relative isolate overflow-hidden border-t border-gray-100 bg-gradient-to-b from-white via-white to-yellow-50/40 py-20 sm:py-24 lg:py-32"
+            className="relative isolate overflow-hidden border-y border-yellow-100/80 bg-gradient-to-br from-yellow-50 via-[#fffdf5] to-white py-20 sm:py-24 lg:py-28"
         >
-            {/* Subtle background accents */}
+            {/* Soft ambient background */}
             <div
                 aria-hidden="true"
-                className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-yellow-200/20 blur-3xl"
+                className="pointer-events-none absolute -right-32 -top-32 -z-10 h-96 w-96 rounded-full bg-yellow-200/25 blur-3xl"
             />
 
-            <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
-                {/* Section heading */}
-                <div className="mx-auto max-w-2xl text-center">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-yellow-800">
-                        <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
-                        Got questions?
-                    </span>
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-40 -left-32 -z-10 h-96 w-96 rounded-full bg-amber-100/40 blur-3xl"
+            />
 
-                    <h2
-                        id="faq-heading"
-                        className="mt-6 text-3xl font-extrabold tracking-tight text-gray-950 sm:text-4xl lg:text-5xl"
-                    >
-                        Everything you need to know <span> </span>
-                        <span className="mt-2 text-gray-400">
-                            about WhyLong.
+            <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
+                <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+
+                    {/* Left content */}
+                    <div className="lg:sticky lg:top-28">
+                        <span className="inline-flex items-center gap-2 rounded-full border border-yellow-200/90 bg-white/80 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-yellow-800 shadow-sm">
+                            <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
+                            Frequently asked questions
                         </span>
-                    </h2>
 
-                    <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-gray-600 sm:text-base">
-                        From shortening your first link to creating branded QR
-                        codes, here are answers to the questions you may have.
-                    </p>
-                </div>
-
-                {/* FAQ accordion */}
-                <div className="mx-auto mt-12 max-w-3xl space-y-3 sm:mt-14">
-                    {faqs.map((item, index) => (
-                        <details
-                            key={item.question}
-                            className="group overflow-hidden rounded-2xl border border-gray-200/80 bg-white/90 shadow-sm transition-all duration-300 hover:border-yellow-300 hover:shadow-md open:border-yellow-300 open:bg-white open:shadow-md"
+                        <h2
+                            id="faq-heading"
+                            className="mt-6 max-w-lg text-3xl font-bold leading-tight tracking-tight text-gray-950 sm:text-4xl lg:text-[2.75rem]"
                         >
-                            <summary className="flex cursor-pointer list-none items-center gap-4 px-5 py-5 sm:px-6">
-                                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gray-100 text-xs font-bold text-gray-500 transition-colors duration-300 group-open:bg-yellow-100 group-open:text-yellow-800">
-                                    {String(index + 1).padStart(2, "0")}
-                                </span>
+                            Got questions?
+                            <span className="mt-2 block text-gray-500">
+                                We've got answers.
+                            </span>
+                        </h2>
 
-                                <span className="flex-1 text-sm font-semibold leading-6 text-gray-900 sm:text-base">
-                                    {item.question}
-                                </span>
+                        <p className="mt-5 max-w-md text-sm leading-7 text-gray-600 sm:text-base">
+                            Everything you need to know about shortening
+                            links, creating custom QR codes, and understanding
+                            your link analytics with WhyLong.
+                        </p>
 
-                                <span
-                                    aria-hidden="true"
-                                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-all duration-300 group-hover:border-yellow-300 group-hover:text-gray-900 group-open:rotate-45 group-open:border-yellow-300 group-open:bg-yellow-400 group-open:text-gray-950"
-                                >
-                                    <svg
-                                        viewBox="0 0 20 20"
-                                        fill="none"
-                                        className="h-4 w-4"
+                        <div className="mt-8 hidden h-px w-16 bg-yellow-400 lg:block" />
+
+                        <p className="mt-7 hidden max-w-sm text-sm leading-6 text-gray-500 lg:block">
+                            Still curious? Explore WhyLong and discover a
+                            simpler way to share your links.
+                        </p>
+                    </div>
+
+                    {/* Right FAQ accordion */}
+                    <div className="space-y-3">
+                        {faqs.map((item, index) => (
+                            <details
+                                key={item.question}
+                                className="group rounded-xl border border-gray-200/80 bg-white/85 shadow-[0_2px_10px_rgba(0,0,0,0.025)] transition-all duration-200 hover:border-yellow-300/90 hover:bg-white open:border-yellow-300 open:bg-white open:shadow-[0_8px_28px_rgba(202,138,4,0.07)]"
+                            >
+                                <summary className="flex cursor-pointer list-none items-center gap-4 px-4 py-5 sm:px-5">
+                                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-yellow-50 text-[11px] font-semibold tabular-nums text-yellow-800 transition-colors group-open:bg-yellow-400 group-open:text-gray-950">
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+
+                                    <span className="flex-1 text-sm font-semibold leading-6 text-gray-800 sm:text-[15px]">
+                                        {item.question}
+                                    </span>
+
+                                    <span
+                                        aria-hidden="true"
+                                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-gray-400 transition-all duration-200 group-hover:text-gray-900 group-open:rotate-45 group-open:bg-yellow-50 group-open:text-gray-900"
                                     >
-                                        <path
-                                            d="M10 4.5V15.5M4.5 10H15.5"
-                                            stroke="currentColor"
-                                            strokeWidth="1.7"
-                                            strokeLinecap="round"
-                                        />
-                                    </svg>
-                                </span>
-                            </summary>
+                                        <svg
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                            className="h-4 w-4"
+                                        >
+                                            <path
+                                                d="M10 4.5V15.5M4.5 10H15.5"
+                                                stroke="currentColor"
+                                                strokeWidth="1.6"
+                                                strokeLinecap="round"
+                                            />
+                                        </svg>
+                                    </span>
+                                </summary>
 
-                            <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 group-open:grid-rows-[1fr]">
-                                <div className="overflow-hidden">
-                                    <p className="border-t border-gray-100 px-5 pb-5 pt-4 pl-[4.25rem] text-sm leading-7 text-gray-600 sm:px-6 sm:pb-6 sm:pl-[4.5rem]">
-                                        {item.answer}
-                                    </p>
+                                <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-200 group-open:grid-rows-[1fr]">
+                                    <div className="overflow-hidden">
+                                        <p className="border-t border-gray-100 px-4 pb-5 pl-[3.75rem] pt-3.5 text-sm leading-7 text-gray-600 sm:px-5 sm:pb-5 sm:pl-[4rem]">
+                                            {item.answer}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                    ))}
+                            </details>
+                        ))}
+                    </div>
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="mx-auto mt-12 flex max-w-3xl flex-col items-center justify-between gap-5 rounded-2xl border border-yellow-200/80 bg-yellow-50/70 p-6 text-center sm:mt-14 sm:flex-row sm:px-8 sm:text-left">
+                {/* Minimal bottom CTA */}
+                <div className="mt-16 flex flex-col items-start justify-between gap-5 border-t border-yellow-200/70 pt-8 sm:flex-row sm:items-center lg:mt-20">
                     <div>
-                        <h3 className="text-base font-bold text-gray-950 sm:text-lg">
-                            Ready to make your links work smarter?
+                        <h3 className="text-base font-semibold text-gray-950">
+                            Ready to simplify your links?
                         </h3>
                         <p className="mt-1 text-sm leading-6 text-gray-600">
-                            Start shortening links for free with WhyLong.
+                            Start using WhyLong for free. No subscription needed.
                         </p>
                     </div>
 
                     <a
                         href="#hero"
-                        className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-yellow-500 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-800 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+                        className="inline-flex items-center gap-2 rounded-lg bg-yellow-500 px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
                     >
-                        Try WhyLong
+                        Get started
                         <svg
                             viewBox="0 0 20 20"
                             fill="none"
@@ -149,7 +165,7 @@ const FAQ = () => {
                             <path
                                 d="M4 10H16M10.5 4.5L16 10L10.5 15.5"
                                 stroke="currentColor"
-                                strokeWidth="1.7"
+                                strokeWidth="1.6"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                             />

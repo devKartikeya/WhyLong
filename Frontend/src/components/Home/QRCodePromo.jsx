@@ -43,48 +43,16 @@ const QRCodePromo = () => {
                                         Try this One ! 😊
                                     </p>
                                     <div className="relative flex h-64 w-64 items-center justify-center overflow-hidden rounded-xl bg-white sm:h-72 sm:w-72">
+                                        <img
+                                            src="/WhyLong.png"
+                                            alt="Sample WhyLong QR code that opens the WhyLong homepage"
+                                            width="288"
+                                            height="288"
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="h-full w-full object-contain"
+                                        />
 
-                                        {/* Fake QR pattern */}
-                                        {/* <div className="grid h-full w-full grid-cols-11 gap-1 p-4 opacity-90">
-                                            {[
-                                                1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
-                                                1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1,
-                                                1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1,
-                                                1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1,
-                                                1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
-                                                0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0,
-                                                1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1,
-                                                0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0,
-                                                1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1,
-                                                1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1,
-                                                0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1,
-                                            ].map((cell, index) => (
-                                                <div
-                                                    key={index}
-                                                    className={
-                                                        cell
-                                                            ? "rounded-[2px] bg-gray-950"
-                                                            : "bg-transparent"
-                                                    }
-                                                />
-                                            ))}
-                                        </div> */}
-                                        <img src="/WhyLong.png" alt="" className="" />
-
-                                        {/* Center logo */}
-                                        {/* <div className="absolute flex h-16 w-16 items-center justify-center rounded-xl border-4 border-white bg-yellow-400 shadow-sm">
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                className="h-8 w-8 text-gray-950"
-                                            >
-                                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-                                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-                                            </svg>
-                                        </div> */}
                                     </div>
 
                                     {/* Brand name */}
