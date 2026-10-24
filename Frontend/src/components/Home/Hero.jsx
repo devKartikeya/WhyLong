@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
-import { useAuth } from "../../context/AuthContext";
+q
 
 const Hero = () => {
     const [url, setUrl] = useState("");

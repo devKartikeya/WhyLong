@@ -17,6 +17,7 @@ import DashboardLayout from "./dashboard/DashboardLayout";
 import PublicPagesLayout from "./routes/PublicPagesLayout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TermsAndConditions from "./pages/legal/TermsAndConditions";
+import QRCodeGeneratorPage from "./pages/QRCodeGeneratorPage";
 
 const App = () => {
     return (
@@ -27,6 +28,7 @@ const App = () => {
                     path="/"
                     element={<Home />}
                 />
+                <Route path="/qr-code-generator" element={<QRCodeGeneratorPage />} />
 
                 <Route element={<PublicPagesLayout />}>
                     <Route path="/about" element={<About />} />
