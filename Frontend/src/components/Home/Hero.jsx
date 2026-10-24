@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
-q
 
 const Hero = () => {
     const [url, setUrl] = useState("");
