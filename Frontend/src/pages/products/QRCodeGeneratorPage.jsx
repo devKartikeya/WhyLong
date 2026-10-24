@@ -12,8 +12,8 @@ import {
     FiSave,
     FiType
 } from "react-icons/fi";
-import AuthPanel from "../components/Auth/AuthPanel";
-import { useAuth } from "../context/AuthContext";
+import AuthPanel from "../../components/Auth/AuthPanel";
+import { useAuth } from "../../context/AuthContext";
 import {
     META,
     COPY,
@@ -28,7 +28,7 @@ import {
     USE_CASES,
     FAQS,
     buildSchemas
-} from "../content/qrLanding";
+} from "../../content/qrLanding";
 
 const FEATURE_ICONS = [FiImage, FiDroplet, FiGrid, FiLayout, FiType, FiSave];
 

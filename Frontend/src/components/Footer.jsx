@@ -20,10 +20,10 @@ const companyLinks = [
 
 const resourceLinks = [
     { name: "URL Shortener", href: "/products/url-shortener" },
-    { name: "How it works", href: "/#how-it-works" },
-    { name: "Features", href: "/#features" },
     { name: "QR Codes", href: "/products/qr-code-generator" },
-    { name: "FAQ", href: "/#faq" }
+    { name: "Link Analytics", href: "/products/analytics" },
+    // { name: "Features", href: "/#features" },
+    // { name: "FAQ", href: "/#faq" }
 ];
 
 const tutorialsLinks = [

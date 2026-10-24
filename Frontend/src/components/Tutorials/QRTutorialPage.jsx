@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
 
 export default function QRTutorialPage({
@@ -18,6 +18,7 @@ export default function QRTutorialPage({
     imageAlt,
 }) {
     const [isAuthOpen, setIsAuthOpen] = useState(false);
+    const navigate = useNavigate();
     const { user, authLoading } = useAuth();
 
     const openAuth = () => {

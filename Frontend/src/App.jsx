@@ -3,7 +3,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import HelpSupport from "./pages/HelpSupport";
-import UrlShortener from "./pages/URLShortener";
 import MyLinks from "./dashboard/pages/MyLinks";
 import QRCodes from "./dashboard/pages/QRCodes";
 import Profile from "./dashboard/pages/Profile";
@@ -14,13 +13,15 @@ import Analytics from "./dashboard/pages/Analytics";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import CookiePolicy from "./pages/legal/CookiePolicy";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
+import UrlShortener from "./pages/products/URLShortener";
 import DashboardLayout from "./dashboard/DashboardLayout";
 import PublicPagesLayout from "./routes/PublicPagesLayout";
+import AnalyticsPage from "./pages/products/AnalyticsPage";
 import GitHubQRGuide from "./pages/Tutorials/GitHubQRGuide";
-import QRCodeGeneratorPage from "./pages/QRCodeGeneratorPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TermsAndConditions from "./pages/legal/TermsAndConditions";
 import InstagramQRGuide from "./pages/Tutorials/InstagramQRGuide";
+import QRCodeGeneratorPage from "./pages/products/QRCodeGeneratorPage";
 
 const App = () => {
     return (
@@ -42,6 +43,7 @@ const App = () => {
                     <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />
                     <Route path="/products/qr-code-generator" element={<QRCodeGeneratorPage />} />
                     <Route path="/products/url-shortener" element={<UrlShortener />} />
+                    <Route path="/products/analytics" element={<AnalyticsPage />} />
                     <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
                     <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
                 </Route>

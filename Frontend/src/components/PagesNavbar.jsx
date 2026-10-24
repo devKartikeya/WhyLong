@@ -49,7 +49,7 @@ const platformItems = [
     {
         name: "Link Analytics",
         description: "Understand clicks and link performance.",
-        path: "/#features",
+        path: "/products/analytics",
         Icon: ChartNoAxesCombined,
     },
     {
