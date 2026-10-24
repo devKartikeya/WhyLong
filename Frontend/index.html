@@ -11,7 +11,7 @@
 
     gtag('config', 'G-0TCFG7XJH7');
   </script>
-  
+
   <meta charset="UTF-8" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,10 +20,61 @@
   <title>WhyLong — Free URL Shortener & QR Code Generator</title>
 
   <meta name="description"
-    content="Shorten URLs, create QR codes, and manage your links with WhyLong. Create and share links for free with a simple, fast link management experience." />
+    content="Shorten long URLs for free, create QR codes, and track clicks from one dashboard. Unlimited short links with WhyLong. No credit card needed."
+    data-rh="true" />
 
   <meta name="author" content="WhyLong" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" data-rh="true" />
+  <link rel="canonical" href="https://whylong.vercel.app/" data-rh="true" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" data-rh="true" />
+  <meta property="og:site_name" content="WhyLong" data-rh="true" />
+  <meta property="og:locale" content="en_US" data-rh="true" />
+  <meta property="og:title" content="WhyLong — Free URL Shortener & QR Code Generator" data-rh="true" />
+  <meta property="og:description"
+    content="Shorten URLs, generate QR codes, and track clicks with WhyLong. Free to use." data-rh="true" />
+  <meta property="og:url" content="https://whylong.vercel.app/" data-rh="true" />
+  <meta property="og:image" content="https://whylong.vercel.app/og-image.png" data-rh="true" />
+  <meta property="og:image:width" content="1200" data-rh="true" />
+  <meta property="og:image:height" content="630" data-rh="true" />
+  <meta property="og:image:alt" content="WhyLong free URL shortener and QR code generator" data-rh="true" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" data-rh="true" />
+  <meta name="twitter:title" content="WhyLong — Free URL Shortener & QR Code Generator" data-rh="true" />
+  <meta name="twitter:description"
+    content="Shorten URLs, generate QR codes, and track clicks with WhyLong." data-rh="true" />
+  <meta name="twitter:image" content="https://whylong.vercel.app/og-image.png" data-rh="true" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "WhyLong",
+      "url": "https://whylong.vercel.app/",
+      "description": "Free URL shortener with QR code generation and click analytics.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "WhyLong",
+      "url": "https://whylong.vercel.app/",
+      "sameAs": [
+        "https://github.com/devKartikeya",
+        "https://www.linkedin.com/in/kartikeya-mishra-8199973a9",
+        "https://instagram.com/devKartikeya"
+      ]
+    }
+  </script>
 
   <!-- Theme -->
   <meta name="theme-color" content="#000000" />
@@ -91,7 +142,64 @@
     WhyLong requires JavaScript to be enabled to work properly.
   </noscript>
 
-  <div id="root"></div>
+  <!--
+    Static fallback for crawlers that do not run JavaScript.
+    React replaces everything inside #root as soon as the app mounts.
+    Keep this text in sync with the real Hero / sections.
+    scripts/prerender.mjs replaces the content of this root element per route.
+  -->
+  <div id="root">
+    <main style="max-width:720px;margin:0 auto;padding:48px 24px;line-height:1.6;color:#111827">
+      <h1>Free URL shortener. Turn long links into powerful short ones</h1>
+      <p>
+        WhyLong is a free tool to shorten links, make QR codes, and see who
+        clicks. Paste a long link. Get a short one in seconds. Share it
+        anywhere you like.
+      </p>
+
+      <h2>Why use WhyLong?</h2>
+      <p>
+        Long links are hard to share and easy to break. A short link is clean
+        and easy to remember. It fits in a text, a post, or a printed flyer.
+      </p>
+      <ul>
+        <li>Unlimited short links</li>
+        <li>A QR code for every link</li>
+        <li>Click analytics and insights</li>
+        <li>One dashboard to manage all your links</li>
+      </ul>
+
+      <h2>How it works</h2>
+      <ol>
+        <li>Paste a long URL into the box.</li>
+        <li>Get your short link right away.</li>
+        <li>Share it, or sign in to manage and track it.</li>
+      </ol>
+
+      <h2>QR codes for every link</h2>
+      <p>
+        Turn any short link into a QR code. Pick your colors, add your logo,
+        and download it. Use it on posters, packaging, menus, and event
+        signs. Your QR code stays linked to your WhyLong link, so you can
+        change where it points from your dashboard.
+      </p>
+      <p><a href="/qr-code-generator">Explore the free QR code generator</a></p>
+
+      <h2>Know who clicks your links</h2>
+      <p>
+        See when your links are clicked. Learn which devices, browsers, and
+        countries your visitors come from. See which sites send you traffic.
+        Good data helps you share smarter.
+      </p>
+
+      <h2>Free, with no hidden limits</h2>
+      <p>
+        You can shorten a link without an account. Create a free account to
+        unlock QR codes, link management, and analytics. No credit card is
+        needed.
+      </p>
+    </main>
+  </div>
 </body>
 
 </html>
