@@ -2,8 +2,8 @@
 // and scripts/prerender.mjs (Node) can import it.
 
 export const SITE_URL = "https://whylong.vercel.app";
-export const PAGE_PATH = "/qr-code-generator";
-export const PAGE_URL = `$http://localhost:5173/${PAGE_PATH}`;
+export const PAGE_PATH = "/products/qr-code-generator";
+export const PAGE_URL = `$${SITE_URL}/${PAGE_PATH}`;
 
 export const META = {
     title: "Free QR Code Generator with Logo & Custom Branding | WhyLong",

@@ -37,13 +37,13 @@ const platformItems = [
     {
         name: "URL Shortener",
         description: "Turn long URLs into short, shareable links.",
-        path: "/#hero",
+        path: "/products/url-shortener",
         Icon: Link2,
     },
     {
         name: "QR Code Generator",
         description: "Create and customize QR codes.",
-        path: "/qr-code-generator",
+        path: "/products/qr-code-generator",
         Icon: QrCode,
     },
     {

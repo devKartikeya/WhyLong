@@ -19,10 +19,10 @@ const companyLinks = [
 ];
 
 const resourceLinks = [
-    { name: "Why WhyLong", href: "/#why-whylong" },
+    { name: "URL Shortener", href: "/products/url-shortener" },
     { name: "How it works", href: "/#how-it-works" },
     { name: "Features", href: "/#features" },
-    { name: "QR Codes", href: "/qr-code-generator" },
+    { name: "QR Codes", href: "/products/qr-code-generator" },
     { name: "FAQ", href: "/#faq" }
 ];
 

@@ -12,9 +12,6 @@ import {
     FiSave,
     FiType
 } from "react-icons/fi";
-
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import AuthPanel from "../components/Auth/AuthPanel";
 import { useAuth } from "../context/AuthContext";
 import {
@@ -300,12 +297,12 @@ const QRCodeGeneratorPage = () => {
                 <meta property="og:title" content={META.title} />
                 <meta property="og:description" content={META.description} />
                 <meta property="og:url" content={PAGE_URL} />
-                <meta property="og:image" content={OG_IMAGE} />
+                <meta property="og:image" content="https://whylong.vercel.app/og-image.png" />
 
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={META.title} />
                 <meta name="twitter:description" content={META.description} />
-                <meta name="twitter:image" content={OG_IMAGE} />
+                <meta name="twitter:image" content="https://whylong.vercel.app/og-image.png" />
 
                 {buildSchemas().map((schema) => (
                     <script key={schema["@type"]} type="application/ld+json">
@@ -313,8 +310,6 @@ const QRCodeGeneratorPage = () => {
                     </script>
                 ))}
             </Helmet>
-
-            <Navbar />
 
             <main>
                 {/* ================= HERO ================= */}
@@ -329,20 +324,6 @@ const QRCodeGeneratorPage = () => {
                     />
 
                     <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-36">
-                        <nav aria-label="Breadcrumb" className="mb-8">
-                            <ol className="flex items-center gap-2 text-xs text-gray-500">
-                                <li>
-                                    <Link to="/" className="hover:text-gray-950">
-                                        Home
-                                    </Link>
-                                </li>
-                                <li aria-hidden="true">/</li>
-                                <li aria-current="page" className="font-medium text-gray-950">
-                                    QR Code Generator
-                                </li>
-                            </ol>
-                        </nav>
-
                         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
                             <div>
                                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-1.5">
@@ -771,7 +752,6 @@ const QRCodeGeneratorPage = () => {
                 </section>
             </main>
 
-            <Footer />
 
             <AuthPanel
                 isOpen={isAuthOpen}

@@ -162,7 +162,7 @@ const QRCodePromo = () => {
                         type="button"
                         className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-5 py-3 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
                     >
-                        <Link to={"/qr-code-generator"}>Learn more about QRs</Link>
+                        <Link to={"/products/qr-code-generator"}>Learn more about QRs</Link>
 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

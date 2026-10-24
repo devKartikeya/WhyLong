@@ -3,6 +3,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import HelpSupport from "./pages/HelpSupport";
+import UrlShortener from "./pages/URLShortener";
 import MyLinks from "./dashboard/pages/MyLinks";
 import QRCodes from "./dashboard/pages/QRCodes";
 import Profile from "./dashboard/pages/Profile";
@@ -31,7 +32,6 @@ const App = () => {
                     element={<Home />}
                 />
 
-                <Route path="/qr-code-generator" element={<QRCodeGeneratorPage />} />
 
                 <Route element={<PublicPagesLayout />}>
                     <Route path="/about" element={<About />} />
@@ -40,6 +40,8 @@ const App = () => {
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
                     <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />
+                    <Route path="/products/qr-code-generator" element={<QRCodeGeneratorPage />} />
+                    <Route path="/products/url-shortener" element={<UrlShortener />} />
                     <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
                     <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
                 </Route>
