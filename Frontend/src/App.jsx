@@ -21,6 +21,7 @@ import WhyLongVsBitly from "./pages/blogs/WhyLongVsBitly";
 import PublicPagesLayout from "./routes/PublicPagesLayout";
 import AnalyticsPage from "./pages/products/AnalyticsPage";
 import GitHubQRGuide from "./pages/Tutorials/GitHubQRGuide";
+import WhyLongVsTinyURL from "./pages/blogs/WhyLongVsTinyURL";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TermsAndConditions from "./pages/legal/TermsAndConditions";
 import InstagramQRGuide from "./pages/Tutorials/InstagramQRGuide";
@@ -36,13 +37,13 @@ const App = () => {
                     element={<Home />}
                 />
 
-
                 <Route element={<PublicPagesLayout />}>
                     <Route path="/about" element={<About />} />
                     <Route path="/help" element={<HelpSupport />} />
                     <Route path="/faqs" element={<FAQ />} />
-                    <Route path="/blogs/:slug" element={<WhyLongVsBitly />}/>
                     <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/blogs/whylong-vs-tinyurl" element={<WhyLongVsTinyURL />} />
+                    <Route path="/blogs/whylong-vs-bitly" element={<WhyLongVsBitly />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
