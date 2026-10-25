@@ -17,6 +17,7 @@ import CookiePolicy from "./pages/legal/CookiePolicy";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import UrlShortener from "./pages/products/URLShortener";
 import DashboardLayout from "./dashboard/DashboardLayout";
+import WhyLongVsBitly from "./pages/blogs/WhyLongVsBitly";
 import PublicPagesLayout from "./routes/PublicPagesLayout";
 import AnalyticsPage from "./pages/products/AnalyticsPage";
 import GitHubQRGuide from "./pages/Tutorials/GitHubQRGuide";
@@ -40,6 +41,7 @@ const App = () => {
                     <Route path="/about" element={<About />} />
                     <Route path="/help" element={<HelpSupport />} />
                     <Route path="/faqs" element={<FAQ />} />
+                    <Route path="/blogs/:slug" element={<WhyLongVsBitly />}/>
                     <Route path="/blogs" element={<Blogs />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
