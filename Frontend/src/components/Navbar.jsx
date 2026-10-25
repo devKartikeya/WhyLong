@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
 import { useAuth } from "../context/AuthContext";
-import { FaGithub, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaInstagram , FaBlog} from "react-icons/fa";
 import { Link2, QrCode, ChartNoAxesCombined, LayoutDashboard, } from "lucide-react";
 
 const navItems = [
@@ -25,6 +25,12 @@ const guideItems = [
         path: "/tutorials/create-github-qr-code",
         Icon: FaGithub,
     },
+    {
+        name: "Blogs",
+        description: "Practical guides and useful insights about WhyLong",
+        path: "/blogs",
+        Icon: FaBlog,
+    }
 ];
 
 const platformItems = [
@@ -305,7 +311,7 @@ const Navbar = () => {
                                     : "text-gray-800 hover:text-gray-950"
                                     }`}
                             >
-                                Guides
+                                Resources
 
                                 <svg
                                     className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
@@ -434,8 +440,8 @@ const Navbar = () => {
                 <div
                     id="mobile-menu"
                     className={`absolute left-0 top-full z-[60] w-full border-t border-gray-100 bg-white shadow-xl transition-all duration-300 md:hidden ${isMobileMenuOpen
-                            ? "visible max-h-[calc(100dvh-5rem)] translate-y-0 overflow-y-auto opacity-100"
-                            : "invisible max-h-0 -translate-y-2 overflow-hidden opacity-0"
+                        ? "visible max-h-[calc(100dvh-5rem)] translate-y-0 overflow-y-auto opacity-100"
+                        : "invisible max-h-0 -translate-y-2 overflow-hidden opacity-0"
                         }`}
                 >
                     <div className="px-5 pb-6 pt-4 sm:px-6">
@@ -451,8 +457,8 @@ const Navbar = () => {
                                         onClick={(e) => handleNavClick(e, item.id)}
                                         aria-current={isActive ? "page" : undefined}
                                         className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-base font-medium transition-colors ${isActive
-                                                ? "bg-yellow-50 text-gray-950"
-                                                : "text-gray-700 hover:bg-gray-50"
+                                            ? "bg-yellow-50 text-gray-950"
+                                            : "text-gray-700 hover:bg-gray-50"
                                             }`}
                                     >
                                         {item.name}
@@ -575,8 +581,8 @@ const Navbar = () => {
                                                     setIsMobileMenuOpen(false)
                                                 }
                                                 className={`flex items-start gap-3 rounded-xl p-3 transition-colors ${window.location.pathname === path
-                                                        ? "bg-yellow-50"
-                                                        : "hover:bg-gray-50"
+                                                    ? "bg-yellow-50"
+                                                    : "hover:bg-gray-50"
                                                     }`}
                                             >
                                                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900">

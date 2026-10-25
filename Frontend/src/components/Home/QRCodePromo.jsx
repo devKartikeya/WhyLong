@@ -149,7 +149,7 @@ const QRCodePromo = () => {
                 </div>
 
                 {/* Bottom reassurance */}
-                <div className="mx-auto mt-12 flex max-w-2xl items-center justify-center gap-3 text-center">
+                <div className="mx-auto mt-12 flex max-w-2xl flex-col sm:flex-row items-center justify-center gap-3 text-center">
                     <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-yellow-400">
                         <FiCheck className="h-3.5 w-3.5 text-gray-950" />
                     </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
 import { useAuth } from "../context/AuthContext";
-import { FaGithub, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaBlog } from "react-icons/fa";
 import {
     Link2,
     QrCode,
@@ -16,6 +16,7 @@ const navItems = [
     { name: "About", path: "/about" },
     { name: "Help", path: "/help" },
     { name: "Contact", path: "/contact" },
+    { name: "Blogs", path: "/blogs" },
 ];
 
 const guideItems = [
@@ -30,7 +31,7 @@ const guideItems = [
         description: "Share your GitHub profile with one scan.",
         path: "/tutorials/create-github-qr-code",
         Icon: FaGithub,
-    },
+    }
 ];
 
 const platformItems = [
@@ -225,11 +226,10 @@ const PagesNavbar = () => {
                     to={path}
                     onClick={(event) => handlePlatformNavigation(event, path)}
                     aria-current={active ? "page" : undefined}
-                    className={`group flex items-start gap-3 rounded-xl p-3 transition-colors ${
-                        active
-                            ? "bg-yellow-50"
-                            : "hover:bg-gray-300"
-                    }`}
+                    className={`group flex items-start gap-3 rounded-xl p-3 transition-colors ${active
+                        ? "bg-yellow-50"
+                        : "hover:bg-gray-300"
+                        }`}
                 >
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900 transition-colors group-hover:bg-yellow-200">
                         <Icon size={19} aria-hidden="true" />
@@ -240,9 +240,8 @@ const PagesNavbar = () => {
                             {name}
                         </span>
                         <span
-                            className={`mt-1 block leading-5 text-gray-500 ${
-                                mobile ? "text-sm" : "text-xs"
-                            }`}
+                            className={`mt-1 block leading-5 text-gray-500 ${mobile ? "text-sm" : "text-xs"
+                                }`}
                         >
                             {description}
                         </span>
@@ -261,9 +260,8 @@ const PagesNavbar = () => {
                     to={path}
                     onClick={closeMobileMenu}
                     aria-current={active ? "page" : undefined}
-                    className={`group flex items-start gap-3 rounded-xl p-3 transition-colors ${
-                        active ? "bg-yellow-50" : "hover:bg-gray-300"
-                    }`}
+                    className={`group flex items-start gap-3 rounded-xl p-3 transition-colors ${active ? "bg-yellow-50" : "hover:bg-gray-300"
+                        }`}
                 >
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900 transition-colors group-hover:bg-yellow-200">
                         <Icon size={19} aria-hidden="true" />
@@ -333,18 +331,16 @@ const PagesNavbar = () => {
                                     key={item.path}
                                     to={item.path}
                                     aria-current={active ? "page" : undefined}
-                                    className={`relative py-2 text-sm font-medium transition-colors ${
-                                        active
-                                            ? "text-gray-950"
-                                            : "text-gray-500 hover:text-gray-950"
-                                    }`}
+                                    className={`relative py-2 text-md font-medium transition-colors ${active
+                                        ? "text-gray-950"
+                                        : "text-gray-500 hover:text-gray-950"
+                                        }`}
                                 >
                                     {item.name}
                                     <span
                                         aria-hidden="true"
-                                        className={`absolute -bottom-[18px] left-0 h-0.5 rounded-full bg-yellow-400 transition-all duration-200 ${
-                                            active ? "w-full" : "w-0"
-                                        }`}
+                                        className={`absolute -bottom-[18px] left-0 h-0.5 rounded-full bg-yellow-400 transition-all duration-200 ${active ? "w-full" : "w-0"
+                                            }`}
                                     />
                                 </Link>
                             );
@@ -355,13 +351,12 @@ const PagesNavbar = () => {
                             <button
                                 type="button"
                                 aria-haspopup="true"
-                                className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors ${
-                                    platformItems.some(({ path }) =>
-                                        isPlatformActive(path)
-                                    )
-                                        ? "text-gray-950"
-                                        : "text-gray-700 hover:text-gray-950"
-                                }`}
+                                className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors ${platformItems.some(({ path }) =>
+                                    isPlatformActive(path)
+                                )
+                                    ? "text-gray-950"
+                                    : "text-gray-700 hover:text-gray-950"
+                                    }`}
                             >
                                 Platform
                                 <ChevronDown
@@ -391,13 +386,12 @@ const PagesNavbar = () => {
                             <button
                                 type="button"
                                 aria-haspopup="true"
-                                className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors ${
-                                    isGuideActive
-                                        ? "text-gray-950"
-                                        : "text-gray-700 hover:text-gray-950"
-                                }`}
+                                className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors ${isGuideActive
+                                    ? "text-gray-950"
+                                    : "text-gray-700 hover:text-gray-950"
+                                    }`}
                             >
-                                Guides
+                                Resources
                                 <ChevronDown
                                     size={16}
                                     className="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
@@ -484,11 +478,10 @@ const PagesNavbar = () => {
                 <div
                     id="pages-mobile-menu"
                     aria-hidden={!isMobileMenuOpen}
-                    className={`absolute inset-x-0 top-full z-[60] border-t border-gray-100 bg-white shadow-xl transition-all duration-200 md:hidden ${
-                        isMobileMenuOpen
-                            ? "visible translate-y-0 opacity-100"
-                            : "invisible -translate-y-2 opacity-0"
-                    }`}
+                    className={`absolute inset-x-0 top-full z-[60] border-t border-gray-100 bg-white shadow-xl transition-all duration-200 md:hidden ${isMobileMenuOpen
+                        ? "visible translate-y-0 opacity-100"
+                        : "invisible -translate-y-2 opacity-0"
+                        }`}
                     style={{
                         maxHeight: isMobileMenuOpen
                             ? "calc(100dvh - 5rem)"
@@ -509,11 +502,10 @@ const PagesNavbar = () => {
                                         onClick={closeMobileMenu}
                                         aria-current={active ? "page" : undefined}
                                         tabIndex={isMobileMenuOpen ? 0 : -1}
-                                        className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-medium transition-colors ${
-                                            active
-                                                ? "bg-yellow-50 text-gray-950"
-                                                : "text-gray-700 hover:bg-gray-50"
-                                        }`}
+                                        className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-medium transition-colors ${active
+                                            ? "bg-yellow-50 text-gray-950"
+                                            : "text-gray-700 hover:bg-gray-50"
+                                            }`}
                                     >
                                         {item.name}
                                         {active && (
@@ -541,9 +533,8 @@ const PagesNavbar = () => {
                                 Platform
                                 <ChevronDown
                                     size={18}
-                                    className={`text-gray-500 transition-transform ${
-                                        isMobilePlatformOpen ? "rotate-180" : ""
-                                    }`}
+                                    className={`text-gray-500 transition-transform ${isMobilePlatformOpen ? "rotate-180" : ""
+                                        }`}
                                     aria-hidden="true"
                                 />
                             </button>
@@ -569,9 +560,8 @@ const PagesNavbar = () => {
                                 Guides
                                 <ChevronDown
                                     size={18}
-                                    className={`text-gray-500 transition-transform ${
-                                        isMobileGuidesOpen ? "rotate-180" : ""
-                                    }`}
+                                    className={`text-gray-500 transition-transform ${isMobileGuidesOpen ? "rotate-180" : ""
+                                        }`}
                                     aria-hidden="true"
                                 />
                             </button>

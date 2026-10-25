@@ -2,6 +2,7 @@ import FAQ from "./pages/FAQS";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Blogs from "./pages/blogs/Blogs";
 import NotFound from "./pages/NotFound";
 import HelpSupport from "./pages/HelpSupport";
 import MyLinks from "./dashboard/pages/MyLinks";
@@ -39,6 +40,7 @@ const App = () => {
                     <Route path="/about" element={<About />} />
                     <Route path="/help" element={<HelpSupport />} />
                     <Route path="/faqs" element={<FAQ />} />
+                    <Route path="/blogs" element={<Blogs />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/legal/cookie-policy" element={<CookiePolicy />} />

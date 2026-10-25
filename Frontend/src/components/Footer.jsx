@@ -22,8 +22,8 @@ const resourceLinks = [
     { name: "URL Shortener", href: "/products/url-shortener" },
     { name: "QR Codes", href: "/products/qr-code-generator" },
     { name: "Link Analytics", href: "/products/analytics" },
+    { name: "Blogs", href: "/blogs" },
     { name: "FAQs", href: "/faqs" }
-    // { name: "Features", href: "/#features" },
 ];
 
 const tutorialsLinks = [

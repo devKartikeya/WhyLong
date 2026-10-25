@@ -147,7 +147,7 @@ const faqCategories = [
                 a: (
                     <>
                         Visit the{" "}
-                        <Link className="faq-inline-link" to="/qr-code-generator">
+                        <Link className="faq-inline-link" to="/products/qr-code-generator">
                             WhyLong QR code generator
                         </Link>{" "}
                         and follow the options available on the page. Before distributing
@@ -796,7 +796,7 @@ export default function FAQ() {
                         </Link>
 
                         <Link
-                            to="/qr-code-generator"
+                            to="/products/qr-code-generator"
                             className="group rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-lg hover:shadow-slate-200/60"
                         >
                             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-yellow-100 text-xl">
