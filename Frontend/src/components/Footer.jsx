@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram, FaDev, FaReddit } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
 import { useAuth } from "../context/AuthContext";
@@ -31,6 +31,10 @@ const tutorialsLinks = [
     { name: "Create QR for GitHub", href: "/tutorials/create-github-qr-code" }
 ];
 
+const blogLinks = [
+    { name: "WhyLong vs Bitly", href: "/blogs/whylong-vs-bitly" },
+];
+
 const legalLinks = [
     { name: "Privacy Policy", href: "/legal/privacy-policy" },
     { name: "Terms of Service", href: "/legal/terms-and-conditions" },
@@ -57,6 +61,16 @@ const socialLinks = [
         name: "Facebook",
         href: "https://www.facebook.com/share/1GS5r2C9xc/",
         Icon: FaFacebook
+    },
+    {
+        name: "DEV",
+        href: "https://dev.to/devKartikeya",
+        Icon: FaDev
+    },
+    {
+        name: "Reddit",
+        href: "https://www.reddit.com/user/devKartikeya/",
+        Icon: FaReddit
     }
 ];
 
@@ -87,11 +101,11 @@ const Footer = () => {
     return (
         <>
             <footer className="border-t border-gray-200 bg-gray-950 text-white">
-                <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
-                    <div className="grid gap-14 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+                <div className="mx-auto max-w-7xl px-6 py-16 lg:px-7 lg:py-20">
+                    <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr]">
 
                         {/* ================= BRAND ================= */}
-                        <div className="max-w-sm">
+                        <div className="max-w-sm mr-3">
                             <Link
                                 to="/"
                                 aria-label="WhyLong home"
@@ -123,7 +137,7 @@ const Footer = () => {
                                 short links in one place.
                             </p>
 
-                            <ul className="mt-7 flex items-center gap-3">
+                            <ul className="mt-7 flex flex-wrap items-center gap-3">
                                 {socialLinks.map(({ name, href, Icon }) => (
                                     <li key={name}>
                                         <a
@@ -212,6 +226,22 @@ const Footer = () => {
                             <ul className="mt-6 space-y-4">
                                 {tutorialsLinks.map((link) => (
                                     <li key={link.name}>
+                                        <Link to={link.href} className={linkClass}>
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+
+                        <nav aria-label="Blogs">
+                            <p className="text-sm font-semibold text-white">
+                                Blogs
+                            </p>
+
+                            <ul className="mt-6 space-y-4">
+                                {blogLinks.map((link) => (
+                                    <li key={link.name} className="hover:text-yellow-500">
                                         <Link to={link.href} className={linkClass}>
                                             {link.name}
                                         </Link>

@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import {
@@ -666,6 +665,7 @@ export default function WhyLongVsBitly() {
                         and background colors, corners, dot styling, error correction,
                         reusable presets, and PNG/SVG downloads.
                     </p>
+                    <Link className="my-4 font-semibold" to="/products/qr-code-generator">Visit Whylong QR Studio <ArrowRight className="inline" size={18}/></Link>
 
                     <div className="my-6 grid gap-4 sm:grid-cols-2">
                         <FeatureCard icon={Sparkles} title="Logo and brand identity">

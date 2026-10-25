@@ -10,6 +10,7 @@ import HowItWorks from "../components/Home/HowItWorks";
 import QRCodePromo from "../components/Home/QRCodePromo";
 import FreeLaunchOffer from "../components/Home/FreeLaunchOffer";
 import MoreThanShortener from "../components/Home/MoreThanShortener";
+import ComparisonTable from "../components/Home/ComparisonTable";
 
 const Home = () => {
     return (
@@ -69,6 +70,7 @@ const Home = () => {
                 <Stats />
                 <About />
                 <Features />
+                <ComparisonTable />
                 <MoreThanShortener />
                 <QRCodePromo />
                 <HowItWorks />

@@ -107,8 +107,8 @@ const About = () => {
                     <div className="grid gap-6 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
 
                         {/* Card 1 */}
-                        <div className="rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-200/50 sm:p-8">
-                            <div className="flex items-center justify-between">
+                        <div className="rounded-2xl border border-gray-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-200/50 sm:p-6">
+                            {/* <div className="flex items-center justify-between">
                                 <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
                                     Our approach
                                 </span>
@@ -144,7 +144,8 @@ const About = () => {
                             <p className="mt-3 text-sm leading-6 text-gray-500">
                                 Every part of WhyLong is designed to keep
                                 link management quick, clear, and effortless.
-                            </p>
+                            </p> */}
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_iVHa6lWJ_v4_3G7E9rogdcKebNBtp1ykZCMU9dc3xA&s=10" alt="WhyLong About Image" className="rounded-2xl"/>
                         </div>
 
                         {/* Card 2 */}
