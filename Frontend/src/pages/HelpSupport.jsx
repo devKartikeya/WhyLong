@@ -743,11 +743,20 @@ const HelpSupport = () => {
 
                                 <a
                                     href="mailto:support@WhyLong.com"
-                                    className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3.5 text-sm font-semibold text-slate-300 transition-all hover:border-slate-500 hover:bg-slate-800 hover:text-white"
+                                    className="inline-flex items-center gap-2 rounded-xl border border-slate-700 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-slate-500 bg-slate-500 hover:bg-slate-800 hover:text-white"
                                 >
                                     Email us
                                     <ExternalLink size={16} />
                                 </a>
+
+                                 <Link
+                                    to="/faqs"
+                                    className="inline-flex items-center gap-2 rounded-xl bg-yellow-500 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/20"
+                                >
+                                    <Mail size={17} />
+                                    Explore more FAQS
+                                    <ArrowRight size={17} />
+                                </Link>
 
                             </div>
 

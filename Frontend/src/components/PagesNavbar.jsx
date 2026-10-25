@@ -228,7 +228,7 @@ const PagesNavbar = () => {
                     className={`group flex items-start gap-3 rounded-xl p-3 transition-colors ${
                         active
                             ? "bg-yellow-50"
-                            : "hover:bg-gray-50"
+                            : "hover:bg-gray-300"
                     }`}
                 >
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900 transition-colors group-hover:bg-yellow-200">
@@ -262,7 +262,7 @@ const PagesNavbar = () => {
                     onClick={closeMobileMenu}
                     aria-current={active ? "page" : undefined}
                     className={`group flex items-start gap-3 rounded-xl p-3 transition-colors ${
-                        active ? "bg-yellow-50" : "hover:bg-gray-50"
+                        active ? "bg-yellow-50" : "hover:bg-gray-300"
                     }`}
                 >
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900 transition-colors group-hover:bg-yellow-200">

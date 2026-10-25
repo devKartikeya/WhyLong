@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { ArrowRight } from "lucide-react";
 
 const About = () => {
     const navigate = useNavigate();
@@ -252,6 +253,7 @@ const About = () => {
                                     </div>
                                 ))}
                             </div>
+                            <button className="px-3 py-2 rounded-lg bg-blue-950 text-white cursor-pointer my-5 text-xs" onClick={() => navigate("/products/qr-code-generator")}>Generate QR Now <ArrowRight className="inline" size={17}/></button>
                         </div>
 
                         {/* QR Product Preview */}

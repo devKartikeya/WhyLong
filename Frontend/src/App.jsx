@@ -1,3 +1,4 @@
+import FAQ from "./pages/FAQS";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -37,6 +38,7 @@ const App = () => {
                 <Route element={<PublicPagesLayout />}>
                     <Route path="/about" element={<About />} />
                     <Route path="/help" element={<HelpSupport />} />
+                    <Route path="/faqs" element={<FAQ />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/legal/cookie-policy" element={<CookiePolicy />} />

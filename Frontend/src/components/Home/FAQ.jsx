@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export const faqs = [
     {
         question: "Is WhyLong a free URL shortener?",
@@ -88,10 +89,10 @@ const FAQ = () => {
                         <div className="mt-8 hidden h-px w-16 bg-yellow-400 lg:block" />
 
                         <p className="mt-7 hidden max-w-sm text-sm leading-6 text-gray-500 lg:block">
-                            Still curious? Explore WhyLong and discover a
-                            simpler way to share your links.
+                            Still curious? Here is your <Link to="/faqs" className="text-yellow-500 font-bold">solution</Link>
                         </p>
                     </div>
+
 
                     {/* Right FAQ accordion */}
                     <div className="space-y-3">
