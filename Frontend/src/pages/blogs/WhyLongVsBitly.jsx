@@ -21,6 +21,7 @@ import {
     X,
     Zap,
 } from "lucide-react";
+import { FaDev, FaLinkedin } from "react-icons/fa";
 
 const SITE_URL = "https://whylong.vercel.app";
 
@@ -383,6 +384,8 @@ export default function WhyLongVsBitly() {
                             Try WhyLong
                             <ExternalLink size={16} />
                         </a>
+                        <a href="https://lnkd.in/p/dcgynFbs"><FaLinkedin size={25} className="mt-2l"/></a>
+                        <a href="https://dev.to/devkartikeya"><FaDev size={25} className="mt-2l"/></a>
                     </div>
                 </div>
             </header>
