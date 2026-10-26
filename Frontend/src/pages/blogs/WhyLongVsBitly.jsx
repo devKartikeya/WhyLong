@@ -318,8 +318,8 @@ export default function WhyLongVsBitly() {
     ];
 
     const moreArticles = blogPosts
-    .filter((post) => post.slug !== "whylong-vs-bitly")
-    .slice(0, 5);
+        .filter((post) => post.slug !== "whylong-vs-bitly")
+        .slice(0, 5);
 
     const faqSchema = {
         "@context": "https://schema.org",
@@ -403,6 +403,60 @@ export default function WhyLongVsBitly() {
                         <a href="https://lnkd.in/p/dcgynFbs"><FaLinkedin size={25} className="mt-2l" /></a>
                         <a href="https://dev.to/devkartikeya"><FaDev size={25} className="mt-2l" /></a>
                     </div>
+
+                     {/* WhyLong vs Bitly — Logo Showcase */}
+                    <div className="relative mx-auto mt-32 flex w-full max-w-md items-center justify-center py-8 sm:py-10">
+                        {/* Background Glow */}
+                        <div
+                            aria-hidden="true"
+                            className="absolute inset-x-10 inset-y-4 rounded-full bg-amber-200/50 blur-3xl"
+                        />
+
+                        {/* Decorative Connection */}
+                        <div
+                            aria-hidden="true"
+                            className="absolute left-1/2 top-1/2 h-1 w-40 -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] rounded-full bg-gradient-to-r from-yellow-300 via-amber-200 to-gray-200 sm:w-52"
+                        />
+
+                        {/* Bitly Logo — Top Right */}
+                        <div className="absolute right-5 top-0 z-10 flex h-28 w-28 items-center justify-center rounded-full border border-gray-200 p-5 shadow-xl shadow-gray-900/10 transition-transform duration-300 hover:scale-105 sm:right-12 sm:h-44 sm:w-44 sm:p-6">
+                            <img
+                                src="/images/Bitly.png"
+                                alt="Bitly logo"
+                                className="h-full w-full object-contain rounded-full"
+                                loading="eager"
+                                decoding="async"
+                            />
+                        </div>
+
+                        {/* WhyLong Logo — Bottom Left */}
+                        <div className="absolute bottom-0 left-5 z-20 flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-yellow-400 p-4 shadow-xl shadow-yellow-900/20 transition-transform duration-300 hover:scale-105 sm:left-12 sm:h-36 sm:w-36 sm:p-5">
+                            <div className="flex h-full w-full items-center justify-center rounded-full bg-yellow-400">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.8"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="h-12 w-12 text-gray-950 sm:h-16 sm:w-16"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        {/* VS Badge */}
+                        <div className="absolute left-1/2 top-1/2 z-30 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-white bg-gray-950 text-xs font-black tracking-wider text-yellow-400 shadow-lg sm:h-14 sm:w-14 sm:text-sm">
+                            VS
+                        </div>
+
+                        {/* Accessible Context */}
+                        <span className="sr-only">WhyLong versus Bitly logo comparison</span>
+                    </div>
                 </div>
             </header>
 
@@ -443,9 +497,9 @@ export default function WhyLongVsBitly() {
                             providing very different experiences beyond it.
                         </p>
                         <p className="mt-4 leading-8 text-slate-600">
-                            This guide compares <strong>WhyLong</strong>, a link-shortening
-                            and QR-code platform, with <strong>Bitly</strong>, an established
-                            link management and marketing platform. We will focus on practical
+                            This guide compares <strong>WhyLong</strong>, a modern link-shortening
+                            and custom QR-code generation platform having robust corporate dashboards and deep analytics, with <strong>Bitly</strong>, an established
+                            link management and marketing platform offering higher integrated ecosystem. We will focus on practical
                             features, published plan limits, analytics, and QR customization
                             rather than claiming that one tool is best for every user.
                         </p>
@@ -643,6 +697,13 @@ export default function WhyLongVsBitly() {
                         </FeatureCard>
                     </div>
 
+                    <Link
+                        to="/products/analytics/"
+                        className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 hover:underline"
+                    >
+                        Explore WhyLong Analytics <ExternalLink size={14} />
+                    </Link>
+
                     <h3 className="mt-7 text-xl font-bold text-slate-900">
                         What about Bitly analytics?
                     </h3>
@@ -682,7 +743,7 @@ export default function WhyLongVsBitly() {
                         and background colors, corners, dot styling, error correction,
                         reusable presets, and PNG/SVG downloads.
                     </p>
-                    <Link className="my-4 font-semibold" to="/products/qr-code-generator">Visit Whylong QR Studio <ArrowRight className="inline" size={18} /></Link>
+                    <Link className="mt-2 text-sm font-semibold inline-flex items-center gap-2" to="/products/qr-code-generator">Visit Whylong QR Studio <ExternalLink size={14} className="inline" /></Link>
 
                     <div className="my-6 grid gap-4 sm:grid-cols-2">
                         <FeatureCard icon={Sparkles} title="Logo and brand identity">
@@ -1025,76 +1086,78 @@ export default function WhyLongVsBitly() {
                     </div>
                 </article>
             </div>
-           
- {/* Articles and categories */}
-                        
-{/* More Articles */}
-<section
-    id="blog-articles"
-    className="mx-auto max-w-7xl scroll-mt-24 px-5 py-14 sm:px-8 sm:py-16 lg:px-12"
->
-    <div className="border-b border-slate-200 pb-7">
-        <h2 className="text-2xl font-extrabold tracking-tight text-slate-950 sm:text-3xl">
-            More Articles
-        </h2>
 
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base">
-            Explore more guides on URL shortening, QR codes, link management,
-            and analytics.
-        </p>
-    </div>
+            {/* Articles and categories */}
 
-    <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        {moreArticles.map((post, index) => (
-            <article
-                key={post.slug}
-                className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-xl hover:shadow-slate-200/50 sm:p-7"
+            {/* More Articles */}
+            <section
+                id="blog-articles"
+                className="mx-auto max-w-7xl scroll-mt-24 px-5 py-14 sm:px-8 sm:py-16 lg:px-12 border border-black mb-6"
             >
-                <div className="flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-yellow-50 px-3 py-1.5 text-xs font-bold text-yellow-800">
-                        {post.category}
-                    </span>
+                <div className="border-b border-slate-200 pb-7">
+                    <h2 className="text-2xl font-extrabold tracking-tight text-slate-950 sm:text-3xl">
+                        More Articles
+                    </h2>
 
-                    <span className="text-xs font-semibold tracking-widest text-slate-300">
-                        {String(index + 1).padStart(2, "0")}
-                    </span>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500 sm:text-base inline">
+                        Explore more guides on URL shortening, QR codes, link management,
+                        and analytics. <Link to={"/blogs"} className="inline mx-2"><ExternalLink className="inline mb-1" size={18} /></Link>
+                    </p>
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold leading-snug tracking-tight text-slate-950 transition group-hover:text-yellow-800">
-                    <Link
-                        to={`/blogs/${post.slug}`}
-                        className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
-                    >
-                        {post.title}
-                    </Link>
-                </h3>
+                <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                    {moreArticles.map((post, index) => (
+                        <article
+                            key={post.slug}
+                            className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-xl hover:shadow-slate-200/50 sm:p-7"
+                        >
+                            <div className="flex items-center justify-between gap-3">
+                                <span className="rounded-full bg-yellow-50 px-3 py-1.5 text-xs font-bold text-yellow-800">
+                                    {post.category}
+                                </span>
 
-                <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
-                    {post.excerpt}
-                </p>
+                                <span className="text-xs font-semibold tracking-widest text-slate-300">
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+                            </div>
 
-                <div className="mt-6 border-t border-slate-100 pt-5">
+                            <h3 className="mt-6 text-xl font-bold leading-snug tracking-tight text-slate-950 transition group-hover:text-yellow-800">
+                                <Link
+                                    to={`/blogs/${post.slug}`}
+                                    className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                                >
+                                    {post.title}
+                                </Link>
+                            </h3>
+
+                            <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
+                                {post.excerpt}
+                            </p>
+
+                            <img src={post.img} alt="" className="mt-5 h-48" />
+
+                            <div className="mt-6 border-t border-slate-100 pt-5">
+                                <Link
+                                    to={`/blogs/${post.slug}`}
+                                    aria-label={`Read ${post.title}`}
+                                    className="group/link inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition hover:text-yellow-800"
+                                >
+                                    Read article <ArrowIcon />
+                                </Link>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+
+                <div className="mt-8 text-center">
                     <Link
-                        to={`/blogs/${post.slug}`}
-                        aria-label={`Read ${post.title}`}
-                        className="group/link inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition hover:text-yellow-800"
+                        to="/blogs"
+                        className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-yellow-400 hover:bg-yellow-50"
                     >
-                        Read article <ArrowIcon />
+                        View all articles <ArrowRight size={16} />
                     </Link>
                 </div>
-            </article>
-        ))}
-    </div>
-
-    <div className="mt-8 text-center">
-        <Link
-            to="/blogs"
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-800 transition hover:border-yellow-400 hover:bg-yellow-50"
-        >
-            View all articles <ArrowRight size={16} />
-        </Link>
-    </div>
-</section>
+            </section>
 
         </main>
     );

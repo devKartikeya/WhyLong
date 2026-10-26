@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import {blogPosts} from "../../content/blogPosts";
-import {categories}  from "../../content/blogPosts";
+import { blogPosts } from "../../content/blogPosts";
+import { categories } from "../../content/blogPosts";
 
 function SearchIcon() {
     return (
@@ -254,7 +254,7 @@ export default function Blogs() {
                         </div>
 
                         <div className="relative flex min-h-64 flex-col justify-between overflow-hidden p-5 sm:p-7 rounded-2xl text-white">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpYIJBEPWSbU7YeHaP1Bs_9-MaJLO4o8N6r7Njhe8XJ_vl_A3bXOP_6sry&s=10" alt="Bitly vs WhyLong comparsion" className="rounded-2xl"/>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpYIJBEPWSbU7YeHaP1Bs_9-MaJLO4o8N6r7Njhe8XJ_vl_A3bXOP_6sry&s=10" alt="Bitly vs WhyLong comparsion" className="rounded-2xl" />
                         </div>
                     </div>
                 </section>
@@ -295,8 +295,8 @@ export default function Blogs() {
                             onClick={() => setActiveCategory(category)}
                             aria-pressed={activeCategory === category}
                             className={`shrink-0 rounded-full border px-4 py-2.5 text-sm font-semibold transition ${activeCategory === category
-                                    ? "border-slate-950 bg-slate-950 text-white"
-                                    : "border-slate-200 bg-white text-slate-600 hover:border-yellow-400 hover:text-slate-950"
+                                ? "border-slate-950 bg-slate-950 text-white"
+                                : "border-slate-200 bg-white text-slate-600 hover:border-yellow-400 hover:text-slate-950"
                                 }`}
                         >
                             {category}
@@ -333,7 +333,9 @@ export default function Blogs() {
                                     {post.excerpt}
                                 </p>
 
-                                <div className="mt-6 border-t border-slate-100 pt-5">
+                                <img src={post.img} alt="" className="mt-5 h-48"/>
+
+                                <div className="mt-2 border-t border-slate-100 pt-5">
                                     <Link
                                         to={`/blogs/${post.slug}`}
                                         aria-label={`Read ${post.title}`}

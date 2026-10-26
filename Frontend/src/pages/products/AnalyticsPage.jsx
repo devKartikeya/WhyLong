@@ -777,9 +777,6 @@ export default function AnalyticsPage() {
                     <span className="text-sm font-medium text-slate-800">
                       {label}
                     </span>
-                    <span className="ml-auto text-xs text-slate-500">
-                      Category example
-                    </span>
                   </div>
                 ))}
               </div>

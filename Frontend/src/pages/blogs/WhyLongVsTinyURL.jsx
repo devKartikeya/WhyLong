@@ -370,6 +370,59 @@ export default function WhyLongVsTinyURL() {
                             Try WhyLong <ExternalLink size={15} />
                         </a>
                     </div>
+                     {/* WhyLong vs Bitly — Logo Showcase */}
+                    <div className="relative mx-auto mt-32 flex w-full max-w-md items-center justify-center py-8 sm:py-10">
+                        {/* Background Glow */}
+                        <div
+                            aria-hidden="true"
+                            className="absolute inset-x-10 inset-y-4 rounded-full bg-amber-200/50 blur-3xl"
+                        />
+
+                        {/* Decorative Connection */}
+                        <div
+                            aria-hidden="true"
+                            className="absolute left-1/2 top-1/2 h-1 w-40 -translate-x-1/2 -translate-y-1/2 rotate-[-25deg] rounded-full bg-gradient-to-r from-yellow-300 via-amber-200 to-gray-200 sm:w-52"
+                        />
+
+                        {/* Bitly Logo — Top Right */}
+                        <div className="absolute right-5 top-0 z-10 flex h-28 w-28 items-center justify-center rounded-full border border-gray-200 p-5 shadow-xl shadow-gray-900/10 transition-transform duration-300 hover:scale-105 sm:right-12 sm:h-44 sm:w-44 sm:p-6">
+                            <img
+                                src="/images/TinyURL.png"
+                                alt="Bitly logo"
+                                className="h-full w-full object-contain rounded-full"
+                                loading="eager"
+                                decoding="async"
+                            />
+                        </div>
+
+                        {/* WhyLong Logo — Bottom Left */}
+                        <div className="absolute bottom-0 left-5 z-20 flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-yellow-400 p-4 shadow-xl shadow-yellow-900/20 transition-transform duration-300 hover:scale-105 sm:left-12 sm:h-36 sm:w-36 sm:p-5">
+                            <div className="flex h-full w-full items-center justify-center rounded-full bg-yellow-400">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.8"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    className="h-12 w-12 text-gray-950 sm:h-16 sm:w-16"
+                                    aria-hidden="true"
+                                >
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        {/* VS Badge */}
+                        <div className="absolute left-1/2 top-1/2 z-30 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-white bg-gray-950 text-xs font-black tracking-wider text-yellow-400 shadow-lg sm:h-14 sm:w-14 sm:text-sm">
+                            VS
+                        </div>
+
+                        {/* Accessible Context */}
+                        <span className="sr-only">WhyLong versus Bitly logo comparison</span>
+                    </div>
                 </div>
             </header>
 
@@ -384,14 +437,53 @@ export default function WhyLongVsTinyURL() {
                             shortens a URL, but what you can do after creating it.
                         </p>
                         <p className="mt-4 leading-8 text-slate-600">
-                            This guide compares the products by their practical features.
+                            This guide compares WhyLong and TinyURL and their solutions by their practical features.
                             TinyURL offers a free plan for basic shortening, and its
                             capabilities vary by account and subscription. WhyLong provides
                             link analytics and extensive QR design controls under its
-                            current offering. We will separate those capabilities rather
+                            current offering with deluxe dashboard. We will separate those capabilities rather
                             than treating either product as a one-size-fits-all solution.
                         </p>
                     </div>
+
+                    <div className="pl-5 pb-5 mt-4 border border-black">
+                    <ArticleSection
+                        id="also-read"
+                        number={"*"}
+                        title="Also Read" >
+
+                        <article
+                            key="1"
+                            className="group flex h-full w-lg flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50 sm:p-7"
+                        >
+
+                            <h3 className="mt-6 text-xl font-bold leading-snug tracking-tight text-slate-950 transition group-hover:text-yellow-800">
+                                <Link
+                                    to={`/blogs/whylong-vs-bitly`}
+                                    className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                                >
+                                    WhyLong vs Bitly: Which URL Shortener Should You Choose?
+                                </Link>
+                            </h3>
+
+                            <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
+                                Compare WhyLong and Bitly across link shortening, QR codes, analytics, usability, and pricing. Find the right tool for your needs.
+                            </p>
+
+                            <img src="https://mkt-bitly-media.qrcg.net/wp-content/uploads/2026/09/14150141/hero_digital_marketing_v6-1024x597.png" alt="" className="mt-5 h-48" />
+
+                            <div className="mt-6 border-t border-slate-100 pt-5">
+                                <Link
+                                    to={`/blogs/whylong-vs-bitly`}
+                                    aria-label={`Read WhyLong vs Bitly: Which URL Shortener Should You Choose?`}
+                                    className="group/link inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition hover:text-yellow-800"
+                                >
+                                    Read article <ArrowIcon />
+                                </Link>
+                            </div>
+                        </article>
+                    </ArticleSection>
+                                    </div>
 
                     <ArticleSection
                         id="quick-verdict"
@@ -514,6 +606,12 @@ export default function WhyLongVsTinyURL() {
                             destination after publishing, and whether reporting is available
                             without upgrading.
                         </p>
+                        <Link
+                            href="/products/url-shortener/"
+                            className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 hover:underline"
+                        >
+                            Try WhyLong URL Shortener <ExternalLink size={14} />
+                        </Link>
                     </ArticleSection>
 
                     <ArticleSection
@@ -547,6 +645,13 @@ export default function WhyLongVsTinyURL() {
                                 access your links.
                             </FeatureCard>
                         </div>
+
+                        <Link
+                            href="/products/analytics/"
+                            className="mt-2 mb-6 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 hover:underline"
+                        >
+                            Explore WhyLong's Analytics <ExternalLink size={14} />
+                        </Link>
 
                         <h3 className="pt-3 text-xl font-bold text-slate-900">
                             How does TinyURL handle analytics?
@@ -607,6 +712,13 @@ export default function WhyLongVsTinyURL() {
                                 guarantee scanning if a code is poorly designed.
                             </FeatureCard>
                         </div>
+
+                        <Link
+                            href="/products/qr-code-generator/"
+                            className="mt-2 mb-6 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 hover:underline"
+                        >
+                            Visist WhyLong's QR Studio <ExternalLink size={14} />
+                        </Link>
 
                         <h3 className="pt-3 text-xl font-bold text-slate-900">
                             PNG vs SVG downloads
@@ -847,7 +959,7 @@ export default function WhyLongVsTinyURL() {
             {/* More Articles */}
             <section
                 id="blog-articles"
-                className="mx-auto max-w-7xl scroll-mt-24 px-5 py-14 sm:px-8 sm:py-16 lg:px-12"
+                className="mx-auto max-w-7xl scroll-mt-24 px-5 py-14 sm:px-8 sm:py-16 lg:px-12 border border-black mb-6"
             >
                 <div className="border-b border-slate-200 pb-7">
                     <h2 className="text-2xl font-extrabold tracking-tight text-slate-950 sm:text-3xl">
@@ -888,6 +1000,8 @@ export default function WhyLongVsTinyURL() {
                             <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
                                 {post.excerpt}
                             </p>
+
+                            <img src={post.img} alt="" className="mt-5 h-48" />
 
                             <div className="mt-6 border-t border-slate-100 pt-5">
                                 <Link
