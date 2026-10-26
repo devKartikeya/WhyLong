@@ -465,7 +465,7 @@ const About = () => {
             <section
                 id="what-you-get"
                 aria-labelledby="what-you-get-heading"
-                className="border-b border-gray-100 bg-white py-24 lg:py-28"
+                className="border-b border-gray-100 bg-white py-24"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -558,7 +558,7 @@ const About = () => {
             {/* ================= INTRO ================= */}
             <section
                 aria-labelledby="intro-heading"
-                className="border-b border-gray-100 bg-gray-50 py-24 lg:py-28"
+                className="border-b border-gray-100 bg-gray-50 py-24"
             >
                 <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
                     <div>
@@ -625,7 +625,7 @@ const About = () => {
             <section
                 id="qr-codes"
                 aria-labelledby="qr-heading"
-                className="border-b border-gray-100 bg-white py-24 lg:py-32"
+                className="border-b border-gray-100 bg-white py-24"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
@@ -750,7 +750,7 @@ const About = () => {
             <section
                 id="analytics"
                 aria-labelledby="analytics-heading"
-                className="border-b border-gray-100 bg-gray-50 py-24 lg:py-32"
+                className="border-b border-gray-100 bg-gray-50 py-24"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -797,7 +797,7 @@ const About = () => {
             {/* ================= WHY WE BUILT IT ================= */}
             <section
                 aria-labelledby="why-heading"
-                className="bg-white py-24 lg:py-32"
+                className="bg-white py-24 "
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -916,7 +916,7 @@ const About = () => {
             {/* ================= ENGINEERING ================= */}
             <section
                 aria-labelledby="engineering-heading"
-                className="border-t border-gray-100 bg-white py-24 lg:py-32"
+                className="border-t border-gray-100 bg-white py-24"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -962,7 +962,7 @@ const About = () => {
             {/* ================= VALUES ================= */}
             <section
                 aria-labelledby="values-heading"
-                className="border-t border-gray-100 bg-gray-50 py-24 lg:py-32"
+                className="border-t border-gray-100 bg-gray-50 py-24"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid gap-16 lg:grid-cols-2">
@@ -1000,7 +1000,7 @@ const About = () => {
             <section
                 id="faq"
                 aria-labelledby="faq-heading"
-                className="border-t border-gray-100 bg-white py-24 lg:py-32"
+                className="border-t border-gray-100 bg-white py-24"
             >
                 <div className="mx-auto max-w-3xl px-6 lg:px-8">
                     <div className="text-center">
@@ -1040,7 +1040,7 @@ const About = () => {
             {/* ================= VISION / CTA ================= */}
             <section
                 aria-labelledby="vision-heading"
-                className="border-t border-gray-100 bg-gray-950 py-24 lg:py-32"
+                className="border-t border-gray-100 bg-gray-950 py-24"
             >
                 <div className="mx-auto max-w-5xl px-6 text-center lg:px-8">
                     <Eyebrow light>{VISION.eyebrow}</Eyebrow>

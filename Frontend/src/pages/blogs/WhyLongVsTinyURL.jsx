@@ -370,7 +370,7 @@ export default function WhyLongVsTinyURL() {
                             Try WhyLong <ExternalLink size={15} />
                         </a>
                     </div>
-                     {/* WhyLong vs Bitly — Logo Showcase */}
+                    {/* WhyLong vs Bitly — Logo Showcase */}
                     <div className="relative mx-auto mt-32 flex w-full max-w-md items-center justify-center py-8 sm:py-10">
                         {/* Background Glow */}
                         <div
@@ -446,44 +446,45 @@ export default function WhyLongVsTinyURL() {
                         </p>
                     </div>
 
-                    <div className="pl-5 pb-5 mt-4 border border-black">
-                    <ArticleSection
-                        id="also-read"
-                        number={"*"}
-                        title="Also Read" >
+<div className="border border-black p-3 mt-4">
 
-                        <article
-                            key="1"
-                            className="group flex h-full w-lg flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50 sm:p-7"
-                        >
+                        <ArticleSection
+                            id="also-read"
+                            number={"*"}
+                            title="Also Read" >
 
-                            <h3 className="mt-6 text-xl font-bold leading-snug tracking-tight text-slate-950 transition group-hover:text-yellow-800">
-                                <Link
-                                    to={`/blogs/whylong-vs-bitly`}
-                                    className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
-                                >
-                                    WhyLong vs Bitly: Which URL Shortener Should You Choose?
-                                </Link>
-                            </h3>
+                            <article
+                                key="1"
+                                className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50 sm:p-7"
+                            >
 
-                            <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
-                                Compare WhyLong and Bitly across link shortening, QR codes, analytics, usability, and pricing. Find the right tool for your needs.
-                            </p>
+                                <h3 className="mt-6 text-xl font-bold leading-snug tracking-tight text-slate-950 transition group-hover:text-yellow-800">
+                                    <Link
+                                        to={`/blogs/whylong-vs-bitly`}
+                                        className="rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                                    >
+                                        WhyLong vs Bitly: Which URL Shortener Should You Choose?
+                                    </Link>
+                                </h3>
 
-                            <img src="https://mkt-bitly-media.qrcg.net/wp-content/uploads/2026/09/14150141/hero_digital_marketing_v6-1024x597.png" alt="" className="mt-5 h-48" />
+                                <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
+                                    Compare WhyLong and Bitly across link shortening, QR codes, analytics, usability, and pricing. Find the right tool for your needs.
+                                </p>
 
-                            <div className="mt-6 border-t border-slate-100 pt-5">
-                                <Link
-                                    to={`/blogs/whylong-vs-bitly`}
-                                    aria-label={`Read WhyLong vs Bitly: Which URL Shortener Should You Choose?`}
-                                    className="group/link inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition hover:text-yellow-800"
-                                >
-                                    Read article <ArrowIcon />
-                                </Link>
-                            </div>
-                        </article>
-                    </ArticleSection>
-                                    </div>
+                                <img src="https://mkt-bitly-media.qrcg.net/wp-content/uploads/2026/09/14150141/hero_digital_marketing_v6-1024x597.png" alt="" className="mt-4" />
+
+                                <div className="mt-6 border-t border-slate-100 pt-5">
+                                    <Link
+                                        to={`/blogs/whylong-vs-bitly`}
+                                        aria-label={`Read WhyLong vs Bitly: Which URL Shortener Should You Choose?`}
+                                        className="group/link inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition hover:text-yellow-800"
+                                        >
+                                        Read article <ArrowIcon />
+                                    </Link>
+                                </div>
+                            </article>
+                        </ArticleSection>
+                                        </div>
 
                     <ArticleSection
                         id="quick-verdict"

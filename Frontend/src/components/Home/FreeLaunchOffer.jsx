@@ -24,7 +24,7 @@ const FreeLaunchOffer = () => {
     return (
         <section
             aria-labelledby="free-offer-heading"
-            className="relative overflow-hidden border-y border-gray-100 bg-gray-50 py-20 sm:py-24 lg:py-28"
+            className="relative overflow-hidden border-y border-gray-100 bg-gray-50 py-20 sm:py-24"
         >
             {/* Subtle background accents */}
             <div

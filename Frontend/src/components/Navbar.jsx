@@ -551,7 +551,7 @@ const Navbar = () => {
                                 }
                                 className="flex w-full items-center justify-between rounded-xl px-4 py-4 text-left font-semibold text-gray-900 transition-colors hover:bg-yellow-50"
                             >
-                                <span>Guides</span>
+                                <span>Resources</span>
 
                                 <svg
                                     viewBox="0 0 20 20"

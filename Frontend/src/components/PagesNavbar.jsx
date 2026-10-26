@@ -557,7 +557,7 @@ const PagesNavbar = () => {
                                 tabIndex={isMobileMenuOpen ? 0 : -1}
                                 className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-sm font-semibold text-gray-900 transition-colors hover:bg-yellow-50"
                             >
-                                Guides
+                                Resources
                                 <ChevronDown
                                     size={18}
                                     className={`text-gray-500 transition-transform ${isMobileGuidesOpen ? "rotate-180" : ""

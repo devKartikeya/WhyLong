@@ -4,7 +4,7 @@
 
 **Whylong is a free URL shortener and link management platform to create short links, generate QR codes, and simplify link sharing. Built for easy, efficient, and accessible link management.**
 
-Full-stack MERN application with Redis caching, atomic click counters, RabbitMQ background jobs, a load-balanced multi-instance backend, automated tests, Docker, and CI.
+MERN application backed by Redis caching, atomic click counters, RabbitMQ background jobs, a load-balanced multi-instance backend, automated tests, Docker, and CI.
 
 [![Live Demo](https://img.shields.io/badge/LIVE_DEMO-whylong.vercel.app-0ea5e9?style=for-the-badge)](https://whylong.vercel.app)
 [![Source](https://img.shields.io/badge/SOURCE-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/devKartikeya/WhyLong)
@@ -20,6 +20,10 @@ Full-stack MERN application with Redis caching, atomic click counters, RabbitMQ 
 ![GitHub Actions](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 
 </div>
+
+### Read about - [WhyLong vs Bitly](https://whylong.vercel.app/blogs/whylong-vs-bitly)
+### Read about - [WhyLong vs TinyURL](https://whylong.vercel.app/blogs/whylong-vs-tinyurl)
+###  Read [WhyLong Blogs](https://whylong.vercel.app/blogs)
 
 ---
 
@@ -41,8 +45,12 @@ Full-stack MERN application with Redis caching, atomic click counters, RabbitMQ 
 
 ## Overview
 
-WhyLong shortens URLs, generates customizable QR codes, and gives authenticated users a dashboard to manage their links and see how they perform. Anyone can shorten a link; signed-in users get ownership, management, and analytics.
+WhyLong shortens links provides free QR for every link and gives you the control to customize it with your own preferences. WhyLong provides you with an enterprise grade dashboard to manage and analyze all your links and QRs working. 
 
+WhyLong's dashboard provides overview with timestamped graphs of your links and QRs and detailed **My Links** section to manage operations such as copy, delete and deeper analysis of each link. It also has separate established **Analytics** section which provides hyper-analysis of your links and QRs.
+
+WhyLong's QR Studio is the flagship feature of WhyLong. It gives you to heavily customize QRs according to your own colors, templates, brand logos, brand texts, CTA, shapes and to save your presets.
+ 
 It is also deliberately an **engineering project, not a CRUD demo.** Each infrastructure component was introduced in response to a concrete problem that appeared as the system grew:
 
 | Problem observed | Component introduced | Cost accepted |
@@ -70,6 +78,11 @@ It is also deliberately an **engineering project, not a CRUD demo.** Each infras
 **Accounts & security**
 - Registration and login with cookie-based JWT authentication; protected routes and resources
 - Edit username and email, change password (current password required, new password confirmed), reset password via email verification, delete account behind a confirmation flow
+
+**Link Analytics**
+- Total clicks, CTR and timestamped real-time graphs with history of clicks.
+- Device analysis - mobile, tablet or desktop.
+- Geolocation informatiom - city, region and country.
 
 **Dashboard & link management**
 - Total links, total clicks, average clicks per link, links with and without clicks, best-performing link and its share of all clicks, recent links
@@ -424,8 +437,12 @@ WhyLong/
 
 ---
 
+#### [Privacy Policy](https://whylong.vercel.app/legal/privacy-policy)
+#### [Terms and Conditions](https://whylong.vercel.app/legal/terms-and-conditions)
+#### [Cookie Policy](https://whylong.vercel.app/legal/cookie-policy)
+
 <div align="center">
 
-**WhyLong** is an educational and portfolio project. Feedback and suggestions are welcome via issues and pull requests.
+**© 2026 WhyLong**
 
 </div>

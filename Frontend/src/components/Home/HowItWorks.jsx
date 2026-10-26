@@ -23,7 +23,7 @@ const HowItWorks = () => {
     return (
         <section
             id="how-it-works"
-            className="border-t border-gray-100 bg-gray-50 py-24 lg:py-32"
+            className="border-t border-gray-100 bg-gray-50 py-24"
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
 

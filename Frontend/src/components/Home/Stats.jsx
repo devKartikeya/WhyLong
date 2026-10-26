@@ -133,7 +133,7 @@ const Stats = () => {
         {stats.map((stat, index) => (
           <div
             key={stat.label}
-            className="px-4 py-8 text-center sm:px-6 lg:py-10"
+            className="px-4 py-8 text-center sm:px-6a"
           >
             <p
               className="text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl"

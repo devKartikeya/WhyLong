@@ -226,7 +226,7 @@ export default function Blogs() {
 
             {/* Featured article */}
             {!search && activeCategory === "All articles" && featuredPost && (
-                <section className="mx-auto max-w-7xl px-5 pt-12 sm:px-8 lg:px-12">
+                <section className="mx-auto max-w-7xl px-5 pt-12 sm:px-8 lg:px-12 border border-black">
                     <div className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white md:grid-cols-[1.2fr_0.8fr]">
                         <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
                             <span className="w-fit rounded-full bg-yellow-100 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-yellow-800">
@@ -239,7 +239,7 @@ export default function Blogs() {
 
                             <h2 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-3xl">
                                 {featuredPost.title}
-                            </h2>
+                            </h2>w
 
                             <p className="mt-4 max-w-xl leading-7 text-slate-600">
                                 {featuredPost.excerpt}

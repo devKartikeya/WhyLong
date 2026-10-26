@@ -4,7 +4,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className="relative overflow-hidden border-t border-gray-100 bg-white py-24 sm:py-28 lg:py-32"
+            className="relative overflow-hidden border-t border-gray-100 bg-white py-24 sm:py-28"
         >
             {/* Decorative background */}
             <div className="pointer-events-none absolute -right-40 top-20 h-80 w-80 rounded-full bg-yellow-100/60 blur-3xl" />
@@ -31,11 +31,14 @@ const About = () => {
                     </h2>
 
                     <p className="mt-6 max-w-2xl text-base leading-8 text-gray-500 sm:text-lg">
-                        WhyLong is built to make sharing and managing URLs
+                        {/* WhyLong is built to make sharing and managing URLs
                         simple. What started with a straightforward idea —
                         turning long, complicated links into clean,
                         memorable ones — is designed to grow into a complete
-                        link management experience.
+                        link management experience. */}
+                        WhyLong is a free and modern link management system built to share and manage URLs efficiently.
+                        What started as a simple URL Shortener has now turned into a brand builder by generating custom 
+                        branded QRs. WhyLong provides enterprise level corporate dashbaord for analysis, management and insights about your URLs.
                     </p>
                 </div>
 

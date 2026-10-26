@@ -7,14 +7,14 @@ const features = [
     {
         number: "01",
         title: "Instant URL shortening",
-        description: "Turn long URLs into clean, shareable links in seconds.",
+        description: "Turn complex long URLs into clean, short and shareable links in seconds.",
         icon: "link",
         path: "/products/url-shortener"
     },
     {
         number: "02",
         title: "Link management",
-        description: "Keep your shortened URLs organized and access them from one place.",
+        description: "Keep your shortened URLs organized and access them from one WhyLong's dashboard.",
         icon: "folder",
         path: "/dashboard",
         protected: true
@@ -29,7 +29,7 @@ const features = [
     {
         number: "04",
         title: "QR code generation",
-        description: "Turn your short links into QR codes for posters, packaging, events, and more.",
+        description: "Turn your short links into QR codes for posters, packaging, events, and more and customize them according to your needs.",
         icon: "qr",
         path: "/products/qr-code-generator",
         locked: true
@@ -37,7 +37,7 @@ const features = [
     {
         number: "05",
         title: "Share anywhere",
-        description: "Use your links across social media, messages, documents, campaigns, and websites.",
+        description: "Use your links across social media, messages, documents, campaigns, and other websites.",
         icon: "share",
         path: "/products/url-shortener"
     },
@@ -183,42 +183,6 @@ const Features = () => {
     const { user, authLoading } = useAuth();
 
     const navigate = useNavigate();
-
-    // CHECK AUTHENTICATION
-    // =========================
-    // useEffect(() => {
-    //     const checkAuth = async () => {
-    //         try {
-    //             const response = await fetch(
-    //                 `${import.meta.env.VITE_API_URL}/users/me`,
-    //                 {
-    //                     method: "GET",
-    //                     credentials: "include"
-    //                 }
-    //             );
-
-    //             if (!response.ok) {
-    //                 setUser(null);
-    //                 return;
-    //             }
-
-    //             const result = await response.json();
-    //             setUser(result.user);
-    //         } catch (error) {
-    //             console.error(
-    //                 "Features authentication check failed:",
-    //                 error
-    //             );
-
-    //             setUser(null);
-    //         } finally {
-    //             setAuthLoading(false);
-    //         }
-    //     };
-
-    //     checkAuth();
-    // }, []);
-
     // =========================
     // AUTH PANEL
     // =========================
@@ -245,7 +209,7 @@ const Features = () => {
         <>
             <section
                 id="features"
-                className="border-t border-gray-100 bg-white py-24 lg:py-32"
+                className="border-t border-gray-100 bg-white py-24"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
 

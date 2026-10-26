@@ -50,7 +50,7 @@ const pillars = [
 
 const MoreThanShortener = () => {
     return (
-        <section className="relative overflow-hidden bg-gray-50 px-6 py-24 sm:px-10 lg:px-16 lg:py-32" id="why-whylong">
+        <section className="relative overflow-hidden bg-gray-50 px-6 py-24 sm:px-10 lg:px-16" id="why-whylong">
             <div className="mx-auto max-w-7xl">
 
                 {/* ================= HEADER ================= */}
