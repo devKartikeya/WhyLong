@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import SearchIcon from "../components/ui/SearchIcon";
 
 const faqCategories = [
     {
@@ -316,15 +317,6 @@ const allQuestions = faqCategories.flatMap((category) =>
         categoryTitle: category.title,
     }))
 );
-
-function SearchIcon() {
-    return (
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" strokeWidth="1.7" />
-            <path d="m16 16 4.2 4.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-        </svg>
-    );
-}
 
 function ChevronIcon({ open }) {
     return (

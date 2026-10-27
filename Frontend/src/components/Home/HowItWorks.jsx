@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 const steps = [
     {
         number: "01",
@@ -90,8 +92,8 @@ const HowItWorks = () => {
                     </div>
 
                     <p className="text-sm text-gray-500">
-                        Start shortening instantly — create an account when
-                        you're ready for more.
+                        Start shortening instantly —
+                        <Link to={"/blogs/how-to-shorten-a-long-url"} className="'inline"><strong> Learn More about how URL Shortener works<ExternalLink className="inline ml-2" size={18} /> </strong></Link>
                     </p>
                 </div>
 

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { blogPosts } from "../../content/blogPosts";
+import ArrowIcon from "../../components/ui/ArrowIcon";
+import FeatureCard from "../../components/ui/FeatureCard";
 import {
     ArrowLeft,
     ArrowRight,
@@ -34,6 +36,49 @@ const article = {
     published: "2026-10-25",
     readTime: "9 min read",
 };
+
+const faqItems = [
+    {
+        question: "Is WhyLong free to use?",
+        answer:
+            "WhyLong provides URL shortening and QR code features without requiring a paid upgrade for the features described in this comparison. Check the live product for its current terms and any usage policies.",
+    },
+    {
+        question: "Does Bitly have a free plan?",
+        answer:
+            "Yes. Bitly's published Free plan includes five short links and two QR codes per month. Clicks and QR scans are unlimited, but link and QR creation quotas are limited. See Bitly's official pricing page for current plan details.",
+    },
+    {
+        question: "Does Bitly Free provide short-link click analytics?",
+        answer:
+            "Bitly's published Free plan does not include click and scan analytics for short links and QR codes. Analytics availability and data history depend on the selected paid plan.",
+    },
+    {
+        question: "What analytics can I view with WhyLong?",
+        answer:
+            "WhyLong provides click-through rate (CTR), timestamps, graphs, country-level insights, device information, and geographic insights so you can understand how your links perform.",
+    },
+    {
+        question: "Can I add a logo to a WhyLong QR code?",
+        answer:
+            "Yes. WhyLong supports logo insertion, brand text, calls to action, colors and background colors, custom corners and dots, and error-correction settings.",
+    },
+    {
+        question: "Can I save a QR code design and reuse it?",
+        answer:
+            "Yes. WhyLong lets you save QR design presets and reuse them for consistent branding across different QR codes.",
+    },
+    {
+        question: "Can I download WhyLong QR codes as SVG?",
+        answer:
+            "Yes. WhyLong supports PNG downloads using default presets and SVG downloads for suitable workflows.",
+    },
+    {
+        question: "Which URL shortener should I choose?",
+        answer:
+            "Choose based on the features you actually need. WhyLong is worth considering if you want flexible QR design and detailed link insights without relying on a paid upgrade for those described features. Bitly may suit teams that need its broader marketing ecosystem, integrations, or enterprise features.",
+    },
+];
 
 const sections = [
     { id: "quick-verdict", label: "Quick verdict" },
@@ -74,18 +119,6 @@ function SectionHeading({ number, children, id }) {
                     {children}
                 </h2>
             </div>
-        </div>
-    );
-}
-
-function FeatureCard({ icon: Icon, title, children }) {
-    return (
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-700">
-                <Icon size={22} />
-            </div>
-            <h3 className="mb-2 font-semibold text-slate-900">{title}</h3>
-            <p className="text-sm leading-7 text-slate-600">{children}</p>
         </div>
     );
 }
@@ -162,25 +195,6 @@ function FAQItem({ question, children }) {
                 {children}
             </div>
         </details>
-    );
-}
-
-function ArrowIcon() {
-    return (
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-        >
-            <path
-                d="M5 12h14m-6-6 6 6-6 6"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
     );
 }
 
@@ -272,67 +286,26 @@ export default function WhyLongVsBitly() {
         return () => {
             schema?.remove();
         };
+
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqItems.map((item) => ({
+                "@type": "Question",
+                name: item.question,
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: item.answer,
+                },
+            })),
+        };
     }, []);
 
-    const faqItems = [
-        {
-            question: "Is WhyLong free to use?",
-            answer:
-                "WhyLong provides URL shortening and QR code features without requiring a paid upgrade for the features described in this comparison. Check the live product for its current terms and any usage policies.",
-        },
-        {
-            question: "Does Bitly have a free plan?",
-            answer:
-                "Yes. Bitly's published Free plan includes five short links and two QR codes per month. Clicks and QR scans are unlimited, but link and QR creation quotas are limited. See Bitly's official pricing page for current plan details.",
-        },
-        {
-            question: "Does Bitly Free provide short-link click analytics?",
-            answer:
-                "Bitly's published Free plan does not include click and scan analytics for short links and QR codes. Analytics availability and data history depend on the selected paid plan.",
-        },
-        {
-            question: "What analytics can I view with WhyLong?",
-            answer:
-                "WhyLong provides click-through rate (CTR), timestamps, graphs, country-level insights, device information, and geographic insights so you can understand how your links perform.",
-        },
-        {
-            question: "Can I add a logo to a WhyLong QR code?",
-            answer:
-                "Yes. WhyLong supports logo insertion, brand text, calls to action, colors and background colors, custom corners and dots, and error-correction settings.",
-        },
-        {
-            question: "Can I save a QR code design and reuse it?",
-            answer:
-                "Yes. WhyLong lets you save QR design presets and reuse them for consistent branding across different QR codes.",
-        },
-        {
-            question: "Can I download WhyLong QR codes as SVG?",
-            answer:
-                "Yes. WhyLong supports PNG downloads using default presets and SVG downloads for suitable workflows.",
-        },
-        {
-            question: "Which URL shortener should I choose?",
-            answer:
-                "Choose based on the features you actually need. WhyLong is worth considering if you want flexible QR design and detailed link insights without relying on a paid upgrade for those described features. Bitly may suit teams that need its broader marketing ecosystem, integrations, or enterprise features.",
-        },
-    ];
 
     const moreArticles = blogPosts
         .filter((post) => post.slug !== "whylong-vs-bitly")
         .slice(0, 5);
 
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqItems.map((item) => ({
-            "@type": "Question",
-            name: item.question,
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: item.answer,
-            },
-        })),
-    };
 
     return (
         <main className="min-h-screen bg-[#fcfcfb] text-slate-900">
@@ -359,8 +332,9 @@ export default function WhyLongVsBitly() {
                         </span>
                         <span className="text-sm text-slate-500">Updated October 25, 2026</span>
                     </div>
+                    <Link to={"/blogs/how-to-shorten-a-long-url"} className="text-sm text-slate-500"><strong>Also Read:</strong> <span className="text-gray-700 font-semibold"> How to short a Long URL</span></Link>
 
-                    <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                    <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight mt-2 text-slate-950 sm:text-5xl lg:text-6xl">
                         WhyLong vs Bitly:{" "}
                         <span className="text-amber-600">
                             Which URL Shortener Is Better in 2026?
@@ -404,7 +378,7 @@ export default function WhyLongVsBitly() {
                         <a href="https://dev.to/devkartikeya"><FaDev size={25} className="mt-2l" /></a>
                     </div>
 
-                     {/* WhyLong vs Bitly — Logo Showcase */}
+                    {/* WhyLong vs Bitly — Logo Showcase */}
                     <div className="relative mx-auto mt-32 flex w-full max-w-md items-center justify-center py-8 sm:py-10">
                         {/* Background Glow */}
                         <div
@@ -626,6 +600,7 @@ export default function WhyLongVsBitly() {
                             Bitly reserves some analytics, branded-domain, and advanced
                             customization features for eligible paid subscriptions.
                         </FeatureCard>
+                        <Link to={"/blogs/how-to-shorten-a-long-url"} className="text-gray-300 inline text-sm"> <strong>WhyLong's URL Shortening</strong> <ExternalLink size={18} className="inline ml-2" /> </Link>
                     </div>
 
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6">

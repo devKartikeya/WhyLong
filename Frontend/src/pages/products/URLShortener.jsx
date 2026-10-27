@@ -536,6 +536,10 @@ export default function UrlShortener() {
                             its content or guarantee privacy. It simply gives you a
                             different address to share.
                         </p>
+
+                         <Link to={"/blogs/how-to-shorten-a-long-url"}>
+                            <strong className="inline mr-3 cursor-pointer">How to shorten a long URL <ExternalLink className="inline ml-1" size={18}/></strong>
+                        </Link>
                     </div>
                 </div>
 
@@ -606,13 +610,20 @@ export default function UrlShortener() {
                         ))}
                     </div>
 
-                    <div className="mt-10 text-center">
+                    <div className="mt-10 text-center flex gap-4 items-center justify-center flex-col md:flex-row">
                         <a
                             href="#url-shortener"
                             className="inline-flex items-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-amber-300"
                         >
                             Shorten a URL now
                             <ArrowRight size={18} />
+                        </a>
+                        <a
+                            href="/blogs/how-to-shorten-a-url"
+                            className="inline-flex items-center gap-2 rounded-xl bg-gray-500 px-6 py-3.5 font-semibold text-white transition hover:bg-gray-700"
+                        >
+                            Read more about how URL shortener works
+                            <ExternalLink size={18} />
                         </a>
                     </div>
                 </div>

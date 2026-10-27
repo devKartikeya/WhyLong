@@ -15,7 +15,8 @@ import {
     Zap,
 } from "lucide-react";
 import { blogPosts } from "../../content/blogPosts";
-import { categories } from "../../content/blogPosts";
+import ArrowIcon from "../../components/ui/ArrowIcon";
+import FeatureCard from "../../components/ui/FeatureCard";
 
 const SITE_URL = "https://whylong.vercel.app";
 const ARTICLE_URL = `${SITE_URL}/blogs/whylong-vs-tinyurl`;
@@ -80,25 +81,6 @@ const faqs = [
             "Try both with your actual workflow. Compare the QR designs you can create, the analytics available to you, how you organize links, and whether the features you need are included in your preferred plan.",
     },
 ];
-
-function ArrowIcon() {
-    return (
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-            className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-        >
-            <path
-                d="M5 12h14m-6-6 6 6-6 6"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
 
 function FeatureValue({ value }) {
     if (value === "Yes") {
@@ -171,17 +153,6 @@ function ArticleSection({ id, number, title, children }) {
     );
 }
 
-function FeatureCard({ icon: Icon, title, children }) {
-    return (
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-700">
-                <Icon size={22} />
-            </div>
-            <h3 className="font-semibold text-slate-900">{title}</h3>
-            <p className="mt-2 text-sm leading-7 text-slate-600">{children}</p>
-        </div>
-    );
-}
 
 function FAQItem({ question, answer }) {
     return (
@@ -333,6 +304,9 @@ export default function WhyLongVsTinyURL() {
                         URL shortener comparison
                     </span>
 
+                    <Link to={"/blogs/how-to-shorten-a-long-url"} className="text-sm text-slate-500 block mt-5"><strong>Also Read:</strong> <span className="text-gray-700 font-semibold"> How to short a Long URL</span></Link>
+
+
                     <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                         WhyLong vs TinyURL:
                         <span className="mt-2 block text-amber-600">
@@ -446,7 +420,7 @@ export default function WhyLongVsTinyURL() {
                         </p>
                     </div>
 
-<div className="border border-black p-3 mt-4">
+                    <div className="border border-black p-3 mt-4">
 
                         <ArticleSection
                             id="also-read"
@@ -478,13 +452,13 @@ export default function WhyLongVsTinyURL() {
                                         to={`/blogs/whylong-vs-bitly`}
                                         aria-label={`Read WhyLong vs Bitly: Which URL Shortener Should You Choose?`}
                                         className="group/link inline-flex items-center gap-2 text-sm font-bold text-slate-900 transition hover:text-yellow-800"
-                                        >
+                                    >
                                         Read article <ArrowIcon />
                                     </Link>
                                 </div>
                             </article>
                         </ArticleSection>
-                                        </div>
+                    </div>
 
                     <ArticleSection
                         id="quick-verdict"

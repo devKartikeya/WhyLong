@@ -38,7 +38,7 @@ export const faqs = [
     {
         question: "Why choose WhyLong over other URL shorteners?",
         answer:
-            "WhyLong brings URL shortening, link management, custom QR code creation, and click analytics together in one platform, with free link shortening and no subscription required."
+            "WhyLong brings URL shortening, link management, custom QR code creation, and click analytics together in one platform with zero cost."
     }
 ];
 

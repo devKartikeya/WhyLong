@@ -18,6 +18,15 @@ export const blogPosts = [
         img: "https://adespresso.com/wp-content/uploads/2022/06/url-shortener.jpg",
         keywords: "WhyLong vs TinyURL, TinyURL alternative, compare URL shorteners",
     },
+    {
+        slug: "how-to-shorten-a-long-url",
+        category: "URL Shortening",
+        title: "How to shorten a long URL?",
+        excerpt:
+            "Understand how URL shortening works and how to easily convert long links into short ones.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPs44Af3ozmbm5WfKzAlmTaJdGoC7vEw6Mrqh9JlbLPQ&s=10",
+        keywords: "How to shorten a long url, url shortener, how url shortener works",
+    }
     // {
     //     slug: "why-use-whylong",
     //     category: "WhyLong",
@@ -25,14 +34,6 @@ export const blogPosts = [
     //     excerpt:
     //         "Discover how short links, QR codes, and link performance insights can make sharing and managing URLs easier.",
     //     keywords: "Why use WhyLong, WhyLong features, link management",
-    // },
-    // {
-    //     slug: "what-is-a-url-shortener",
-    //     category: "URL Shortening",
-    //     title: "What Is a URL Shortener and How Does It Work?",
-    //     excerpt:
-    //         "Understand how URL shortening works, how redirects send visitors to their destinations, and where short links are useful.",
-    //     keywords: "what is a URL shortener, how URL shortening works",
     // },
     // {
     //     slug: "best-free-url-shorteners",

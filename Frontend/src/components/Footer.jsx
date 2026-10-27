@@ -34,6 +34,7 @@ const tutorialsLinks = [
 const blogLinks = [
     { name: "WhyLong vs Bitly", href: "/blogs/whylong-vs-bitly" },
     { name: "WhyLong vs TinyURL", href: "/blogs/whylong-vs-tinyurl" },
+    { name: "How to shorten a long URL", href: "/blogs/how-to-shorten-a-long-url" },
 ];
 
 const legalLinks = [

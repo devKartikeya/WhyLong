@@ -26,6 +26,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TermsAndConditions from "./pages/legal/TermsAndConditions";
 import InstagramQRGuide from "./pages/Tutorials/InstagramQRGuide";
 import QRCodeGeneratorPage from "./pages/products/QRCodeGeneratorPage";
+import HowToShortenALongURL from "./pages/blogs/HowToShortenALongURL";
 
 const App = () => {
     return (
@@ -44,6 +45,7 @@ const App = () => {
                     <Route path="/blogs" element={<Blogs />} />
                     <Route path="/blogs/whylong-vs-tinyurl" element={<WhyLongVsTinyURL />} />
                     <Route path="/blogs/whylong-vs-bitly" element={<WhyLongVsBitly />} />
+                    <Route path="/blogs/how-to-shorten-a-long-url" element={<HowToShortenALongURL />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
