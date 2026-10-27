@@ -220,7 +220,7 @@ const Features = () => {
                             Features
                         </p>
 
-                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+                        <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-5xl">
                             Everything around your links,
                             <span className="block text-gray-400">
                                 in one place.
@@ -243,7 +243,7 @@ const Features = () => {
                                 to={feature.path}
                                 onClick={(event) => handleFeatureClick(event, feature)}
                                 aria-label={`Explore ${feature.title}`}
-                                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2"
+                                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 hover:text-white"
                             >
                                 {/* Top row */}
                                 <div className="flex items-center justify-between">

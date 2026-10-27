@@ -373,7 +373,7 @@ const About = () => {
             {/* ================= HERO ================= */}
             <section
                 aria-labelledby="about-heading"
-                className="relative overflow-hidden border-b border-gray-100"
+                className="relative overflow-hidden border-b border-gray-100 bg-gray-950"
             >
                 <div
                     aria-hidden="true"
@@ -409,10 +409,10 @@ const About = () => {
 
                         <h1
                             id="about-heading"
-                            className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl"
+                            className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
                         >
                             {HERO.h1Main}{" "}
-                            <span className="text-gray-400">{HERO.h1Sub}</span>
+                            <span className="text-gray-600">{HERO.h1Sub}</span>
                         </h1>
 
                         <p className="mt-8 max-w-2xl text-lg leading-8 text-gray-500">
@@ -445,7 +445,7 @@ const About = () => {
 
                             <Link
                                 to={QR_PATH}
-                                className="rounded-xl border border-gray-200 px-6 py-3.5 text-sm font-semibold text-gray-700 transition-all hover:border-gray-300 hover:bg-gray-50"
+                                className="rounded-xl border border-gray-200 bg-white px-6 py-3.5 text-sm font-semibold text-gray-700 transition-all hover:border-gray-300 hover:bg-gray-50"
                             >
                                 Create a branded QR code
                             </Link>

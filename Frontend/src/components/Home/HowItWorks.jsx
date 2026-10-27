@@ -34,7 +34,7 @@ const HowItWorks = () => {
                         How it works
                     </p>
 
-                    <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl">
+                    <h2 className="mt-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-5xl">
                         From long URL to shareable link
                         <span className="block text-gray-400">
                             in a few seconds.
