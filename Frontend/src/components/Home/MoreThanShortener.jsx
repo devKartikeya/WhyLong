@@ -1,9 +1,11 @@
+import { ArrowRight } from "lucide-react";
 import {
     FiArrowUpRight,
     FiLayers,
     FiBarChart2,
     FiTrendingUp,
 } from "react-icons/fi";
+import { useNavigate, Link } from "react-router-dom";
 
 const pillars = [
     {
@@ -18,6 +20,7 @@ const pillars = [
             "Custom QR codes with your logo and colors",
             "Consistent identity across online and offline sharing",
         ],
+        href: "/products/qr-code-generator"
     },
     {
         number: "02",
@@ -31,6 +34,7 @@ const pillars = [
             "QR codes built into the workflow",
             "Useful insights without the clutter",
         ],
+        href: "/products/url-shortener"
     },
     {
 
@@ -44,13 +48,15 @@ const pillars = [
             "Timestamped click tracking",
             "Device, OS & browser insights",
             "Geographic & referrer analytics",
-        ]
+        ],
+        href: "/products/analytics"
     },
 ];
 
 const MoreThanShortener = () => {
+    const navigate = useNavigate();
     return (
-        <section className="relative overflow-hidden bg-gray-50 px-6 py-24 sm:px-10 lg:px-16" id="why-whylong">
+        <section className="relative overflow-hidden bg-gray-950 px-6 py-24 sm:px-10 lg:px-16" id="why-whylong">
             <div className="mx-auto max-w-7xl">
 
                 {/* ================= HEADER ================= */}
@@ -62,15 +68,16 @@ const MoreThanShortener = () => {
                             Why WhyLong?
                         </p>
 
-                        <h2 className="mt-4 max-w-xl text-4xl font-bold tracking-tight text-gray-950 sm:text-5xl">
+                        <h2 className="my-6 max-w-xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
                             More than a
                             <span className="block text-yellow-500">
                                 URL shortener.
                             </span>
                         </h2>
+                        <a className="bg-white p-2 font-semibold rounded-lg hover:border-yellow-400 hover:bg-yellow-50 inline border-2 border-gray-950" href="/#hero">Get Started for free <ArrowRight size={18} className="inline ml-1"/></a>
                     </div>
 
-                    <p className="max-w-2xl text-base leading-7 text-gray-500 lg:ml-auto lg:text-lg">
+                    <p className="max-w-2xl text-base leading-7 text-gray-300 lg:ml-auto lg:text-lg">
                         A short link is only the beginning. WhyLong is built
                         to give you the tools, infrastructure, and experience
                         you need to turn simple links into something more useful.
@@ -89,7 +96,8 @@ const MoreThanShortener = () => {
                         return (
                             <article
                                 key={pillar.number}
-                                className="group relative min-h-[560px] overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-300 hover:shadow-[0_25px_70px_rgba(0,0,0,0.08)] sm:p-9"
+                                onClick={() => navigate(pillar.href)}
+                                className="group cursor-pointer relative min-h-[560px] overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-300 hover:shadow-[0_25px_70px_rgba(0,0,0,0.08)] sm:p-9"
                             >
 
                                 {/* Large background number */}
@@ -164,9 +172,9 @@ const MoreThanShortener = () => {
                                 The WhyLong mindset
                             </p>
 
-                            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-gray-950 sm:text-3xl">
+                            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                                 Simple on the surface.
-                                <span className="text-gray-400">
+                                <span className="text-yellow-400">
                                     {" "}
                                     Thoughtful underneath.
                                 </span>
@@ -174,7 +182,7 @@ const MoreThanShortener = () => {
 
                         </div>
 
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-950 transition-all hover:border-yellow-400 hover:bg-yellow-400">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-yellow-400 text-gray-950 transition-all hover:border-yellow-400">
                             <FiArrowUpRight size={20} />
                         </div>
 

@@ -23,6 +23,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import MoreThanShortener from "../../components/Home/MoreThanShortener";
 
 const SITE_URL = "https://whylong.vercel.app";
 const PAGE_URL = `${SITE_URL}/products/analytics`;
@@ -925,6 +926,8 @@ export default function AnalyticsPage() {
           </div>
         </section>
 
+        <MoreThanShortener />
+
         {/* FAQ — LAST MAIN CONTENT SECTION */}
         <section
           id="analytics-faqs"
@@ -950,7 +953,7 @@ export default function AnalyticsPage() {
                 const answerId = `analytics-faq-answer-${index}`;
 
                 return (
-                  <article key={faq.question}>
+                  <article key={faq.question} className="px-4 hover:border-2 rounded-xl hover:border-yellow-400">
                     <button
                       type="button"
                       aria-expanded={isOpen}
@@ -983,34 +986,50 @@ export default function AnalyticsPage() {
               })}
             </div>
 
-            <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-center sm:p-8">
-              <h3 className="text-xl font-bold text-slate-950">
-                Ready to begin?
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                Start with a short URL, then explore the reporting
-                capabilities available in your WhyLong dashboard.
-              </p>
-              <Link
-                to="/products/url-shortener"
-                className="mt-5 mx-2 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-amber-300"
-              >
-                Shorten a URL
-                <ArrowRight size={18} />
-              </Link>
+          </div>
+        </section>
 
-              <Link
-                to="/products/qr-code-generator"
-                className="inline-flex mx-2 items-center justify-center gap-2 rounded-xl bg-gray-700 px-6 py-3.5 font-semibold text-gray-200 transition hover:bg-gray-800"
-              >
-                Generate QR
-                <ArrowRight size={18} />
-              </Link>
+        {/* ================= FINAL CTA ================= */}
+        <section className="border-t border-gray-100 bg-white py-10">
+          <div className="mx-auto max-w-5xl px-6 lg:px-8">
+            <div className="flex flex-col gap-6 rounded-3xl bg-gray-950 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-xl">
+                <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                  Ready to start your link management journey?
+                </h2>
+
+                <p className="mt-3 text-sm leading-6 text-gray-400">
+                  Create your free account to start creating, managing and analyzing your links and QR Codes {" "}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-6">
+                <Link
+                  to={"/products/url-shortener"}
+                  className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-6 py-3.5 text-md font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
+                >
+                  Shorten link now
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </Link>
+                <Link
+                  to={"/products/qr-code-generator"}
+                  className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-6 py-3.5 text-md font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
+                >
+                  Generate QR Code
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
-        {/* ================= AUTH PANEL ================= */}
 
+        {/* ================= AUTH PANEL ================= */}
         < AuthPanel
           isOpen={isAuthOpen}
           onClose={() => setIsAuthOpen(false)}

@@ -133,10 +133,10 @@ const Stats = () => {
         {stats.map((stat, index) => (
           <div
             key={stat.label}
-            className="px-4 py-8 text-center sm:px-6a"
+            className="px-4 py-8 text-center sm:px-6"
           >
             <p
-              className="text-2xl font-bold tracking-tight text-gray-950 sm:text-3xl"
+              className="text-2xl font-bold tracking-tight text-gray-950 sm:text-4xl"
               aria-label={`${stat.prefix || ""}${stat.format(
                 stat.target
               )}${stat.suffix || ""}`}
@@ -146,7 +146,7 @@ const Stats = () => {
               {stat.suffix || ""}
             </p>
 
-            <p className="mt-1.5 text-xs font-medium text-gray-500 sm:text-sm">
+            <p className="mt-2 text-xs font-medium text-gray-500 sm:text-base">
               {stat.label}
             </p>
           </div>

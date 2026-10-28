@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { FiArrowRight } from "react-icons/fi";
 import {
     ArrowRight,
     Check,
@@ -13,6 +14,7 @@ import {
     ShieldCheck,
     Zap,
 } from "lucide-react";
+import MoreThanShortener from "../products/../../components/Home/MoreThanShortener";
 
 const API_BASE_URL =
     import.meta.env.VITE_API_URL || "http://localhost:3000";
@@ -368,9 +370,9 @@ export default function UrlShortener() {
                         </div>
 
                         <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl lg:leading-[1.12]">
-                            Free URL Shortener
+                            Turn long messy links into
                             <span className="mt-2 block text-amber-500">
-                                Make long links easier to share.
+                                short and powerful ones.
                             </span>
                         </h1>
 
@@ -537,8 +539,8 @@ export default function UrlShortener() {
                             different address to share.
                         </p>
 
-                         <Link to={"/blogs/how-to-shorten-a-long-url"}>
-                            <strong className="inline mr-3 cursor-pointer">How to shorten a long URL <ExternalLink className="inline ml-1" size={18}/></strong>
+                        <Link to={"/blogs/how-to-shorten-a-long-url"}>
+                            <strong className="inline mr-3 cursor-pointer">How to shorten a long URL <ExternalLink className="inline ml-1" size={18} /></strong>
                         </Link>
                     </div>
                 </div>
@@ -595,7 +597,7 @@ export default function UrlShortener() {
                         {steps.map((step) => (
                             <article
                                 key={step.number}
-                                className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-200/50"
+                                className="rounded-2xl border-2 border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-200/50 hover:border-yellow-400"
                             >
                                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 font-bold text-amber-800">
                                     {step.number}
@@ -742,7 +744,7 @@ export default function UrlShortener() {
                         </p>
                     </div>
 
-                    <div className="overflow-hidden rounded-2xl border border-slate-200">
+                    <div className="overflow-hidden rounded-2xl border-4 border-slate-200">
                         <div className="grid grid-cols-2 bg-slate-50">
                             <div className="border-r border-slate-200 p-4 font-semibold">
                                 Long URL
@@ -784,38 +786,7 @@ export default function UrlShortener() {
                 </div>
             </section>
 
-            {/* Responsible sharing */}
-            <section className="bg-slate-950 text-white">
-                <div className="mx-auto grid max-w-7xl gap-8 px-5 py-14 sm:px-8 sm:py-16 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div className="max-w-3xl">
-                        <div className="flex items-center gap-3">
-                            <ShieldCheck size={25} className="text-amber-400" />
-                            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-400">
-                                Share responsibly
-                            </p>
-                        </div>
-                        <h2 className="mt-4 text-2xl font-bold sm:text-3xl">
-                            A shorter link is not a security guarantee.
-                        </h2>
-                        <p className="mt-4 leading-7 text-slate-300">
-                            Short URLs can make a destination less obvious before a
-                            person opens the link. Share links that are relevant and
-                            trustworthy, avoid misleading recipients, and never use
-                            link shortening to disguise phishing or harmful content.
-                            If a link arrives unexpectedly, verify its source before
-                            opening it.
-                        </p>
-                    </div>
-
-                    <a
-                        href="#url-shortener"
-                        className="inline-flex w-fit items-center gap-2 rounded-xl bg-amber-400 px-6 py-3.5 font-semibold text-slate-950 transition hover:bg-amber-300"
-                    >
-                        Create a short link
-                        <ArrowRight size={18} />
-                    </a>
-                </div>
-            </section>
+            <MoreThanShortener />
 
             {/* FAQs — keep at the end of the page */}
             <section
@@ -841,7 +812,7 @@ export default function UrlShortener() {
                         const answerId = `url-faq-answer-${index}`;
 
                         return (
-                            <article key={faq.question} className="py-1">
+                            <article key={faq.question} className="py-1 px-4 hover:border-2 rounded-xl hover:border-yellow-400">
                                 <button
                                     type="button"
                                     aria-expanded={isOpen}
@@ -873,23 +844,33 @@ export default function UrlShortener() {
                         );
                     })}
                 </div>
+            </section>
+            {/* ================= FINAL CTA ================= */}
+            <section className="border-t border-gray-100 bg-white py-10">
+                <div className="mx-auto max-w-5xl px-6 lg:px-8">
+                    <div className="flex flex-col gap-6 rounded-3xl bg-gray-950 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
+                        <div className="max-w-xl">
+                            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+                                Ready to generate your first short link?
+                            </h2>
 
-                <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-center sm:p-8">
-                    <h3 className="text-xl font-bold text-slate-900">
-                        Ready to shorten your next link?
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">
-                        Create a short URL and make your next link easier to share.
-                    </p>
-                    <a
-                        href="#url-shortener"
-                        className="mt-5 inline-flex items-center gap-2 rounded-xl bg-amber-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-amber-300"
-                    >
-                        Shorten a URL
-                        <ArrowRight size={17} />
-                    </a>
+                            <p className="mt-3 text-sm leading-6 text-gray-400">
+                                Start free. Then create your account to access your analytics and generate custom QR Codes.{" "}
+                            </p>
+                        </div>
+
+                        <Link
+                            to={"/"}
+                            className="group inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-6 py-3.5 text-md font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
+                        >
+                            Create short link now
+                            <FiArrowRight
+                                aria-hidden="true"
+                                className="transition-transform inline ml-3 group-hover:translate-x-0.5"
+                            />
+                        </Link>
+                    </div>
                 </div>
-
                 <p className="mt-8 text-center text-sm text-slate-500">
                     Want to create a QR code for a link instead?{" "}
                     <Link

@@ -13,8 +13,8 @@ const productLinks = [
 ];
 
 const companyLinks = [
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact Us", href: "/contact" },
+    { name: "About WhyLong", href: "/about" },
     { name: "Help & Support", href: "/help" }
 ];
 

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 import {
     FiArrowRight,
     FiCheck,
@@ -29,6 +30,7 @@ import {
     FAQS,
     buildSchemas
 } from "../../content/qrLanding";
+import MoreThanShortener from "../../components/Home/MoreThanShortener";
 
 const FEATURE_ICONS = [FiImage, FiDroplet, FiGrid, FiLayout, FiType, FiSave];
 
@@ -266,6 +268,7 @@ const SectionHeading = ({ id, eyebrow, title, intro, center = false }) => (
 
 const QRCodeGeneratorPage = () => {
     const navigate = useNavigate();
+    const [openFaq, setOpenFaq] = useState(null);
     const { user, authLoading } = useAuth();
     const [isAuthOpen, setIsAuthOpen] = useState(false);
 
@@ -675,47 +678,69 @@ const QRCodeGeneratorPage = () => {
                     </div>
                 </section>
 
+                <MoreThanShortener />
+
                 {/* ================= FAQ ================= */}
+                {/* FAQs — keep at the end of the page */}
                 <section
-                    id="faq"
-                    aria-labelledby="faq-heading"
-                    className="border-t border-gray-100 bg-gray-50 py-24 lg:py-28"
+                    id="faqs"
+                    className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-20"
                 >
-                    <div className="mx-auto max-w-3xl px-6 lg:px-8">
-                        <SectionHeading
-                            id="faq-heading"
-                            eyebrow="FAQ"
-                            title={COPY.faqTitle}
-                            center
-                        />
+                    <div className="text-center">
+                        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
+                            Frequently asked questions
+                        </p>
+                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                            WhyLong's QR Studio FAQs
+                        </h2>
+                        <p className="mt-4 leading-7 text-slate-600">
+                            Clear answers to common questions about creating, using and
+                            sharing QR Codes.
+                        </p>
+                    </div>
 
-                        <div className="mt-12 divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-white">
-                            {FAQS.map((item) => (
-                                <details key={item.question} className="group p-6">
-                                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
-                                        <h3 className="text-base font-semibold text-gray-950">
-                                            {item.question}
-                                        </h3>
+                    <div className="mt-10 divide-y divide-slate-200 border-y border-slate-200">
+                        {FAQS.map((faq, index) => {
+                            const isOpen = openFaq === index;
+                            const answerId = `url-faq-answer-${index}`;
 
-                                        <span
-                                            aria-hidden="true"
-                                            className="text-xl font-light text-gray-400 transition-transform group-open:rotate-45"
-                                        >
-                                            +
+                            return (
+                                <article key={faq.question} className="py-1 px-4 hover:border-2 rounded-xl hover:border-yellow-400">
+                                    <button
+                                        type="button"
+                                        aria-expanded={isOpen}
+                                        aria-controls={answerId}
+                                        onClick={() =>
+                                            setOpenFaq(isOpen ? null : index)
+                                        }
+                                        className="flex w-full items-center justify-between gap-5 py-5 text-left"
+                                    >
+                                        <span className="font-semibold leading-7 text-slate-900">
+                                            {faq.question}
                                         </span>
-                                    </summary>
+                                        <ChevronDown
+                                            size={20}
+                                            className={`shrink-0 text-slate-500 transition-transform ${isOpen ? "rotate-180" : ""
+                                                }`}
+                                        />
+                                    </button>
 
-                                    <p className="mt-3 text-sm leading-6 text-gray-500">
-                                        {item.answer}
-                                    </p>
-                                </details>
-                            ))}
-                        </div>
+                                    {isOpen && (
+                                        <div
+                                            id={answerId}
+                                            className="max-w-3xl pb-5 pr-6 text-sm leading-7 text-slate-600"
+                                        >
+                                            {faq.answer}
+                                        </div>
+                                    )}
+                                </article>
+                            );
+                        })}
                     </div>
                 </section>
 
                 {/* ================= FINAL CTA ================= */}
-                <section className="border-t border-gray-100 bg-white py-20 lg:py-24">
+                <section className="border-t border-gray-100 bg-white py-10">
                     <div className="mx-auto max-w-5xl px-6 lg:px-8">
                         <div className="flex flex-col gap-6 rounded-3xl bg-gray-950 p-8 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
                             <div className="max-w-xl">
@@ -749,6 +774,16 @@ const QRCodeGeneratorPage = () => {
                             </button>
                         </div>
                     </div>
+                    <p className="mt-8 text-center text-sm text-slate-500">
+                        Don't have a short link yet?{" "}
+                        <Link
+                            to="/products/url-shortener"
+                            className="font-semibold text-amber-700 underline underline-offset-4 hover:text-amber-800"
+                        >
+                            Shorten URL now
+                        </Link>
+                        .
+                    </p>
                 </section>
             </main>
 

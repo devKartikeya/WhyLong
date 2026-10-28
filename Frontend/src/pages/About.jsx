@@ -91,7 +91,7 @@ const ACCOUNT_TABLE = {
 
 const INTRO = {
     eyebrow: "What is WhyLong?",
-    title: "More than just a URL shortener.",
+    title: "Your Link Management System.",
     paras: [
         "WhyLong is a free link management platform. It makes working with URLs faster, simpler, and more organized.",
         "Create short links, design branded QR codes, and read detailed click analytics from one personal workspace. You can start shortening without an account, and there is no payment wall for the tools you need to share smarter."
@@ -249,11 +249,11 @@ const FAQS_TITLE = "WhyLong FAQ";
 const FAQS = [
     {
         question: "What is WhyLong?",
-        answer: "WhyLong is a free URL shortener and QR code generator with link analytics. You can shorten links, build branded QR codes, and track clicks in one workspace."
+        answer: "WhyLong is a free link management platform allowing you to shorten links and generate customizable qr codes at zero cost with simplicity without any jargon."
     },
     {
         question: "Is WhyLong really free?",
-        answer: "Yes. The core tools are free: link shortening, the QR code generator, and link analytics. There is no payment wall."
+        answer: "Yes. WhyLong is actually free. The core features like url shortening, qr generation and analysis are free to use without any hidden payment walls. Create am account to get started."
     },
     {
         question: "Do I need an account to shorten a URL?",
@@ -465,7 +465,7 @@ const About = () => {
             <section
                 id="what-you-get"
                 aria-labelledby="what-you-get-heading"
-                className="border-b border-gray-100 bg-white py-24"
+                className="border-b border-gray-100 bg-white py-12"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -558,7 +558,7 @@ const About = () => {
             {/* ================= INTRO ================= */}
             <section
                 aria-labelledby="intro-heading"
-                className="border-b border-gray-100 bg-gray-50 py-24"
+                className="border-b border-gray-100 bg-gray-50 py-12"
             >
                 <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
                     <div>
@@ -625,7 +625,7 @@ const About = () => {
             <section
                 id="qr-codes"
                 aria-labelledby="qr-heading"
-                className="border-b border-gray-100 bg-white py-24"
+                className="border-b border-gray-100 bg-white py-12"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
@@ -750,7 +750,7 @@ const About = () => {
             <section
                 id="analytics"
                 aria-labelledby="analytics-heading"
-                className="border-b border-gray-100 bg-gray-50 py-24"
+                className="border-b border-gray-100 bg-gray-50 py-12"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -797,7 +797,7 @@ const About = () => {
             {/* ================= WHY WE BUILT IT ================= */}
             <section
                 aria-labelledby="why-heading"
-                className="bg-white py-24 "
+                className="bg-white py-12"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -835,7 +835,7 @@ const About = () => {
             <section
                 id="maker"
                 aria-labelledby="maker-heading"
-                className="border-t border-gray-100 bg-gray-50 py-24 lg:py-32"
+                className="border-t border-gray-100 bg-gray-50 py-12"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
@@ -916,7 +916,7 @@ const About = () => {
             {/* ================= ENGINEERING ================= */}
             <section
                 aria-labelledby="engineering-heading"
-                className="border-t border-gray-100 bg-white py-24"
+                className="border-t border-gray-100 bg-white py-10"
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="max-w-2xl">
@@ -959,48 +959,12 @@ const About = () => {
                 </div>
             </section>
 
-            {/* ================= VALUES ================= */}
-            <section
-                aria-labelledby="values-heading"
-                className="border-t border-gray-100 bg-gray-50 py-24"
-            >
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="grid gap-16 lg:grid-cols-2">
-                        <div>
-                            <Eyebrow>{VALUES.eyebrow}</Eyebrow>
-
-                            <h2
-                                id="values-heading"
-                                className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl"
-                            >
-                                {VALUES.title1}
-                                <span className="block text-gray-400">{VALUES.title2}</span>
-                            </h2>
-                        </div>
-
-                        <ol className="space-y-10">
-                            {VALUES.items.map((item, index) => (
-                                <li key={item.title} className="flex gap-5">
-                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-yellow-50 text-sm font-bold text-yellow-600">
-                                        {String(index + 1).padStart(2, "0")}
-                                    </div>
-
-                                    <div>
-                                        <h3 className="font-bold">{item.title}</h3>
-                                        <p className="mt-2 text-sm leading-6 text-gray-500">{item.text}</p>
-                                    </div>
-                                </li>
-                            ))}
-                        </ol>
-                    </div>
-                </div>
-            </section>
 
             {/* ================= FAQ ================= */}
             <section
                 id="faq"
                 aria-labelledby="faq-heading"
-                className="border-t border-gray-100 bg-white py-24"
+                className="border-t border-gray-100 bg-white py-10"
             >
                 <div className="mx-auto max-w-3xl px-6 lg:px-8">
                     <div className="text-center">
@@ -1016,7 +980,7 @@ const About = () => {
 
                     <div className="mt-12 divide-y divide-gray-200 rounded-2xl border border-gray-200 bg-gray-50">
                         {FAQS.map((item) => (
-                            <details key={item.question} className="group p-6">
+                            <details key={item.question} className="group p-6 px-4 hover:border-2 rounded-xl hover:border-yellow-400">
                                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
                                     <h3 className="text-base font-semibold text-gray-950">
                                         {item.question}

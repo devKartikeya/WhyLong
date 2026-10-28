@@ -156,40 +156,50 @@ export const USE_CASES = [
     }
 ];
 
+
 export const FAQS = [
     {
         question: "Is this free QR code generator really free?",
-        answer: "Yes. WhyLong is free to use, and you can make as many QR codes as you like. You do need a free account to open the QR studio."
+        answer:
+            "Yes! WhyLong's QR Code Generator is free to use, so you can create QR codes without paying for every code you generate. You can create multiple QR codes for your website, social media profiles, business, marketing campaigns, and personal projects. To access the QR Studio and its customization tools, you need a free WhyLong account. You can use the available features to design QR codes that match your brand and download them for use online or in print. Always check the options available in QR Studio for the latest supported features."
     },
     {
         question: "Can I make a custom QR code with my logo?",
-        answer: "Yes. Upload a PNG, JPG, WebP, or SVG file up to 2 MB. Use the size slider to keep the logo small enough for the code to scan."
+        answer:
+            "Yes! WhyLong's QR Studio lets you personalize your QR code by adding your own logo and customizing its appearance. You can upload a PNG, JPG, WebP, or SVG logo file up to 2 MB and adjust its size using the logo size slider. For the best scanning results, keep your logo centered, avoid covering too much of the QR code's data pattern, and maintain enough contrast between the code and its background. After customizing your design, scan-test the downloaded QR code with multiple phones before sharing it or sending it to print."
     },
     {
         question: "What is a branded QR code?",
-        answer: "A branded QR code uses your own colors, logo, pattern, and text instead of plain black and white. It looks like part of your brand."
+        answer:
+            "A branded QR code is a customized QR code designed to match your business or personal identity instead of using a plain black-and-white appearance. Depending on the available customization options, you can incorporate your brand colors, logo, patterns, and text to make the code more recognizable and visually consistent with your marketing materials. With WhyLong's QR Studio, you can create branded QR codes for business cards, product packaging, restaurant menus, posters, flyers, social media, and promotional campaigns. Remember that a QR code must remain easy to scan, so prioritize strong contrast and test the final design before publishing it."
     },
     {
         question: "Can I change where my QR code points after I print it?",
-        answer: "Yes. Your QR code points to your WhyLong short link, not straight to the final page. Update the link's destination later and the printed code keeps working."
+        answer:
+            "Yes, provided your QR code was created using a WhyLong short link and that short link supports destination editing. Instead of encoding the final website address directly into the QR code, the code opens your WhyLong short link, which then redirects visitors to the destination you configured. If you need to update the destination later, you can edit the short link rather than replacing the printed QR code. This can be useful for menus, product packaging, posters, business cards, and marketing campaigns that remain in circulation for a long time. Direct QR codes that encode a destination URL itself cannot be redirected this way, and your WhyLong short link must remain active for the printed code to work."
     },
     {
         question: "Which file should I download, PNG or SVG?",
-        answer: "Use PNG for websites, social posts, and slides. Use SVG for print, packaging, and signs, because it stays sharp at any size."
+        answer:
+            "Choose PNG when you need a convenient image for websites, presentations, social media posts, emails, or other digital content. PNG is a raster image, so it works well for everyday use, but enlarging it too much can make its edges appear pixelated. Choose SVG when you need a scalable graphic for professional printing, product packaging, posters, banners, signage, or other materials that may require different sizes. SVG uses vector graphics, which can remain sharp when resized. Whichever format you choose, make sure the QR code has sufficient resolution or scale, clear edges, adequate white space around it, and enough contrast to scan reliably."
     },
     {
         question: "Which error correction level should I use with a logo?",
-        answer: "Use High (H). It lets the code recover from more covered area. Always scan-test the final file before you print."
+        answer:
+            "High (H) error correction is generally a good starting point when adding a logo to a QR code because it allows the code to recover from a greater amount of damaged or obscured data. However, error correction cannot guarantee that a code will scan if the logo covers too much of the pattern, the colors have insufficient contrast, or the image is blurry. Keep your logo relatively small, preserve the QR code's three recognizable corner markers, and avoid placing other graphics over important code elements. Test the final downloaded design at its intended size and from a realistic scanning distance before printing or distributing it."
     },
     {
         question: "Can I see how many people scan my QR code?",
-        answer: "Every scan opens your short link, so it counts as a click. You can see click data in your WhyLong dashboard."
+        answer:
+            "Yes, when your QR code uses a WhyLong short link, scans can be measured through visits to that link. Each successful scan that opens the short link can register as a click, allowing you to monitor engagement through your WhyLong dashboard. This is useful for understanding whether QR codes on flyers, menus, packaging, business cards, or campaigns are generating visits. The recorded click count represents link activity, not necessarily the number of unique people: the same person may scan more than once, and some scanning or preview behavior can affect recorded visits. Available analytics and details depend on the information WhyLong collects and displays for your links."
     },
     {
         question: "Will my QR code stop working?",
-        answer: "Your QR code opens your WhyLong short link, so it works as long as that link stays active in your account."
+        answer:
+            "A QR code is an image containing information, so it does not normally expire simply because time has passed. However, what happens when someone scans it depends on the destination encoded in the code. If your QR code uses a WhyLong short link, it will continue to work while that link remains active and the WhyLong service is available. If the link is deleted, disabled, expired, or otherwise becomes unavailable, scanning the QR code may no longer take visitors to the intended destination. For long-term use, keep your short link active, verify that its destination is correct, and periodically test QR codes that appear on printed materials."
     }
 ];
+
 
 export const buildSchemas = () => [
     {

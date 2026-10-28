@@ -3,27 +3,27 @@ export const faqs = [
     {
         question: "Is WhyLong a free URL shortener?",
         answer:
-            "Yes! WhyLong lets you create unlimited short links without a subscription or credit card. Shorten long URLs instantly and share them anywhere."
+            "Yes! Whylong is a free URL Shortener and a QR-Code Generator. WhyLong lets you to create unlimited short links and their corresponding QRs for free. Whylong's links and QRs also have no limit on clicks and scans."
     },
     {
         question: "Can I shorten a URL without creating an account?",
         answer:
-            "Yes. You can shorten links directly from the WhyLong homepage without signing in. Create an account to manage your links, create custom QR codes, and access analytics."
+            "Yes. You can shorten links directly from the WhyLong homepage without signing in. Create an account to manage your links, create custom QR codes, and access WhyLong's enterprise analytics."
     },
     {
         question: "Can I create a custom QR code with my logo?",
         answer:
-            "Yes. Personalize QR codes with custom colors and a logo, then download them for business cards, posters, social media, and other materials."
+            "Yes. You can personalize QR codes with logo, brand texts, CTA and custom colors with different shapes and templates, then download them for business cards, posters, social media, and other materials. Whylong also offers both PNG and SVG downloads."
     },
     {
         question: "Does WhyLong provide click analytics?",
         answer:
-            "Yes. Track link activity and explore available information about visitors' devices, operating systems, browsers, and approximate locations."
+            "Yes. WhyLong provides heavy and deep click analytics on both links and scanning of QRs. WhyLong's analytics include click timestamps, CTR, graphical analysis, geolocation such as region and city and device information such as type of device and operating system."
     },
     {
         question: "Can I create QR codes for Instagram or GitHub?",
         answer:
-            "Absolutely. Create a short link for your Instagram profile, GitHub profile, portfolio, or another URL, then generate a QR code people can scan to visit it."
+            "Absolutely. WhyLong allows you to create QR codes for Instagram. Just paste your Instagram link, go to WhyLong's QR Studio, generate and customize your Instagram QR. You can also create QRs for your GitHub, LinkedIn, DEV, Facebook and other profiles for free."
     },
     {
         question: "Where can I share my short links?",
@@ -33,12 +33,12 @@ export const faqs = [
     {
         question: "Can I track visits from a QR code?",
         answer:
-            "When a QR code points to a WhyLong short link, visits through that link can appear in its analytics. This helps you understand engagement with your shared links."
+            "Absolutely. When a QR code points to a WhyLong short link, visits through that link can appear in its analytics. This helps you understand engagement with your shared links. WhyLong provides clicks, CTR, timestamps, device and geolocation analysis."
     },
     {
         question: "Why choose WhyLong over other URL shorteners?",
         answer:
-            "WhyLong brings URL shortening, link management, custom QR code creation, and click analytics together in one platform with zero cost."
+            "WhyLong brings URL shortening, link management, custom QR code creation, and enterprise level click analytics together in one platform with zero cost. WhyLong's corporate dashboard helps you to maintain and access your links efficiently."
     }
 ];
 

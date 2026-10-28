@@ -10,7 +10,7 @@ const QRCodePromo = () => {
                 {/* Heading */}
                 <div className="mx-auto max-w-2xl text-center">
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-yellow-600">
-                        QR Codes
+                        WhyLong's QR Studio
                     </p>
 
                     <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
@@ -21,9 +21,7 @@ const QRCodePromo = () => {
                     </h2>
 
                     <p className="mt-5 text-base leading-7 text-gray-500">
-                        Create customizable QR codes from your WhyLong links.
-                        Add your logo, choose your colors, and download them
-                        ready to share.
+                        Explore WhyLong's QR Studio and customize your QRs with branded logos, texts, CTA, shapes and presets and share them with varios formats.
                     </p>
                 </div>
 

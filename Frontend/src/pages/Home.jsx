@@ -71,10 +71,10 @@ const Home = () => {
                 <Stats />
                 <About />
                 <Features />
-                <ComparisonTable />
                 <Blogs />
                 <HowItWorks />
                 <QRCodePromo />
+                <ComparisonTable />
                 <MoreThanShortener />
                 <FAQ />
             </main>

@@ -25,58 +25,10 @@ const Hero = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState("");
     const [copied, setCopied] = useState(false);
-
-    // =========================
-    // AUTH
-    // =========================
-
     const [isAuthOpen, setIsAuthOpen] = useState(false);
     const { user, authLoading } = useAuth();
 
     const navigate = useNavigate();
-
-    // =========================
-    // CHECK AUTHENTICATION
-    // =========================
-
-    // useEffect(() => {
-    //     const checkAuth = async () => {
-    //         try {
-    //             const response = await fetch(
-    //                 `${import.meta.env.VITE_API_URL}/users/me`,
-    //                 {
-    //                     method: "GET",
-    //                     credentials: "include"
-    //                 }
-    //             );
-
-    //             if (!response.ok) {
-    //                 setUser(null);
-    //                 return;
-    //             }
-
-    //             const result = await response.json();
-    //             setUser(result.user);
-
-    //         } catch (error) {
-    //             console.error(
-    //                 "Hero authentication check failed:",
-    //                 error
-    //             );
-
-    //             setUser(null);
-
-    //         } finally {
-    //             setAuthLoading(false);
-    //         }
-    //     };
-
-    //     checkAuth();
-    // }, []);
-
-    // =========================
-    // AUTH PANEL
-    // =========================
 
     const openAuth = () => {
         setIsAuthOpen(true);
@@ -173,15 +125,10 @@ const Hero = () => {
                 {/* ================= BACKGROUND DECORATION ================= */}
 
                 <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-yellow-100/60 blur-3xl" />
-
                 <div className="pointer-events-none absolute -left-40 bottom-0 h-80 w-80 rounded-full bg-yellow-50 blur-3xl" />
-
                 <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 lg:px-8 lg:pb-32 lg:pt-28">
-
                     <div className="mx-auto max-w-4xl text-center">
-
                         {/* ================= EYEBROW ================= */}
-
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-3 md:py-4">
                             <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
                             <span className="text-xs font-semibold tracking-wide text-yellow-700">
@@ -190,7 +137,6 @@ const Hero = () => {
                         </div>
 
                         {/* ================= HERO HEADING ================= */}
-
                         <h1 className="text-4xl font-bold leading-[1.12] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
                             Free URL Shortener &amp;
                             <span className="relative mt-1 block pb-1">
@@ -203,7 +149,6 @@ const Hero = () => {
                                 />
                             </span>
                         </h1>
-
                         <h2 className="mt-5 text-xl font-semibold leading-snug tracking-tight text-gray-900 sm:text-2xl lg:text-3xl">
                             Short links.
                             <span className="text-gray-400"> Better sharing.</span>
@@ -213,7 +158,6 @@ const Hero = () => {
                         </h2>
 
                         {/* ================= DESCRIPTION ================= */}
-
                         <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-600 sm:text-lg sm:leading-8">
                             Shorten long URLs, create branded QR codes, and track link
                             performance—all with WhyLong. Free link shortening, no
@@ -221,15 +165,10 @@ const Hero = () => {
                         </p>
 
                         {/* ================= URL SHORTENER ================= */}
-
                         <div className="mx-auto mt-10 max-w-2xl">
-
                             <div className="flex flex-col gap-3 rounded-2xl border border-gray-200 bg-white p-2 shadow-[0_15px_50px_rgba(0,0,0,0.07)] sm:flex-row">
-
                                 {/* Input */}
-
                                 <div className="flex flex-1 items-center gap-3 px-4">
-
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
@@ -250,7 +189,6 @@ const Hero = () => {
                                             d="M10.81 15.312a4.5 4.5 0 0 0 6.38 0l3-3a4.5 4.5 0 0 0-6.38-6.364l-1.5 1.5"
                                         />
                                     </svg>
-
                                     <input
                                         type="url"
                                         value={url}
@@ -272,7 +210,6 @@ const Hero = () => {
                                 </div>
 
                                 {/* Button */}
-
                                 <button
                                     onClick={handleClick}
                                     disabled={isLoading}
@@ -306,7 +243,6 @@ const Hero = () => {
                             </div>
 
                             {/* ================= ERROR ================= */}
-
                             {error && (
                                 <div className="mt-3 flex items-center justify-center gap-2 text-sm text-red-500">
 
@@ -322,12 +258,9 @@ const Hero = () => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-
                                     {error}
                                 </div>
                             )}
-
-                            {/* ================= SUCCESS RESULT ================= */}
 
                             {/* ================= SHORT URL RESULT ================= */}
                             {shortUrl && (
@@ -551,84 +484,56 @@ const Hero = () => {
                     {/* ================= PRODUCT PREVIEW ================= */}
 
                     <div className="mx-auto mt-20 max-w-5xl">
-
                         <div className="rounded-2xl border border-gray-200 bg-gray-50 p-2 shadow-[0_20px_70px_rgba(0,0,0,0.08)]">
-
                             <div className="rounded-xl border border-gray-200 bg-white">
-
                                 {/* Fake browser header */}
-
                                 <div className="flex h-12 items-center gap-2 border-b border-gray-100 px-5">
-
                                     <span className="h-2.5 w-2.5 rounded-full bg-gray-200" />
                                     <span className="h-2.5 w-2.5 rounded-full bg-gray-200" />
                                     <span className="h-2.5 w-2.5 rounded-full bg-gray-200" />
-
                                     <div className="mx-auto hidden h-7 w-80 rounded-md bg-gray-50 sm:block" />
-
                                 </div>
 
                                 {/* Dashboard preview */}
-
                                 <div className="grid min-h-[280px] grid-cols-1 md:grid-cols-[180px_1fr]">
-
                                     <div className="hidden border-r border-gray-100 p-5 md:block">
-
                                         <div className="mb-8 h-6 w-24 rounded bg-gray-950" />
-
                                         <div className="space-y-3">
                                             <div className="h-8 rounded-lg bg-yellow-50" />
                                             <div className="h-8 rounded-lg bg-gray-50" />
                                             <div className="h-8 rounded-lg bg-gray-50" />
                                             <div className="h-8 rounded-lg bg-gray-50" />
                                         </div>
-
                                     </div>
 
                                     <div className="p-6">
-
                                         <div className="flex items-center justify-between">
-
                                             <div>
                                                 <div className="h-5 w-32 rounded bg-gray-900" />
                                                 <div className="mt-2 h-3 w-48 rounded bg-gray-100" />
                                             </div>
-
                                             <div className="h-9 w-24 rounded-lg bg-yellow-400" />
-
                                         </div>
-
                                         <div className="mt-8 grid gap-4 sm:grid-cols-3">
-
                                             <div className="rounded-xl border border-gray-100 p-4">
                                                 <div className="h-3 w-16 rounded bg-gray-100" />
                                                 <div className="mt-3 h-6 w-12 rounded bg-gray-900" />
                                             </div>
-
                                             <div className="rounded-xl border border-gray-100 p-4">
                                                 <div className="h-3 w-20 rounded bg-gray-100" />
                                                 <div className="mt-3 h-6 w-16 rounded bg-gray-900" />
                                             </div>
-
                                             <div className="rounded-xl border border-gray-100 p-4">
                                                 <div className="h-3 w-16 rounded bg-gray-100" />
                                                 <div className="mt-3 h-6 w-14 rounded bg-yellow-500" />
                                             </div>
-
                                         </div>
-
                                         <div className="mt-5 h-24 rounded-xl bg-gray-50" />
-
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
             </section >
 
