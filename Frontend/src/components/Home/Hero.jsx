@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
 import { useAuth } from "../../context/AuthContext";
 
@@ -27,6 +27,28 @@ const Hero = () => {
     const [copied, setCopied] = useState(false);
     const [isAuthOpen, setIsAuthOpen] = useState(false);
     const { user, authLoading } = useAuth();
+
+    const previewRef = useRef(null);
+    const [showPromo, setShowPromo] = useState(false);
+    const [hidePromo, setHidePromo] = useState(false);
+
+    useEffect(() => {
+        const element = previewRef.current;
+        if (!element) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShowPromo(true);
+                    observer.disconnect();
+                }
+            },
+            {
+                threshold: 0.35,
+            }
+        );
+        observer.observe(element);
+        return () => observer.disconnect();
+    }, []);
 
     const navigate = useNavigate();
 
@@ -483,7 +505,7 @@ const Hero = () => {
 
                     {/* ================= PRODUCT PREVIEW ================= */}
 
-                    <div className="mx-auto mt-20 max-w-5xl">
+                    <div className="relative mx-auto mt-20 max-w-5xl overflow-hidden rounded-2xl" ref={previewRef}>
                         <div className="rounded-2xl border border-gray-200 bg-gray-50 p-2 shadow-[0_20px_70px_rgba(0,0,0,0.08)]">
                             <div className="rounded-xl border border-gray-200 bg-white">
                                 {/* Fake browser header */}
@@ -530,6 +552,106 @@ const Hero = () => {
                                         </div>
                                         <div className="mt-5 h-24 rounded-xl bg-gray-50" />
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* ================= SCROLL-TRIGGERED QR SHOWCASE ================= */}
+                        <div
+                            aria-label="Explore WhyLong QR code guides"
+                            aria-hidden={!showPromo || hidePromo}
+                            className={`absolute inset-0 z-10 transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${hidePromo
+                                ? "translate-x-full pointer-events-none"
+                                : showPromo
+                                    ? "translate-x-0"
+                                    : "-translate-x-full pointer-events-none"
+                                }`}
+                        >
+                            <div className="relative flex h-full min-h-[360px] flex-col justify-between overflow-hidden rounded-2xl border border-gray-800 bg-gray-950 px-5 py-3 sm:px-7 sm:py-7 text-white shadow-2xl sm:min-h-[400px]">
+                                {/* Premium dark backdrop */}
+                                <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(250,204,21,0.18),transparent_42%),radial-gradient(ellipse_at_bottom_left,rgba(234,179,8,0.10),transparent_38%)]" />
+                                <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-16 h-64 w-64 rounded-full border border-yellow-400/10" />
+                                <div aria-hidden="true" className="pointer-events-none absolute -right-12 top-28 h-40 w-40 rounded-full border border-yellow-400/10" />
+
+                                <div className="relative grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-10">
+                                    {/* Intro */}
+                                    <div className="flex flex-col items-start">
+                                        <span className="inline-flex items-center gap-2 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-yellow-300 sm:text-xs">
+                                            <span className="h-1.5 w-1.5 rounded-full bg-yellow-300 shadow-[0_0_12px_rgba(253,224,71,0.9)]" />
+                                            Make your profile scan-worthy
+                                        </span>
+
+                                        <h3 className="mt-4 max-w-xl text-3xl font-black leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
+                                            Your identity.
+                                            <span className="mt-1 block text-yellow-300">One quick scan.</span>
+                                        </h3>
+
+                                        <p className="mt-2 max-w-md text-sm leading-7 text-gray-300 sm:text-base">
+                                            Turn the profiles you’re proud of into custom QR codes. Put them on your portfolio, business card, resume, or anywhere your next opportunity might find you.
+                                        </p>
+
+                                        <Link
+                                            to="/products/qr-code-generator"
+                                            tabIndex={showPromo && !hidePromo ? 0 : -1}
+                                            className="group mt-4 inline-flex items-center gap-2 rounded-xl bg-yellow-300 px-5 py-3 text-sm font-bold text-gray-950 shadow-[0_8px_30px_rgba(250,204,21,0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-200 focus:ring-offset-2 focus:ring-offset-gray-950"
+                                        >
+                                            Explore QR Studio
+                                            <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                                        </Link>
+                                    </div>
+
+                                    {/* Real QR preview images */}
+                                    <div className="relative grid grid-cols-2 items-stretch gap-3 sm:gap-4">
+                                        <Link
+                                            to="/tutorials/create-instagram-qr-code"
+                                            tabIndex={showPromo && !hidePromo ? 0 : -1}
+                                            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-2.5 transition duration-300 hover:-translate-y-1 hover:border-pink-300/60 hover:bg-white/[0.09] sm:p-3"
+                                        >
+                                            <div className="mb-3 flex items-center justify-between gap-2 px-1">
+                                                <span className="truncate text-xs font-bold text-white sm:text-sm">Instagram</span>
+                                                <span className="shrink-0 rounded-full bg-pink-400/15 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-pink-200 sm:text-[10px]">Profile</span>
+                                            </div>
+                                            <div className="overflow-hidden rounded-xl bg-white p-2 sm:p-3">
+                                                <img
+                                                    src={"/Instagram_QR_Hero.png"}
+                                                    alt="Example of a custom Instagram profile QR code made with WhyLong"
+                                                    loading="lazy"
+                                                    className="aspect-square w-full rounded-lg object-contain transition duration-500 group-hover:scale-[1.03]"
+                                                />
+                                            </div>
+                                            <div className="flex items-center justify-between gap-2 px-1 pb-1 pt-3">
+                                                <span className="text-[10px] font-semibold text-gray-300 sm:text-xs">Create Instagram QR</span>
+                                                <ArrowIcon className="h-4 w-4 shrink-0 text-pink-200 transition-transform group-hover:translate-x-1" />
+                                            </div>
+                                        </Link>
+
+                                        <Link
+                                            to="/tutorials/create-github-qr-code"
+                                            tabIndex={showPromo && !hidePromo ? 0 : -1}
+                                            className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-2.5 transition duration-300 hover:-translate-y-1 hover:border-yellow-300/60 hover:bg-white/[0.09] sm:p-3"
+                                        >
+                                            <div className="mb-3 flex items-center justify-between gap-2 px-1">
+                                                <span className="truncate text-xs font-bold text-white sm:text-sm">GitHub</span>
+                                                <span className="shrink-0 rounded-full bg-yellow-300/15 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-yellow-200 sm:text-[10px]">Portfolio</span>
+                                            </div>
+                                            <div className="overflow-hidden rounded-xl bg-white p-2 sm:p-3">
+                                                <img
+                                                    src={"/GitHub_QR_Hero.png"}
+                                                    alt="Example of a custom GitHub profile QR code made with WhyLong"
+                                                    loading="lazy"
+                                                    className="aspect-square w-full rounded-lg object-contain transition duration-500 group-hover:scale-[1.03]"
+                                                />
+                                            </div>
+                                            <div className="flex items-center justify-between gap-2 px-1 pb-1 pt-3">
+                                                <span className="text-[10px] font-semibold text-gray-300 sm:text-xs">Create GitHub QR</span>
+                                                <ArrowIcon className="h-4 w-4 shrink-0 text-yellow-200 transition-transform group-hover:translate-x-1" />
+                                            </div>
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                <div className="relative mt-8 flex flex-col gap-2 border-t border-white/10 pt-5 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+                                    <p>Designed to make your links easier to discover.</p>
+                                    <p className="font-semibold tracking-wide text-gray-300"><span className="text-yellow-300">WHY</span>LONG <span className="mx-1 text-gray-600">/</span> LINK. SCAN. CONNECT.</p>
                                 </div>
                             </div>
                         </div>
