@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
     ArrowRight,
@@ -340,6 +340,7 @@ const CheckBadge = () => (
 );
 
 const About = () => {
+    const navigate = useNavigate();
     return (
         <main className="min-h-screen bg-white text-gray-950">
             <Helmet>
@@ -840,7 +841,7 @@ const About = () => {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
                         <div className="relative mx-auto w-full max-w-sm lg:mx-0">
-                            <div className="aspect-square overflow-hidden rounded-3xl bg-gray-950 p-8">
+                            <div className="aspect-square overflow-hidden rounded-3xl bg-gray-950 p-8" onClick={() => navigate("/founder/kartikeya-mishra")}>
                                 <div className="flex h-full flex-col justify-between">
                                     <div className="flex items-center justify-between">
                                         <div

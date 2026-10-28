@@ -2,6 +2,7 @@ import FAQ from "./pages/FAQS";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Founder from "./pages/Founder";
 import Blogs from "./pages/blogs/Blogs";
 import NotFound from "./pages/NotFound";
 import HelpSupport from "./pages/HelpSupport";
@@ -53,6 +54,7 @@ const App = () => {
                     <Route path="/products/qr-code-generator" element={<QRCodeGeneratorPage />} />
                     <Route path="/products/url-shortener" element={<UrlShortener />} />
                     <Route path="/products/analytics" element={<AnalyticsPage />} />
+                    <Route path="/founder/kartikeya-mishra" element={<Founder />} />
                     <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
                     <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
                 </Route>

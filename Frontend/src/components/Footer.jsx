@@ -15,7 +15,8 @@ const productLinks = [
 const companyLinks = [
     { name: "Contact Us", href: "/contact" },
     { name: "About WhyLong", href: "/about" },
-    { name: "Help & Support", href: "/help" }
+    { name: "Help & Support", href: "/help" },
+    { name: "Our Team", href: "/founder/kartikeya-mishra" },
 ];
 
 const resourceLinks = [
