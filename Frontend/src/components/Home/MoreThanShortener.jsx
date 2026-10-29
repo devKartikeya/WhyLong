@@ -73,9 +73,7 @@ const MoreThanShortener = () => {
                         <a className="bg-white p-2 font-semibold rounded-lg hover:border-yellow-400 hover:bg-yellow-50 inline border-2 border-gray-950" href="/#hero">Get Started for free <ArrowRight size={18} className="inline ml-1" /></a>
                     </div>
                     <p className="max-w-2xl text-base leading-7 text-gray-300 lg:ml-auto lg:text-lg">
-                        A short link is only the beginning. WhyLong is built
-                        to give you the tools, infrastructure, and experience
-                        you need to turn simple links into something more useful.
+                        WhyLong is a full-fledged link management platform that provides you an enterprise experience of managing your links, QRs and to build your brand with WhyLong.
                     </p>
                 </div>
 

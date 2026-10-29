@@ -115,13 +115,12 @@ export default function ComparisonTable() {
                     </h2>
 
                     <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-                        Short links are just the beginning. Compare link creation,
-                        analytics, and QR customization before choosing your tool.
+                        Compare and discover how and why WhyLong is better than other link management platforms.
                     </p>
                 </div>
 
                 {/* Comparison table */}
-                <div className="mt-12 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_20px_70px_-35px_rgba(15,23,42,0.25)] sm:mt-14">
+                <div className="mt-12 overflow-hidden rounded-3xl border border-gray-500 bg-white shadow-[0_20px_70px_-35px_rgba(15,23,42,0.25)] sm:mt-14">
                     {/* Table header */}
                     <div className="grid grid-cols-[minmax(150px,1.4fr)_minmax(125px,1fr)_minmax(115px,1fr)] border-b border-slate-200 sm:grid-cols-[minmax(240px,1.5fr)_minmax(180px,1fr)_minmax(160px,1fr)]">
                         <div className="flex items-center px-4 py-5 sm:px-7">

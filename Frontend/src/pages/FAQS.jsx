@@ -27,10 +27,26 @@ export const faqCategories = [
                         you are sharing a personal project, promoting a business, or
                         organizing links for a campaign, WhyLong brings useful link
                         tools together in one place. Explore the{" "}
-                        <Link className="faq-inline-link" to="/products/url-shortener">
+                        <Link className="faq-inline-link font-semibold" to="/products/url-shortener">
                             URL shortener
                         </Link>{" "}
                         to create your first short link.
+                    </>
+                ),
+                keywords:
+                    "about whylong url shortener link management platform qr code generator",
+            },
+            {
+                q: "Who made WhyLong?",
+                a: (
+                    <>
+                        WhyLong is a URL-shortening and link-management platform
+                        built by Kartikeya Mishra. A software developer and a system-design engineer based in Uttar Pradesh, India.
+                        He started developing Whylong in August 2026. The aim behind building it was to encompass different functionalities like URL Shortening, QR Code generation, link analysis, enterprise level management together at a single platform with minimal charges. Read more about{" "}
+                        <Link className="faq-inline-link font-semibold" to="/founder/kartikeya-mishra">
+                            Kartikeya Mishra
+                        </Link>{" "}
+                        to know his story and perception.
                     </>
                 ),
                 keywords:
@@ -41,7 +57,7 @@ export const faqCategories = [
                 a: (
                     <>
                         Getting started with WhyLong is straightforward. Open the{" "}
-                        <Link className="faq-inline-link" to="/products/url-shortener">
+                        <Link className="faq-inline-link font-semibold" to="/products/url-shortener">
                             URL shortener
                         </Link>
                         , enter the complete destination URL you want people to
@@ -51,7 +67,7 @@ export const faqCategories = [
                         or documents. If you want to create a QR code instead, visit
                         the{" "}
                         <Link
-                            className="faq-inline-link"
+                            className="faq-inline-link font-semibold"
                             to="/products/qr-code-generator"
                         >
                             QR code generator
@@ -111,7 +127,7 @@ export const faqCategories = [
                         communication cleaner and can support link management and
                         click analytics when those features are available. Learn
                         more on the{" "}
-                        <Link className="faq-inline-link" to="/products/url-shortener">
+                        <Link className="faq-inline-link font-semibold" to="/products/url-shortener">
                             WhyLong URL shortener
                         </Link>{" "}
                         page.
@@ -134,7 +150,7 @@ export const faqCategories = [
                     <>
                         To create a short URL, first copy the complete address of
                         the page you want to share. Open the{" "}
-                        <Link className="faq-inline-link" to="/products/url-shortener">
+                        <Link className="faq-inline-link font-semibold" to="/products/url-shortener">
                             WhyLong URL shortener
                         </Link>
                         , paste the original URL into the input field, and use
@@ -253,7 +269,7 @@ export const faqCategories = [
                     <>
                         To generate a QR code with WhyLong, open the{" "}
                         <Link
-                            className="faq-inline-link"
+                            className="faq-inline-link font-semibold"
                             to="/products/qr-code-generator"
                         >
                             WhyLong QR code generator
@@ -331,7 +347,7 @@ export const faqCategories = [
                         equivalent to unique people, and repeated visits or automated
                         activity may affect the numbers. Explore the{" "}
                         <Link
-                            className="faq-inline-link"
+                            className="faq-inline-link font-semibold"
                             to="/products/link-analytics"
                         >
                             WhyLong link analytics
@@ -348,7 +364,7 @@ export const faqCategories = [
                     <>
                         Start by visiting the{" "}
                         <Link
-                            className="faq-inline-link"
+                            className="faq-inline-link font-semibold"
                             to="/products/link-analytics"
                         >
                             WhyLong analytics page

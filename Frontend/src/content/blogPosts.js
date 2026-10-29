@@ -26,7 +26,16 @@ export const blogPosts = [
             "Understand how URL shortening works and how to easily convert long links into short ones.",
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPs44Af3ozmbm5WfKzAlmTaJdGoC7vEw6Mrqh9JlbLPQ&s=10",
         keywords: "How to shorten a long url, url shortener, how url shortener works",
-    }
+    },
+    {
+        slug: "how-to-create-customized-qr-code",
+        category: "QR Codes",
+        title: "How to Create a customized QR Code",
+        excerpt:
+            "Learn how to create customizd or branded QR codes for your business, company and personal use cases.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRsZ0L5RQhJ04rJ8Im3diLiCEmkBoRCN9DsJ-BEyS-JXBC5N-mcbL5DxV&s=10",
+        keywords: "Custom QR codes, Branded QR codes, QR codes for business, QR code marketing, QR code generator",
+    },
     // {
     //     slug: "why-use-whylong",
     //     category: "WhyLong",
@@ -42,14 +51,6 @@ export const blogPosts = [
     //     excerpt:
     //         "Learn which factors to evaluate when choosing a URL shortener, from ease of use and link management to analytics and limitations.",
     //     keywords: "best free URL shortener, free link shortener, URL tools",
-    // },
-    // {
-    //     slug: "qr-codes-for-business",
-    //     category: "QR Codes",
-    //     title: "How Businesses Can Use QR Codes to Connect Offline and Online",
-    //     excerpt:
-    //         "Explore practical ways to use QR codes on packaging, flyers, menus, business cards, and other customer touchpoints.",
-    //     keywords: "QR codes for business, QR code marketing, QR code generator",
     // },
     // {
     //     slug: "understanding-link-analytics",

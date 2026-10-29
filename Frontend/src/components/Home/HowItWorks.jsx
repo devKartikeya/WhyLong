@@ -24,7 +24,7 @@ const steps = [
 const HowItWorks = () => {
     return (
         <section
-            id="how-it-works"
+            id="how-it-works"c
             className="border-t border-gray-100 bg-gray-50 py-24"
         >
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -57,8 +57,8 @@ const HowItWorks = () => {
                             key={step.number}
                             className="relative text-center"
                         >
-                            <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-bold text-gray-950 shadow-sm">
-                                <span className="absolute inset-1 rounded-full border border-yellow-100" />
+                            <div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full border-2 border-yellow-400 bg-white text-sm font-bold text-gray-950 shadow-sm">
+                                <span className="absolute inset-1 rounded-full border border-yellow-400 border-2" />
                                 {step.number}
                             </div>
 

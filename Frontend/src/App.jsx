@@ -29,70 +29,72 @@ import TermsAndConditions from "./pages/legal/TermsAndConditions";
 import InstagramQRGuide from "./pages/Tutorials/InstagramQRGuide";
 import HowToShortenALongURL from "./pages/blogs/HowToShortenALongURL";
 import QRCodeGeneratorPage from "./pages/products/QRCodeGeneratorPage";
+import CustomizedQRCodeBlog from "./pages/blogs/CustomizedQRCodeBlog";
 
 const App = () => {
     return (
         <BrowserRouter>
             <ScrollToTop />
-                <Routes>
-                    {/* Public */}
+            <Routes>
+                {/* Public */}
+                <Route
+                    path="/"
+                    element={<Home />}
+                />
+
+                <Route element={<PublicPagesLayout />}>
+                    <Route path="/about" element={<About />} />
+                    <Route path="/help" element={<HelpSupport />} />
+                    <Route path="/faqs" element={<FAQ />} />
+                    <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/blogs/whylong-vs-tinyurl" element={<WhyLongVsTinyURL />} />
+                    <Route path="/blogs/whylong-vs-bitly" element={<WhyLongVsBitly />} />
+                    <Route path="/blogs/how-to-shorten-a-long-url" element={<HowToShortenALongURL />} />
+                    <Route path="/blogs/how-to-create-customized-qr-code" element={<CustomizedQRCodeBlog />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
+                    <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />
+                    <Route path="/products/qr-code-generator" element={<QRCodeGeneratorPage />} />
+                    <Route path="/products/url-shortener" element={<UrlShortener />} />
+                    <Route path="/products/analytics" element={<AnalyticsPage />} />
+                    <Route path="/founder/kartikeya-mishra" element={<Founder />} />
+                    <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
+                    <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
+                </Route>
+
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+
+                {/* Dashboard */}
+                <Route element={<ProtectedRoute />}>
                     <Route
-                        path="/"
-                        element={<Home />}
-                    />
-
-                    <Route element={<PublicPagesLayout />}>
-                        <Route path="/about" element={<About />} />
-                        <Route path="/help" element={<HelpSupport />} />
-                        <Route path="/faqs" element={<FAQ />} />
-                        <Route path="/blogs" element={<Blogs />} />
-                        <Route path="/blogs/whylong-vs-tinyurl" element={<WhyLongVsTinyURL />} />
-                        <Route path="/blogs/whylong-vs-bitly" element={<WhyLongVsBitly />} />
-                        <Route path="/blogs/how-to-shorten-a-long-url" element={<HowToShortenALongURL />} />
-                        <Route path="/contact" element={<Contact />} />
-                        <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
-                        <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
-                        <Route path="/legal/terms-and-conditions" element={<TermsAndConditions />} />
-                        <Route path="/products/qr-code-generator" element={<QRCodeGeneratorPage />} />
-                        <Route path="/products/url-shortener" element={<UrlShortener />} />
-                        <Route path="/products/analytics" element={<AnalyticsPage />} />
-                        <Route path="/founder/kartikeya-mishra" element={<Founder />} />
-                        <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
-                        <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
-                    </Route>
-
-                    <Route path="/forgot-password" element={<ForgotPassword />} />
-                    <Route path="/reset-password" element={<ResetPassword />} />
-
-                    {/* Dashboard */}
-                    <Route element={<ProtectedRoute />}>
+                        path="/dashboard"
+                        element={<DashboardLayout />}
+                    >
                         <Route
-                            path="/dashboard"
-                            element={<DashboardLayout />}
-                        >
-                            <Route
-                                index
-                                element={<Overview />}
-                            />
-                            <Route path="my-links" element={<MyLinks />} />
-                            <Route
-                                path="qr-codes"
-                                element={<QRCodes />}
-                            />
-                            <Route
-                                /* Here i want username as a parameter but user is not defined here, fix it */
-                                path="profile/:username"
-                                element={<Profile />}
-                            />
-                            <Route
-                                path="analytics"
-                                element={<Analytics />}
-                            />
-                        </Route>
+                            index
+                            element={<Overview />}
+                        />
+                        <Route path="my-links" element={<MyLinks />} />
+                        <Route
+                            path="qr-codes"
+                            element={<QRCodes />}
+                        />
+                        <Route
+                            /* Here i want username as a parameter but user is not defined here, fix it */
+                            path="profile/:username"
+                            element={<Profile />}
+                        />
+                        <Route
+                            path="analytics"
+                            element={<Analytics />}
+                        />
                     </Route>
+                </Route>
 
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <Route path="*" element={<NotFound />} />
+            </Routes>
         </BrowserRouter>
     );
 };

@@ -172,7 +172,7 @@ const Hero = () => {
                             </span>
                         </h1>
                         <h2 className="mt-5 text-xl font-semibold leading-snug tracking-tight text-gray-900 sm:text-2xl lg:text-3xl">
-                            Short links.
+                            Manage links.
                             <span className="text-gray-400"> Better sharing.</span>
                             <span className="block">
                                 <span className="text-gray-900">One simple platform.</span>
@@ -610,7 +610,7 @@ const Hero = () => {
                                                 <span className="truncate text-xs font-bold text-white sm:text-sm">Instagram</span>
                                                 <span className="shrink-0 rounded-full bg-pink-400/15 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-pink-200 sm:text-[10px]">Profile</span>
                                             </div>
-                                            <div className="overflow-hidden rounded-xl bg-white p-2 sm:p-3">
+                                            <div className="overflow-hidden rounded-xl bg-white">
                                                 <img
                                                     src={"/Instagram_QR_Hero.png"}
                                                     alt="Example of a custom Instagram profile QR code made with WhyLong"
@@ -633,7 +633,7 @@ const Hero = () => {
                                                 <span className="truncate text-xs font-bold text-white sm:text-sm">GitHub</span>
                                                 <span className="shrink-0 rounded-full bg-yellow-300/15 px-2 py-1 text-[9px] font-bold uppercase tracking-wider text-yellow-200 sm:text-[10px]">Portfolio</span>
                                             </div>
-                                            <div className="overflow-hidden rounded-xl bg-white p-2 sm:p-3">
+                                            <div className="overflow-hidden rounded-xl bg-white">
                                                 <img
                                                     src={"/GitHub_QR_Hero.png"}
                                                     alt="Example of a custom GitHub profile QR code made with WhyLong"

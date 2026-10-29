@@ -518,9 +518,17 @@ const QRCodeGeneratorPage = () => {
                             <button
                                 type="button"
                                 onClick={handleCreate}
-                                className="inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-7 py-3.5 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
+                                className="font-semibold inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-7 py-3.5 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
                             >
                                 {ctaLabel}
+                                <FiArrowRight aria-hidden="true" />
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => navigate("/blogs/how-to-create-customized-qr-code")}
+                                className="font-semibold inline-flex mx-5 cursor-pointer items-center justify-center gap-2 rounded-xl bg-yellow-400 px-7 py-3.5 text-sm font-bold text-gray-950 transition-all hover:bg-yellow-300 active:scale-[0.98]"
+                            >
+                                Learn More
                                 <FiArrowRight aria-hidden="true" />
                             </button>
                         </div>

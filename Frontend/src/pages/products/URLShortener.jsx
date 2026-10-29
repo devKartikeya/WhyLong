@@ -364,12 +364,8 @@ export default function UrlShortener() {
 
                 <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
                     <div className="mx-auto max-w-4xl text-center">
-                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
-                            <Zap size={15} className="text-amber-500" />
-                            A simpler way to share links
-                        </div>
 
-                        <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl lg:leading-[1.12]">
+                        <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl lg:leading-[1.12] mt-8">
                             Turn long messy links into
                             <span className="mt-2 block text-amber-500">
                                 short and powerful ones.

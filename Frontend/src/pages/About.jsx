@@ -276,8 +276,8 @@ const FAQS = [
         answer: "No. You can create unlimited short links and unlimited QR codes."
     },
     {
-        question: "Who makes WhyLong?",
-        answer: "WhyLong is built by Kartikeya Mishra, a full-stack developer and student at Hewett Polytechnic."
+        question: "Who made WhyLong?",
+        answer: "WhyLong is built by Kartikeya Mishra, a software developer and a system-design engineer based in Uttar Pradesh, India."
     }
 ];
 

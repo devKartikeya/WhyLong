@@ -23,14 +23,14 @@ const articles = [
     {
         number: "02",
         icon: FiLayers,
-        category: "Platform Comparison",
-        title: "WhyLong vs TinyURL",
-        highlight: "Compare the experience.",
+        category: "QR Codes",
+        title: "How to Create a customized QR Code",
+        highlight: "Build branded QRs.",
         description:
-            "Explore the differences between WhyLong and TinyURL, from creating short links to QR codes and link analytics, before choosing your workflow.",
-        img: "https://adespresso.com/wp-content/uploads/2022/06/url-shortener.jpg",
-        readTime: "8 min read",
-        slug: "/blogs/whylong-vs-tinyurl",
+            "Learn how to create customizd or branded QR codes for your business, company and personal use cases.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRsZ0L5RQhJ04rJ8Im3diLiCEmkBoRCN9DsJ-BEyS-JXBC5N-mcbL5DxV&s=10",
+        readTime: "17 min read",
+        slug: "/blogs/how-to-create-customized-qr-code",
     },
     {
         number: "03",
@@ -50,7 +50,7 @@ const Blogs = () => {
     return (
         <section
             id="blogs"
-            className="relative overflow-hidden bg-gray-950 px-6 py-24 sm:px-10 lg:px-16"
+            className="relative overflow-hidden bg-gray-950 px-6 py-24 sm:px-10 lg:px-14"
         >
             <div className="mx-auto max-w-7xl">
 
@@ -85,7 +85,7 @@ const Blogs = () => {
                 </div>
 
                 {/* Article Cards */}
-                <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3 bg-gray-900 p-8 rounded-3xl">
                     {articles.map((article) => {
 
                         return (
@@ -95,12 +95,12 @@ const Blogs = () => {
                                 aria-label={`Read article: ${article.title}`}
                                 className="group block h-full rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-4"
                             >
-                                <article className="relative flex h-full min-h-[480px] flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white p-5 transition-all duration-300 group-hover:-translate-y-2 group-hover:border-yellow-300 group-hover:shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
+                                <article className="relative flex h-full min-h-[480px] flex-col overflow-hidden rounded-3xl border-1 border-gray-200 bg-white p-5 transition-all duration-300 group-hover:-translate-y-8 group-hover:border-yellow-300 group-hover:shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 
                                     {/* Background Number */}
                                     <span
                                         aria-hidden="true"
-                                        className="pointer-events-none absolute -right-4 -top-7 text-[130px] font-black leading-none text-gray-50 transition-colors duration-300 group-hover:text-yellow-50"
+                                        className="pointer-events-none absolute -right-4 -top-7 text-[130px] sm:text-[180px] font-black leading-none text-gray-50 transition-colors duration-300 group-hover:text-yellow-200"
                                     >
                                         {article.number}
                                     </span>
