@@ -251,7 +251,7 @@ const SectionHeading = ({ id, eyebrow, title, intro, center = false }) => (
 
         <h2
             id={id}
-            className="mt-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl"
+            className="mt-4 text-3xl font-bold tracking-tight text-gray-950 sm:text-4xl md:text-5xl"
         >
             {title}
         </h2>
@@ -336,7 +336,7 @@ const QRCodeGeneratorPage = () => {
                                     </span>
                                 </div>
 
-                                <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-950 sm:text-5xl">
+                                <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-gray-950 sm:text-5xl lg:text-6xl">
                                     Free QR code generator with
                                     <span className="relative mx-2 inline-block">
                                         <span className="relative z-10 text-yellow-500">
@@ -347,7 +347,10 @@ const QRCodeGeneratorPage = () => {
                                             className="absolute bottom-1 left-0 -z-0 h-3 w-full bg-yellow-100"
                                         />
                                     </span>
-                                    and custom branding
+                                    and <span> </span>
+                                    <span className="relative z-10 text-yellow-500">
+                                        custom branding
+                                    </span>
                                 </h1>
 
                                 <p className="mt-6 max-w-xl text-base leading-7 text-gray-500 sm:text-lg">
@@ -401,7 +404,7 @@ const QRCodeGeneratorPage = () => {
                 {/* ================= WHY BRANDED ================= */}
                 <section
                     aria-labelledby="why-heading"
-                    className="border-t border-gray-100 bg-gray-50 py-24 lg:py-28"
+                    className="border-t border-gray-100 bg-gray-50 py-16"
                 >
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
                         <SectionHeading
@@ -439,7 +442,7 @@ const QRCodeGeneratorPage = () => {
                 <section
                     id="design"
                     aria-labelledby="design-heading"
-                    className="border-t border-gray-100 bg-white py-24 lg:py-28"
+                    className="border-t border-gray-100 bg-white py-16"
                 >
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
                         <SectionHeading
@@ -480,7 +483,7 @@ const QRCodeGeneratorPage = () => {
                 <section
                     id="steps"
                     aria-labelledby="steps-heading"
-                    className="border-t border-gray-100 bg-gray-50 py-24 lg:py-28"
+                    className="border-t border-gray-100 bg-gray-50 py-16"
                 >
                     <div className="mx-auto max-w-4xl px-6 lg:px-8">
                         <SectionHeading
@@ -495,9 +498,9 @@ const QRCodeGeneratorPage = () => {
                             {STEPS.map((step, index) => (
                                 <li
                                     key={step.title}
-                                    className="flex gap-5 rounded-2xl border border-gray-200 bg-white p-6 sm:p-7"
+                                    className="flex gap-5 rounded-2xl border-2 border-gray-200 hover:border-yellow-500 bg-white p-6 sm:p-7"
                                 >
-                                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-bold text-gray-950 shadow-sm ring-4 ring-yellow-50">
+                                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-sm font-bold text-gray-950 shadow-sm ring-2 ring-yellow-400">
                                         {index + 1}
                                     </span>
 
@@ -539,7 +542,7 @@ const QRCodeGeneratorPage = () => {
                 <section
                     id="downloads"
                     aria-labelledby="downloads-heading"
-                    className="border-t border-gray-100 bg-white py-24 lg:py-28"
+                    className="border-t border-gray-100 bg-white py-16"
                 >
                     <div className="mx-auto max-w-5xl px-6 lg:px-8">
                         <SectionHeading
@@ -622,7 +625,7 @@ const QRCodeGeneratorPage = () => {
                 <section
                     id="tips"
                     aria-labelledby="tips-heading"
-                    className="border-t border-gray-100 bg-gray-50 py-24 lg:py-28"
+                    className="border-t border-gray-100 bg-gray-50 py-16"
                 >
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
                         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
@@ -657,7 +660,7 @@ const QRCodeGeneratorPage = () => {
                 <section
                     id="use-cases"
                     aria-labelledby="use-cases-heading"
-                    className="border-t border-gray-100 bg-white py-24 lg:py-28"
+                    className="border-t border-gray-100 bg-white py-16"
                 >
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
                         <SectionHeading
@@ -698,7 +701,7 @@ const QRCodeGeneratorPage = () => {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                             Frequently asked questions
                         </p>
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                             WhyLong's QR Studio FAQs
                         </h2>
                         <p className="mt-4 leading-7 text-slate-600">

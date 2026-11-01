@@ -8,6 +8,7 @@ import {
     ChevronDown,
     Copy,
     ExternalLink,
+    BarChart3,
     Globe,
     Link2,
     MessageCircle,
@@ -23,54 +24,54 @@ const faqs = [
     {
         question: "What is a URL shortener?",
         answer:
-            "A URL shortener is a tool that converts a long web address into a shorter link. When someone opens the short link, the service redirects them to the original destination. It makes links easier to share, read and manage.",
+            "A URL shortener is an online tool that converts long, complicated web addresses into shorter and easier-to-share links. When someone clicks the shortened link, they are automatically redirected to the original destination. It makes links cleaner, easier to remember, and more convenient to share across social media, emails, websites, and messaging platforms.",
     },
     {
         question: "How do I shorten a URL with WhyLong?",
         answer:
-            "Copy the complete URL you want to share, paste it into the URL shortener above, and select the shorten option. Once WhyLong returns your short link, copy it and share it wherever you need. Always open the generated link once to confirm that it leads to the intended destination.",
+            "Shortening a URL with WhyLong is simple. Copy the complete web address you want to share, paste it into the URL shortener on the homepage, and click the shorten button. WhyLong will generate a unique short link that you can copy and share anywhere. Before sharing, it's always a good idea to open the generated link once to make sure it redirects to the correct destination.",
     },
     {
         question: "Is WhyLong free to use?",
         answer:
-            "WhyLong is designed to make link shortening accessible without adding unnecessary friction. You can use the public URL-shortening tool to create short links. Check the current product interface for any account-specific features or restrictions.",
+            "Yes, WhyLong provides a free URL-shortening experience without requiring you to create an account for basic link shortening. You can generate short links and use them for your everyday sharing needs. Additional features, such as link management and analytics, are available through your account, making it easier to organize and understand how your links perform.",
     },
     {
         question: "Will shortening a URL change the original webpage?",
         answer:
-            "No. Shortening a URL creates a separate link that redirects to the destination you provide. It does not rewrite the original webpage or change the original URL itself. The destination must still be available for the redirect to reach it successfully.",
+            "No. Shortening a URL does not modify the original webpage or change its address. WhyLong creates a separate short link that redirects visitors to the original URL whenever they open it. Your destination page, its content, and its existing functionality remain unchanged. However, the original webpage must still be accessible for the redirect to work properly.",
     },
     {
         question: "Do short URLs expire?",
         answer:
-            "A short URL does not inherently have to expire. Its availability depends on the shortening service's policies, the link's status and whether the destination remains accessible. Do not assume a link will work forever unless the service explicitly guarantees that.",
+            "Short URLs do not necessarily expire automatically. Their availability depends on the shortening service's policies and the status of the individual link. Some services may support expiration dates or link deactivation, while others keep links active until they are removed or disabled. The destination webpage must also remain accessible for visitors to reach it successfully.",
     },
     {
         question: "Can I use a shortened URL on social media?",
         answer:
-            "Yes. Short URLs can be shared in social media posts, bios, comments, messages and other places where links are accepted. Follow the platform's rules and make sure your destination is relevant to the audience.",
+            "Absolutely! Short URLs are useful across platforms such as Instagram, Facebook, X, LinkedIn, and other social media networks. They help keep posts, bios, comments, and messages clean by replacing lengthy web addresses with compact links. You can also use them in emails, online communities, and marketing campaigns wherever clickable links are supported. Just make sure the destination is relevant and trustworthy.",
     },
     {
         question: "Can I shorten a URL more than once?",
         answer:
-            "Technically, a URL can be shortened by multiple services, but chaining short links is usually unnecessary. Each additional redirect can add latency and another point of failure. For simpler sharing and troubleshooting, create one short link directly to the intended destination.",
+            "Yes, you can technically shorten an already shortened URL using another URL-shortening service. However, this is generally not recommended because it creates multiple redirects before visitors reach the final destination. Each additional redirect can increase loading time and introduce another possible point of failure. For better performance and reliability, it's best to create one short link directly from the original URL.",
     },
     {
         question: "Are shortened URLs safe?",
         answer:
-            "A shortened URL is not automatically safe or unsafe. It can hide the full destination from a quick glance, so only open links from sources you trust. Be cautious with unexpected links, login requests and pages asking for payment or personal information.",
+            "Shortened URLs are not automatically safe or dangerous; their safety depends on the destination they redirect to. Since a short link does not visibly reveal the complete destination, it can sometimes be used to disguise phishing websites, malicious downloads, or suspicious pages. Only open links from trusted sources, be careful with unexpected messages, and avoid entering passwords or payment details on unfamiliar websites.",
     },
     {
         question: "Can a shortened URL help with SEO?",
         answer:
-            "A short URL is mainly a sharing and redirection tool, not a guaranteed SEO ranking boost. Search performance depends on many factors, including useful content, crawlability, page experience and appropriate indexing. Use direct, descriptive URLs for pages on your own website when practical, and avoid relying on short links as an SEO shortcut.",
+            "A shortened URL can make links easier to share and manage, but shortening a link does not directly guarantee better search engine rankings. SEO depends on factors such as valuable content, website performance, crawlability, user experience, and proper indexing. Short links can be useful for sharing and tracking campaigns, but for your own website pages, descriptive and search-friendly URLs are generally a better choice.",
     },
     {
         question: "Why might a shortened URL stop working?",
         answer:
-            "A link may fail if the shortening service is unavailable, the short link has been disabled or removed, the destination has moved, or the destination server is down. If a link fails, check the original destination and the short link's status before sharing it again.",
+            "A shortened URL may stop working for several reasons. The link could have been disabled or deleted, the shortening service might be temporarily unavailable, or the original destination website may have moved or gone offline. Browser or network issues can also sometimes affect redirects. If a short link isn't opening, check your internet connection, verify the link's status, and make sure the original destination is still accessible.",
     },
-];
+];;
 
 const steps = [
     {
@@ -364,8 +365,13 @@ export default function UrlShortener() {
 
                 <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
                     <div className="mx-auto max-w-4xl text-center">
+                        <div className="inline-flex items-center gap-2 mt-6 rounded-full border border-amber-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+                            <BarChart3 size={16} className="text-amber-600" />
+                            URL Shortener by WhyLong
+                        </div>
 
-                        <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl lg:leading-[1.12] mt-8">
+
+                        <h1 className="text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl lg:leading-[1.12] mt-4">
                             Turn long messy links into
                             <span className="mt-2 block text-amber-500">
                                 short and powerful ones.
@@ -502,7 +508,7 @@ export default function UrlShortener() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                             Understanding URL shortening
                         </p>
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                             What does a URL shortener actually do?
                         </h2>
                     </div>
@@ -580,7 +586,7 @@ export default function UrlShortener() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                             How it works
                         </p>
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                             How to shorten a URL with WhyLong
                         </h2>
                         <p className="mt-4 leading-7 text-slate-600">
@@ -633,7 +639,7 @@ export default function UrlShortener() {
                     <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                         Why use WhyLong?
                     </p>
-                    <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                    <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                         Make link sharing more practical
                     </h2>
                     <p className="mt-4 leading-7 text-slate-600">
@@ -694,7 +700,7 @@ export default function UrlShortener() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                             Everyday applications
                         </p>
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                             Where can you use a short URL?
                         </h2>
                         <p className="mt-4 leading-7 text-slate-600">
@@ -728,7 +734,7 @@ export default function UrlShortener() {
                         <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                             Choosing the right link
                         </p>
-                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                             Long URL vs. short URL
                         </h2>
                         <p className="mt-5 leading-8 text-slate-600">
@@ -793,7 +799,7 @@ export default function UrlShortener() {
                     <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                         Frequently asked questions
                     </p>
-                    <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                    <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                         URL Shortener FAQs
                     </h2>
                     <p className="mt-4 leading-7 text-slate-600">

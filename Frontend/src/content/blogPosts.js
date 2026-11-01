@@ -36,6 +36,15 @@ export const blogPosts = [
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMRsZ0L5RQhJ04rJ8Im3diLiCEmkBoRCN9DsJ-BEyS-JXBC5N-mcbL5DxV&s=10",
         keywords: "Custom QR codes, Branded QR codes, QR codes for business, QR code marketing, QR code generator",
     },
+    {
+        slug: "what-is-link-analytics",
+        category: "Analytics",
+        title: "Link Analytics Explained: Understanding Clicks and Performance",
+        excerpt:
+            "Learn what link analytics can tell you, how click data can support decisions, and what metrics cannot tell you on their own.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi025i_Ejsq_b5OCiIhmnlsO-0GGL8heFEamno3Uxg0MBVl1pR_yrTFi0&s=10",
+        keywords: "link analytics, URL click tracking, link performance, web analytics, link metrics, click data analysis, whylong analytics, link insights, URL performance metrics, link engagement",
+    },
     // {
     //     slug: "why-use-whylong",
     //     category: "WhyLong",
@@ -51,14 +60,6 @@ export const blogPosts = [
     //     excerpt:
     //         "Learn which factors to evaluate when choosing a URL shortener, from ease of use and link management to analytics and limitations.",
     //     keywords: "best free URL shortener, free link shortener, URL tools",
-    // },
-    // {
-    //     slug: "understanding-link-analytics",
-    //     category: "Analytics",
-    //     title: "Link Analytics Explained: Understanding Clicks and Performance",
-    //     excerpt:
-    //         "Learn what link analytics can tell you, how click data can support decisions, and what metrics cannot tell you on their own.",
-    //     keywords: "link analytics, URL click tracking, link performance",
     // },
     // {
     //     slug: "how-to-create-a-shareable-short-link",

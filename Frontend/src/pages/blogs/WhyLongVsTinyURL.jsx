@@ -589,6 +589,12 @@ export default function WhyLongVsTinyURL() {
                         </Link>
                     </ArticleSection>
 
+                    <Link
+                        to="/blogs/what-is-link-analytics"
+                        className="mt-12 inline-flex items-center gap-2 text-sm font-semibold text-amber-800 hover:underline"
+                    >
+                        What are Link Analytics <ExternalLink size={14} />
+                    </Link>
                     <ArticleSection
                         id="analytics"
                         number="04"

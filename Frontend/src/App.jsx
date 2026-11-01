@@ -30,6 +30,7 @@ import InstagramQRGuide from "./pages/Tutorials/InstagramQRGuide";
 import HowToShortenALongURL from "./pages/blogs/HowToShortenALongURL";
 import QRCodeGeneratorPage from "./pages/products/QRCodeGeneratorPage";
 import CustomizedQRCodeBlog from "./pages/blogs/CustomizedQRCodeBlog";
+import LinkAnalyticsBlog from "./pages/blogs/LinkAnalyticsBlog";
 
 const App = () => {
     return (
@@ -51,6 +52,7 @@ const App = () => {
                     <Route path="/blogs/whylong-vs-bitly" element={<WhyLongVsBitly />} />
                     <Route path="/blogs/how-to-shorten-a-long-url" element={<HowToShortenALongURL />} />
                     <Route path="/blogs/how-to-create-customized-qr-code" element={<CustomizedQRCodeBlog />} />
+                    <Route path="/blogs/what-is-link-analytics" element={<LinkAnalyticsBlog />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/legal/cookie-policy" element={<CookiePolicy />} />

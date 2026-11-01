@@ -35,14 +35,14 @@ const articles = [
     {
         number: "03",
         icon: FiBarChart2,
-        category: "How-to Guide",
-        title: "How to Shorten a Long URL",
-        highlight: "Long link. Simple solution.",
+        category: "Analytics",
+        title: "Link Analytics: Clicks and Performance",
+        highlight: "Make data-driven decisions.",
         description:
-            "Learn how URL shorteners work and follow a simple, step-by-step guide to turn lengthy web addresses into clean, shareable links with WhyLong.",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPs44Af3ozmbm5WfKzAlmTaJdGoC7vEw6Mrqh9JlbLPQ&s=10",
-        readTime: "6 min read",
-        slug: "/blogs/how-to-shorten-a-long-url",
+            "Learn what link analytics can tell you, how click data can support decisions, and what metrics cannot tell you on their own.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi025i_Ejsq_b5OCiIhmnlsO-0GGL8heFEamno3Uxg0MBVl1pR_yrTFi0&s=10",
+        readTime: "16 min read",
+        slug: "/blogs/what-is-link-analytics",
     },
 ];
 

@@ -22,6 +22,7 @@ import {
   TrendingUp,
   Users,
   Zap,
+  ExternalLink,
 } from "lucide-react";
 import MoreThanShortener from "../../components/Home/MoreThanShortener";
 
@@ -32,52 +33,52 @@ const faqs = [
   {
     question: "What is link analytics?",
     answer:
-      "Link analytics is the process of measuring how people interact with a link. Depending on the metrics a service collects, it can show click totals, activity over time, device categories, approximate geographic distribution and other useful information about link engagement.",
+      "Link analytics is the process of tracking and understanding how people interact with a link after it is shared. It helps you measure engagement through metrics such as total clicks, click activity over time, device categories and approximate geographic distribution. These insights make it easier to understand audience behavior, evaluate link performance and make better decisions when sharing content or running campaigns.",
   },
   {
     question: "What can I track with WhyLong Analytics?",
     answer:
-      "WhyLong's analytics experience is designed around link engagement, including click activity, timestamps, time-based trends, device categories and geographic insights. The metrics available for a particular link depend on the data collected by the current WhyLong implementation.",
+      "WhyLong Analytics helps you understand how your shortened links perform by providing insights into link engagement and visitor activity. Depending on the available data, you can explore total clicks, click timestamps, activity trends, device categories and geographic information. These metrics give you a clearer picture of how people interact with your links and where your audience may be coming from.",
   },
   {
     question: "What does click-through rate (CTR) mean?",
     answer:
-      "Click-through rate is generally the percentage of impressions that result in clicks. For example, 20 clicks from 500 measured impressions would equal a 4% CTR. A link shortener that records clicks but does not measure impressions cannot calculate a true impression-based CTR on its own. Clicks and CTR should therefore be treated as different metrics.",
+      "Click-through rate (CTR) measures the percentage of people who click a link after seeing it. For example, if a link receives 20 clicks from 500 measured impressions, its CTR is 4%. However, clicks and CTR are two different metrics. A URL shortener that only records link clicks cannot calculate a true impression-based CTR unless it also measures how many times the link was displayed.",
   },
   {
     question: "Can I see when a short link was clicked?",
     answer:
-      "Timestamped click records can help you understand when link activity occurred. Depending on the available reporting detail, you may be able to inspect individual events or review activity grouped by hour, day or another time interval.",
+      "Yes, Absolutely. Timestamped click records can help you understand when people interact with your shortened links. By reviewing click activity over time, you can identify periods of higher engagement, recognize traffic patterns and understand when your audience is most active. The level of detail available depends on the analytics reports supported by the service.",
   },
   {
     question: "Can link analytics show which devices people use?",
     answer:
-      "Device analytics can classify recorded visits into categories such as desktop, mobile and tablet when the required request information is available. Classification may not be perfect because browsers, privacy tools and automated traffic can affect the information a service receives.",
+      "Yes, Absolutely. Device analytics can help you understand whether visitors access your links through desktop computers, mobile phones or tablets. This information is generally derived from browser and user-agent data included in requests. While device classification is useful for identifying broad audience trends, it may not always be completely accurate because of privacy settings, unusual browsers or automated traffic.",
   },
   {
     question: "Does link analytics reveal a visitor's exact location?",
     answer:
-      "Geographic analytics generally estimates a visitor's location from network information such as an IP address. Results can be inaccurate because of VPNs, proxies, mobile networks and shared internet connections. Location reports should not be treated as a person's precise physical location.",
+      "No. Link analytics generally provides an approximate geographic location rather than a visitor's exact physical address. This information is usually estimated using IP address data and may include details such as country, region or city. VPNs, proxies, mobile networks and shared internet connections can affect accuracy, so geographic reports should be treated as general audience insights rather than precise location tracking.",
   },
   {
     question: "Can I filter link analytics by date?",
     answer:
-      "Date-range filters are useful for narrowing reports to a period such as the last 7 days, last 30 days or a custom range, provided those options are supported by the dashboard. Filtering makes it easier to compare activity across reporting periods.",
+      "Yes, Absolutely. Date-based filtering makes it easier to analyze link performance over a specific period. Depending on the available dashboard features, you may be able to review activity for periods such as the last 7 days, last 30 days or a custom date range. Comparing different periods can help you identify engagement trends and understand whether your links are receiving more or fewer clicks over time.",
   },
   {
     question: "Why might my click count differ from another analytics tool?",
     answer:
-      "Different tools can count requests differently. Redirect requests, preview bots, crawlers, repeated clicks, privacy restrictions and filtering rules may all affect reported totals. Compare the definitions and time zones used by each tool before treating two numbers as directly equivalent.",
+      "Click counts can vary between analytics platforms because each service may use different tracking and filtering methods. Some tools may count redirect requests, while others attempt to filter automated traffic such as bots, crawlers and link-preview services. Repeated clicks, privacy restrictions, reporting delays and time zone differences can also affect the final numbers. For a fair comparison, always check how each platform defines and measures a click.",
   },
   {
     question: "Does link analytics identify individual people?",
     answer:
-      "Aggregate link analytics is not the same as identifying a person. Device and geographic details are generally estimates or technical classifications, not proof of an individual's identity. Avoid collecting or exposing personal information without a valid purpose and appropriate legal basis.",
+      "No. Link analytics is primarily intended to provide insights into link engagement and broader audience behavior, not to identify individual visitors. Information such as device categories and approximate geographic locations does not establish someone's identity. Analytics data should be handled responsibly, with appropriate privacy practices, transparency and compliance with applicable data protection requirements.",
   },
   {
     question: "Do I need an account to view link analytics?",
     answer:
-      "Access to detailed reports depends on the way a link and its analytics are managed in WhyLong. Sign in and check your dashboard for the reporting options available to your account and links.",
+      "Access to detailed link analytics depends on how your shortened links are created and managed. With WhyLong, you can use the public URL-shortening tool without creating an account, while account-based features allow you to manage your links and access available performance insights through your dashboard. Sign in to explore the analytics associated with your tracked links.",
   },
 ];
 
@@ -136,7 +137,7 @@ function SectionHeading({ eyebrow, title, description }) {
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
         {eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
         {title}
       </h2>
       {description && (
@@ -483,7 +484,15 @@ export default function AnalyticsPage() {
                   Device insights
                 </span>
               </div>
+              <Link
+                to="/blogs/what-is-link-analytics"
+                className="inline-flex items-center justify-center gap-2 my-4 rounded-xl py-3.5 font-semibold text-gray-200 transition hover:text-amber-600"
+              >
+                Read more about WhyLong Analytics
+                <ExternalLink size={18} />
+              </Link>
             </div>
+
 
             <AnalyticsPreview />
           </div>
@@ -938,7 +947,7 @@ export default function AnalyticsPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-600">
                 Frequently asked questions
               </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
                 Link Analytics FAQs
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600">

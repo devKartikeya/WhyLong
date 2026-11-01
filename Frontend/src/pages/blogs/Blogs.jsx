@@ -119,7 +119,7 @@ export default function Blogs() {
                 <div className="relative mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
                     <nav
                         aria-label="Breadcrumb"
-                        className="mb-8 flex items-center gap-2 text-sm text-slate-500"
+                        className="mb-8 flex items-center gap-2 text-sm text-slate-500 mt-5"
                     >
                         <Link to="/" className="hover:text-slate-950">
                             Home
