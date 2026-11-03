@@ -84,11 +84,6 @@ async function redirectUrlController(req, res) {
         const userAgent = req.get("User-Agent") || "";
         const parsedUserAgent = parseUserAgent(userAgent);
         const channel = getRabbitMQChannel();
-
-        console.log("req.ip:", req.ip);
-        console.log("socket IP:", req.socket.remoteAddress);
-        console.log("forwarded-for:", req.headers["x-forwarded-for"]);
-
         function getClientIp(req) {
             const forwardedFor = req.headers["x-forwarded-for"];
 

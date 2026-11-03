@@ -1,6 +1,6 @@
 # WhyLong — System Architecture
 
-> **WhyLong** is a link management platform that provides URL shortening, click analytics, and customizable QR code generation. Its architecture combines a React frontend, Node.js backend services, Redis caching, RabbitMQ-based asynchronous processing, MongoDB persistence, and a custom load balancer.
+> **WhyLong** is a link management platform that provides URL shortening, click analytics, and customizable QR code generation. Its architecture combines a React frontend, Node.js backend API, Redis caching, RabbitMQ-based asynchronous processing, MongoDB persistence, and a custom load balancer.
 
 ---
 
@@ -137,7 +137,7 @@ The browser must never connect directly to Redis, RabbitMQ, or MongoDB.
 
 ## 4. System Components
 
-### 4.1 Frontend
+### 4.1 User Interface
 
 The React application provides:
 
@@ -608,12 +608,17 @@ The frontend's browser-facing API URL is a separate concern: code executed in th
 Environment variables should supply configuration such as:
 
 ```text
-PORT
-MONGO_URI
-REDIS_URL
-RABBITMQ_URL
-JWT_SECRET
-BREVO_API_KEY
+MONGO_URI=your_mongo_uri
+JWT_SECRET=your_jwt_secret
+BREVO_API_KEY=your_brevo_key
+SUPPORT_EMAIL=your@email.com
+FRONTEND_URL=http://localhost:5173
+RABBITMQ_URL=your@rabbitmq.url
+REDIS_USERNAME=default
+REDIS_PASSWORD=your_redis_password
+REDIS_HOST=syour_redis_host
+REDIS_PORT=16131
+BACKEND_URL=http://localhost:3000
 ```
 
 Actual variable names must match the application code.
@@ -832,3 +837,21 @@ Its main architectural challenge is balancing a fast redirect path with accurate
 The architecture is not complete merely because its components are connected. Correctness under concurrency, failure recovery, security, observability, and measured performance are what determine whether the system is reliable.
 
 **The goal is not to use more technologies. The goal is to make each architectural decision solve a real problem.**
+
+---
+
+### Read about - [WhyLong vs Bitly](https://whylong.vercel.app/blogs/whylong-vs-bitly)
+### Read about - [WhyLong vs TinyURL](https://whylong.vercel.app/blogs/whylong-vs-tinyurl)
+###  Read [WhyLong Blogs](https://whylong.vercel.app/blogs)
+
+---
+
+#### [Privacy Policy](https://whylong.vercel.app/legal/privacy-policy)
+#### [Terms and Conditions](https://whylong.vercel.app/legal/terms-and-conditions)
+#### [Cookie Policy](https://whylong.vercel.app/legal/cookie-policy)
+
+<div align="center">
+
+**© 2026 WhyLong**
+
+</div>

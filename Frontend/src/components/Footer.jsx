@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaGithub, FaLinkedin, FaFacebook, FaInstagram, FaDev, FaReddit } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook, FaMedium, FaInstagram, FaDev, FaReddit } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
 import { useAuth } from "../context/AuthContext";
@@ -70,6 +70,11 @@ const socialLinks = [
         name: "DEV",
         href: "https://dev.to/devKartikeya",
         Icon: FaDev
+    },
+    {
+        name: "Medium",
+        href: "https://medium.com/@devKartikeya",
+        Icon: FaMedium
     },
     {
         name: "Reddit",

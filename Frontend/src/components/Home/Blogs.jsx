@@ -6,6 +6,7 @@ import {
     FiClock,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const articles = [
     {
@@ -47,15 +48,21 @@ const articles = [
 ];
 
 const Blogs = () => {
+    const sectionRef = useScrollReveal({
+        selector: ".feature-reveal",
+        y: 55,
+        stagger: 0.18,
+    });
     return (
         <section
             id="blogs"
+            ref={sectionRef}
             className="relative overflow-hidden bg-gray-950 px-6 py-24 sm:px-10 lg:px-14"
         >
             <div className="mx-auto max-w-7xl">
 
                 {/* Header */}
-                <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div className="feature-reveal flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                     <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-yellow-600">
                             The WhyLong Blog
@@ -85,7 +92,7 @@ const Blogs = () => {
                 </div>
 
                 {/* Article Cards */}
-                <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3 bg-gray-900 p-8 rounded-3xl">
+                <div className="mt-14 grid gap-6 md:grid-cols-3 rounded-3xl">
                     {articles.map((article) => {
 
                         return (
@@ -93,7 +100,7 @@ const Blogs = () => {
                                 key={article.number}
                                 to={article.slug}
                                 aria-label={`Read article: ${article.title}`}
-                                className="group block h-full rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-4"
+                                className="feature-reveal group block h-full rounded-3xl outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-offset-4"
                             >
                                 <article className="relative flex h-full min-h-[480px] flex-col overflow-hidden rounded-3xl border-1 border-gray-200 bg-white p-5 transition-all duration-300 group-hover:-translate-y-8 group-hover:border-yellow-300 group-hover:shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
 

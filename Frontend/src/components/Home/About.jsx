@@ -1,9 +1,16 @@
 import { Link } from "react-router-dom";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const About = () => {
+    const sectionRef = useScrollReveal({
+        selector: ".feature-reveal",
+        y: 55,
+        stagger: 0.18,
+    });
     return (
         <section
             id="about"
+            ref={sectionRef}
             className="relative overflow-hidden border-t border-gray-100 bg-white py-24 sm:py-28"
         >
             {/* Decorative background */}
@@ -13,7 +20,7 @@ const About = () => {
             <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
 
                 {/* Section Header */}
-                <div className="max-w-3xl">
+                <div className="max-w-3xl feature-reveal">
                     <div className="mb-5 flex items-center gap-3">
                         <span className="h-px w-8 bg-yellow-400" />
 
@@ -46,7 +53,7 @@ const About = () => {
                 <div className="mt-16 grid gap-6 lg:grid-cols-12">
 
                     {/* Large Story Card */}
-                    <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-8 sm:p-10 lg:col-span-7 lg:p-12">
+                    <div className="relative feature-reveal overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-8 sm:p-10 lg:col-span-7 lg:p-12">
 
                         {/* Yellow accent */}
                         <div className="absolute right-0 top-0 h-32 w-32 translate-x-10 -translate-y-10 rounded-full bg-yellow-400/20 blur-2xl" />
@@ -110,7 +117,7 @@ const About = () => {
                     <div className="grid gap-6 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
 
                         {/* Card 1 */}
-                        <div className="rounded-2xl border border-gray-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-200/50 sm:p-6">
+                        <div className="rounded-2xl feature-reveal border border-gray-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-200/50 sm:p-6">
                             {/* <div className="flex items-center justify-between">
                                 <span className="text-xs font-bold uppercase tracking-widest text-gray-400">
                                     Our approach
@@ -152,7 +159,7 @@ const About = () => {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="rounded-2xl border border-gray-200 bg-gray-950 p-7 sm:p-8">
+                        <div className="rounded-2xl feature-reveal border border-gray-200 bg-gray-950 p-7 sm:p-8">
 
                             <div className="flex items-center justify-between">
                                 <span className="text-xs font-bold uppercase tracking-widest text-gray-500">

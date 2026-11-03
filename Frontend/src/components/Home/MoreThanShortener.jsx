@@ -6,6 +6,7 @@ import {
     FiTrendingUp,
 } from "react-icons/fi";
 import { useNavigate, Link } from "react-router-dom";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const pillars = [
     {
@@ -55,11 +56,16 @@ const pillars = [
 
 const MoreThanShortener = () => {
     const navigate = useNavigate();
+    const sectionRef = useScrollReveal({
+        selector: ".feature-reveal",
+        y: 55,
+        stagger: 0.18,
+    });
     return (
-        <section className="relative overflow-hidden bg-gray-950 px-6 py-24 sm:px-10 lg:px-16" id="why-whylong">
+        <section ref={sectionRef} className="relative overflow-hidden bg-gray-950 px-6 py-24 sm:px-10 lg:px-16" id="why-whylong">
             <div className="mx-auto max-w-7xl">
                 {/* ================= HEADER ================= */}
-                <div className="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-end">
+                <div className="grid feature-reveal gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-end">
                     <div>
                         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-yellow-600">
                             Why WhyLong?
@@ -86,7 +92,7 @@ const MoreThanShortener = () => {
                             <article
                                 key={pillar.number}
                                 onClick={() => navigate(pillar.href)}
-                                className="group cursor-pointer relative min-h-[560px] overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-300 hover:shadow-[0_25px_70px_rgba(0,0,0,0.08)] sm:p-9"
+                                className="group feature-reveal cursor-pointer relative min-h-[560px] overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-300 hover:shadow-[0_25px_70px_rgba(0,0,0,0.08)] sm:p-9"
                             >
 
                                 {/* Large background number */}

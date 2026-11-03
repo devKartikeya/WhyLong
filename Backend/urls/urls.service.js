@@ -32,7 +32,6 @@ async function createShortUrl(
         }
     }
 
-
     try {
         parsedUrl =
             new globalThis.URL(originalUrl);

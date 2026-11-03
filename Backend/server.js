@@ -1,6 +1,5 @@
 const app = require("./app");
 const cron = require('./utilities/cleanUpOldLogs');
-// const redisClient = require("./configurations/redis");
 const connectDB = require("./configurations/database");
 const { connectRabbitMQ } = require("./configurations/rabbitmq");
 const { syncAllClickCounts } = require("./clicks/syncAllClickCounts");

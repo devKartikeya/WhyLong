@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import useScrollReveal from "../../hooks/useScrollReveal";
 export const faqs = [
     {
         question: "Is WhyLong a free URL shortener?",
@@ -43,9 +44,15 @@ export const faqs = [
 ];
 
 const FAQ = () => {
+    const sectionRef = useScrollReveal({
+        selector: ".feature-reveal",
+        y: 55,
+        stagger: 0.18,
+    });
     return (
         <section
             id="faq"
+            ref={sectionRef}
             aria-labelledby="faq-heading"
             className="relative isolate overflow-hidden border-y border-yellow-100/80 bg-gradient-to-br from-yellow-50 via-[#fffdf5] to-white py-20 sm:py-24 lg:py-28"
         >
@@ -64,7 +71,7 @@ const FAQ = () => {
                 <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
 
                     {/* Left content */}
-                    <div className="lg:sticky lg:top-28">
+                    <div className="lg:sticky lg:top-28 feature-reveal">
                         <span className="inline-flex items-center gap-2 rounded-full border border-yellow-200/90 bg-white/80 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-yellow-800 shadow-sm">
                             <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
                             Frequently asked questions
@@ -99,7 +106,7 @@ const FAQ = () => {
                         {faqs.map((item, index) => (
                             <details
                                 key={item.question}
-                                className="group rounded-xl border border-gray-200/80 bg-white/85 shadow-[0_2px_10px_rgba(0,0,0,0.025)] transition-all duration-200 hover:border-yellow-300/90 hover:bg-white open:border-yellow-300 open:bg-white open:shadow-[0_8px_28px_rgba(202,138,4,0.07)]"
+                                className="group feature-reveal rounded-xl border border-gray-200/80 bg-white/85 shadow-[0_2px_10px_rgba(0,0,0,0.025)] transition-all duration-200 hover:border-yellow-300/90 hover:bg-white open:border-yellow-300 open:bg-white open:shadow-[0_8px_28px_rgba(202,138,4,0.07)]"
                             >
                                 <summary className="flex cursor-pointer list-none items-center gap-4 px-4 py-5 sm:px-5">
                                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-yellow-50 text-[11px] font-semibold tabular-nums text-yellow-800 transition-colors group-open:bg-yellow-400 group-open:text-gray-950">

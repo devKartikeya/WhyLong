@@ -8,7 +8,7 @@ import {
     Link2,
     QrCode
 } from "lucide-react";
-
+import { FaGithub, FaLinkedin, FaFacebook, FaMedium, FaInstagram, FaDev, FaReddit } from "react-icons/fa";
 // ---------------------------------------------------------------------------
 // Everything for the About page lives in this one file:
 // SEO meta, structured data (JSON-LD), copy, and the component.
@@ -162,7 +162,7 @@ const MAKER = {
     name: "Kartikeya Mishra",
     role: "Full-stack developer & technology enthusiast",
     paras: [
-        "I am Kartikeya Mishra, a student at Hewett Polytechnic and the developer behind WhyLong.",
+        "I am Kartikeya Mishra, the developer behind WhyLong.",
         "I enjoy understanding how software works beyond writing code. That means designing interfaces, building APIs, working with databases, and handling deployment and the systems that connect everything together.",
         "WhyLong brings product development and engineering together. The goal is a useful, reliable link management platform that makes everyday sharing easier, with its core tools free for everyone."
     ],
@@ -177,11 +177,41 @@ const MAKER = {
         "Cloud & Deployment"
     ],
     links: [
-        { name: "GitHub", href: "https://github.com/devKartikeya" },
-        { name: "LinkedIn", href: "https://www.linkedin.com/in/kartikeya-mishra-8199973a9" },
-        { name: "DEV", href: "https://dev.to/devKartikeya" },
-        { name: "Reddit", href: "https://reddit.com/user/devKartikeya" },
-        { name: "Instagram", href: "https://instagram.com/devKartikeya" }
+        {
+            name: "GitHub",
+            href: "https://github.com/devKartikeya",
+            Icon: FaGithub
+        },
+        {
+            name: "LinkedIn",
+            href: "https://www.linkedin.com/in/kartikeya-mishra-8199973a9",
+            Icon: FaLinkedin
+        },
+        {
+            name: "Instagram",
+            href: "https://instagram.com/devKartikeya",
+            Icon: FaInstagram
+        },
+        {
+            name: "Facebook",
+            href: "https://www.facebook.com/share/1GS5r2C9xc/",
+            Icon: FaFacebook
+        },
+        {
+            name: "DEV",
+            href: "https://dev.to/devKartikeya",
+            Icon: FaDev
+        },
+        {
+            name: "Medium",
+            href: "https://medium.com/@devKartikeya",
+            Icon: FaMedium
+        },
+        {
+            name: "Reddit",
+            href: "https://www.reddit.com/user/devKartikeya/",
+            Icon: FaReddit
+        }
     ]
 };
 
@@ -387,19 +417,6 @@ const About = () => {
 
                 <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-32 lg:px-8 lg:pb-32 lg:pt-40">
                     <div className="max-w-4xl">
-                        <nav aria-label="Breadcrumb" className="mb-8">
-                            <ol className="flex items-center gap-2 text-xs text-gray-500">
-                                <li>
-                                    <Link to="/" className="hover:text-gray-950">
-                                        Home
-                                    </Link>
-                                </li>
-                                <li aria-hidden="true">/</li>
-                                <li aria-current="page" className="font-medium text-gray-950">
-                                    About
-                                </li>
-                            </ol>
-                        </nav>
 
                         <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-yellow-200 bg-yellow-50 px-3.5 py-1.5">
                             <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
@@ -897,16 +914,18 @@ const About = () => {
                             </ul>
 
                             <p className="mt-6 flex flex-wrap gap-x-9 gap-y-2 text-sm font-semibold">
-                                {MAKER.links.map((link) => (
-                                    <a
-                                        key={link.name}
-                                        href={link.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer me"
-                                        className="text-gray-950 underline decoration-yellow-400 decoration-2 underline-offset-4 p-2 rounded-2xl hover:border-2 hover:border-black hover:text-yellow-600"
-                                    >
-                                        {link.name}
-                                    </a>
+                                {MAKER.links.map(({ name, href, Icon }) => (
+                                    // <li key={name}>
+                                        <a
+                                            href={href}
+                                            aria-label={`WhyLong on ${name}`}
+                                            target="_blank"
+                                            rel="noopener noreferrer me"
+                                            className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-800 text-gray-400 transition-all hover:border-2 hover:border-yellow-400 hover:bg-white hover:text-yellow-400"
+                                        >
+                                            <Icon size={20} aria-hidden="true" />
+                                        </a>
+                                    // </li>
                                 ))}
                             </p>
                         </div>

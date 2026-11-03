@@ -25,12 +25,12 @@ import AnalyticsPage from "./pages/products/AnalyticsPage";
 import GitHubQRGuide from "./pages/Tutorials/GitHubQRGuide";
 import WhyLongVsTinyURL from "./pages/blogs/WhyLongVsTinyURL";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LinkAnalyticsBlog from "./pages/blogs/LinkAnalyticsBlog";
 import TermsAndConditions from "./pages/legal/TermsAndConditions";
 import InstagramQRGuide from "./pages/Tutorials/InstagramQRGuide";
 import HowToShortenALongURL from "./pages/blogs/HowToShortenALongURL";
 import QRCodeGeneratorPage from "./pages/products/QRCodeGeneratorPage";
 import CustomizedQRCodeBlog from "./pages/blogs/CustomizedQRCodeBlog";
-import LinkAnalyticsBlog from "./pages/blogs/LinkAnalyticsBlog";
 
 const App = () => {
     return (
@@ -60,11 +60,11 @@ const App = () => {
                     <Route path="/products/qr-code-generator" element={<QRCodeGeneratorPage />} />
                     <Route path="/products/url-shortener" element={<UrlShortener />} />
                     <Route path="/products/analytics" element={<AnalyticsPage />} />
-                    <Route path="/founder/kartikeya-mishra" element={<Founder />} />
                     <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
                     <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
                 </Route>
 
+                <Route path="/founder/kartikeya-mishra" element={<Founder />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
 

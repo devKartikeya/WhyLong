@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthPanel from "../Auth/AuthPanel";
 import { useAuth } from "../../context/AuthContext";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const features = [
     {
@@ -182,6 +183,12 @@ const Features = () => {
     const [isAuthOpen, setIsAuthOpen] = useState(false);
     const { user, authLoading } = useAuth();
 
+    const sectionRef = useScrollReveal({
+        selector: ".feature-reveal",
+        y: 55,
+        stagger: 0.18,
+    });
+
     const navigate = useNavigate();
     // =========================
     // AUTH PANEL
@@ -209,9 +216,10 @@ const Features = () => {
         <>
             <section
                 id="features"
+                ref={sectionRef}
                 className="border-t border-gray-100 bg-white py-24"
             >
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <div className="mx-auto feature-reveal max-w-7xl px-6 lg:px-8">
 
                     {/* ================= HEADER ================= */}
 
@@ -243,7 +251,7 @@ const Features = () => {
                                 to={feature.path}
                                 onClick={(event) => handleFeatureClick(event, feature)}
                                 aria-label={`Explore ${feature.title}`}
-                                className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 hover:text-white"
+                                className="group feature-reveal relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-yellow-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 focus-visible:ring-offset-2 hover:text-white"
                             >
                                 {/* Top row */}
                                 <div className="flex items-center justify-between">

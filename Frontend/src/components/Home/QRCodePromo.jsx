@@ -1,14 +1,20 @@
 import { ArrowRight } from "lucide-react";
 import { FiCheck, FiDownload, FiGrid } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import useScrollReveal from "../../hooks/useScrollReveal";
 
 const QRCodePromo = () => {
+    const sectionRef = useScrollReveal({
+        selector: ".feature-reveal",
+        y: 55,
+        stagger: 0.18,
+    });
     return (
-        <section className="border-t border-gray-100 bg-gray-950 py-24 lg:py-32" id="qr-codes">
+        <section ref={sectionRef} className="border-t border-gray-100 bg-gray-950 py-24 lg:py-32" id="qr-codes">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
                 {/* Heading */}
-                <div className="mx-auto max-w-2xl text-center">
+                <div className="mx-auto max-w-2xl text-center feature-reveal">
                     <p className="text-sm font-semibold uppercase tracking-[0.18em] text-yellow-600">
                         WhyLong's QR Studio
                     </p>
@@ -26,7 +32,7 @@ const QRCodePromo = () => {
                 </div>
 
                 {/* Main Feature */}
-                <div className="mt-16 overflow-hidden rounded-3xl border border-gray-200 bg-gray-50">
+                <div className="mt-16 feature-reveal overflow-hidden rounded-3xl border border-gray-200 bg-gray-50">
                     <div className="grid items-center lg:grid-cols-2">
 
                         {/* Left — QR Preview */}

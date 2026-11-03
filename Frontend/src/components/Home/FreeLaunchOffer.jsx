@@ -13,6 +13,8 @@ const CheckIcon = () => (
     </svg>
 );
 
+import useScrollReveal from "../../hooks/useScrollReveal";
+
 const FreeLaunchOffer = () => {
     const benefits = [
         "Unlimited short links",
@@ -21,8 +23,15 @@ const FreeLaunchOffer = () => {
         "A personal link management dashboard",
     ];
 
+    const sectionRef = useScrollReveal({
+        selector: ".feature-reveal",
+        y: 55,
+        stagger: 0.18,
+    });
+
     return (
         <section
+        ref={sectionRef}
             aria-labelledby="free-offer-heading"
             className="relative overflow-hidden border-y border-gray-100 bg-gray-50 py-20 sm:py-24"
         >
@@ -98,7 +107,7 @@ const FreeLaunchOffer = () => {
 
                     {/* Visual offer card */}
                     <div className="lg:col-span-5">
-                        <div className="relative mx-auto max-w-md">
+                        <div className="relative mx-auto feature-reveal max-w-md">
                             <div
                                 aria-hidden="true"
                                 className="absolute -inset-4 rounded-[2rem] bg-yellow-200/40 blur-2xl"

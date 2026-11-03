@@ -4,11 +4,12 @@ const startClickAnalyticsWorker = require("./workers/click_analytics.worker");
 
 async function bootstrap() {
     try {
-        // Start the analytics consumer
-        startServer();
-        await startWelcomeEmailWorker();
-        await startClickAnalyticsWorker();
         // Start the Express HTTP server
+        startServer();
+        // Start the welcomeEmail consumer
+        await startWelcomeEmailWorker();
+        // Start the analytics consumer
+        await startClickAnalyticsWorker();
     } catch (error) {
         console.error("Application startup failed:", error);
         process.exit(1);

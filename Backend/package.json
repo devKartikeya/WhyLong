@@ -1,7 +1,7 @@
 {
   "name": "whylong",
   "version": "1.0.0",
-  "description": "It is a URL-Shortener built on MERN with best DevOps practises.",
+  "description": "It is a link-management tool to shorten the long urls and generate custom QR-codes and manage them.",
   "license": "ISC",
   "author": "Kartikeya Mishra",
   "type": "commonjs",

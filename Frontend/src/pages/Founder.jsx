@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import Footer from "../components/Footer";
 
 const ArrowUpRight = ({ className = "h-4 w-4" }) => (
     <svg className={className} viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -165,7 +166,7 @@ const Founder = () => {
             </div>
 
             {/* Opening story */}
-            <section className="mx-auto grid min-h-[82vh] max-w-7xl items-center gap-14 px-5 pb-20 pt-24 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:px-12 lg:pb-28 lg:pt-28">
+            <section className="mx-auto grid min-h-[82vh] max-w-7xl items-center gap-14 px-5 pb-20 pt-16 sm:px-8 lg:grid-cols-[1.15fr_.85fr] lg:px-12 lg:pb-28 lg:pt-16">
                 <div className="relative z-10">
                     <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-yellow-300/20 bg-yellow-300/[0.07] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-200 sm:text-sm">
                         <span className="h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_12px_rgba(253,224,71,.8)]" />
@@ -178,7 +179,7 @@ const Founder = () => {
                         <span className="block text-zinc-500">“what if?”</span>
                         into <span className="text-yellow-300">something real.</span>
                     </h1>
-                    <h2 className="text-3xl md:text-4xl text-yellow-300 font-semibold mt-4 text-right">
+                    <h2 className="text-2xl md:text-3xl text-yellow-300 font-semibold mt-4 text-right">
                         ~ by devKartikeya
                     </h2>
                     <p className="mt-7 max-w-2xl text-base leading-8 text-zinc-300 sm:text-lg">
@@ -257,7 +258,7 @@ const Founder = () => {
                                 <p className="mt-2 text-xl font-semibold leading-8 text-white sm:text-2xl">What if the useful tools people need were brought together—and people didn’t have to keep reaching for their wallets just to use them?</p>
                                 <div className="mt-8 space-y-3">
                                     {[
-                                        { yes: false, question: "Do existing tools shorten links?", answer: "Yes. That part is solved." },
+                                        { yes: true, question: "Do existing tools shorten links?", answer: "Yes. That part is solved." },
                                         { yes: true, question: "Can every link have a QR code without an extra paywall?", answer: "That should be part of the experience." },
                                         { yes: true, question: "Can people understand clicks by location and device?", answer: "Useful insights should be within reach." },
                                         { yes: true, question: "Can link management and analytics live in one dashboard?", answer: "One place. A clearer picture." },
@@ -427,6 +428,7 @@ const Founder = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </main>
     );
 };
