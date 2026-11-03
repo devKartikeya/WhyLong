@@ -2,22 +2,13 @@
 
 # 🔗 WhyLong
 
-<<<<<<< HEAD
-**Whylong is a link management platform to create short links, generate QR codes, and simplify link sharing. Built for easy, efficient, and accessible link management.**
-=======
 **Short links, branded QR codes, and event-level click analytics in one free workspace.**
->>>>>>> d9d62b62be2d0e6c64611da29f2769f1a6882944
 
 A full-stack MERN platform engineered around a cheap redirect hot path, queue-decoupled analytics, and stateless backend instances behind a health-checked load balancer.
 
-<<<<<<< HEAD
-[![Live Project](https://img.shields.io/badge/LIVE_PROJECT-whylong.vercel.app-0ea5e9?style=for-the-badge)](https://whylong.vercel.app)
-=======
 [![Live](https://img.shields.io/badge/LIVE-whylong.vercel.app-0ea5e9?style=for-the-badge)](https://whylong.vercel.app)
 [![Architecture](https://img.shields.io/badge/DOCS-ARCHITECTURE.md-6366f1?style=for-the-badge)](./ARCHITECTURE.md)
->>>>>>> d9d62b62be2d0e6c64611da29f2769f1a6882944
 [![Source](https://img.shields.io/badge/SOURCE-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/devKartikeya/WhyLong)
-
 
 ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
@@ -55,15 +46,6 @@ A full-stack MERN platform engineered around a cheap redirect hot path, queue-de
 
 ## Overview
 
-<<<<<<< HEAD
-WhyLong shortens links and provides free QR for every link and gives you the control to customize it with your own preferences. WhyLong provides you with an enterprise grade dashboard to manage and analyze all your links and QRs working. 
-
-WhyLong's dashboard provides overview with timestamped graphs of your links and QRs and detailed **My Links** section to manage operations such as copy, delete and deeper analysis of each link or QR. It also has separate established **Analytics** section which provides hyper-analysis of your clicks and scans.
-
-WhyLong's QR Studio is the flagship feature of WhyLong. It gives you the authority to heavily customize your QRs according to your own colors, templates, brand logos, brand texts, CTAs, shapes and to save your presets for future usage.
- 
-It is also deliberately an **engineering project, not a CRUD demo.** Each infrastructure component was introduced in response to a concrete problem that appeared as the system grew:
-=======
 WhyLong turns long URLs into short links, turns those links into branded QR codes, and shows how people interact with them. Anyone can shorten a link without an account. A free account unlocks the QR Studio, link management, and analytics. There are no paid tiers and no limits on links or QR codes.
 
 | Capability | What it does |
@@ -79,7 +61,6 @@ It is also deliberately an **engineering project, not a CRUD demo.** Four princi
 2. **Decouple slow work.** Email and click enrichment never block a user-facing request.
 3. **Keep instances interchangeable.** Durable state lives in MongoDB, fast state in Redis, and processes hold nothing important.
 4. **State the trade-offs.** Every component below lists what it costs and when it is the wrong choice.
->>>>>>> d9d62b62be2d0e6c64611da29f2769f1a6882944
 
 | Problem observed | Component introduced | Cost accepted |
 |:--|:--|:--|
@@ -164,8 +145,6 @@ flowchart LR
 **State placement is the central rule.** MongoDB is the durable source of truth, Redis holds fast and derived state, and backend processes hold nothing important. That is what makes instances interchangeable.
 
 > Sequence diagrams, schemas, and the full reasoning live in **[ARCHITECTURE.md](./ARCHITECTURE.md)**.
-
-####  Read [WhyLong Architecture For Depth](https://github.com/devKartikeya/WhyLong/blob/main/ARCHITECTURE.md)
 
 ---
 
@@ -496,11 +475,6 @@ WhyLong/
 
 [Privacy Policy](https://whylong.vercel.app/legal/privacy-policy) · [Terms and Conditions](https://whylong.vercel.app/legal/terms-and-conditions) · [Cookie Policy](https://whylong.vercel.app/legal/cookie-policy)
 
-<<<<<<< HEAD
-</div>
-
-=======
-**© 2026 WhyLong** · An educational and portfolio project. Feedback is welcome through issues and pull requests.
+**© 2026 WhyLong**
 
 </div>
->>>>>>> d9d62b62be2d0e6c64611da29f2769f1a6882944
