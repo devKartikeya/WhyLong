@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthPanel from "./Auth/AuthPanel";
 import { useAuth } from "../context/AuthContext";
-import { FaGithub, FaInstagram , FaBlog} from "react-icons/fa";
-import { Link2, QrCode, ChartNoAxesCombined, LayoutDashboard, } from "lucide-react";
+import { FaGithub, FaInstagram, FaBlog } from "react-icons/fa";
+import {
+    Link2,
+    QrCode,
+    ChartNoAxesCombined,
+    LayoutDashboard,
+    BriefcaseBusiness,
+} from "lucide-react";
 
 const navItems = [
-    { name: "Home", id: "hero" },
-    { name: "Features", id: "features" },
-    { name: "How it works", id: "how-it-works" },
-    { name: "About", id: "about" }
+    { name: "Home", id: "hero" }
 ];
 
 const guideItems = [
@@ -60,6 +63,15 @@ const platformItems = [
     },
 ];
 
+const solutionItems = [
+    {
+        name: "Small Businesses",
+        description: "Simplify business links, QR codes and marketing.",
+        path: "/solutions/small-businesses",
+        Icon: BriefcaseBusiness,
+    },
+];
+
 const ArrowIcon = ({ className = "h-4 w-4" }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -80,14 +92,16 @@ const Navbar = () => {
     const [activeSection, setActiveSection] = useState("hero");
     const [isAuthOpen, setIsAuthOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+    const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
     const [isMobilePlatformOpen, setIsMobilePlatformOpen] = useState(false);
     const [isMobileGuidesOpen, setIsMobileGuidesOpen] = useState(false);
 
 
     const { user, authLoading } = useAuth();
     const navigate = useNavigate();
-
+    const isSolutionActive = solutionItems.some(
+        (item) => window.location.pathname === item.path
+    );
     // =========================
     // SECTION OBSERVER
     // =========================
@@ -207,7 +221,7 @@ const Navbar = () => {
                     </Link>
 
                     {/* ================= DESKTOP NAV ================= */}
-                    <div className="hidden items-center gap-8 md:flex">
+                    <div className="hidden items-center gap-6 md:flex">
                         {navItems.map((item) => {
                             const isActive = activeSection === item.id;
 
@@ -217,7 +231,7 @@ const Navbar = () => {
                                     href={`/#${item.id}`}
                                     onClick={(e) => handleNavClick(e, item.id)}
                                     aria-current={isActive ? "true" : undefined}
-                                    className={`relative cursor-pointer py-2 text-md font-medium transition-colors ${isActive
+                                    className={`relative cursor-pointer py-2 text-md mr-2 font-medium transition-colors ${isActive
                                         ? "text-gray-950"
                                         : "text-gray-500 hover:text-gray-950"
                                         }`}
@@ -297,6 +311,74 @@ const Navbar = () => {
                                 <div className="mt-1 border-t border-gray-100 px-3 py-3">
                                     <p className="text-xs text-gray-500">
                                         Everything you need to share links smarter.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* ================= SOLUTIONS DROPDOWN ================= */}
+                        <div className="group relative">
+                            <button
+                                type="button"
+                                aria-haspopup="true"
+                                className={`flex items-center gap-2 py-2 text-sm font-medium transition-colors ${isSolutionActive
+                                    ? "text-gray-950"
+                                    : "text-gray-800 hover:text-gray-950"
+                                    }`}
+                            >
+                                Solutions
+
+                                <svg
+                                    className="h-4 w-4 transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m5 7.5 5 5 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            <div className="invisible absolute left-1/2 top-full z-50 mt-3 w-80 -translate-x-1/2 translate-y-2 rounded-2xl border border-gray-100 bg-white p-2 opacity-0 shadow-xl shadow-gray-200/60 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                                <div className="px-3 pb-2 pt-3">
+                                    <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                        Solutions for Everyone
+                                    </p>
+                                </div>
+
+                                {solutionItems.map(({ name, description, path, Icon }) => (
+                                    <Link
+                                        key={name}
+                                        to={path}
+                                        className={`flex items-start gap-3 rounded-xl p-3 transition-colors ${window.location.pathname === path
+                                            ? "bg-yellow-50"
+                                            : "hover:bg-gray-100"
+                                            }`}
+                                    >
+                                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900">
+                                            <Icon size={20} aria-hidden="true" />
+                                        </span>
+
+                                        <span>
+                                            <span className="block text-sm font-semibold text-gray-900">
+                                                {name}
+                                            </span>
+
+                                            <span className="mt-1 block text-xs leading-5 text-gray-500">
+                                                {description}
+                                            </span>
+                                        </span>
+                                    </Link>
+                                ))}
+
+                                <div className="mt-1 border-t border-gray-100 px-3 py-3">
+                                    <p className="text-xs text-gray-500">
+                                        Discover how WhyLong helps businesses grow.
                                     </p>
                                 </div>
                             </div>
@@ -600,6 +682,66 @@ const Navbar = () => {
                                             </Link>
                                         )
                                     )}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Solutions accordion */}
+                        <div className="border-t border-gray-100 pt-1">
+                            <button
+                                type="button"
+                                aria-expanded={isMobileSolutionsOpen}
+                                onClick={() =>
+                                    setIsMobileSolutionsOpen((prev) => !prev)
+                                }
+                                className="flex w-full items-center justify-between rounded-xl px-4 py-4 text-left font-semibold text-gray-900 transition-colors hover:bg-yellow-50"
+                            >
+                                <span>Solutions</span>
+
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${isMobileSolutionsOpen ? "rotate-180" : ""
+                                        }`}
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="m5 7.5 5 5 5-5"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
+                            </button>
+
+                            {isMobileSolutionsOpen && (
+                                <div className="space-y-1 px-1 pb-3">
+                                    {solutionItems.map(({ name, description, path, Icon }) => (
+                                        <Link
+                                            key={name}
+                                            to={path}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className={`flex items-start gap-3 rounded-xl p-3 transition-colors ${window.location.pathname === path
+                                                ? "bg-yellow-50"
+                                                : "hover:bg-gray-50"
+                                                }`}
+                                        >
+                                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900">
+                                                <Icon size={19} aria-hidden="true" />
+                                            </span>
+
+                                            <span className="min-w-0">
+                                                <span className="block text-sm font-semibold text-gray-900">
+                                                    {name}
+                                                </span>
+
+                                                <span className="mt-1 block text-sm leading-5 text-gray-500">
+                                                    {description}
+                                                </span>
+                                            </span>
+                                        </Link>
+                                    ))}
                                 </div>
                             )}
                         </div>

@@ -9,6 +9,7 @@ import {
     ChartNoAxesCombined,
     LayoutDashboard,
     ChevronDown,
+    BriefcaseBusiness,
 } from "lucide-react";
 
 const navItems = [
@@ -32,6 +33,15 @@ const guideItems = [
         path: "/tutorials/create-github-qr-code",
         Icon: FaGithub,
     }
+];
+
+const solutionItems = [
+    {
+        name: "Small Businesses",
+        description: "Simplify business links, QR codes and marketing.",
+        path: "/solutions/small-businesses",
+        Icon: BriefcaseBusiness,
+    },
 ];
 
 const platformItems = [
@@ -82,6 +92,7 @@ const PagesNavbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobilePlatformOpen, setIsMobilePlatformOpen] = useState(false);
     const [isMobileGuidesOpen, setIsMobileGuidesOpen] = useState(false);
+    const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
 
     const { user, authLoading } = useAuth();
     const location = useLocation();
@@ -89,6 +100,9 @@ const PagesNavbar = () => {
 
     const isHomePage = location.pathname === "/";
     const isGuideActive = guideItems.some(
+        (item) => location.pathname === item.path
+    );
+    const isSolutionActive = solutionItems.some(
         (item) => location.pathname === item.path
     );
 
@@ -120,6 +134,7 @@ const PagesNavbar = () => {
                 setIsMobileMenuOpen(false);
                 setIsMobilePlatformOpen(false);
                 setIsMobileGuidesOpen(false);
+                setIsMobileSolutionsOpen(false);
                 setIsAuthOpen(false);
             }
         };
@@ -148,12 +163,14 @@ const PagesNavbar = () => {
         setIsMobileMenuOpen(false);
         setIsMobilePlatformOpen(false);
         setIsMobileGuidesOpen(false);
+        setIsMobileSolutionsOpen(false);
     }, [location.pathname, location.hash]);
 
     const closeMobileMenu = () => {
         setIsMobileMenuOpen(false);
         setIsMobilePlatformOpen(false);
         setIsMobileGuidesOpen(false);
+        setIsMobileSolutionsOpen(false);
     };
 
     const openAuth = () => {
@@ -286,6 +303,39 @@ const PagesNavbar = () => {
             );
         });
 
+    const renderSolutionLinks = (mobile = false) =>
+        solutionItems.map(({ name, description, path, Icon }) => {
+            const active = location.pathname === path;
+
+            return (
+                <Link
+                    key={path}
+                    to={path}
+                    onClick={closeMobileMenu}
+                    aria-current={active ? "page" : undefined}
+                    className={`group flex items-start gap-3 rounded-xl p-3 transition-colors ${active ? "bg-yellow-50" : "hover:bg-gray-300"
+                        }`}
+                >
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-100 text-gray-900 transition-colors group-hover:bg-yellow-200">
+                        <Icon size={19} aria-hidden="true" />
+                    </span>
+
+                    <span className="min-w-0">
+                        <span className="block text-sm font-semibold text-gray-900">
+                            {name}
+                        </span>
+
+                        <span
+                            className={`mt-1 block leading-5 text-gray-500 ${mobile ? "text-sm" : "text-xs"
+                                }`}
+                        >
+                            {description}
+                        </span>
+                    </span>
+                </Link>
+            );
+        });
+
     return (
         <>
             <header className="fixed inset-x-0 top-0 z-50 border-b border-gray-100 bg-white/95 backdrop-blur-xl">
@@ -322,7 +372,7 @@ const PagesNavbar = () => {
                     </Link>
 
                     {/* Desktop navigation */}
-                    <div className="hidden items-center gap-6 lg:flex xl:gap-8">
+                    <div className="hidden items-center gap-6 lg:flex xl:gap-6">
                         {navItems.map((item) => {
                             const active = isNavActive(item.path);
 
@@ -376,6 +426,40 @@ const PagesNavbar = () => {
                                 <div className="mt-2 border-t border-gray-100 px-3 pb-1 pt-3">
                                     <p className="text-xs leading-5 text-gray-500">
                                         Everything you need to share links smarter.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Solutions dropdown */}
+                        <div className="group relative">
+                            <button
+                                type="button"
+                                aria-haspopup="true"
+                                className={`flex items-center gap-1.5 py-2 text-sm font-medium transition-colors ${isSolutionActive
+                                    ? "text-gray-950"
+                                    : "text-gray-700 hover:text-gray-950"
+                                    }`}
+                            >
+                                Solutions
+
+                                <ChevronDown
+                                    size={16}
+                                    className="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+                                    aria-hidden="true"
+                                />
+                            </button>
+
+                            <div className="invisible absolute left-1/2 top-full z-50 mt-3 w-80 -translate-x-1/2 translate-y-2 rounded-2xl border border-gray-100 bg-white p-3 opacity-0 shadow-xl shadow-gray-200/60 transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                                <p className="px-3 pb-2 pt-2 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                                    Solutions for every business
+                                </p>
+
+                                {renderSolutionLinks()}
+
+                                <div className="mt-2 border-t border-gray-100 px-3 pb-1 pt-3">
+                                    <p className="text-xs leading-5 text-gray-500">
+                                        Discover smarter ways to share and manage your links.
                                     </p>
                                 </div>
                             </div>
@@ -569,6 +653,34 @@ const PagesNavbar = () => {
                             {isMobileGuidesOpen && (
                                 <div className="mt-1 space-y-1 px-1 pb-2">
                                     {renderGuideLinks(true)}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Solutions accordion */}
+                        <div className="border-t border-gray-100 pt-2">
+                            <button
+                                type="button"
+                                aria-expanded={isMobileSolutionsOpen}
+                                onClick={() =>
+                                    setIsMobileSolutionsOpen((previous) => !previous)
+                                }
+                                tabIndex={isMobileMenuOpen ? 0 : -1}
+                                className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-sm font-semibold text-gray-900 transition-colors hover:bg-yellow-50"
+                            >
+                                Solutions
+
+                                <ChevronDown
+                                    size={18}
+                                    className={`text-gray-500 transition-transform ${isMobileSolutionsOpen ? "rotate-180" : ""
+                                        }`}
+                                    aria-hidden="true"
+                                />
+                            </button>
+
+                            {isMobileSolutionsOpen && (
+                                <div className="mt-1 space-y-1 px-1 pb-2">
+                                    {renderSolutionLinks(true)}
                                 </div>
                             )}
                         </div>

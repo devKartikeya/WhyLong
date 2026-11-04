@@ -12,6 +12,10 @@ const productLinks = [
     { name: "Link Management", protected: true, path: "/dashboard/my-links" }
 ];
 
+const solutionsLinks = [
+    { name: "Small Businesses", href: "/solutions/small-businesses" }
+];
+
 const companyLinks = [
     { name: "Contact Us", href: "/contact" },
     { name: "About WhyLong", href: "/about" },
@@ -110,8 +114,8 @@ const Footer = () => {
     return (
         <>
             <footer className="border-t border-gray-200 bg-gray-950 text-white">
-                <div className="mx-auto max-w-7xl px-6 py-16 lg:px-7 lg:py-20">
-                    <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr]">
+                <div className="mx-auto max-w-7xl px-3 py-16 lg:py-20">
+                    <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr_1fr]">
 
                         {/* ================= BRAND ================= */}
                         <div className="max-w-sm mr-3">
@@ -140,10 +144,9 @@ const Footer = () => {
                                 </span>
                             </Link>
 
-                            <p className="mt-6 text-sm leading-7 text-gray-400">
-                                A free URL shortener with QR codes and click
-                                analytics. Create, organize, and track your
-                                short links in one place.
+                            <p className="mt-3 text-sm leading-7 text-gray-400">
+                                Manage links. Better sharing.
+                                One simple platform.
                             </p>
 
                             <ul className="mt-7 flex flex-wrap items-center gap-3">
@@ -186,6 +189,35 @@ const Footer = () => {
                                             <a href={link.href} className={linkClass}>
                                                 {link.name}
                                             </a>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+
+                        {/* ================= SOLUTIONS ================= */}
+                        <nav aria-label="Solutions">
+                            <p className="text-sm font-semibold text-white">
+                                Solutions
+                            </p>
+
+                            <ul className="mt-6 space-y-4">
+                                {solutionsLinks.map((link) => (
+                                    <li key={link.name}>
+                                        {link.protected ? (
+                                            <button
+                                                type="button"
+                                                onClick={() =>
+                                                    handleProtectedNavigation(link.path)
+                                                }
+                                                className={`cursor-pointer text-left ${linkClass}`}
+                                            >
+                                                {link.name}
+                                            </button>
+                                        ) : (
+                                            <Link to={link.href} className={linkClass}>
+                                                {link.name}
+                                            </Link>
                                         )}
                                     </li>
                                 ))}
