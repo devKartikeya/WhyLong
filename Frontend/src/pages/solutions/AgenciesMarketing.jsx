@@ -143,7 +143,7 @@ const AgenciesMarketingTeams = () => {
 
     useEffect(() => {
         document.title =
-            "URL Shortener & QR Code Generator for Marketing Agencies | WhyLong";
+            "WhyLong for Agencies & Marketing Teams | Manage Campaign Links, Create QR Codes & Track Engagement";
 
         const description =
             "Manage campaign links, create branded QR codes, and understand link engagement with WhyLong. A free URL shortener and QR code generator for marketing agencies and teams.";
@@ -292,7 +292,7 @@ const AgenciesMarketingTeams = () => {
                             The WhyLong advantage
                         </p>
 
-                        <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                        <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
                             Essential tools for your marketing workflow
                         </h2>
 
@@ -332,7 +332,7 @@ const AgenciesMarketingTeams = () => {
                         Who it's for
                     </p>
 
-                    <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                    <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
                         Built around the way modern agencies work
                     </h2>
 

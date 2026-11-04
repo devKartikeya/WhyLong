@@ -136,7 +136,7 @@ const ContentCreators = () => {
 
     useEffect(() => {
         document.title =
-            "URL Shortener & QR Code Generator for Content Creators | WhyLong";
+            "WhyLong for Content Creators | Shorten Links, Create QR Codes & Track Engagement";
 
         const description =
             "Discover how content creators can use WhyLong to shorten links, create branded QR codes, share social profiles, and track link engagement for free.";
@@ -286,7 +286,7 @@ const ContentCreators = () => {
                             Everything in one place
                         </p>
 
-                        <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                        <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
                             Tools that make content sharing simpler
                         </h2>
 
@@ -326,7 +326,7 @@ const ContentCreators = () => {
                         Made for every creator
                     </p>
 
-                    <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl">
+                    <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
                         One platform. Different ways to create.
                     </h2>
 
