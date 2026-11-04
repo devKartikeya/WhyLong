@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import MoreThanShortener from "../../components/Home/MoreThanShortener";
 import SolutionsFAQ from "../../components/SolutionsFAQS";
 import { CheckCircle2 } from "lucide-react";
+import Solutions from "../../components/Home/Solutions";
 
 const images = {
     hero: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85",
@@ -264,10 +265,10 @@ const SmallBusinesses = () => {
                                 and branding using WhyLong's QR Code Generator.
                             </p>
                             <ul className="mt-6 space-y-3 text-sm text-gray-700">
-                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2"/> Add QR codes to packaging and business cards</li>
-                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2"/> Customize colors and visual styles</li>
-                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2"/> Add your brand logo</li>
-                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2"/> Download and share your QR codes</li>
+                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2" /> Add QR codes to packaging and business cards</li>
+                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2" /> Customize colors and visual styles</li>
+                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2" /> Add your brand logo</li>
+                                <li><CheckCircle2 size={20} className="inline text-green-500 mr-2" /> Download and share your QR codes</li>
                             </ul>
                             <Link
                                 to="/products/qr-code-generator"
@@ -337,7 +338,7 @@ const SmallBusinesses = () => {
                         </div>
                     </div>
                 </section>
-
+                <Solutions />
                 {/* Final CTA */}
                 <section className="px-5 py-20 bg-gray-950">
                     <div className="mx-auto max-w-5xl rounded-3xl bg-white px-6 py-14 text-center text-black sm:px-12">

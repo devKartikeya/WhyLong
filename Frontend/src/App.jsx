@@ -32,6 +32,8 @@ import HowToShortenALongURL from "./pages/blogs/HowToShortenALongURL";
 import QRCodeGeneratorPage from "./pages/products/QRCodeGeneratorPage";
 import CustomizedQRCodeBlog from "./pages/blogs/CustomizedQRCodeBlog";
 import SmallBusinesses from "./pages/solutions/SmallBusinesses";
+import ContentCreators from "./pages/solutions/ContentCreators";
+import AgenciesMarketingTeams from "./pages/solutions/AgenciesMarketing";
 
 const App = () => {
     return (
@@ -64,6 +66,8 @@ const App = () => {
                     <Route path="/tutorials/create-github-qr-code" element={<GitHubQRGuide />} />
                     <Route path="/tutorials/create-instagram-qr-code" element={<InstagramQRGuide />} />
                     <Route path="/solutions/small-businesses" element={<SmallBusinesses />} />
+                    <Route path="/solutions/content-creators" element={<ContentCreators />} />
+                    <Route path="/solutions/agencies-marketing-teams" element={<AgenciesMarketingTeams />} />
                 </Route>
 
                 <Route path="/founder/kartikeya-mishra" element={<Founder />} />

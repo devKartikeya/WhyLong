@@ -8,6 +8,8 @@ import {
     QrCode,
     ChartNoAxesCombined,
     LayoutDashboard,
+    Video,
+    Megaphone,
     BriefcaseBusiness,
 } from "lucide-react";
 
@@ -70,6 +72,18 @@ const solutionItems = [
         path: "/solutions/small-businesses",
         Icon: BriefcaseBusiness,
     },
+    {
+        name: "Content Creators",
+        description: "Engage your audience with smart links and QR codes.",
+        path: "/solutions/content-creators",
+        Icon: Video,
+    },
+    {
+    name: "Agencies & Marketing Teams",
+    description: "Organize campaign links and understand engagement.",
+    path: "/solutions/agencies-marketing-teams",
+    Icon: Megaphone,
+},
 ];
 
 const ArrowIcon = ({ className = "h-4 w-4" }) => (

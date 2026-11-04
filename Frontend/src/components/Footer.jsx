@@ -13,7 +13,9 @@ const productLinks = [
 ];
 
 const solutionsLinks = [
-    { name: "Small Businesses", href: "/solutions/small-businesses" }
+    { name: "Small Businesses", href: "/solutions/small-businesses" },
+    { name: "Content Creators", href: "/solutions/content-creators" },
+    { name: "Agencies & Marketing Teams", href: "/solutions/agencies-marketing-teams" }
 ];
 
 const companyLinks = [
